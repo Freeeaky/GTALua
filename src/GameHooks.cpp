@@ -6,11 +6,33 @@
 #include "Memory/Memory.h"
 
 // =================================================================================
+// BinkOpen
+// Skips the intro movie so you can get ingame more quickly
+// =================================================================================
+typedef int(*BinkOpen_t)(DWORD64 a, DWORD64 b);
+BinkOpen_t pBinkOpen = NULL;
+bool bIsIntroMovie = true;
+
+int BinkOpen_Hook(DWORD64 a, DWORD64 b)
+{
+	// Skip if first-time-call
+	if (bIsIntroMovie)
+	{
+		bIsIntroMovie = false;
+		return 0;
+	}
+
+	// Original
+	return pBinkOpen(a, b);
+}
+
+// =================================================================================
 // Hooks
 // =================================================================================
 void GameMemory::InstallHooks()
 {
-
+	// BinkOpen (intro movie)
+	Memory::HookLibraryFunction("bink2w64.dll", "BinkOpen", &BinkOpen_Hook, (void**)&pBinkOpen);
 }
 
 // =================================================================================
