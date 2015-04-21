@@ -9,6 +9,7 @@
 // =================================================================================
 #include <Windows.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <vector>
 
 using namespace std;

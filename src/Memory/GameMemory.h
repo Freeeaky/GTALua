@@ -13,16 +13,21 @@ namespace GameMemory
 	void InstallHooks();
 
 	// Module
-	static HMODULE GameModule;
-	static DWORD64 Base;
-	static DWORD64 Size;
+	extern HMODULE GameModule;
+	extern DWORD64 Base;
+	extern DWORD64 Size;
 
 	// Version
-	static char* Version;
+	extern char* Version;
 
 	// Function Wrappers
 	DWORD64 Find(BYTE* bMask, char* szMask);
 
 	// Calculate
 	DWORD64 At(DWORD64 dwOffset);
+
+	/*
+	 * Content
+	 */
+	static bool ScriptEngineInitialized;
 }

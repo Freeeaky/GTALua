@@ -5,6 +5,14 @@
 #include "Memory.h"
 
 // =================================================================================
+// Member
+// =================================================================================
+char* GameMemory::Version = NULL;
+HMODULE GameMemory::GameModule = NULL;
+DWORD64 GameMemory::Base = NULL;
+DWORD64 GameMemory::Size = NULL;
+
+// =================================================================================
 // Init
 // =================================================================================
 void GameMemory::Init()
@@ -25,8 +33,10 @@ void GameMemory::Init()
 	Size = Memory::GetModuleSize(GameModule);
 	printf("[GameMemory] Game Size: %p\n", Size);
 
+	// Content
+	ScriptEngineInitialized = false;
+
 	// Version
-	Version = NULL;
 	FetchVersion();
 
 	// Init Hook
