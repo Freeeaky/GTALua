@@ -27,80 +27,12 @@ int BinkOpen_Hook(DWORD64 a, DWORD64 b)
 	return pBinkOpen(a, b);
 }
 
-ScriptThread* GetActiveThread()
-{
-	char* moduleTls = *(char**)__readgsqword(88);
-
-	return *reinterpret_cast<ScriptThread**>(moduleTls + 0x830);
-}
-
-void SetActiveThread(ScriptThread* thread)
-{
-	char* moduleTls = *(char**)__readgsqword(88);
-
-	*reinterpret_cast<ScriptThread**>(moduleTls + 0x830) = thread;
-}
-
-class TestThread : public ScriptThread
+class TestThread : public ScriptThreadWrapper
 {
 public:
-	TestThread()
-	{
-		printf("TestThread ctor\n");
-	}
-
-	virtual void DoRun()
+	virtual void OnRun()
 	{
 		printf("RUN\n");
-	}
-
-	typedef void(*thread_init_t)(void* pThis);
-	
-	virtual eScriptThreadState		Reset(uint32_t scriptHash, void* pArgs, uint32_t argCount)
-	{
-		printf("ScriptThread::Reset\n");
-
-		memset(&m_pContext, 0, sizeof(m_pContext));
-
-		m_pContext.eState = THREAD_STATE_IDLE;
-		m_pContext.uiScriptHash = scriptHash;
-		m_pContext._mUnk1 = -1;
-		m_pContext._mUnk2 = -1;
-		m_pContext._set1 = 1;
-
-		thread_init_t pInit = (thread_init_t)GameMemory::At(0x997850);
-		pInit(this);
-
-		
-
-		return m_pContext.eState;
-	}
-	virtual eScriptThreadState		Run(uint32_t opsToExecute)
-	{
-		printf("ScriptThread::Run\n");
-
-		ScriptThread* pActiveThread = GetActiveThread();
-		SetActiveThread(this);
-
-		if (m_pContext.eState != THREAD_STATE_KILLED)
-			DoRun();
-
-		SetActiveThread(pActiveThread);
-
-		return m_pContext.eState;
-	}
-
-	typedef eScriptThreadState(*thread_tick_t)(void* pThis, uint32_t ops);
-
-	virtual eScriptThreadState	Tick(uint32_t opsToExecute)
-	{
-		printf("ScriptThread::Tick\n");
-		thread_tick_t thread_tick = (thread_tick_t) GameMemory::At(0x9A2124);
-		return thread_tick(this, opsToExecute);
-	}
-	virtual void					Kill()
-	{
-		printf("ScriptThread::Kill\n");
 	}
 };
 
@@ -132,7 +64,7 @@ void GameMemory::InstallHooks()
 	// BinkOpen (intro movie)
 	Memory::HookLibraryFunction("bink2w64.dll", "BinkOpen", &BinkOpen_Hook, (void**)&pBinkOpen);
 
-	// ScriptEngine::Init (Inspired by NTAuthority)
+	// ScriptEngine::Init
 	Memory::HookFunction(GameMemory::Find((PBYTE)"\x48\x89\x5C\x24\x00\x57\x48\x83\xEC\x20\x33\xFF\x48\x8B\xD9\x66\x89\x39\x48\x89\x79\x04", "xxxx?xxxxxxxxxxxxxxxxx"), &ScriptEngine__Init, (void**)&pScriptEngine__Init);
 }
 

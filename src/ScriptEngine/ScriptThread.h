@@ -31,34 +31,17 @@ struct ScriptNativeCallContext
 // =================================================================================
 struct ScriptThreadContext
 {
-	uint32_t uiThreadID;
-	uint32_t uiScriptHash;
-	eScriptThreadState eState;
-	uint32_t uiIP;
-	uint32_t uiFrameSP;
-	uint32_t TimerA; // + 24
-	uint32_t TimerB; // + 28
-	uint32_t TimerC; // + 32, aka + 40
-	uint32_t _mUnk1;
-	uint32_t _mUnk2;
-	uint32_t _f2C;
-	uint32_t _f30;
-	uint32_t _f34;
-	uint32_t _f38;
-	uint32_t _f3C;
-	uint32_t _f40;
-	uint32_t _f44;
-	uint32_t _f48;
-	uint32_t _f4C;
-	uint32_t _f50; // should be +88 aka +80; stack size?
-
-	uint32_t pad1;
-	uint32_t pad2;
-	uint32_t pad3;
-
-	uint32_t _set1;
-
-	uint32_t pad[68 / 4];
+	uint32_t uiThreadID; // 0x4
+	uint32_t uiScriptHash; // 0x8
+	eScriptThreadState eState; // 0x12
+	uint32_t uiIP; // 0x10
+	uint32_t uiFrameSP; // 0x14
+	uint32_t Timer[3]; // 0x18
+	uint32_t _unknown_1; // 0x1C
+	uint32_t _unknown_2; // 0x20
+	BYTE _shit[48]; // 0x2C - 0x5C
+	uint32_t _unknown_3; // 0x60
+	BYTE _shit2[68]; // 0xA4 (168)
 };
 
 // =================================================================================
