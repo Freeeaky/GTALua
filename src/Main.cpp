@@ -10,11 +10,27 @@
 // =================================================================================
 GTALua::GTALua()
 {
+	// Attach Console
 	AllocConsole();
 	AttachConsole(GetCurrentProcessId());
 	freopen("CON", "w", stdout);
-	printf("Console allocated and attached!\n");
 
-	// Prepare Game Memory
+	// Prepare Memory
+	Memory::Init();
 	GameMemory::Init();
+}
+
+// =================================================================================
+// Init 
+// This is called shortly before the game window is created
+// At this point the exe is already unpacked, safe to do anything we want
+// =================================================================================
+void GTALua::ProperInit()
+{
+	// Debug
+	printf("[GTALua] Initializing..\n");
+
+	// Hooks & Patches
+	GameMemory::InstallHooks();
+	GameMemory::InstallPatches();
 }

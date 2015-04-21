@@ -21,10 +21,10 @@ void Memory::Init()
 // =================================================================================
 // Hook Function
 // =================================================================================
-bool Memory::HookFunction(DWORD64 pAddress, void* pDetour, void** pOriginal)
+bool Memory::HookFunction(DWORD64 pAddress, void* pDetour, void** ppOriginal)
 {
 	// Create Hook
-	int iResult = MH_CreateHook((void*)pAddress, pDetour, pOriginal);
+	int iResult = MH_CreateHook((void*)pAddress, pDetour, ppOriginal);
 	if (iResult != MH_OK)
 	{
 		printf("[Memory::HookFunction] MH_CreateHook failed: %p [Error %i]\n", pAddress, iResult);
@@ -42,7 +42,7 @@ bool Memory::HookFunction(DWORD64 pAddress, void* pDetour, void** pOriginal)
 	// Success
 	return true;
 }
-bool Memory::HookLibraryFunction(char* sLibrary, char* sName, void* pDetour, void** pOriginal)
+bool Memory::HookLibraryFunction(char* sLibrary, char* sName, void* pDetour, void** ppOriginal)
 {
 	// Module
 	HMODULE hModule = GetModuleHandle(sLibrary);
@@ -61,5 +61,5 @@ bool Memory::HookLibraryFunction(char* sLibrary, char* sName, void* pDetour, voi
 	}
 
 	// Hook
-	return HookFunction((DWORD64)pProc, pDetour, pOriginal);
+	return HookFunction((DWORD64)pProc, pDetour, ppOriginal);
 }

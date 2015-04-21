@@ -18,8 +18,8 @@ namespace Memory
 	DWORD64 GetModuleSize(HMODULE hModule);
 
 	// Hooking
-	bool HookFunction(DWORD64 pAddress, void* pDetour, void** pOriginal);
-	bool HookLibraryFunction(char* sLibrary, char* sName, void* pDetour, void** pOriginal);
+	bool HookFunction(DWORD64 pAddress, void* pDetour, void** ppOriginal);
+	bool HookLibraryFunction(char* sLibrary, char* sName, void* pDetour, void** ppOriginal);
 }
 
 // =================================================================================

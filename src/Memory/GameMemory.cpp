@@ -29,8 +29,8 @@ void GameMemory::Init()
 	Version = NULL;
 	FetchVersion();
 
-	// Patches
-	InstallPatches();
+	// Init Hook
+	InstallInitHook();
 }
 
 // =================================================================================

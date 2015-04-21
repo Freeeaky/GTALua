@@ -77,10 +77,13 @@ char* Memory::GetModulePath(char* sPath)
 // =================================================================================
 DWORD64 Memory::GetModuleSize(HMODULE hModule)
 {
+	// Double-Check
 	if (hModule == NULL) return 0;
 	
+	// Module Info
 	MODULEINFO info;
 	GetModuleInformation(GetCurrentProcess(), hModule, &info, sizeof(MODULEINFO));
 
+	// Size
 	return info.SizeOfImage;
 }

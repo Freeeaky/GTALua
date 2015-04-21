@@ -6,7 +6,10 @@ namespace GameMemory
 	// Init
 	void Init();
 	void FetchVersion();
+
+	// "Installers"
 	void InstallPatches();
+	void InstallInitHook();
 	void InstallHooks();
 
 	// Module
