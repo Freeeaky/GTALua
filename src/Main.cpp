@@ -5,6 +5,7 @@
 #include "GTALua.h"
 #include "Memory/Memory.h"
 #include "lua/Lua.h"
+#include "ScriptBinds/ScriptBinds.h"
 
 // =================================================================================
 // Init 
@@ -38,4 +39,14 @@ void GTALua::ProperInit()
 	// Initialize Lua
 	lua = new LuaManager();
 	lua->Init();
+
+	// Script Binds
+	ScriptBinds::ScriptEngine::Bind();
+	ScriptBinds::ScriptThread::Bind();
+	ScriptBinds::Console::Bind();
+	ScriptBinds::BindBlockedFunction();
+
+	// Include main.lua
+	if (!lua->IncludeFile("GTALua/main.lua"))
+		printf("fail\n");
 }
