@@ -5,6 +5,7 @@
 #include "GTALua.h"
 #include "Memory/Memory.h"
 #include "ScriptEngine/ScriptEngine.h"
+#include "lua/Lua.h"
 
 // =================================================================================
 // BinkOpen
@@ -43,6 +44,10 @@ void ScriptEngine__Init(DWORD64 ptr)
 	// Mark as initialized
 	GameMemory::ScriptEngineInitialized = true;
 	printf("[GTA ScriptEngine] Initialized\n");
+
+	// Lua Callback
+	lua->GetEvent("OnScriptEngineInitialized");
+	lua->ProtectedCall(1);
 }
 
 // =================================================================================

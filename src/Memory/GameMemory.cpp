@@ -11,6 +11,7 @@ char* GameMemory::Version = NULL;
 HMODULE GameMemory::GameModule = NULL;
 DWORD64 GameMemory::Base = NULL;
 DWORD64 GameMemory::Size = NULL;
+bool GameMemory::ScriptEngineInitialized = false;
 
 // =================================================================================
 // Init

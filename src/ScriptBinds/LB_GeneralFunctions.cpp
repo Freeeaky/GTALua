@@ -3,9 +3,9 @@
 // =================================================================================
 #include "Includes.h"
 #include "GTALua.h"
-#include "ScriptBinds.h"
-#include "ScriptEngine/ScriptEngine.h"
 #include "lua/Lua.h"
+#include "ScriptEngine/ScriptEngine.h"
+#include "ScriptBinds.h"
 
 // =================================================================================
 // type 
@@ -29,9 +29,7 @@ const char* LB_type(luabind::object obj)
 	}
 
 	// call original
-	const char* sType = lua_typename(lua->State(), 1);
-	lua->Pop(1);
-	return sType;
+	return lua_typename(lua->State(), 1);
 }
 
 // =================================================================================
@@ -43,4 +41,6 @@ void ScriptBinds::GeneralFunctions::Bind()
 	[
 		luabind::def("type", LB_type)
 	];
+
+	LuaFunctions::RegisterLuaFunctions();
 }

@@ -29,5 +29,5 @@ namespace GameMemory
 	/*
 	 * Content
 	 */
-	static bool ScriptEngineInitialized;
+	extern bool ScriptEngineInitialized;
 }

@@ -5,6 +5,7 @@
 #include "GTALua.h"
 #include "Memory/Memory.h"
 #include "lua/Lua.h"
+#include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds/ScriptBinds.h"
 
 // =================================================================================
@@ -50,6 +51,9 @@ void GTALua::ProperInit()
 	ScriptBinds::ScriptThread::Bind();
 
 	// Include main.lua
-	if (!lua->IncludeFile("GTALua/main.lua"))
-		printf("fail\n");
+	if (!lua->IncludeFile("GTALua/lua/main.lua"))
+	{
+		printf("[Lua] Failed to include main.lua! GTALua will not work properly!\n");
+		return;
+	}
 }

@@ -62,6 +62,10 @@ typedef eScriptThreadState (*ScriptThread__Tick)(ScriptThread* pThis, uint32_t i
 
 eScriptThreadState ScriptThreadWrapper::Tick(uint32_t iNumber)
 {
+	// Callback
+	if (m_pContext.eState != THREAD_STATE_KILLED)
+		OnTick();
+
 	// Tick
 	ScriptThread__Tick pThread_Tick = (ScriptThread__Tick)GameMemory::At(0x9A2124);
 	return pThread_Tick(this, iNumber);
@@ -74,6 +78,11 @@ typedef void (*ScriptThread__Kill)(ScriptThread* pThis);
 
 void ScriptThreadWrapper::Kill()
 {
+	// Callback
+	if (m_pContext.eState != THREAD_STATE_KILLED)
+		OnKill();
+
+	// Kill
 	ScriptThread__Kill pThread_Kill = (ScriptThread__Kill) GameMemory::At(0x999128);
 	pThread_Kill(this);
 }
@@ -84,3 +93,4 @@ void ScriptThreadWrapper::Kill()
 void ScriptThreadWrapper::OnRun() { }
 void ScriptThreadWrapper::OnReset() { }
 void ScriptThreadWrapper::OnTick() { }
+void ScriptThreadWrapper::OnKill() { }

@@ -3,9 +3,9 @@
 // =================================================================================
 #include "Includes.h"
 #include "GTALua.h"
-#include "ScriptBinds.h"
-#include "ScriptEngine/ScriptEngine.h"
 #include "lua/Lua.h"
+#include "ScriptEngine/ScriptEngine.h"
+#include "ScriptBinds.h"
 
 // =================================================================================
 // console.Log 

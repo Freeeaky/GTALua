@@ -17,4 +17,5 @@ public:
 	virtual void OnReset();
 	virtual void OnRun();
 	virtual void OnTick();
+	virtual void OnKill();
 };

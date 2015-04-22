@@ -5,6 +5,7 @@
 #include "Lua.h"
 #include "GeneralFunctions.h"
 #include "ClassWrappers.h"
+#include "UTIL/UTIL.h"
 
 // ====================================================================================================
 // include
@@ -25,7 +26,8 @@ void LuaFunctions::include(std::string file)
 	if (!lua->IsOnFileList(sPath))
 		lua->AddToFileList(sPath);
 
-	LuaFunctions::Autorefresh::AddDirectory(filepath);
+	// AutoRefresh will be added later :)
+	//LuaFunctions::Autorefresh::AddDirectory(filepath);
 }
 
 // ====================================================================================================
