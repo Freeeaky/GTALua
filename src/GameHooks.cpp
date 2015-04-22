@@ -19,6 +19,8 @@ int BinkOpen_Hook(DWORD64 a, DWORD64 b)
 	// Skip if first-time-call
 	if (bIsIntroMovie)
 	{
+		printf("[Intro] Skipped\n");
+
 		bIsIntroMovie = false;
 		return 0;
 	}
@@ -26,15 +28,6 @@ int BinkOpen_Hook(DWORD64 a, DWORD64 b)
 	// Original
 	return pBinkOpen(a, b);
 }
-
-class TestThread : public ScriptThreadWrapper
-{
-public:
-	virtual void OnRun()
-	{
-		printf("RUN\n");
-	}
-};
 
 // =================================================================================
 // ScriptEngine Init
@@ -49,11 +42,7 @@ void ScriptEngine__Init(DWORD64 ptr)
 
 	// Mark as initialized
 	GameMemory::ScriptEngineInitialized = true;
-	printf("[ScriptEngine] Initialized\n");
-
-	// Thread
-	TestThread* pThread = new TestThread();
-	ScriptEngine::CreateScriptThread(pThread);
+	printf("[GTA ScriptEngine] Initialized\n");
 }
 
 // =================================================================================
