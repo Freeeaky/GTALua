@@ -4,6 +4,7 @@
 #include "Includes.h"
 #include "GTALua.h"
 #include "Memory/Memory.h"
+#include "lua/Lua.h"
 
 // =================================================================================
 // Init 
@@ -13,10 +14,10 @@ GTALua::GTALua()
 	// Attach Console
 	AllocConsole();
 	AttachConsole(GetCurrentProcessId());
-	freopen("CON", "w", stdout);
+	freopen("CON", "w", stdout); 
 
 	// Prepare Memory
-	Memory::Init();
+	Memory::Init(); 
 	GameMemory::Init();
 }
 
@@ -33,4 +34,8 @@ void GTALua::ProperInit()
 	// Hooks & Patches
 	GameMemory::InstallHooks();
 	GameMemory::InstallPatches();
+
+	// Initialize Lua
+	lua = new LuaManager();
+	lua->Init();
 }
