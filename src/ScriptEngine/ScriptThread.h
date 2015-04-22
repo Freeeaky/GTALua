@@ -11,22 +11,6 @@ enum eScriptThreadState
 };
 
 // =================================================================================
-// Native Call Context
-// =================================================================================
-struct ScriptNativeCallContext
-{
-	DWORD64 m_pReturn;
-	uint32_t m_iArgCount;
-	DWORD64 m_pArguments;
-
-	DWORD64 GetArgument(int iIndex);
-	int GetNumArguments();
-
-	DWORD64 SetResult(int iIndex, DWORD64 pValue);
-	DWORD64 GetResult(int iIndex);
-};
-
-// =================================================================================
 // Thread Context
 // =================================================================================
 struct ScriptThreadContext

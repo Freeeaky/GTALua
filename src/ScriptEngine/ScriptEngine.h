@@ -5,6 +5,7 @@
 #include "ScriptThread.h"
 #include "ScriptHandlerManager.h"
 #include "ScriptThreadWrapper.h"
+#include "NativeInvocation.h"
 
 // =================================================================================
 // ScriptEngine
@@ -17,10 +18,11 @@ namespace ScriptEngine
 	uint32_t* GetThreadCount();
 	ScriptHandlerManager* GetHandlerManager();
 
-	// Active Thread
+	// Script Threads
 	ScriptThread* GetActiveThread();
 	void SetActiveThread(ScriptThread* pThread);
-
-	// Create Thread
 	bool CreateScriptThread(ScriptThread* pThread);
+
+	// Natives
+	Native_t GetNativeAddress(DWORD64 hHash);
 }

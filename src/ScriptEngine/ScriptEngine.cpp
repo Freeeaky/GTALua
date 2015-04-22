@@ -32,6 +32,28 @@ ScriptHandlerManager* ScriptEngine::GetHandlerManager()
 }
 
 // =================================================================================
+// Native Address 
+// =================================================================================
+Native_t ScriptEngine::GetNativeAddress(DWORD64 hHash)
+{
+	NativeRegisterStruct** pNatives = (NativeRegisterStruct**) GameMemory::At(0x2971EB0);
+	NativeRegisterStruct* pTable = pNatives[hHash & 0xFF];
+
+	while (pTable != NULL)
+	{
+		for (int i = 0; i < pTable->uiEntryCount; i++)
+		{
+			if (hHash == pTable->uiHashes[i])
+				return pTable->pRegisteredNatives[i];
+		}
+
+		pTable = pTable->pNext;
+	}
+
+	return NULL;
+}
+
+// =================================================================================
 // Script Thread 
 // =================================================================================
 ScriptThread* ScriptEngine::GetActiveThread()
