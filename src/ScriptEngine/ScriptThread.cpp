@@ -42,22 +42,16 @@ eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, void* pArgs, uint32
 // =================================================================================
 eScriptThreadState ScriptThreadWrapper::Run(uint32_t iNumber)
 {
-	printf("Wrapper: Run\n");
-
 	// Update Thread
 	ScriptThread* pActiveThread = ScriptEngine::GetActiveThread();
 	ScriptEngine::SetActiveThread(this);
-
-	printf("lua wrapper run...\n");
 
 	// Run
 	if (m_pContext.eState != THREAD_STATE_KILLED)
 		OnRun();
 
 	// Return
-	printf("setting active thread\n");
 	ScriptEngine::SetActiveThread(pActiveThread);
-	printf("now back, return state\n");
 	return m_pContext.eState;
 }
 

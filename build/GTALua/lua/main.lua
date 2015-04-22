@@ -8,6 +8,12 @@ thread = ScriptThread()
 
 thread:OnRun(function()
 	console.Log("ScriptThread: RUN")
+	
+	local n = CInvokeNative(natives.time.SetClockTime)
+	n:PushArgument(8)
+	n:PushArgument(9)
+	n:PushArgument(10)
+	n:Call()
 end)
 
 thread:OnReset(function()

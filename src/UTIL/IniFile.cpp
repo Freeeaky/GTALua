@@ -1,21 +1,14 @@
 // =================================================================================
-// GTALua 
+// Includes 
 // =================================================================================
-class GTALua
+#include "Includes.h"
+#include "IniFile.h"
+#include "thirdparty/inih/ini.h"
+
+// =================================================================================
+// IniFile 
+// =================================================================================
+IniFile::IniFile(char* sPath, IniFile_IniParser pParser, void* pCustom)
 {
-public:
-	GTALua();
-	void ProperInit();
-
-	// Game Version
-	bool VersionCheck();
-	char* GetGameVersion();
-
-	// Configuration file(s)
-	void LoadNativesINI();
-};
-
-// =================================================================================
-// Global Instance 
-// =================================================================================
-extern GTALua* g_pGTALua;
+	ini_parse(sPath, pParser, pCustom);
+}

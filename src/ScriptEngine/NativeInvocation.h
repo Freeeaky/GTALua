@@ -18,8 +18,8 @@ struct ScriptNativeCallContext
 	template<typename T>
 	void PushArgument(T value)
 	{
+		SetArgument<T>(m_iArgCount, value);
 		m_iArgCount++;
-		SetArgument(m_iArgCount, value);
 	}
 	template<typename T>
 	void SetArgument(uint32_t iIndex, T value)
@@ -54,7 +54,7 @@ struct InvokeNative : public ScriptNativeCallContext
 {
 	DWORD64 m_hHash;
 
-	InvokeNative(DWORD64 hash);
+	InvokeNative(Natives::NativeReg* reg);
 	~InvokeNative();
 	void Call();
 };

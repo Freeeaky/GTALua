@@ -24,3 +24,20 @@ void UTIL::ParseFilePath(std::string& path)
 	ReplaceString(path, "\\/", "/");
 	ReplaceString(path, "//", "/");
 }
+
+void UTIL::Lowercase(char* sText)
+{
+	for (char* it = sText; *it != '\0'; ++it)
+	{
+		*it = tolower(*it);
+		++it;
+	}
+}
+void UTIL::Uppercase(char* sText)
+{
+	for (char* it = sText; *it != '\0'; ++it)
+	{
+		*it = toupper(*it);
+		++it;
+	}
+}

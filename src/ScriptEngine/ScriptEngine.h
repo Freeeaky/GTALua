@@ -5,6 +5,7 @@
 #include "ScriptThread.h"
 #include "ScriptHandlerManager.h"
 #include "ScriptThreadWrapper.h"
+#include "Natives.h"
 #include "NativeInvocation.h"
 
 // =================================================================================

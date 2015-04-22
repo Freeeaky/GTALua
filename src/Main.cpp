@@ -7,6 +7,7 @@
 #include "lua/Lua.h"
 #include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds/ScriptBinds.h"
+#include "UTIL/UTIL.h"
 
 // =================================================================================
 // Init 
@@ -21,6 +22,9 @@ GTALua::GTALua()
 	// Prepare Memory
 	Memory::Init(); 
 	GameMemory::Init();
+
+	// Configuration Files
+	LoadNativesINI();
 }
 
 // =================================================================================
@@ -49,6 +53,8 @@ void GTALua::ProperInit()
 	// Script Engine
 	ScriptBinds::ScriptEngine::Bind();
 	ScriptBinds::ScriptThread::Bind();
+	ScriptBinds::NativeInvocation::Bind();
+	ScriptBinds::NativesWrapper::Bind();
 
 	// Include main.lua
 	if (!lua->IncludeFile("GTALua/lua/main.lua"))
