@@ -10,5 +10,10 @@
 // =================================================================================
 namespace ScriptBinds
 {
-	void BindBlockedFunction();
+	void BindBlockedFunctions();
+
+	namespace GeneralFunctions
+	{
+		void Bind();
+	}
 }

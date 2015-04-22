@@ -40,11 +40,14 @@ void GTALua::ProperInit()
 	lua = new LuaManager();
 	lua->Init();
 
-	// Script Binds
+	// General
+	ScriptBinds::GeneralFunctions::Bind();
+	ScriptBinds::Console::Bind();
+	ScriptBinds::BindBlockedFunctions();
+
+	// Script Engine
 	ScriptBinds::ScriptEngine::Bind();
 	ScriptBinds::ScriptThread::Bind();
-	ScriptBinds::Console::Bind();
-	ScriptBinds::BindBlockedFunction();
 
 	// Include main.lua
 	if (!lua->IncludeFile("GTALua/main.lua"))

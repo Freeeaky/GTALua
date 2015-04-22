@@ -28,11 +28,6 @@ void LuaFunctions::include(std::string file)
 	LuaFunctions::Autorefresh::AddDirectory(filepath);
 }
 
-void LuaFunctions::sleep(unsigned long ms)
-{
-	Sleep(ms);
-}
-
 // ====================================================================================================
 // Register Functions
 // ====================================================================================================
@@ -40,7 +35,6 @@ void LuaFunctions::RegisterLuaFunctions()
 {
 	// General
 	luabind::module(lua->State()) [
-		luabind::def("include", &LuaFunctions::include),
-		luabind::def("sleep", &LuaFunctions::sleep)
+		luabind::def("include", &LuaFunctions::include)
 	];
 }

@@ -8,7 +8,7 @@
 // =================================================================================
 // Bind 
 // =================================================================================
-void ScriptBinds::BindBlockedFunction()
+void ScriptBinds::BindBlockedFunctions()
 {
 	// TODO: Add Blocked Functions
 }

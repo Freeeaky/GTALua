@@ -8,34 +8,39 @@
 #include "lua/Lua.h"
 
 // =================================================================================
-// Script Thread 
+// type 
 // =================================================================================
-namespace ScriptBinds
+const char* LB_type(luabind::object obj)
 {
-	namespace ScriptThread
+	// check table/userdata
+	if (lua->IsTable(1) || lua_isuserdata(lua->State(), 1))
 	{
-		LuaScriptThread::LuaScriptThread()
+		// call __type
+		const char* sType = NULL;
+		try
 		{
-
+			sType = luabind::call_member<const char*>(obj, "__type");
 		}
+		catch (...) {};
 
-		LuaScriptThread::~LuaScriptThread()
-		{
-
-		}
+		// check & return
+		if (sType != NULL)
+			return sType;
 	}
-};
+
+	// call original
+	const char* sType = lua_typename(lua->State(), 1);
+	lua->Pop(1);
+	return sType;
+}
 
 // =================================================================================
-// Bind 
+// Binds
 // =================================================================================
-void ScriptBinds::ScriptThread::Bind()
+void ScriptBinds::GeneralFunctions::Bind()
 {
 	luabind::module(lua->State())
 	[
-		luabind::class_<LuaScriptThread>("ScriptThread")
-			.def(luabind::constructor<>())
-			.def("__tostring", &LuaScriptThread::__tostring)
-			.def("__type", &LuaScriptThread::__type)
+		luabind::def("type", LB_type)
 	];
 }
