@@ -87,3 +87,30 @@ char* LuaManager::DebugGetPath()
 	sprintf(path, "%s/", path);
 	return path;
 }
+
+// ====================================================================================================
+// Dump Stack
+// ====================================================================================================
+void LuaManager::DumpStack() {
+	int index = lua_gettop(m_pState);
+	while (index > 0) {
+		int ltype = lua_type(m_pState, index);
+		printf("%i: ", index);
+		switch (ltype) {
+			case LUA_TSTRING:
+				printf("%s", index, lua_tostring(m_pState, index));
+			break;
+			case LUA_TBOOLEAN:
+				printf("%s", index, lua_toboolean(m_pState, index) ? "true" : "false");
+			break;
+			case LUA_TNUMBER:
+				printf("%g", index, lua_tonumber(m_pState, index));
+			break;
+			default:
+				printf("%s", index, lua_typename(m_pState, ltype));
+			break;
+		}
+		printf("\n");
+		index--;
+	}
+}

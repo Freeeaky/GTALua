@@ -35,22 +35,29 @@ int console_Log(lua_State* L)
 				// Tables/userdata: read __tostring
 				if (lua->IsTable(i) || lua_isuserdata(L, i))
 				{
-					const char* sObject = NULL;
+					string sObject;
+					bool bHasString = true;
+					
+					// call __tostring
 					try
 					{
-						sObject = luabind::call_member<const char*>(obj, "__tostring");
+						sObject = luabind::call_member<string>(obj, "__tostring");
 					}
-					catch (...) {};
-
-					if (sObject != NULL)
+					catch (...) {
+						bHasString = false;
+					};
+					
+					// print
+					if (bHasString)
 					{
-						printf("%s", sObject);
-						continue;
+						printf("%s", sObject.c_str());
+						break;
 					}
 				}
-
+				
 				// print type
-				printf("[Unknown type %s]", luabind::call_function<const char*>(lua->State(), "type", luabind::type(obj)));
+				string t = luabind::call_function<string>(lua->State(), "type", obj);
+				printf("[type: %s]", t.c_str());
 			}
 		}
 	}

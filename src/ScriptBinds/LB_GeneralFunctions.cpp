@@ -10,7 +10,7 @@
 // =================================================================================
 // type 
 // =================================================================================
-const char* LB_type(luabind::object obj)
+string LB_type(luabind::object obj)
 {
 	// check table/userdata
 	if (lua->IsTable(1) || lua_isuserdata(lua->State(), 1))
@@ -21,15 +21,20 @@ const char* LB_type(luabind::object obj)
 		{
 			sType = luabind::call_member<const char*>(obj, "__type");
 		}
-		catch (...) {};
+		catch (...) {
+			sType = NULL;
+		};
 
 		// check & return
 		if (sType != NULL)
-			return sType;
+		{
+			return string(sType);
+		}
 	}
 
 	// call original
-	return lua_typename(lua->State(), 1);
+	//return lua_typename(lua->State(), lua_type(lua->State(), 1));
+	return string("hlo");
 }
 
 // =================================================================================
@@ -37,10 +42,11 @@ const char* LB_type(luabind::object obj)
 // =================================================================================
 void ScriptBinds::GeneralFunctions::Bind()
 {
-	/*luabind::module(lua->State())
+	luabind::module(lua->State())
 	[
 		luabind::def("type", LB_type)
-	];*/
+	];
 
+	// like include
 	LuaFunctions::RegisterLuaFunctions();
 }

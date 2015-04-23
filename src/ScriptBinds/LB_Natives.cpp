@@ -12,16 +12,13 @@
 // =================================================================================
 struct NativeReg_AdditionalFunctions : Natives::NativeReg
 {
-	static char* _t;
-
-	const char* __tostring() {
-		return _t;
+	string __tostring() {
+		return "CNativeReg";
 	}
-	const char* __type() {
-		return  _t;
+	string __type() {
+		return "CNativeReg";
 	}
 };
-char* NativeReg_AdditionalFunctions::_t = "CNativeReg";
 
 // =================================================================================
 // Bind 
@@ -31,11 +28,11 @@ void ScriptBinds::NativesWrapper::Bind()
 	// Register NativeReg struct
 	luabind::module(lua->State())
 	[
-		/*luabind::class_<NativeReg_AdditionalFunctions>("CNativeReg_AdditionalFunctions")
+		luabind::class_<NativeReg_AdditionalFunctions>("CNativeReg_AdditionalFunctions")
 		.def("__tostring", &NativeReg_AdditionalFunctions::__tostring)
-		.def("__type", &NativeReg_AdditionalFunctions::__type),*/
+		.def("__type", &NativeReg_AdditionalFunctions::__type),
 
-		luabind::class_<Natives::NativeReg/*, NativeReg_AdditionalFunctions*/>("CNativeReg")
+		luabind::class_<Natives::NativeReg, NativeReg_AdditionalFunctions>("CNativeReg")
 		.def_readonly("m_sName", &Natives::NativeReg::sName)
 		.def_readonly("m_bValid", &Natives::NativeReg::bValid)
 		.def_readonly("m_bHasCallLayout", &Natives::NativeReg::bHasCallLayout)

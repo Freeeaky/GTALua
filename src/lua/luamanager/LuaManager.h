@@ -65,6 +65,7 @@ public:
 	lua_Debug GetDebugInformation();
 	char* DebugGetFilename();
 	char* DebugGetPath();
+	void DumpStack();
 	
 private:
 	std::vector<std::string> m_vFileList;
