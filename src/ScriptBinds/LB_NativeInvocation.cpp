@@ -15,7 +15,8 @@ void ScriptBinds::NativeInvocation::Bind()
 	luabind::module(lua->State())
 	[
 		luabind::class_<ScriptNativeCallContext>("CScriptNativeCallContext")
-		.def("PushNumber", &ScriptNativeCallContext::PushArgument<int>),
+		.def("PushNumber", &ScriptNativeCallContext::PushArgument<int>)
+		.def("GetResultNumber", &ScriptNativeCallContext::GetResult<int>),
 
 		luabind::class_<InvokeNative, ScriptNativeCallContext>("CInvokeNative")
 		.def(luabind::constructor<Natives::NativeReg*>())

@@ -3,7 +3,7 @@
 // =================================================================================
 struct ScriptNativeCallContext
 {
-	DWORD64 m_pReturnValues;
+	int* m_pReturnValues;
 	int m_iArgCount;
 	int* m_pArguments;
 

@@ -10,6 +10,10 @@ thread:OnRun(function()
 	
 	-- set time to 8:00:00
 	natives.time.SetClockTime:Call(8,0,0)
+	
+	-- player ped id
+	local localplayer = natives.player.GetPlayerPed:Call(-1)
+	print("local player ped id: ", localplayer)
 end)
 
 thread:OnReset(function()
@@ -25,5 +29,6 @@ thread:OnKill(function()
 end)
 
 event.AddListener("OnScriptEngineInitialized", "test_thread", function()
+	print("ok....")
 	engine.RegisterScriptThread(thread)
 end)

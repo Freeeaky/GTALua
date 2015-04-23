@@ -12,10 +12,10 @@
 // =================================================================================
 string LB_type(luabind::object obj)
 {
-	// check table/userdata
+	// check for table/userdata
 	if (lua->IsTable(1) || lua_isuserdata(lua->State(), 1))
 	{
-		// call __type
+		// call member __type
 		const char* sType = NULL;
 		try
 		{
@@ -27,12 +27,10 @@ string LB_type(luabind::object obj)
 
 		// check & return
 		if (sType != NULL)
-		{
 			return string(sType);
-		}
 	}
 
-	// call original
+	// call typename
 	return lua_typename(lua->State(), lua_type(lua->State(), 1));
 }
 

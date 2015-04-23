@@ -30,6 +30,9 @@ int console_Log(lua_State* L)
 		case LUA_TNIL:
 			printf("nil");
 			break;
+		case LUA_TTABLE:
+			printf("[table]");
+			break;
 		default:
 			{
 				// Tables/userdata: read __tostring
