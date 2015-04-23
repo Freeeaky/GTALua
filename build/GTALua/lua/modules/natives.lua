@@ -1,4 +1,16 @@
 -- Natives
+-- Add Call Layout
+function CNativeReg:AddCallLayout(layout)
+	self.m_sCallLayout = layout
+	self.m_bHasCallLayout = true
+end
+
+-- Has Call Layout
+function CNativeReg:HasCallLayout()
+	return self.m_bHasCallLayout
+end
+
+-- Call Native by Call Layout
 function CNativeReg:Call(...)
 	-- check call layout
 	if not self.m_bHasCallLayout then
