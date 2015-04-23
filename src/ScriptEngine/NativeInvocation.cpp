@@ -51,11 +51,6 @@ bool InvokeNative::Call()
 		// copy return values back
 		memcpy(m_pReturnValues, &pCallContext[0][0], 8 * 8);
 
-		if (m_hHash == 0x3FEF770D40960D5A)
-		{
-			printf("%f %f %f\n", GetResult<float>(0), GetResult<float>(1), GetResult<float>(2));
-		}
-
 		// Cleanup
 		delete[] pCallContext;
 		return true;
