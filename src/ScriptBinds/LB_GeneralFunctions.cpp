@@ -33,8 +33,7 @@ string LB_type(luabind::object obj)
 	}
 
 	// call original
-	//return lua_typename(lua->State(), lua_type(lua->State(), 1));
-	return string("hlo");
+	return lua_typename(lua->State(), lua_type(lua->State(), 1));
 }
 
 // =================================================================================
