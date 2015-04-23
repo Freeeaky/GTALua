@@ -36,8 +36,10 @@ void ScriptBinds::NativesWrapper::Bind()
 		.def("__type", &NativeReg_AdditionalFunctions::__type),*/
 
 		luabind::class_<Natives::NativeReg/*, NativeReg_AdditionalFunctions*/>("CNativeReg")
-		.def_readonly("sName", &Natives::NativeReg::sName)
-		.def_readonly("bValid", &Natives::NativeReg::bValid)
+		.def_readonly("m_sName", &Natives::NativeReg::sName)
+		.def_readonly("m_bValid", &Natives::NativeReg::bValid)
+		.def_readonly("m_bHasCallLayout", &Natives::NativeReg::bHasCallLayout)
+		.def_readonly("m_sCallLayout", &Natives::NativeReg::sCallLayout)
 	];
 
 	// native table

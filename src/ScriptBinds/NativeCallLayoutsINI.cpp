@@ -10,14 +10,9 @@
 #include "UTIL/UTIL.h"
 
 // =================================================================================
-// Global 
+// Includes 
 // =================================================================================
-std::vector<Natives::NativeReg*> Natives::Registered[Natives::_NATIVE_ENUM_SIZE + 1];
-
-// =================================================================================
-// Parser
-// =================================================================================
-int ini_natives_parser(void* pCustom, const char* sSection, const char* sName, const char* sValue)
+int ini_native_call_layouts_parser(void* pCustom, const char* sSection, const char* sName, const char* sValue)
 {
 	// find category
 	Natives::eNativeCategory eCategory = Natives::FindCategoryByName(const_cast<char*>(sSection));
@@ -25,28 +20,32 @@ int ini_natives_parser(void* pCustom, const char* sSection, const char* sName, c
 	// check
 	if (eCategory == Natives::NATIVE_UNKNOWN)
 	{
-		printf("[natives.ini] Unknown category %s\n", sSection);
+		printf("[native_call_layout.ini] Unknown category %s\n", sSection);
 		return 1;
 	}
 
-	// add to registered natives
-	Natives::NativeReg* reg = new Natives::NativeReg();
-	reg->bValid = true;
-	reg->hHash = _strtoui64(sValue, NULL, 0);
-	reg->sName = _strdup(sName);
-	reg->bHasCallLayout = false;
-	reg->sCallLayout = NULL;
+	// find registered native
+	for (vector<Natives::NativeReg*>::iterator it = Natives::Registered[eCategory].begin(); it != Natives::Registered[eCategory].end(); ++it)
+	{
+		Natives::NativeReg* reg = *it;
+		if (strcmp(reg->sName, sName) == 0)
+		{
+			reg->bHasCallLayout = true;
+			reg->sCallLayout = _strdup(sValue);
+			return 1;
+		}
+	}
 
-	// register
-	Natives::Registered[eCategory].push_back(reg);
-	return 1;
+	// failed
+	printf("[native_call_layout.ini] Native %s/%s is not defined in natives.ini\n", sSection, sName);
+	return 0;
 }
 
 // =================================================================================
 // Load 
 // =================================================================================
-void GTALua::LoadNativesINI()
+void GTALua::LoadCallLayoutsINI()
 {
 	// Load natives ini
-	IniFile file("GTALua/natives.ini", ini_natives_parser, NULL);
+	IniFile file("GTALua/native_call_layout.ini", ini_native_call_layouts_parser, NULL);
 }

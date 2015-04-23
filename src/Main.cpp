@@ -25,6 +25,7 @@ GTALua::GTALua()
 
 	// Configuration Files
 	LoadNativesINI();
+	LoadCallLayoutsINI();
 }
 
 // =================================================================================

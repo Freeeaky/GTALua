@@ -78,12 +78,19 @@ namespace Natives
 		"datafile"
 	};
 
+	// Find category by name
+	eNativeCategory FindCategoryByName(char* sName);
+
 	// Registered Natives
 	struct NativeReg
 	{
 		bool bValid;
 		const char* sName;
 		DWORD64 hHash;
+
+		// Call Layout
+		bool bHasCallLayout;
+		const char* sCallLayout;
 	};
 	extern std::vector<NativeReg*> Registered[_NATIVE_ENUM_SIZE + 1];
 }

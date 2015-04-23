@@ -37,10 +37,10 @@ const char* LB_type(luabind::object obj)
 // =================================================================================
 void ScriptBinds::GeneralFunctions::Bind()
 {
-	luabind::module(lua->State())
+	/*luabind::module(lua->State())
 	[
 		luabind::def("type", LB_type)
-	];
+	];*/
 
 	LuaFunctions::RegisterLuaFunctions();
 }

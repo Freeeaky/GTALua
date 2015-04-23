@@ -13,6 +13,7 @@ public:
 
 	// Configuration file(s)
 	void LoadNativesINI();
+	void LoadCallLayoutsINI();
 };
 
 // =================================================================================

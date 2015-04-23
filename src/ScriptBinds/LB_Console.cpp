@@ -26,8 +26,10 @@ int console_Log(lua_State* L)
 			break;
 		case LUA_TNUMBER:
 			printf("%i", luabind::object_cast<int>(obj));
+			break;
 		case LUA_TNIL:
 			printf("nil");
+			break;
 		default:
 			{
 				// Tables/userdata: read __tostring
