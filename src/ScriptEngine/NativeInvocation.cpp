@@ -13,8 +13,9 @@ InvokeNative::InvokeNative(Natives::NativeReg* reg)
 {
 	m_iArgCount = 0;
 	m_pArguments = (int*)malloc(16 * 8);
-	memset(m_pArguments, 0, 8 * 8);
+	memset(m_pArguments, 0, 16 * 8);
 	m_pReturnValues = (int*)malloc(8 * 8);
+	memset(m_pReturnValues, 0, 8 * 8);
 	m_hHash = reg->hHash;
 }
 InvokeNative::~InvokeNative()
@@ -49,6 +50,11 @@ bool InvokeNative::Call()
 
 		// copy return values back
 		memcpy(m_pReturnValues, &pCallContext[0][0], 8 * 8);
+
+		if (m_hHash == 0x3FEF770D40960D5A)
+		{
+			printf("%f %f %f\n", GetResult<float>(0), GetResult<float>(1), GetResult<float>(2));
+		}
 
 		// Cleanup
 		delete[] pCallContext;

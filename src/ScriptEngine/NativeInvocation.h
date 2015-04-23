@@ -8,12 +8,14 @@ struct ScriptNativeCallContext
 	int* m_pArguments;
 
 	template <typename T>
-	T GetArgument(uint32_t iIndex)
+	T GetArgument(int iIndex)
 	{
 		if (iIndex > m_iArgCount) return NULL;
 		if (m_pArguments) return NULL;
 
-		return (T) m_pArguments[iIndex];
+		T value;
+		memcpy(&value, &m_pReturnValues[iIndex], sizeof(T));
+		return value;
 	}
 	template<typename T>
 	void PushArgument(T value)
@@ -24,14 +26,16 @@ struct ScriptNativeCallContext
 	template<typename T>
 	void SetArgument(uint32_t iIndex, T value)
 	{
-		m_pArguments[iIndex] = (int) value;
+		memcpy(&m_pArguments[iIndex], &value, sizeof(T));
 	}
 	int GetNumArguments() { return m_iArgCount; }
 
 	template<typename T>
-	T GetResult(uint32_t iIndex = 0)
+	T GetResult(int iIndex = 0)
 	{
-		return *(T*)(m_pReturnValues + iIndex * 8);
+		T value;
+		memcpy(&value, &m_pReturnValues[iIndex], sizeof(T));
+		return value;
 	}
 };
 

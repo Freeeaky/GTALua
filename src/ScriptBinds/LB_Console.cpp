@@ -25,8 +25,14 @@ int console_Log(lua_State* L)
 			printf("%s", luabind::object_cast<const char*>(obj));
 			break;
 		case LUA_TNUMBER:
-			printf("%i", luabind::object_cast<int>(obj));
+		{
+			double num = lua_tonumber(L, i);
+			if (num == (int)num)
+				printf("%i", lua_tointeger(L, num));
+			else
+				printf("%f", num);
 			break;
+		}
 		case LUA_TNIL:
 			printf("nil");
 			break;

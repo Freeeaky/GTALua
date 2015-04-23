@@ -65,31 +65,38 @@ function CNativeReg:Call(...)
 			
 			-- process
 			if parsing_return_values then
-				table.insert(return_values, c_type)
+				table.insert(return_values, type_char)
 			else
-				table.insert(native_args, arg)
+				table.insert(native_args, {arg, type_char})
 			end
 		end
 	end
-	
+
 	-- push arguments
 	for i = 1, #native_args, 1 do
-		-- TODO: Add support for more types
-		print("push number")
-		c:PushNumber(native_args[i])
+		local value, type_char = native_args[i][1], native_args[i][2]
+		local c_type = engine.TypeTable[type_char]
+		
+		if type_char == "i" then
+			c:PushNumber(value)
+		elseif type_char == "f" then
+			c:PushFloat(value)
+		end
 	end
 	
 	-- call
-	print("calling...")
 	if c:Call() then
-		print("time to get results")
 		for i = 1, #return_values, 1 do
-			if return_values[i] == "number" then
+			local type_char = return_values[i]
+			local c_type = engine.TypeTable[type_char]
+			
+			if type_char == "i" then
 				return_values[i] = c:GetResultNumber(i - 1)
+			elseif type_char == "f" then
+				return_values[i] = c:GetResultFloat(i - 1)
 			end
 		end
 		
-		print("got results, back")
 		return unpack(return_values)
 	end
 	
