@@ -16,8 +16,8 @@ thread:OnRun(function()
 	print("local player ped id: ", localplayer)
 	
 	if localplayer > 100 then
-		local x,y,z = natives.entity.GetEntityCoords:Call(localplayer)
-		print("pos: ", x, y, z)
+		local vec = natives.entity.GetEntityCoords:Call(localplayer)
+		print("pos: ", vec.x, " ", vec.y, " ", vec.z)
 	end
 end)
 

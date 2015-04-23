@@ -81,6 +81,8 @@ function CNativeReg:Call(...)
 			c:PushNumber(value)
 		elseif type_char == "f" then
 			c:PushFloat(value)
+		elseif c_type == "Vector" then
+			c:PushVector(value)
 		end
 	end
 	
@@ -94,6 +96,8 @@ function CNativeReg:Call(...)
 				return_values[i] = c:GetResultNumber(i - 1)
 			elseif type_char == "f" then
 				return_values[i] = c:GetResultFloat(i - 1)
+			elseif c_type == "Vector" then
+				return_values[i] = c:GetResultVector(i - 1)
 			end
 		end
 		
