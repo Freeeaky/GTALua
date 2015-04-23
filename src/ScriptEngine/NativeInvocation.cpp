@@ -25,10 +25,12 @@ InvokeNative::~InvokeNative()
 // =================================================================================
 // Arguments 
 // =================================================================================
-void InvokeNative::Call()
+bool InvokeNative::Call()
 {
+	// Find Address
 	Native_t pNative = ScriptEngine::GetNativeAddress(m_hHash);
 
+	// Call Native
 	if (pNative)
 	{
 		// this is shitty, i know
@@ -38,5 +40,10 @@ void InvokeNative::Call()
 		memcpy(&pCallContext[2][0], m_pArguments, 8 * 8);
 		pNative(pCallContext);
 		delete[] pCallContext;
+
+		return true;
 	}
-};
+
+	// Native not found!
+	return false;
+}

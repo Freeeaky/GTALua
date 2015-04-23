@@ -56,5 +56,5 @@ struct InvokeNative : public ScriptNativeCallContext
 
 	InvokeNative(Natives::NativeReg* reg);
 	~InvokeNative();
-	void Call();
+	bool Call();
 };
