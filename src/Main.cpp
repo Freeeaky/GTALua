@@ -50,16 +50,29 @@ void GTALua::ProperInit()
 	lua = new LuaManager();
 	lua->Init();
 
-	// General
-	ScriptBinds::GeneralFunctions::Bind();
-	ScriptBinds::Console::Bind();
-	ScriptBinds::BindBlockedFunctions();
+	// Script Binds
+	try
+	{
+		// General
+		ScriptBinds::GeneralFunctions::Bind();
+		ScriptBinds::Console::Bind();
+		ScriptBinds::BindBlockedFunctions();
 
-	// Script Engine
-	ScriptBinds::ScriptEngine::Bind();
-	ScriptBinds::ScriptThread::Bind();
-	ScriptBinds::NativeInvocation::Bind();
-	ScriptBinds::NativesWrapper::Bind();
+		// Script Engine
+		ScriptBinds::ScriptEngine::Bind();
+		ScriptBinds::ScriptThread::Bind();
+		ScriptBinds::NativesWrapper::Bind();
+		ScriptBinds::NativeInvocation::Bind();
+	}
+	catch (std::exception& e)
+	{
+		printf("[Lua] Failed to bind functions!\n");
+		lua->PrintErrorMessage(const_cast<char*>(e.what()), true, true);
+	}
+	catch (...)
+	{
+		printf("[Lua] Failed to bind functions! (unknown exception)\n");
+	}
 
 	// Include main.lua
 	if (!lua->IncludeFile("GTALua/lua/main.lua"))

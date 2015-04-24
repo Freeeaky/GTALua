@@ -84,12 +84,6 @@ int console_Log(lua_State* L)
 // =================================================================================
 void ScriptBinds::Console::Bind()
 {
-	/*
-	luabind::module(lua->State(), "console")
-		[
-			luabind::def("test", NULL)
-		];*/
-
 	// luabind doesn't support variable arguments
 	static const luaL_reg console_table[] =
 	{

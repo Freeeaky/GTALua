@@ -85,6 +85,7 @@ namespace Natives
 	struct NativeReg
 	{
 		bool bValid;
+		const char* sCategory;
 		const char* sName;
 		DWORD64 hHash;
 

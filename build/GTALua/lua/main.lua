@@ -12,7 +12,7 @@ function thread:OnRun()
 	-- player ped id
 	local localplayer = natives.player.GetPlayerPed:Call(-1)
 	
-	if localplayer > 100 then
+	if natives.entity.DoesEntityExist:Call(localplayer) then
 		local vec = natives.entity.GetEntityCoords:Call(localplayer)
 		
 		-- request model

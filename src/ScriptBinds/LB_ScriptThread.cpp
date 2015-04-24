@@ -14,24 +14,30 @@ namespace ScriptBinds
 {
 	namespace ScriptThread
 	{
-		LuaScriptThread::LuaScriptThread() : ScriptThreadWrapper()
-		{
-			//m_lSelf = luabind::object(lua->State(), this);
-		}
-
-		LuaScriptThread::~LuaScriptThread()
-		{
-
-		}
-
 		// Lua Callback
 		void LuaScriptThread::CallLuaCallback(char* sName)
 		{
+			// Check if callback is present
+			m_self.get(lua->State());
+			if (lua->IsNil())
+			{
+				lua->Pop(1);
+				return;
+			}
+			lua->GetField(sName, -1);
+			if (lua->IsNil())
+			{
+				lua->Pop(2);
+				return;
+			}
+			lua->Pop(2);
+
+			// Call
 			try
 			{
 				call<void>(sName);
 			}
-			catch (luabind::error e) {
+			catch (luabind::error& e) {
 				printf("[LuaScriptThread] Failed to call a thread callback!\n");
 
 				if (lua->IsString(-1))
@@ -39,11 +45,11 @@ namespace ScriptBinds
 				else 
 					lua->PrintErrorMessage(const_cast<char*>(e.what()), true, false);
 			}
-			catch (LuaException e) {
+			catch (LuaException& e) {
 				printf("[LuaScriptThread] Failed to call a thread callback!\n");
 				lua->PrintErrorMessage(const_cast<char*>(e.what()), true, true);
 			}
-			catch (std::exception e) {
+			catch (std::exception& e) {
 				printf("[LuaScriptThread] Failed to call a thread callback: %s\n", e.what());
 			}
 			catch (...) {
@@ -54,23 +60,19 @@ namespace ScriptBinds
 		// ScriptThreadWrapper Callbacks
 		void LuaScriptThread::OnReset()
 		{
-			printf("call reset!\n");
-			//CallLuaCallback("OnReset");
+			CallLuaCallback("OnReset");
 		}
 		void LuaScriptThread::OnRun()
 		{
-			printf("call run!\n");
 			CallLuaCallback("OnRun");
 		}
 		void LuaScriptThread::OnTick()
 		{
-			printf("call tick!\n");
-			//CallLuaCallback("OnTick");
+			CallLuaCallback("OnTick");
 		}
 		void LuaScriptThread::OnKill()
 		{
-			printf("call kill!\n");
-			//CallLuaCallback("OnKill");
+			CallLuaCallback("OnKill");
 		}
 	}
 };
@@ -85,10 +87,6 @@ void ScriptBinds::ScriptThread::Bind()
 		luabind::class_<ScriptThreadWrapper>("CScriptThreadWrapper"),
 		luabind::class_<LuaScriptThread, ScriptThreadWrapper>("ScriptThread")
 			.def(luabind::constructor<>())
-			.def("OnRun", &ScriptThreadWrapper::OnRun)
-			.def("OnReset", &ScriptThreadWrapper::OnReset)
-			.def("OnTick", &ScriptThreadWrapper::OnTick)
-			.def("OnKill", &ScriptThreadWrapper::OnKill)
 			.def("__tostring", &LuaScriptThread::__tostring)
 			.def("__type", &LuaScriptThread::__type)
 	];

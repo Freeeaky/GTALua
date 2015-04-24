@@ -63,7 +63,8 @@ namespace luabind
     #define BOOST_PP_ITERATION_PARAMS_1 (4, (0, LUABIND_MAX_ARITY, <luabind/wrapper_base.hpp>, 1))
 	#include BOOST_PP_ITERATE()
 
-	private:
+	// I need this
+	//private:
 		wrapped_self_t m_self;
 	};
 

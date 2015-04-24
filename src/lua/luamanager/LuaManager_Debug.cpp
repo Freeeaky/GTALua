@@ -98,19 +98,22 @@ void LuaManager::DumpStack() {
 		printf("%i: ", index);
 		switch (ltype) {
 			case LUA_TSTRING:
-				printf("%s", index, lua_tostring(m_pState, index));
+				printf("%s", lua_tostring(m_pState, index));
 			break;
 			case LUA_TBOOLEAN:
-				printf("%s", index, lua_toboolean(m_pState, index) ? "true" : "false");
+				printf("%s", lua_toboolean(m_pState, index) ? "true" : "false");
 			break;
 			case LUA_TNUMBER:
-				printf("%g", index, lua_tonumber(m_pState, index));
+				printf("%g", lua_tonumber(m_pState, index));
 			break;
 			default:
-				printf("%s", index, lua_typename(m_pState, ltype));
+				luabind::object obj(luabind::from_stack(m_pState, index));
+				string type_s = luabind::call_function<string, luabind::object>(m_pState, "type", obj);
+				printf("[type: %s]", type_s.c_str());
 			break;
 		}
 		printf("\n");
 		index--;
 	}
+	printf("------------------------\n");
 }

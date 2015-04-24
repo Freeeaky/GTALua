@@ -7,17 +7,20 @@
 #include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds.h"
 
+using namespace rage;
+using namespace Natives;
+
 // =================================================================================
 // Vector 
 // =================================================================================
-struct LuaVectorWrapper : public rage::CVector
+struct LuaVectorWrapper : public CVector
 {
-	static string __tostring(rage::CVector* pVec) {
+	static string __tostring(CVector* pVec) {
 		char buf[256];
 		sprintf(buf, "[Vector %f %f %f]", pVec->x, pVec->y, pVec->z);
 		return string(buf);
 	}
-	static string __type(rage::CVector* pVec) {
+	static string __type(CVector* pVec) {
 		return "Vector";
 	}
 };
@@ -25,7 +28,6 @@ struct LuaVectorWrapper : public rage::CVector
 // =================================================================================
 // Bind
 // =================================================================================
-using namespace rage;
 void ScriptBinds::NativeInvocation::Bind()
 {
 	// Rage
@@ -60,7 +62,7 @@ void ScriptBinds::NativeInvocation::Bind()
 		.def("GetResultBool", &ScriptNativeCallContext::GetResult<bool>),
 
 		luabind::class_<InvokeNative, ScriptNativeCallContext>("CInvokeNative")
-		.def(luabind::constructor<Natives::NativeReg*>())
+		.def(luabind::constructor<NativeReg*>())
 		.def("Call", &InvokeNative::Call)
 	];
 }

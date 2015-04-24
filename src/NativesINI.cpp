@@ -34,6 +34,7 @@ int ini_natives_parser(void* pCustom, const char* sSection, const char* sName, c
 	reg->bValid = true;
 	reg->hHash = _strtoui64(sValue, NULL, 0);
 	reg->sName = _strdup(sName);
+	reg->sCategory = Natives::CategoryNames[eCategory]; // as they are static no need to copy anything
 	reg->bHasCallLayout = false;
 	reg->sCallLayout = NULL;
 

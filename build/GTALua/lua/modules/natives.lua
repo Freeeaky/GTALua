@@ -21,9 +21,13 @@ engine.TypeTable = {
 
 -- Call Native by Call Layout
 function CNativeReg:Call(...)
+	local function _err(msg)
+		error("CNativeReg:Call ["..self.m_sCategory.."/"..self.m_sName.."] "..msg)
+	end
+
 	-- check call layout
 	if not self.m_bHasCallLayout then
-		error("CNativeReg:Call - Native doesn't have a Call Layout!")
+		_err("Native doesn't have a Call Layout!")
 	end
 	
 	-- arguments
@@ -51,7 +55,7 @@ function CNativeReg:Call(...)
 		local type_char = self.m_sCallLayout:sub(i, i)
 		local c_type = engine.TypeTable[type_char]
 		if c_type == nil and type_char ~= ")" then
-			error("CNativeReg:Call [Call Layout Parser]: Unknown argument type "..type_char)
+			_err("Unknown argument type "..type_char)
 		end
 		
 		-- return value parsing
@@ -60,7 +64,7 @@ function CNativeReg:Call(...)
 		else
 			-- type check
 			if not parsing_return_values and c_type ~= type(arg) then
-				error("CNativeReg:Call - Argument type mismatch (index "..i.." - got "..type(arg).." expected "..c_type..")")
+				_err("Argument type mismatch (index "..i.." - got "..type(arg).." expected "..c_type..")")
 			end
 			
 			-- process
@@ -117,5 +121,5 @@ function CNativeReg:Call(...)
 	end
 	
 	-- error, native not found
-	error("CNativeReg:Call - Unknown Native Hash!")
+	_err("Unknown Native Hash!")
 end

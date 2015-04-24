@@ -11,12 +11,12 @@ using namespace Natives;
 // =================================================================================
 // Additional Functions 
 // =================================================================================
-struct NativeReg_AdditionalFunctions : NativeReg
+struct NativeReg_AdditionalFunctions : public NativeReg
 {
-	string __tostring() {
+	static string __tostring(NativeReg* pNativeReg) {
 		return "CNativeReg";
 	}
-	string __type() {
+	static string __type(NativeReg* pNativeReg) {
 		return "CNativeReg";
 	}
 };
@@ -29,13 +29,12 @@ void ScriptBinds::NativesWrapper::Bind()
 	// Register NativeReg struct
 	luabind::module(lua->State())
 	[
-		luabind::class_<NativeReg>("CNativeReg_AdditionalFunctions")
+		luabind::class_<NativeReg>("CNativeReg")
 		.def_readonly("m_sName", &NativeReg::sName)
+		.def_readonly("m_sCategory", &NativeReg::sCategory)
 		.def_readonly("m_bValid", &NativeReg::bValid)
 		.def_readwrite("m_bHasCallLayout", &NativeReg::bHasCallLayout)
-		.def_readwrite("m_sCallLayout", &NativeReg::sCallLayout),
-
-		luabind::class_<NativeReg_AdditionalFunctions, NativeReg>("CNativeReg")
+		.def_readwrite("m_sCallLayout", &NativeReg::sCallLayout)
 		.def("__tostring", &NativeReg_AdditionalFunctions::__tostring)
 		.def("__type", &NativeReg_AdditionalFunctions::__type)
 	];
@@ -53,7 +52,7 @@ void ScriptBinds::NativesWrapper::Bind()
 		for (vector<NativeReg*>::iterator it = Registered[i].begin(); it != Registered[i].end(); ++it)
 		{
 			// register natives.category.name = NativeReg
-			NativeReg_AdditionalFunctions* reg = (NativeReg_AdditionalFunctions*)*it;
+			NativeReg* reg = *it;
 			luabind::object obj(lua->State(), reg);
 			luabind::globals(lua->State())["natives"][sCategoryName][reg->sName] = obj;
 		}

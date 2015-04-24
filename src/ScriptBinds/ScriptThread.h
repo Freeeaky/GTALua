@@ -11,9 +11,6 @@ namespace ScriptBinds
 		class LuaScriptThread : public ScriptThreadWrapper, public luabind::wrap_base
 		{
 		public:
-			LuaScriptThread();
-			~LuaScriptThread();
-
 			// ScriptThreadWrapper Callbacks
 			virtual void OnReset();
 			virtual void OnRun();
@@ -29,16 +26,6 @@ namespace ScriptBinds
 			};
 
 		private:
-			// Callbacks
-			luabind::object m_lResetCallback;
-			bool m_bHasResetCallback;
-			luabind::object m_lRunCallback;
-			bool m_bHasRunCallback;
-			luabind::object m_lTickCallback;
-			bool m_bHasTickCallback;
-			luabind::object m_lKillCallback;
-			bool m_bHasKillCallback;
-
 			void CallLuaCallback(char* callback);
 		};
 	}
