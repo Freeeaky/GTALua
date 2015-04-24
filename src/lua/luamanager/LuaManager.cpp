@@ -81,7 +81,18 @@ bool LuaManager::ProtectedCall(int narg, int nresults)
 	}
 	catch (LuaException& e)
 	{
+		m_bSuccess = false;
 		PrintErrorMessage(const_cast<char*>(e.what()), true, true);
+	}
+	catch (luabind::error& e)
+	{
+		m_bSuccess = false;
+		PrintErrorMessage(const_cast<char*>(e.what()), true, false);
+	}
+	catch (...)
+	{
+		PrintErrorMessage("LuaManager::ProtectedCall failed - Unhandled Exception", true, true);
+		m_bSuccess = false;
 	}
 
 	return m_bSuccess;

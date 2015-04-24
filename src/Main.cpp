@@ -14,10 +14,12 @@
 // =================================================================================
 GTALua::GTALua()
 {
+#ifndef GTA_LUA_TEST_EXE
 	// Attach Console
 	AllocConsole();
 	AttachConsole(GetCurrentProcessId());
 	freopen("CON", "w", stdout); 
+#endif
 
 	// Prepare Memory
 	Memory::Init(); 
@@ -39,8 +41,10 @@ void GTALua::ProperInit()
 	printf("[GTALua] Initializing..\n");
 
 	// Hooks & Patches
+#ifndef GTA_LUA_TEST_EXE
 	GameMemory::InstallHooks();
 	GameMemory::InstallPatches();
+#endif
 
 	// Initialize Lua
 	lua = new LuaManager();

@@ -19,7 +19,7 @@ bool RegisterScriptThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 		printf("[Lua] You cannot register a script thread yet! Wait until the script engine is initialized!\n");
 		return false;
 	}
-
+	
 	// Check Thread
 	if (pThread == NULL)
 	{

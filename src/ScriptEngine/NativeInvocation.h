@@ -10,11 +10,8 @@ struct ScriptNativeCallContext
 	template <typename T>
 	T GetArgument(int iIndex)
 	{
-		if (iIndex > m_iArgCount) return NULL;
-		if (m_pArguments) return NULL;
-
 		T value;
-		memcpy(&value, &m_pReturnValues[iIndex], sizeof(T));
+		memcpy(&value, &m_pArguments[iIndex], sizeof(T));
 		return value;
 	}
 	template<typename T>
@@ -22,6 +19,11 @@ struct ScriptNativeCallContext
 	{
 		SetArgument<T>(m_iArgCount, value);
 		m_iArgCount++;
+	}
+	void PushVector(rage::CVector vec)
+	{
+		SetArgument<rage::CVector>(m_iArgCount, vec);
+		m_iArgCount += 3;
 	}
 	template<typename T>
 	void SetArgument(uint32_t iIndex, T value)

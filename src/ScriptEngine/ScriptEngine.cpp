@@ -72,6 +72,11 @@ void ScriptEngine::SetActiveThread(ScriptThread* pThread)
 // =================================================================================
 bool ScriptEngine::CreateScriptThread(ScriptThread* pThread)
 {
+	// Test-Mode
+#ifdef GTA_LUA_TEST_EXE
+	return true;
+#endif
+
 	// Thread Collection
 	rage::PtrCollection* pThreadCollection = GetThreadCollection();
 	int iSlot = 0;
@@ -80,11 +85,11 @@ bool ScriptEngine::CreateScriptThread(ScriptThread* pThread)
 	for (uint16_t iIndex = 0; iIndex < pThreadCollection->m_iCount; iIndex++)
 	{
 		// Thread
-		ScriptThread* pThread = (ScriptThread*) pThreadCollection->m_ppData[iIndex];
-		if (pThread == NULL) return false;
+		ScriptThread* pTempThread = (ScriptThread*) pThreadCollection->m_ppData[iIndex];
+		if (pTempThread == NULL) return false;
 
 		// Context
-		ScriptThreadContext* pContext = pThread->GetContext();
+		ScriptThreadContext* pContext = pTempThread->GetContext();
 		if (pContext == NULL) return false;
 
 		// Found slot

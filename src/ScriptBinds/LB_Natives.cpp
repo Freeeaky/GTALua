@@ -6,11 +6,12 @@
 #include "lua/Lua.h"
 #include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds.h"
+using namespace Natives;
 
 // =================================================================================
 // Additional Functions 
 // =================================================================================
-struct NativeReg_AdditionalFunctions : Natives::NativeReg
+struct NativeReg_AdditionalFunctions : NativeReg
 {
 	string __tostring() {
 		return "CNativeReg";
@@ -28,31 +29,31 @@ void ScriptBinds::NativesWrapper::Bind()
 	// Register NativeReg struct
 	luabind::module(lua->State())
 	[
-		luabind::class_<NativeReg_AdditionalFunctions>("CNativeReg_AdditionalFunctions")
-		.def("__tostring", &NativeReg_AdditionalFunctions::__tostring)
-		.def("__type", &NativeReg_AdditionalFunctions::__type),
+		luabind::class_<NativeReg>("CNativeReg_AdditionalFunctions")
+		.def_readonly("m_sName", &NativeReg::sName)
+		.def_readonly("m_bValid", &NativeReg::bValid)
+		.def_readwrite("m_bHasCallLayout", &NativeReg::bHasCallLayout)
+		.def_readwrite("m_sCallLayout", &NativeReg::sCallLayout),
 
-		luabind::class_<Natives::NativeReg, NativeReg_AdditionalFunctions>("CNativeReg")
-		.def_readonly("m_sName", &Natives::NativeReg::sName)
-		.def_readonly("m_bValid", &Natives::NativeReg::bValid)
-		.def_readwrite("m_bHasCallLayout", &Natives::NativeReg::bHasCallLayout)
-		.def_readwrite("m_sCallLayout", &Natives::NativeReg::sCallLayout)
+		luabind::class_<NativeReg_AdditionalFunctions, NativeReg>("CNativeReg")
+		.def("__tostring", &NativeReg_AdditionalFunctions::__tostring)
+		.def("__type", &NativeReg_AdditionalFunctions::__type)
 	];
 
 	// native table
 	luabind::globals(lua->State())["natives"] = luabind::newtable(lua->State());
 
 	// Loop category
-	for (int i = 0; i < Natives::_NATIVE_ENUM_SIZE; i++)
+	for (int i = 0; i < _NATIVE_ENUM_SIZE; i++)
 	{
-		const char* sCategoryName = Natives::CategoryNames[i];
+		const char* sCategoryName = CategoryNames[i];
 		luabind::globals(lua->State())["natives"][sCategoryName] = luabind::newtable(lua->State());
 
 		// Iterate natives
-		for (vector<Natives::NativeReg*>::iterator it = Natives::Registered[i].begin(); it != Natives::Registered[i].end(); ++it)
+		for (vector<NativeReg*>::iterator it = Registered[i].begin(); it != Registered[i].end(); ++it)
 		{
 			// register natives.category.name = NativeReg
-			Natives::NativeReg* reg = *it;
+			NativeReg_AdditionalFunctions* reg = (NativeReg_AdditionalFunctions*)*it;
 			luabind::object obj(lua->State(), reg);
 			luabind::globals(lua->State())["natives"][sCategoryName][reg->sName] = obj;
 		}

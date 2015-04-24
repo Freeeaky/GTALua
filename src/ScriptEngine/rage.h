@@ -12,6 +12,19 @@ namespace rage
 
 	struct CVector
 	{
+		CVector()
+		{
+			x = 0.0f;
+			y = 0.0f;
+			z = 0.0f;
+		}
+		CVector(float x_, float y_, float z_)
+		{
+			x = x_;
+			y = y_;
+			z = z_;
+		}
+
 		float x;
 		BYTE _spacer_1[4];
 		float y;

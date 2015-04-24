@@ -18,6 +18,7 @@ bool GameMemory::ScriptEngineInitialized = false;
 // =================================================================================
 void GameMemory::Init()
 {
+#ifndef GTA_LUA_TEST_EXE
 	// Module
 	GameModule = GetModuleHandle("GTA5.exe");
 	if (GameModule == NULL)
@@ -42,6 +43,9 @@ void GameMemory::Init()
 
 	// Init Hook
 	InstallInitHook();
+#else
+	printf("[GameMemory] Disabled\n");
+#endif
 }
 
 // =================================================================================

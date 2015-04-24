@@ -65,6 +65,10 @@ function CNativeReg:Call(...)
 			
 			-- process
 			if parsing_return_values then
+				if type_char == "v" then
+					is_void = true
+					break
+				end
 				table.insert(return_values, type_char)
 			else
 				table.insert(native_args, {arg, type_char})
@@ -83,11 +87,17 @@ function CNativeReg:Call(...)
 			c:PushFloat(value)
 		elseif c_type == "Vector" then
 			c:PushVector(value)
+		elseif c_type == "boolean" then
+			c:PushBool(value == true)
 		end
 	end
 	
 	-- call
 	if c:Call() then
+		if is_void then
+			return
+		end
+		
 		for i = 1, #return_values, 1 do
 			local type_char = return_values[i]
 			local c_type = engine.TypeTable[type_char]
@@ -98,6 +108,8 @@ function CNativeReg:Call(...)
 				return_values[i] = c:GetResultFloat(i - 1)
 			elseif c_type == "Vector" then
 				return_values[i] = c:GetResultVector(i - 1)
+			elseif c_type == "boolean" then
+				return_values[i] = c:GetResultBool(i - 1)
 			end
 		end
 		

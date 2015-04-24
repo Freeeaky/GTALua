@@ -3,6 +3,8 @@
 // =================================================================================
 #include "Includes.h"
 #include "GTALua.h"
+#include "Memory/Memory.h"
+#include "lua/Lua.h"
 
 // =================================================================================
 // Global 
@@ -33,3 +35,29 @@ BOOL __stdcall DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
 	// Success
 	return TRUE;
 }
+
+// =================================================================================
+// Test-Purpose
+// This allows building as exe to test lua stuff
+// Starting the time every 2 minutes is annoying and a waste of time
+// =================================================================================
+#ifdef GTA_LUA_TEST_EXE
+int main()
+{
+	// "Thread"
+	Init();
+
+	// Proper Init
+	g_pGTALua->ProperInit();
+
+	// Mark as initialized
+	GameMemory::ScriptEngineInitialized = true;
+	printf("[GTA ScriptEngine] Initialized\n");
+
+	// Lua Callback
+	lua->GetEvent("OnScriptEngineInitialized");
+	lua->ProtectedCall(1);
+
+	return 0;
+}
+#endif

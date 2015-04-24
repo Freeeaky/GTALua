@@ -8,17 +8,11 @@ namespace ScriptBinds
 		void Bind();
 
 		// Lua Thread
-		class LuaScriptThread : public ScriptThreadWrapper
+		class LuaScriptThread : public ScriptThreadWrapper, public luabind::wrap_base
 		{
 		public:
 			LuaScriptThread();
 			~LuaScriptThread();
-
-			// Add Callbacks
-			void RegisterCallback_OnReset(luabind::object callback);
-			void RegisterCallback_OnRun(luabind::object callback);
-			void RegisterCallback_OnTick(luabind::object callback);
-			void RegisterCallback_OnKill(luabind::object callback);
 
 			// ScriptThreadWrapper Callbacks
 			virtual void OnReset();
@@ -45,7 +39,7 @@ namespace ScriptBinds
 			luabind::object m_lKillCallback;
 			bool m_bHasKillCallback;
 
-			void CallLuaCallback(luabind::object callback);
+			void CallLuaCallback(char* callback);
 		};
 	}
 }

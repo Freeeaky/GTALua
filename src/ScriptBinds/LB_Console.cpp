@@ -39,6 +39,9 @@ int console_Log(lua_State* L)
 		case LUA_TTABLE:
 			printf("[table]");
 			break;
+		case LUA_TBOOLEAN:
+			printf("%s", lua->GetBool(i) ? "true" : "false");
+			break;
 		default:
 			{
 				// Tables/userdata: read __tostring
