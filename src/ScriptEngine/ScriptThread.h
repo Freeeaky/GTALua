@@ -26,6 +26,10 @@ struct ScriptThreadContext
 	BYTE _shit[48]; // 0x2C - 0x5C
 	uint32_t _unknown_3; // 0x60
 	BYTE _shit2[68]; // 0xA4 (168)
+
+	BYTE _shit3[176]; // mostly initialized by Reset
+
+	// 0xD0/200 - thread name
 };
 
 // =================================================================================

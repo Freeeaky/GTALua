@@ -42,7 +42,7 @@ void GameMemory::Init()
 	FetchVersion();
 
 	// Init Hook
-	InstallInitHook();
+	InstallInitHooks();
 #else
 	printf("[GameMemory] Disabled\n");
 #endif
@@ -51,13 +51,25 @@ void GameMemory::Init()
 // =================================================================================
 // Wrapper
 // =================================================================================
+DWORD64 GameMemory::Find(BYTE* bMask, char* szMask)
+{
+	return Memory::Find(Base, Size, bMask, szMask);
+}
+
+// =================================================================================
+// Helper
+// =================================================================================
 DWORD64 GameMemory::At(DWORD64 dwOffset)
 {
 	return Base + dwOffset;
 }
-DWORD64 GameMemory::Find(BYTE* bMask, char* szMask)
+DWORD64 GameMemory::FindAbsoluteAddress(BYTE* bMask, char* szMask, int iOffset)
 {
-	return Memory::Find(Base, Size, bMask, szMask);
+	DWORD64 dwInstruction = Find(bMask, szMask);
+	if (dwInstruction == NULL) return NULL;
+
+	dwInstruction += iOffset;
+	return dwInstruction + *(uint32_t*)dwInstruction + 4;
 }
 
 // =================================================================================

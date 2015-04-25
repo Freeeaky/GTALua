@@ -29,7 +29,8 @@ function thread:OnRun()
 		if self.ModelLoaded and IsKeyCurrentlyDown(0x78) then
 			-- not working yet
 			-- IsKeyCurrentlyDown not working atm
-			natives.vehicle.CreateVehicle:Call(0x2B6DC64A, vec, 0.0, false, false)
+			print(vec.x, vec.y, vec.z)
+			natives.vehicle.CreateVehicle:Call(0x2B6DC64A, vec.x, vec.y, vec.z, 0.0, false, false)
 		end
 	end
 end

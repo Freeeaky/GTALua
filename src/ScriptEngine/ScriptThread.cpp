@@ -67,7 +67,7 @@ eScriptThreadState ScriptThreadWrapper::Tick(uint32_t iNumber)
 		OnTick();
 
 	// Tick
-	ScriptThread__Tick pThread_Tick = (ScriptThread__Tick)GameMemory::At(0x9A2124);
+	ScriptThread__Tick pThread_Tick = (ScriptThread__Tick) GameMemory::At(0x9A2124);
 	return pThread_Tick(this, iNumber);
 }
 

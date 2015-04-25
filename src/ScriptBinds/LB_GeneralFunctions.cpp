@@ -39,7 +39,7 @@ string LB_type(luabind::object obj)
 // =================================================================================
 bool LB_IsKeyCurrentlyDown(int vk)
 {
-	return (bool) (GetAsyncKeyState(vk) & 0x800);
+	return (bool)(GetKeyState(vk) & 0x8000);
 }
 
 // =================================================================================

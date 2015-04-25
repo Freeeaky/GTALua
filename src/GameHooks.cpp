@@ -45,6 +45,14 @@ void ScriptEngine__Init(DWORD64 ptr)
 	GameMemory::ScriptEngineInitialized = true;
 	printf("[GTA ScriptEngine] Initialized\n");
 
+	// Find Addresses
+	if (!ScriptEngine::CollectAddresses())
+	{
+		printf("[GTALua] Unable to find all addresses!\n");
+		printf("Make sure you have the most recent version installed!\n");
+		return;
+	}
+
 	// Lua Callback
 	lua->GetEvent("OnScriptEngineInitialized");
 	lua->ProtectedCall(1);
@@ -88,7 +96,7 @@ bool ShowWindow_Hook(HWND hWnd, int nCmdShow)
 // =================================================================================
 // Init Hook
 // =================================================================================
-void GameMemory::InstallInitHook()
+void GameMemory::InstallInitHooks()
 {
 	// ShowWindow
 	Memory::HookLibraryFunction("user32.dll", "ShowWindow", &ShowWindow_Hook, (void**)&pShowWindow);

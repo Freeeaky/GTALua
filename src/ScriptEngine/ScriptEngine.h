@@ -13,11 +13,12 @@
 // =================================================================================
 namespace ScriptEngine
 {
-	// Getter
-	rage::PtrCollection* GetThreadCollection();
-	uint32_t* GetThreadId();
-	uint32_t* GetThreadCount();
-	ScriptHandlerManager* GetHandlerManager();
+	// Addresses
+	extern rage::PtrCollection* ThreadCollection;
+	extern uint32_t* ThreadID;
+	extern uint32_t* ThreadCount;
+	extern ScriptHandlerManager* HandlerManager;
+	bool CollectAddresses();
 
 	// Script Threads
 	ScriptThread* GetActiveThread();

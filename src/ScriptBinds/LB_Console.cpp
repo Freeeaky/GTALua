@@ -75,7 +75,6 @@ int console_Log(lua_State* L)
 	}
 
 	printf("\n");
-
 	return 0;
 }
 

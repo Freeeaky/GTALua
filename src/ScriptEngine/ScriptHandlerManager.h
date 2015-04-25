@@ -11,8 +11,8 @@ public:
 	virtual void Function4() = 0;
 	virtual void Function5() = 0;
 	virtual void Function6() = 0;
-	virtual void Function7() = 0;
-	virtual void Function8() = 0;
-	virtual void Function9() = 0;
-	virtual void AttachScript(ScriptThread* pThread) = 0;
+	virtual void Function7() = 0; // 56
+	virtual int SetupScriptHandler(ScriptThread* pThread) = 0; // 64
+	virtual int SetupThread(ScriptThread* pThread) = 0; // 72
+	virtual void AttachScript(ScriptThread* pThread) = 0; // 80
 };

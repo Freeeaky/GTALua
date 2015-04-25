@@ -9,7 +9,7 @@ namespace GameMemory
 
 	// "Installers"
 	void InstallPatches();
-	void InstallInitHook();
+	void InstallInitHooks();
 	void InstallHooks();
 
 	// Module
@@ -22,9 +22,26 @@ namespace GameMemory
 
 	// Function Wrappers
 	DWORD64 Find(BYTE* bMask, char* szMask);
+	template <typename T>
+	T Find(BYTE* bMask, char* szMask)
+	{
+		return (T) Find(bMask, szMask);
+	}
 
-	// Calculate
+	// Helper Functions
+	DWORD64 FindAbsoluteAddress(BYTE* bMask, char* szMask, int iOffset);
+	template <typename T>
+	T FindAbsoluteAddress(BYTE* bMask, char* szMask, int iOffset)
+	{
+		return (T) FindAbsoluteAddress(bMask, szMask, iOffset);
+	}
+
 	DWORD64 At(DWORD64 dwOffset);
+	template <typename T>
+	T At(DWORD64 dwOffset)
+	{
+		return (T) At(dwOffset);
+	}
 
 	/*
 	 * Content

@@ -7,28 +7,29 @@
 #include "Memory/Memory.h"
 
 // =================================================================================
-// Getter
-// TODO: Actually use the patterns
+// Addresses
 // =================================================================================
-rage::PtrCollection* ScriptEngine::GetThreadCollection()
+rage::PtrCollection* ScriptEngine::ThreadCollection = NULL;
+uint32_t* ScriptEngine::ThreadID = NULL;
+uint32_t* ScriptEngine::ThreadCount = NULL;
+ScriptHandlerManager* ScriptEngine::HandlerManager = NULL;
+
+// =================================================================================
+// Collect
+// =================================================================================
+bool ScriptEngine::CollectAddresses()
 {
-	return (rage::PtrCollection*) GameMemory::At(0x2972CC0);
-	//return (rage::PtrCollection*) (GameMemory::Find((PBYTE)"\x48\x8B\x05\x00\x00\x00\x00\xFF\xC2", "xxx????xx") + 2);
-}
-uint32_t* ScriptEngine::GetThreadId()
-{
-	return (uint32_t*)GameMemory::At(0x2971EA0);
-	//return (uint32_t*) (GameMemory::Find((PBYTE)"\x8B\x15\x00\x00\x00\x00\x48\x8B\x05\x00\x00\x00\x00\xFF\xC2", "xx????xxx????xx") + 2);
-}
-uint32_t* ScriptEngine::GetThreadCount()
-{
-	return (uint32_t*)GameMemory::At(0x2972C8C);
-	//return (uint32_t*) (GameMemory::Find((PBYTE)"\xFF\x05\x00\x00\x00\x00\xFF\x40\x5C", "xx????xxx") + 2);
-}
-ScriptHandlerManager* ScriptEngine::GetHandlerManager()
-{
-	return (ScriptHandlerManager*)GameMemory::At(0x227E7C0);
-	//return (ScriptHandlerManager*)(GameMemory::Find((PBYTE)"\x48\x8D\x0D\x00\x00\x00\x00\x48\x8B\xD7\xE8\x00\x00\x00\x00\x8B\x15\x00\x00\x00\x00", "xxx????xxxx????xx????") + 2);
+	// Scan
+	ThreadCollection = GameMemory::FindAbsoluteAddress<rage::PtrCollection*>((PBYTE)"\x4C\x8B\x05\x00\x00\x00\x00\x41\x8B\xDF", "xxx????xxx", 3);
+	ThreadID = GameMemory::FindAbsoluteAddress<uint32_t*>((PBYTE)"\x89\x15\x00\x00\x00\x00\x48\x8B\x0C\xD8", "xx????xxxx", 2);
+	ThreadCount = GameMemory::FindAbsoluteAddress<uint32_t*>((PBYTE)"\xFF\x05\x00\x00\x00\x00\xFF\x40\x5C", "xx????xxx", 2);
+	HandlerManager = GameMemory::FindAbsoluteAddress<ScriptHandlerManager*>((PBYTE)"\x48\x8B\x05\x00\x00\x00\x00\x48\x8D\x0D\x00\x00\x00\x00\x48\x8B\xD3\x48\x83\xC4\x20\x5B\x48\xFF\x60\x50", "xxx????xxx????xxxxxxxxxxxx", 3);
+
+	// If one of them is 0, the pattern is outdated
+	return ! (ThreadCollection == NULL ||
+		ThreadID == NULL ||
+		ThreadCount == NULL ||
+		HandlerManager == NULL);
 }
 
 // =================================================================================
@@ -78,14 +79,13 @@ bool ScriptEngine::CreateScriptThread(ScriptThread* pThread)
 #endif
 
 	// Thread Collection
-	rage::PtrCollection* pThreadCollection = GetThreadCollection();
 	int iSlot = 0;
 
 	// Search for slot
-	for (uint16_t iIndex = 0; iIndex < pThreadCollection->m_iCount; iIndex++)
+	for (uint16_t iIndex = 0; iIndex < ThreadCollection->m_iCount; iIndex++)
 	{
 		// Thread
-		ScriptThread* pTempThread = (ScriptThread*) pThreadCollection->m_ppData[iIndex];
+		ScriptThread* pTempThread = (ScriptThread*)ThreadCollection->m_ppData[iIndex];
 		if (pTempThread == NULL) return false;
 
 		// Context
@@ -98,30 +98,29 @@ bool ScriptEngine::CreateScriptThread(ScriptThread* pThread)
 	}
 
 	// Success-Check
-	if (iSlot == pThreadCollection->m_iCount)
+	if (iSlot == ThreadCollection->m_iCount)
 		return false;
 
 	// Increase number
 	// Don't use thread id 0
-	uint32_t* uiScriptThreadID = GetThreadId();
-	if (*uiScriptThreadID == 0)
-		(*uiScriptThreadID)++;
+	if (*ThreadID == 0)
+		(*ThreadID)++;
 
 	// Reset
 	pThread->Reset(0, NULL, 0);
 
 	// Update Context
-	pThread->GetContext()->uiThreadID = *uiScriptThreadID;
+	pThread->GetContext()->uiThreadID = *ThreadID;
 	
 	// Increase id/count
-	(*uiScriptThreadID)++;
-	(*GetThreadCount())++;
+	(*ThreadID)++;
+	(*ThreadCount)++;
 
 	// Add to collection
-	pThreadCollection->m_ppData[iSlot] = (DWORD64*)pThread;
+	ThreadCollection->m_ppData[iSlot] = (DWORD64*)pThread;
 
 	// Attach Script
-	GetHandlerManager()->AttachScript(pThread);
+	HandlerManager->AttachScript(pThread);
 
 	// Done
 	return true;
