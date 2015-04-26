@@ -1,8 +1,9 @@
 ﻿Credits:
-NTAuthority - His work on CitizenMP helped a lot on this project. Most of the code for the
-Script Thread / Engine is inspired by his code.
+Alex Blade - ScriptHookV
 LMS - Helping me with lots of different stuff in Steam, always very helpful and nice. Without
 him this wouldn't be possible.
+NTAuthority - His work on CitizenMP helped a lot on this project. Most of the code for the
+Script Thread / Engine is inspired by his code.
 
 Included Licenses:
 1 MinHook
@@ -10,7 +11,6 @@ Included Licenses:
 3 Boost
 4 LuaBind
 5 inih
-
 
 ******************************************************************************************
 MinHook License
