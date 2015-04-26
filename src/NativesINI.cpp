@@ -41,7 +41,7 @@ int ini_natives_parser(void* pCustom, const char* sSection, const char* sName, c
 	// register
 	Natives::Registered[eCategory].push_back(reg);
 	return 1;
-}
+} 
 
 // =================================================================================
 // Load 

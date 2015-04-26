@@ -38,6 +38,11 @@ InvokeNative::~InvokeNative()
 // =================================================================================
 bool InvokeNative::Call()
 {
+	// Test EXE Build
+#ifdef GTA_LUA_TEST_EXE
+	return true;
+#endif
+
 	// Find Address
 	Native_t pNative = ScriptEngine::GetNativeAddress(m_hHash);
 

@@ -16,7 +16,10 @@ engine.TypeTable = {
 	f = "number",
 	b = "boolean",
 	v = "void",
-	V = "Vector"
+	V = "Vector",
+	
+	a = "number", -- any = int
+	u = "number", -- unknown = int
 }
 
 -- Call Native by Call Layout

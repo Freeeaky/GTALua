@@ -2,9 +2,9 @@
 include("modules/event.lua")
 include("modules/natives.lua")
 
-
 -- Test
---[[thread = ScriptThread()
+function _o()
+thread = ScriptThread()
 
 function thread:OnRun()
 	-- set time to 8:00:00
@@ -65,5 +65,4 @@ event.AddListener("OnScriptEngineInitialized", "test_thread", function()
 	thread.IsWaitingForModel = false
 	engine.RegisterScriptThread(thread)
 end)
-
-console.Log("Testing !...")]]
+end

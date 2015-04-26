@@ -13,7 +13,6 @@
 Natives::eNativeCategory Natives::FindCategoryByName(char* sName)
 {
 	// find category
-	UTIL::Lowercase(const_cast<char*>(sName));
 	eNativeCategory eCategory = NATIVE_UNKNOWN;
 	for (int i = 0; i < _NATIVE_ENUM_SIZE; i++)
 	{
