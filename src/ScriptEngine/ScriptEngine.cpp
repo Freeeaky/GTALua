@@ -107,7 +107,7 @@ bool ScriptEngine::CreateScriptThread(ScriptThread* pThread)
 		(*ThreadID)++;
 
 	// Reset
-	//pThread->Reset(0, NULL, 0);
+	pThread->Reset(0, NULL, 0);
 
 	// Update Context
 	pThread->GetContext()->uiThreadID = *ThreadID;
@@ -120,7 +120,7 @@ bool ScriptEngine::CreateScriptThread(ScriptThread* pThread)
 	ThreadCollection->m_ppData[iSlot] = (DWORD64*)pThread;
 
 	// Attach Script
-	//HandlerManager->AttachScript(pThread);
+	HandlerManager->AttachScript(pThread);
 
 	// Done
 	return true;

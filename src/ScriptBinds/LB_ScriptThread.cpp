@@ -75,8 +75,6 @@ namespace ScriptBinds
 		{
 			CallLuaCallback("OnKill");
 		}
-
-		
 	}
 };
 

@@ -12,8 +12,6 @@
 typedef void(*ScriptThread__Init)(ScriptThread* pThis);
 ScriptThreadWrapper::ScriptThreadWrapper()
 {
-	printf("INIT\n");
-
 	// Context
 	memset(&m_pContext, 0, sizeof(m_pContext));
 	m_pContext.eState = THREAD_STATE_IDLE;
@@ -35,8 +33,6 @@ ScriptThreadWrapper::ScriptThreadWrapper()
 
 eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, void* pArgs, uint32_t iArgumentsCount)
 {
-	printf("RESET\n");
-
 	// Context
 	memset(&m_pContext, 0, sizeof(m_pContext));
 	m_pContext.eState = THREAD_STATE_IDLE;
@@ -65,16 +61,8 @@ eScriptThreadState ScriptThreadWrapper::Run(uint32_t iNumber)
 	ScriptEngine::SetActiveThread(this);
 
 	// Run
-	bool bDown = (bool)(GetKeyState(VK_F9) & 0x8000);
-	if (m_pContext.eState != THREAD_STATE_KILLED && GetAsyncKeyState(VK_F9) & 1)
-		//	OnRun();
-	{
-		InvokeNative inv(0xAF35D0D2583051B0);
-		if (!inv.Call())
-		{
-			printf("CALL FAILED\n");
-		}
-	}
+	if (m_pContext.eState != THREAD_STATE_KILLED)
+		OnRun();
 
 	// Return
 	ScriptEngine::SetActiveThread(pActiveThread);
