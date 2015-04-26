@@ -3,7 +3,7 @@
 // =================================================================================
 namespace ScriptBinds
 {
-	namespace ScriptEngine
+	namespace Script_Engine
 	{
 		void Bind();
 	}

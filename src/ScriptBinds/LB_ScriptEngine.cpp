@@ -34,6 +34,9 @@ bool RegisterScriptThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 		return false;
 	}
 
+	// iniit
+	//pThread->_init();
+
 	// Success
 	return true;
 }
@@ -41,7 +44,7 @@ bool RegisterScriptThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 // =================================================================================
 // Bind 
 // =================================================================================
-void ScriptBinds::ScriptEngine::Bind()
+void ScriptBinds::Script_Engine::Bind()
 {
 	luabind::module(lua->State(), "engine")
 	[

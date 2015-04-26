@@ -6,6 +6,7 @@
 #include "lua/Lua.h"
 #include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds.h"
+#include "Memory/Memory.h"
 
 // =================================================================================
 // Script Thread 
@@ -74,8 +75,11 @@ namespace ScriptBinds
 		{
 			CallLuaCallback("OnKill");
 		}
+
+		
 	}
 };
+
 
 // =================================================================================
 // Bind 

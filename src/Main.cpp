@@ -59,7 +59,7 @@ void GTALua::ProperInit()
 		ScriptBinds::BindBlockedFunctions();
 
 		// Script Engine
-		ScriptBinds::ScriptEngine::Bind();
+		ScriptBinds::Script_Engine::Bind();
 		ScriptBinds::ScriptThread::Bind();
 		ScriptBinds::NativesWrapper::Bind();
 		ScriptBinds::NativeInvocation::Bind();

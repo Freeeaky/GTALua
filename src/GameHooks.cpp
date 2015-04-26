@@ -53,9 +53,13 @@ void ScriptEngine__Init(DWORD64 ptr)
 		return;
 	}
 
+	if (!ScriptEngine::CreateScriptThread((ScriptThread*)(new ScriptThreadWrapper())))
+		printf("FAIL!!!!\n");
+
+
 	// Lua Callback
-	lua->GetEvent("OnScriptEngineInitialized");
-	lua->ProtectedCall(1);
+	//lua->GetEvent("OnScriptEngineInitialized");
+	//lua->ProtectedCall(1);
 }
 
 // =================================================================================

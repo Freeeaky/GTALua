@@ -9,29 +9,47 @@
 // =================================================================================
 // Thread 
 // =================================================================================
+typedef void(*ScriptThread__Init)(ScriptThread* pThis);
 ScriptThreadWrapper::ScriptThreadWrapper()
 {
+	printf("INIT\n");
 
-}
-
-// =================================================================================
-// Reset 
-// =================================================================================
-typedef void (*ScriptThread__Reset)(ScriptThread* pThis);
-
-eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, void* pArgs, uint32_t iArgumentsCount)
-{
 	// Context
 	memset(&m_pContext, 0, sizeof(m_pContext));
 	m_pContext.eState = THREAD_STATE_IDLE;
-	m_pContext.uiScriptHash = hash;
 	m_pContext._unknown_1 = -1;
 	m_pContext._unknown_2 = -1;
 	m_pContext._unknown_3 = 1;
 
 	// Init
-	ScriptThread__Reset pReset = (ScriptThread__Reset) GameMemory::At(0x997850);
-	pReset(this);
+	ScriptThread__Init pInit = (ScriptThread__Init)GameMemory::At(0x997850);
+	pInit(this);
+
+	// attach
+	ScriptEngine::HandlerManager->AttachScript(this);
+}
+
+// =================================================================================
+// Reset 
+// =================================================================================
+
+eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, void* pArgs, uint32_t iArgumentsCount)
+{
+	printf("RESET\n");
+
+	// Context
+	memset(&m_pContext, 0, sizeof(m_pContext));
+	m_pContext.eState = THREAD_STATE_IDLE;
+	m_pContext._unknown_1 = -1;
+	m_pContext._unknown_2 = -1;
+	m_pContext._unknown_3 = 1;
+
+	// Init
+	ScriptThread__Init pInit = (ScriptThread__Init)GameMemory::At(0x997850);
+	pInit(this);
+
+	// attach
+	ScriptEngine::HandlerManager->AttachScript(this);
 
 	// Done
 	return m_pContext.eState;
@@ -47,8 +65,16 @@ eScriptThreadState ScriptThreadWrapper::Run(uint32_t iNumber)
 	ScriptEngine::SetActiveThread(this);
 
 	// Run
-	if (m_pContext.eState != THREAD_STATE_KILLED)
-		OnRun();
+	bool bDown = (bool)(GetKeyState(VK_F9) & 0x8000);
+	if (m_pContext.eState != THREAD_STATE_KILLED && GetAsyncKeyState(VK_F9) & 1)
+		//	OnRun();
+	{
+		InvokeNative inv(0xAF35D0D2583051B0);
+		if (!inv.Call())
+		{
+			printf("CALL FAILED\n");
+		}
+	}
 
 	// Return
 	ScriptEngine::SetActiveThread(pActiveThread);

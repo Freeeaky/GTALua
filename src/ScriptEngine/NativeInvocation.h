@@ -65,6 +65,7 @@ struct InvokeNative : public ScriptNativeCallContext
 	DWORD64 m_hHash;
 
 	InvokeNative(Natives::NativeReg* reg);
+	InvokeNative(DWORD64 hHash);
 	~InvokeNative();
 	bool Call();
 };

@@ -17,6 +17,8 @@ namespace ScriptBinds
 			virtual void OnTick();
 			virtual void OnKill();
 
+			void _init();
+
 			// Lua
 			char* __tostring() {
 				return "LuaScriptThread";
