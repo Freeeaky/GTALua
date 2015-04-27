@@ -1,19 +1,29 @@
 // =================================================================================
-// Includes
-// =================================================================================
-#include "ScriptEngine.h"
-#include "ScriptThread.h"
-#include "Natives.h"
-#include "Console.h"
-
-// =================================================================================
 // Script Binds 
 // =================================================================================
 namespace ScriptBinds
 {
-	void BindBlockedFunctions();
-
 	namespace GeneralFunctions
+	{
+		void Bind();
+	}
+
+	namespace ScriptHookBind
+	{
+		void Bind();
+	}
+
+	namespace NativeInvocation
+	{
+		void Bind();
+	}
+
+	namespace NativesWrapper
+	{
+		void Bind();
+	}
+
+	namespace Console
 	{
 		void Bind();
 	}

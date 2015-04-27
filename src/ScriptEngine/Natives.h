@@ -116,3 +116,15 @@ namespace Natives
 	};
 	extern std::vector<NativeReg*> Registered[_NATIVE_ENUM_SIZE + 1];
 }
+
+// =================================================================================
+// Native Register
+// =================================================================================
+typedef void(*Native_t)(int** pCallContext);
+struct NativeRegisterStruct
+{
+	NativeRegisterStruct* pNext;
+	Native_t pRegisteredNatives[7];
+	uint32_t uiEntryCount;
+	uint64_t uiHashes[7];
+};

@@ -14,6 +14,9 @@ public:
 	// Configuration file(s)
 	void LoadNativesINI();
 	void LoadCallLayoutsINI();
+
+	// Script Thread
+	void DoScriptThread();
 };
 
 // =================================================================================

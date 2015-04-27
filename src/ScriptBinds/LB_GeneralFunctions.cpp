@@ -43,6 +43,14 @@ bool LB_IsKeyCurrentlyDown(int vk)
 }
 
 // =================================================================================
+// IsKeyDown
+// =================================================================================
+bool LB_IsKeyDown(int vk)
+{
+	return (bool)(GetAsyncKeyState(vk) & 1);
+}
+
+// =================================================================================
 // Binds
 // =================================================================================
 void ScriptBinds::GeneralFunctions::Bind()
@@ -50,7 +58,9 @@ void ScriptBinds::GeneralFunctions::Bind()
 	luabind::module(lua->State())
 	[
 		luabind::def("type", LB_type),
-		luabind::def("IsKeyCurrentlyDown", LB_IsKeyCurrentlyDown)
+		// TODO: Change this
+		luabind::def("IsKeyCurrentlyDown", LB_IsKeyCurrentlyDown),
+		luabind::def("IsKeyDown", LB_IsKeyDown)
 	];
 
 	// like include

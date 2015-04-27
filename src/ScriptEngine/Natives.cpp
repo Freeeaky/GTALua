@@ -6,6 +6,16 @@
 #include "ScriptEngine.h"
 #include "Memory/Memory.h"
 #include "UTIL/UTIL.h"
+#include "thirdparty/ScriptHookV/ScriptHookV.h"
+
+// =================================================================================
+// ScriptHook Member 
+// =================================================================================
+ScriptHook::scriptRegister_t ScriptHook::RegisterScript = NULL;
+ScriptHook::scriptWait_t ScriptHook::ThreadWait = NULL;
+ScriptHook::nativeInit_t ScriptHook::InitNative = NULL;
+ScriptHook::nativePush64_t ScriptHook::NativePush64 = NULL;
+ScriptHook::nativeCall_t ScriptHook::CallNative = NULL;
 
 // =================================================================================
 // Category By Name 

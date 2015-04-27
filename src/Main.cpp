@@ -56,11 +56,9 @@ void GTALua::ProperInit()
 		// General
 		ScriptBinds::GeneralFunctions::Bind();
 		ScriptBinds::Console::Bind();
-		ScriptBinds::BindBlockedFunctions();
 
 		// Script Engine
-		ScriptBinds::Script_Engine::Bind();
-		ScriptBinds::ScriptThread::Bind();
+		ScriptBinds::ScriptHookBind::Bind();
 		ScriptBinds::NativesWrapper::Bind();
 		ScriptBinds::NativeInvocation::Bind();
 	}
@@ -80,4 +78,13 @@ void GTALua::ProperInit()
 		printf("[Lua] Failed to include main.lua! GTALua will not work properly!\n");
 		return;
 	}
+}
+
+// =================================================================================
+// ScriptThread 
+// =================================================================================
+void GTALua::DoScriptThread()
+{
+	lua->GetEvent("OnScriptThread");
+	lua->ProtectedCall(1);
 }
