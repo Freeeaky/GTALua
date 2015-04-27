@@ -4,11 +4,8 @@
 #include "Includes.h"
 #include "GTALua.h"
 #include "lua/Lua.h"
-#include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds.h"
-#include "Memory/Memory.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"
-
 using namespace ScriptBinds::ScriptThread;
 
 // =================================================================================
@@ -24,6 +21,9 @@ LuaScriptThread::~LuaScriptThread()
 	printf("LuaScriptThread::~\n");
 }
 
+// =================================================================================
+// Run 
+// =================================================================================
 void LuaScriptThread::Run()
 {
 	printf("[LuaScriptThread] Thread %s started\n", m_sName.c_str());
@@ -72,6 +72,10 @@ void LuaScriptThread::Run()
 	m_bActive = false;
 	printf("[LuaScriptThread] Thread %s quit\n", m_sName.c_str());
 }
+
+// =================================================================================
+// Wait 
+// =================================================================================
 void LuaScriptThread::Wait(DWORD uiTime)
 {
 	if (!m_bActive)
@@ -80,6 +84,14 @@ void LuaScriptThread::Wait(DWORD uiTime)
 	}
 	
 	ScriptHook::ThreadWait(uiTime);
+}
+
+// =================================================================================
+// Kill 
+// =================================================================================
+void LuaScriptThread::Kill()
+{
+	m_bActive = false;
 }
 
 // =================================================================================
@@ -95,5 +107,6 @@ void ScriptBinds::ScriptThread::Bind()
 		.def("GetName", &LuaScriptThread::GetName)
 		.def("IsActive", &LuaScriptThread::IsActive)
 		.def("Wait", &LuaScriptThread::Wait)
+		.def("Kill", &LuaScriptThread::Kill)
 	];
 }

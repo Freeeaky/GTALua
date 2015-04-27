@@ -51,6 +51,7 @@ namespace ScriptBinds
 
 			// Thread Functions
 			void Wait(DWORD uiTime);
+			void Kill();
 
 		private:
 			string m_sName;
