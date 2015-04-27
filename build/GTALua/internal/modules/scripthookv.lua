@@ -8,10 +8,19 @@ end
 
 -- Kill Thread
 function scripthookv.KillThread(name)
+	-- Find
 	local thread = scripthookv.FindThread(name)
 	if thread then
 		thread:internal_Kill()
 		scripthookv.ThreadList[name] = nil
+	end
+	
+	-- Find in queue
+	-- Needed for AutoRefresh (in case file reloads before init)
+	for i,thread in pairs(scripthookv.RegisterThreadQueue) do
+		if thread:GetName() == name then
+			table.remove(scripthookv.RegisterThreadQueue, i)
+		end
 	end
 end
 
@@ -21,7 +30,11 @@ function scripthookv.RegisterThread(thread)
 	if not scripthookv.IsInitialized() then
 		table.insert(scripthookv.RegisterThreadQueue, thread)
 	else
-		scripthookv.internal_RegisterThread(thread)
+		if scripthookv.CanRegisterThreads() then
+			scripthookv.internal_RegisterThread(thread)
+		else
+			error("You can no longer register threads! Make sure that your script registers your thread on startup!")
+		end
 	end
 end
 

@@ -23,11 +23,10 @@ void LuaFunctions::include(std::string file)
 	char* sPath = const_cast<char*>(filepath.c_str());
 	lua->IncludeFile(sPath);
 
-	if (!lua->IsOnFileList(sPath))
+	/*if (!lua->IsOnFileList(sPath))
 		lua->AddToFileList(sPath);
 
-	// AutoRefresh will be added later :)
-	//LuaFunctions::Autorefresh::AddDirectory(filepath);
+	LuaFunctions::Autorefresh::AddDirectory(filepath);*/
 }
 
 // ====================================================================================================

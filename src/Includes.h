@@ -19,6 +19,7 @@ using namespace std;
 // Libraries 
 // =================================================================================
 #pragma comment(lib, "version.lib") // GameMemory Version Fetch
+#pragma comment(lib, "shlwapi.lib") // AutoRefresh
 
 // =================================================================================
 // Configuration 

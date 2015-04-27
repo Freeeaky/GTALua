@@ -1,11 +1,13 @@
 // =================================================================================
 // ScriptHookV
-// I'm importing them because the ASI loader is too slow
+// I'm importing the functions because the ASI loader is too slow
+// -> dinput8 is our loader
 // =================================================================================
 namespace ScriptHook
 {
 	// Initialized
 	extern bool IsInitialized;
+	extern bool CanRegisterThreads;
 	bool Initialize();
 
 	// Register Script

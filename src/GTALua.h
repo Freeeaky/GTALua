@@ -5,7 +5,12 @@ class GTALua
 {
 public:
 	GTALua();
+	~GTALua();
 	void ProperInit();
+
+	// Update
+	void Update();
+	void UpdateLoop();
 
 	// Game Version
 	bool VersionCheck();

@@ -15,10 +15,20 @@ LuaScriptThread::LuaScriptThread(string sName)
 {
 	m_sName = sName;
 	m_bActive = false;
+	m_bResetting = false;
 }
 LuaScriptThread::~LuaScriptThread()
 {
 	printf("LuaScriptThread::~\n");
+}
+
+// =================================================================================
+// Resest 
+// =================================================================================
+struct ScriptThreadReset : public std::exception {};
+void LuaScriptThread::Reset()
+{
+	m_bResetting = true;
 }
 
 // =================================================================================
@@ -49,6 +59,9 @@ void LuaScriptThread::Run()
 	{
 		call<void>("Run");
 	}
+	catch (ScriptThreadReset) {
+		// Do nothing
+	}
 	catch (luabind::error& e) {
 		printf("[LuaScriptThread] Thread %s:Run caused an error!\n", m_sName.c_str());
 
@@ -68,6 +81,15 @@ void LuaScriptThread::Run()
 		printf("LuaScriptThread] Thread %s:Run caused an error: (unknown exception thrown)\n", m_sName.c_str());
 	}
 
+	// Handle Reset
+	if (m_bResetting && m_bActive)
+	{
+		m_bResetting = false;
+		printf("[LuaScriptThread] Thread %s reset\n", m_sName.c_str());
+		Run();
+		return;
+	}
+
 	// Exit Message
 	m_bActive = false;
 	printf("[LuaScriptThread] Thread %s quit\n", m_sName.c_str());
@@ -78,10 +100,10 @@ void LuaScriptThread::Run()
 // =================================================================================
 void LuaScriptThread::Wait(DWORD uiTime)
 {
+	if (m_bResetting)
+		throw ScriptThreadReset();
 	if (!m_bActive)
-	{
 		throw LuaException("ScriptThread:Wait called on an invalid thread!");
-	}
 	
 	ScriptHook::ThreadWait(uiTime);
 }
@@ -92,6 +114,7 @@ void LuaScriptThread::Wait(DWORD uiTime)
 void LuaScriptThread::Kill()
 {
 	m_bActive = false;
+	m_bResetting = false;
 }
 
 // =================================================================================
@@ -99,13 +122,13 @@ void LuaScriptThread::Kill()
 // =================================================================================
 void ScriptBinds::ScriptThread::Bind()
 {
-	// TODO: Add ability to register own threads
 	luabind::module(lua->State())
 	[
 		luabind::class_<LuaScriptThread>("CScriptThread")
 		.def(luabind::constructor<string>())
 		.def("GetName", &LuaScriptThread::GetName)
-		.def("IsActive", &LuaScriptThread::IsActive)
+		.def("IsRunning", &LuaScriptThread::IsRunning) // is running
+		.def("IsActive", &LuaScriptThread::IsActive) // is valid in general
 		.def("Wait", &LuaScriptThread::Wait)
 		.def("internal_Kill", &LuaScriptThread::Kill)
 	];

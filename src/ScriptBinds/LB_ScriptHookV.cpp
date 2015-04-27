@@ -34,6 +34,8 @@ void LB_InitNative(Natives::NativeReg* pNative)
 vector<ScriptBinds::ScriptThread::LuaScriptThread*> vScriptThreadQueue;
 void Lua_StartThread()
 {
+	ScriptHook::CanRegisterThreads = false;
+
 	printf("Lua_StartThread\n");
 	ScriptBinds::ScriptThread::LuaScriptThread* pScriptThread = vScriptThreadQueue.at(0);
 	vScriptThreadQueue.erase(vScriptThreadQueue.begin());
@@ -46,16 +48,22 @@ void Lua_StartThread()
 // =================================================================================
 void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 {
+	printf("Register Thread\n");
+
 	vScriptThreadQueue.push_back(pThread);
 	ScriptHook::RegisterScript(GetModuleHandle("GTALua.dll"), Lua_StartThread);
 }
 
 // =================================================================================
-// Initialized-Check
+// State Check
 // =================================================================================
 bool LB_IsInitialized()
 {
 	return ScriptHook::IsInitialized;
+}
+bool LB_CanRegisterThreads()
+{
+	return ScriptHook::CanRegisterThreads;
 }
 
 // =================================================================================
@@ -67,6 +75,7 @@ void ScriptBinds::ScriptHookBind::Bind()
 	luabind::module(lua->State(), "scripthookv")
 	[
 		luabind::def("IsInitialized", LB_IsInitialized),
+		luabind::def("CanRegisterThreads", LB_CanRegisterThreads),
 
 		luabind::def("internal_RegisterThread", LB_RegisterThread),
 		luabind::def("ThreadSleep", LB_ThreadSleep),

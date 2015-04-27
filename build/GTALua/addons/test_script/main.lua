@@ -1,11 +1,13 @@
 -- test_script
-thread = ScriptThread("test_script")
+local thread = ScriptThread("test_script")
+
+print("h")
 
 -- Run
 function thread:Run()
 	print("test_script:Run")
 	
-	while self:IsActive() do
+	while self:IsRunning() do
 		-- Spawn Taxi
 		if IsKeyDown(0x78) then -- F9
 			-- Note: Taxi model is always loaded, no need to load it first
@@ -17,7 +19,11 @@ function thread:Run()
 		-- Wait
 		self:Wait(50)
 	end
+	
+	print("oh no!")
 end
 
+print("HELLO MATE ?")
+ 
 -- Register Thread
-thread:Register()
+thread:Register()  

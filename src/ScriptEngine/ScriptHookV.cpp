@@ -17,6 +17,7 @@ ScriptHook::nativeInit_t ScriptHook::InitNative = NULL;
 ScriptHook::nativePush64_t ScriptHook::NativePush64 = NULL;
 ScriptHook::nativeCall_t ScriptHook::CallNative = NULL;
 bool ScriptHook::IsInitialized = false;
+bool ScriptHook::CanRegisterThreads = false;
 
 // =================================================================================
 // Init ScriptHookV 
@@ -52,5 +53,6 @@ bool ScriptHook::Initialize()
 
 	// Mark as initialized
 	IsInitialized = true;
+	CanRegisterThreads = true;
 	return true;
 }

@@ -8,6 +8,7 @@
 #include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds/ScriptBinds.h"
 #include "UTIL/UTIL.h"
+#include "thirdparty/SimpleFileWatcher/include/FileWatcher.h"
 
 // =================================================================================
 // Init 
@@ -29,6 +30,10 @@ GTALua::GTALua()
 	LoadNativesINI();
 	LoadCallLayoutsINI();
 }
+GTALua::~GTALua()
+{
+	
+}
 
 // =================================================================================
 // Init 
@@ -48,6 +53,10 @@ void GTALua::ProperInit()
 	// Initialize Lua
 	lua = new LuaManager();
 	lua->Init();
+
+	/*// Initialize AutoRefresh
+	LuaFunctions::Autorefresh::Init();
+	LuaFunctions::Autorefresh::Update();*/
 
 	// Script Binds
 	try
@@ -95,4 +104,28 @@ void GTALua::ProperInit()
 
 	// Success
 	printf("[GTALua] Successfully initialized!\n\n");
+}
+
+// =================================================================================
+// Update 
+// =================================================================================
+void GTALua::Update()
+{
+	// AutoRefresh
+	/*if (LuaFunctions::Autorefresh::IsInitialized())
+		LuaFunctions::Autorefresh::Update();*/
+}
+
+// =================================================================================
+// Update Loop 
+// =================================================================================
+void GTALua::UpdateLoop()
+{
+	/*while (true)
+	{
+		if (lua != NULL)
+		{
+			Update();
+		}
+	}*/
 }

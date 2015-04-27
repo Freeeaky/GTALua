@@ -1,91 +1,106 @@
-// ====================================================================================================
-// Includes
-// ====================================================================================================
-#include "../../Includes.h"
+// =================================================================================
+// Includes 
+// =================================================================================
+#include "../Includes.h"
+#include "Lua.h"
 #include "GeneralFunctions.h"
 #include "ClassWrappers.h"
-#include "FileWatcher/FileWatcher.h"
+#include "thirdparty/SimpleFileWatcher/include/FileWatcher.h"
 #include "Shlwapi.h"
-#pragma comment(lib,"shlwapi.lib")
+#include "UTIL/UTIL.h"
 
-// ====================================================================================================
-// Init Auto Refresh
-// ====================================================================================================
-namespace LuaFunctions
+// =================================================================================
+// Globals 
+// =================================================================================
+using namespace LuaFunctions;
+FW::FileWatcher* Autorefresh::pFileWatcher = NULL;
+Autorefresh::UpdateListener* Autorefresh::pListener = NULL;
+vector<string> Autorefresh::vRegisteredDirectories;
+
+// =================================================================================
+// Update Listener 
+// =================================================================================
+class Autorefresh::UpdateListener : public FW::FileWatchListener
 {
-	namespace Autorefresh
+public:
+	UpdateListener()
 	{
-		class UpdateListener : public FW::FileWatchListener
+	}
+
+	void handleFileAction(FW::WatchID watchid, const string& dir, const string& filename, FW::Action action)
+	{
+		char fullpath_c[712];
+		sprintf(fullpath_c, "%s/%s", dir.c_str(), filename.c_str());
+		std::string fullpath(fullpath_c);
+		UTIL::ParseFilePath(fullpath);
+
+		if (action == FW::Actions::Modified)
 		{
-		public:
-			UpdateListener()
+			char* path = const_cast<char*>(fullpath.c_str());
+
+			if (lua->IsOnFileList(path) && m_sLastFile != path)
 			{
+				lua->IncludeFile(path);
+				m_sLastFile = path;
 			}
-
-			void handleFileAction(FW::WatchID watchid, const std::string& dir, const std::string& filename, FW::Action action)
-			{
-				char fullpath_c[712];
-				sprintf(fullpath_c, "%s/%s", dir.c_str(), filename.c_str());
-				std::string fullpath(fullpath_c);
-				UTIL::ParseFilePath(fullpath);
-
-				if (action == FW::Actions::Modified)
-				{
-					if (lua->IsOnFileList(const_cast<char*>(fullpath.c_str())))
-					{
-						printf("[Lua] Reloaded %s\n", fullpath.c_str());
-						lua->IncludeFile(const_cast<char*>(fullpath.c_str()));
-						//lua->Pop();
-						m_sLastFile = fullpath;
-					}
-				}
-			}
-
-		private:
-			std::string m_sLastFile;
-		};
-
-		UpdateListener* listener = NULL;
-		FW::FileWatcher* fileWatcher = NULL;
-
-		void Init()
-		{
-			fileWatcher = new FW::FileWatcher();
-			listener = new UpdateListener();
-			fileWatcher->addWatch("lua/", listener);
-			Update();
-		}
-		void Update()
-		{
-			if (fileWatcher != NULL)
-				fileWatcher->update();
-			else
-				printf("[Lua] LuaFunctions::Autorefresh::Update called too early!\n");
-		}
-		std::string SplitFilename(const std::string& str)
-		{
-			size_t found;
-			found = str.find_last_of("/");
-			return str.substr(0, found);
-		}
-		std::vector<std::string> vecRegisteredDirectories;
-		void AddDirectory(std::string path)
-		{
-			UTIL::ParseFilePath(path);
-			std::string fn = SplitFilename(path);
-			for (std::vector<std::string>::iterator it = vecRegisteredDirectories.begin(); it != vecRegisteredDirectories.end(); ++it)
-			{
-				if (*it == fn)
-					return;
-			}
-
-			vecRegisteredDirectories.push_back(fn);
-			fileWatcher->addWatch(fn, listener);
-		}
-		void Destroy()
-		{
-			delete fileWatcher;
-			fileWatcher = NULL;
 		}
 	}
+
+	string m_sLastFile;
+};
+
+// =================================================================================
+// Init 
+// =================================================================================
+void Autorefresh::Init()
+{
+	pFileWatcher = new FW::FileWatcher();
+	pListener = new UpdateListener(); 
+}
+bool Autorefresh::IsInitialized()
+{
+	return pFileWatcher != NULL &&
+		pListener != NULL;
+}
+
+// =================================================================================
+// Update 
+// =================================================================================
+void Autorefresh::Update()
+{
+	if (IsInitialized())
+	{
+		pListener->m_sLastFile = string("");
+		pFileWatcher->update();
+	}
+	else
+		printf("[Lua] LuaFunctions::Autorefresh::Update called too early!\n");
+}
+
+// =================================================================================
+// Add Directory 
+// =================================================================================
+void Autorefresh::AddDirectory(string path)
+{
+	// Check if already registered
+	UTIL::ParseFilePath(path);
+	string fn = UTIL::SplitFilename(path);
+	for (vector<string>::iterator it = vRegisteredDirectories.begin(); it != vRegisteredDirectories.end(); ++it)
+	{
+		if (*it == fn)
+			return;
+	}
+
+	// Add
+	vRegisteredDirectories.push_back(fn);
+	pFileWatcher->addWatch(fn, pListener);
+}
+
+// =================================================================================
+// Destroy 
+// =================================================================================
+void Autorefresh::Destroy()
+{
+	delete pFileWatcher;
+	pFileWatcher = NULL;
 }

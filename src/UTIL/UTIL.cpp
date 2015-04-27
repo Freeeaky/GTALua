@@ -1,12 +1,12 @@
-// ====================================================================================================
-// Includes
-// ====================================================================================================
+// =================================================================================
+// Includes 
+// =================================================================================
 #include "Includes.h"
 #include "UTIL.h"
 
-// ====================================================================================================
-// Center
-// ====================================================================================================
+// =================================================================================
+// String 
+// =================================================================================
 void UTIL::ReplaceString(std::string& str, const std::string& from, const std::string& to)
 {
 	if (from.empty())
@@ -17,14 +17,6 @@ void UTIL::ReplaceString(std::string& str, const std::string& from, const std::s
 		start_pos += to.length();
 	}
 }
-void UTIL::ParseFilePath(std::string& path)
-{
-	ReplaceString(path, "\\", "/");
-	ReplaceString(path, "/\\", "/");
-	ReplaceString(path, "\\/", "/");
-	ReplaceString(path, "//", "/");
-}
-
 void UTIL::Lowercase(char* sText)
 {
 	for (char* it = sText; *it != '\0'; ++it)
@@ -40,4 +32,21 @@ void UTIL::Uppercase(char* sText)
 		*it = toupper(*it);
 		++it;
 	}
+}
+
+// =================================================================================
+// File Names 
+// =================================================================================
+string UTIL::SplitFilename(string& str)
+{
+	size_t found;
+	found = str.find_last_of("/");
+	return str.substr(0, found);
+}
+void UTIL::ParseFilePath(std::string& path)
+{
+	ReplaceString(path, "\\", "/");
+	ReplaceString(path, "/\\", "/");
+	ReplaceString(path, "\\/", "/");
+	ReplaceString(path, "//", "/");
 }
