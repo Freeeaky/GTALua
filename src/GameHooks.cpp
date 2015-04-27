@@ -73,6 +73,14 @@ void ScriptEngine__Init(DWORD64 ptr)
 	if (!hModule)
 		hModule = LoadLibrary("ScriptHookV.dll");
 
+	// ScriptHook Check
+	if (!hModule)
+	{
+		// ScriptHook is not installed
+		printf("[GTALua] ScriptHookV is not installed! GTALua will NOT work without it!\n");
+		return;
+	}
+
 	// ScriptHook
 	ScriptHook::RegisterScript = (ScriptHook::scriptRegister_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x48\x8B\xC4\x57", "xxxx");
 	ScriptHook::ThreadWait = (ScriptHook::scriptWait_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x40\x57\x48\x83\xEC\x20\x65\x4C\x8B\x0C\x25\x00\x00\x00\x00", "xxxxxxxxxxx????");
