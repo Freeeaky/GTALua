@@ -70,7 +70,8 @@ void LuaManager::Call(int narg, int nresults)
 		char* err = GetString();
 		if (err == NULL)
 			err = "(unknown error)";
-		throw LuaException(err);
+		lua->PushString(err);
+		throw luabind::error(lua->State());
 	}
 }
 bool LuaManager::ProtectedCall(int narg, int nresults)
@@ -79,15 +80,11 @@ bool LuaManager::ProtectedCall(int narg, int nresults)
 	{
 		Call(narg, nresults);
 	}
-	catch (LuaException& e)
+	catch (luabind::error e)
 	{
 		m_bSuccess = false;
-		PrintErrorMessage(const_cast<char*>(e.what()), true, true);
-	}
-	catch (luabind::error& e)
-	{
-		m_bSuccess = false;
-		PrintErrorMessage(const_cast<char*>(e.what()), true, false);
+		PrintErrorMessage(lua->GetString(), true, true);
+		lua->Pop();
 	}
 	catch (...)
 	{
@@ -151,8 +148,8 @@ int LuaPanicHandler(lua_State* L)
 	lua->Remove(-3);
 	lua->Remove(-2);
 
-	std::string msgs = msg;
-	throw LuaException(msgs);
+	lua->PushString(msg);
+	throw luabind::error(lua->State());
 
 	return 0;
 }
@@ -172,7 +169,7 @@ void LuaManager::CheckForLuaErrors(int iErrorIndex)
 		lua->Remove(-3);
 		lua->Remove(-2);
 
-		throw LuaException(msg, lua->GetString());
+		throw luabind::error(m_pState);
 	}
 }
 

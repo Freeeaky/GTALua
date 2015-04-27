@@ -78,19 +78,6 @@ private:
 // ====================================================================================================
 int LuaPanicHandler(lua_State* L);
 
-struct LuaException : public std::exception
-{
-	std::string m_sError;
-	std::string m_sTraceback;
-	LuaException(std::string err) : m_sError(err) {}
-	LuaException(std::string err, std::string trace) : m_sError(err), m_sTraceback(trace) {}
-	~LuaException() throw () {}
-
-	const char* what() const throw() { return m_sError.c_str(); }
-	std::string error() { return m_sError; }
-	std::string traceback() { return m_sTraceback;  }
-};
-
 extern LuaManager* lua;
 
 #endif

@@ -28,7 +28,7 @@ LuaScriptThread::~LuaScriptThread()
 struct ScriptThreadReset : public std::exception {};
 void LuaScriptThread::Reset()
 {
-	if (!m_bActive)
+	if (m_bActive)
 		m_bResetting = true;
 }
 
@@ -72,10 +72,7 @@ void LuaScriptThread::Run()
 			lua->PrintErrorMessage(lua->GetString(-1), true, false);
 		else
 			lua->PrintErrorMessage(const_cast<char*>(e.what()), true, false);
-	}
-	catch (LuaException& e) {
-		printf("[LuaScriptThread] Thread %s:Run caused an error!\n", m_sName.c_str());
-		lua->PrintErrorMessage(const_cast<char*>(e.what()), true, true);
+		lua->Pop(1);
 	}
 	catch (std::exception& e) {
 		printf("[LuaScriptThread] Thread %s:Run caused an error: %s\n", m_sName.c_str(), e.what());
@@ -106,7 +103,10 @@ void LuaScriptThread::Wait(DWORD uiTime)
 	if (m_bActive && m_bResetting)
 		throw ScriptThreadReset();
 	if (!m_bActive)
-		throw LuaException("ScriptThread:Wait called on an invalid thread!");
+	{
+		lua->PushString("ScriptThread:Wait called on an invalid thread!");
+		throw luabind::error(lua->State());
+	}
 	
 	ScriptHook::ThreadWait(uiTime);
 }

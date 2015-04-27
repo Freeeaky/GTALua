@@ -107,9 +107,11 @@ void LuaManager::DumpStack() {
 				printf("%g", lua_tonumber(m_pState, index));
 			break;
 			default:
-				luabind::object obj(luabind::from_stack(m_pState, index));
-				string type_s = luabind::call_function<string, luabind::object>(m_pState, "type", obj);
-				printf("[type: %s]", type_s.c_str());
+				lua->GetGlobal("type");
+				lua->PushValue(index);
+				lua->ProtectedCall(1, 1);
+				printf("[type: %s]", lua->GetString());
+				lua->Pop(1);
 			break;
 		}
 		printf("\n");

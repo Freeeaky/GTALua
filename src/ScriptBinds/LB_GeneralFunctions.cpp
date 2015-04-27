@@ -13,13 +13,19 @@
 string LB_type(luabind::object obj)
 {
 	// check for table/userdata
-	if (lua->IsTable(1) || lua_isuserdata(lua->State(), 1))
+	int ttype = luabind::type(obj);
+	if (ttype == LUA_TTABLE || ttype == LUA_TUSERDATA)
 	{
 		// call member __type
 		const char* sType = NULL;
 		try
 		{
 			sType = luabind::call_member<const char*>(obj, "__type");
+		}
+		catch (luabind::error e)
+		{
+			lua->Pop(1);
+			sType = NULL;
 		}
 		catch (...) {
 			sType = NULL;
@@ -31,7 +37,8 @@ string LB_type(luabind::object obj)
 	}
 
 	// call typename
-	return lua_typename(lua->State(), lua_type(lua->State(), 1));
+	const char* t = lua_typename(lua->State(), ttype);
+	return t;
 }
 
 // =================================================================================

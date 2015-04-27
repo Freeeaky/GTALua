@@ -19,14 +19,20 @@ void LuaFunctions::include(std::string file)
 	sprintf(path, "%s%s", currentpath, file.c_str());
 	std::string filepath(path);
 	UTIL::ParseFilePath(filepath);
+	
+	// Load File
+	int status = luaL_loadfile(lua->State(), const_cast<char*>(filepath.c_str()));
 
-	char* sPath = const_cast<char*>(filepath.c_str());
-	lua->IncludeFile(sPath);
+	// Check for errors
+	if (status != 0)
+	{
+		throw luabind::error(lua->State());
+		return;
+	}
 
-	/*if (!lua->IsOnFileList(sPath))
-		lua->AddToFileList(sPath);
-
-	LuaFunctions::Autorefresh::AddDirectory(filepath);*/
+	// Execute File
+	bool bStatus = lua->ProtectedCall(0, LUA_MULTRET);
+	lua->Pop();
 }
 
 // ====================================================================================================
