@@ -42,12 +42,20 @@ void Lua_StartThread()
 }
 
 // =================================================================================
-// Create Thread 
+// Register Thread 
 // =================================================================================
-void LB_CreateThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
+void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 {
 	vScriptThreadQueue.push_back(pThread);
 	ScriptHook::RegisterScript(GetModuleHandle("GTALua.dll"), Lua_StartThread);
+}
+
+// =================================================================================
+// Initialized-Check
+// =================================================================================
+bool LB_IsInitialized()
+{
+	return ScriptHook::IsInitialized;
 }
 
 // =================================================================================
@@ -58,7 +66,9 @@ void ScriptBinds::ScriptHookBind::Bind()
 	// TODO: Add ability to register own threads
 	luabind::module(lua->State(), "scripthookv")
 	[
-		luabind::def("CreateThread", LB_CreateThread),
+		luabind::def("IsInitialized", LB_IsInitialized),
+
+		luabind::def("internal_RegisterThread", LB_RegisterThread),
 		luabind::def("ThreadSleep", LB_ThreadSleep),
 		luabind::def("InitNative", LB_InitNative),
 		luabind::def("NativePushInt", ScriptHook::PushValue<int>),

@@ -16,6 +16,7 @@ ScriptHook::scriptWait_t ScriptHook::ThreadWait = NULL;
 ScriptHook::nativeInit_t ScriptHook::InitNative = NULL;
 ScriptHook::nativePush64_t ScriptHook::NativePush64 = NULL;
 ScriptHook::nativeCall_t ScriptHook::CallNative = NULL;
+bool ScriptHook::IsInitialized = false;
 
 // =================================================================================
 // Category By Name 

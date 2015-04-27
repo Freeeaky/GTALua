@@ -4,8 +4,7 @@ thread = ScriptThread("test_script")
 function thread:Run()
 	print("Lua: thread:Run()")
 	
-	while true do
-		print("still alive")
+	while self:IsActive() do
 		if IsKeyDown(0x78) then
 			print("ok!")
 			local localplayer = natives.PLAYER.GET_PLAYER_PED(-1)
@@ -17,10 +16,9 @@ function thread:Run()
 			local r = natives.VEHICLE.CREATE_VEHICLE(0xC703DB5F, vec.x, vec.y, vec.z, 0.0, true, true)
 			print("r: ", r)
 		end
-		scripthookv.ThreadSleep(50)
+		
+		self:Wait(50)
 	end
 end
 
-event.AddListener("OnScriptEngineInitialized", "Addmy", function()
-	scripthookv.CreateThread(thread)
-end)
+thread:Register()

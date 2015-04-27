@@ -91,6 +91,9 @@ void ScriptEngine__Init(DWORD64 ptr)
 		return;
 	}
 
+	// Mark as initialized
+	ScriptHook::IsInitialized = true;
+
 	// Lua Callback
 	lua->GetEvent("OnScriptEngineInitialized");
 	lua->ProtectedCall(1);

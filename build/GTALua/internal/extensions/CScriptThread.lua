@@ -16,3 +16,8 @@ end
 function CScriptThread:Kill()
 	scripthookv.FindThread(self:GetName())
 end
+
+-- Register Thread
+function CScriptThread:Register()
+	scripthookv.RegisterThread(self)
+end
