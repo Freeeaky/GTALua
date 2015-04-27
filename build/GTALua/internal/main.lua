@@ -1,9 +1,11 @@
 -- Module
 include("modules/event.lua")
 include("modules/addon.lua")
+include("modules/scripthookv.lua")
 
 -- Extensions
 include("extensions/CNativeReg.lua")
+include("extensions/CScriptThread.lua")
 
 -- Main
 function _main()

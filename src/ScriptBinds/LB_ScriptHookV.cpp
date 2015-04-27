@@ -27,6 +27,10 @@ void LB_InitNative(Natives::NativeReg* pNative)
 	ScriptHook::InitNative(pNative->hHash);
 }
 
+// =================================================================================
+// Start Lua Thread
+// Called from ScriptHookV
+// =================================================================================
 vector<ScriptBinds::ScriptThread::LuaScriptThread*> vScriptThreadQueue;
 void Lua_StartThread()
 {
@@ -37,6 +41,9 @@ void Lua_StartThread()
 	pScriptThread->Run();
 }
 
+// =================================================================================
+// Create Thread 
+// =================================================================================
 void LB_CreateThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 {
 	vScriptThreadQueue.push_back(pThread);

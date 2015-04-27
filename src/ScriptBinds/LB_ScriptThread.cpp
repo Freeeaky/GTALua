@@ -102,11 +102,11 @@ void ScriptBinds::ScriptThread::Bind()
 	// TODO: Add ability to register own threads
 	luabind::module(lua->State())
 	[
-		luabind::class_<LuaScriptThread>("ScriptThread")
+		luabind::class_<LuaScriptThread>("CScriptThread")
 		.def(luabind::constructor<string>())
 		.def("GetName", &LuaScriptThread::GetName)
 		.def("IsActive", &LuaScriptThread::IsActive)
 		.def("Wait", &LuaScriptThread::Wait)
-		.def("Kill", &LuaScriptThread::Kill)
+		.def("internal_Kill", &LuaScriptThread::Kill)
 	];
 }
