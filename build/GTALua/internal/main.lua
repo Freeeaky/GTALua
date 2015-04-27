@@ -19,11 +19,17 @@ function _main()
 	end
 	
 	-- Load Addons
+	print("")
 	for _,addon_name in pairs(dir_list) do
-		print("Loading addon ", addon_name, "...")
-		addon.Load(addon_name)
-		print("")
+		-- Do not load addons that start with "_"
+		if addon_name:sub(1,1) == "_" then
+			print("Ignored addon ", addon_name)
+		else
+			print("Loading addon ", addon_name, "...")
+			addon.Load(addon_name)
+		end
 	end
+	print("")
 	
 	-- Success
 	return true

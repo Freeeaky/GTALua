@@ -45,4 +45,8 @@ namespace ScriptHook
 	{
 		return *reinterpret_cast<T *>(CallNative());
 	}
+	static inline void CallVoid()
+	{
+		CallNative();
+	}
 }

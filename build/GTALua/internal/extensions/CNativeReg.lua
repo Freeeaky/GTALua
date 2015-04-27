@@ -86,7 +86,10 @@ function CNativeReg:__call(...)
 	-- call & return
 	local c_type = scripthookv.TypeTable[return_value]
 	
-	if return_value == "i" or return_value == "a" or return_value == "u" then
+	if is_void then
+		scripthookv.NativeCall_Void()
+		return
+	elseif return_value == "i" or return_value == "a" or return_value == "u" then
 		return scripthookv.NativeCall_GetInt()
 	elseif return_value == "f" then
 		return scripthookv.NativeCall_GetFloat()

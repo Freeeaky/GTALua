@@ -92,6 +92,7 @@ void ScriptBinds::ScriptHookBind::Bind()
 		luabind::def("NativeCall_GetInt", ScriptHook::Call<int>),
 		luabind::def("NativeCall_GetFloat", ScriptHook::Call<float>),
 		luabind::def("NativeCall_GetVector", ScriptHook::Call<rage::CVector>),
-		luabind::def("NativeCall_GetBool", ScriptHook::Call<bool>)
+		luabind::def("NativeCall_GetBool", ScriptHook::Call<bool>),
+		luabind::def("NativeCall_Void", ScriptHook::CallVoid)
 	];
 }
