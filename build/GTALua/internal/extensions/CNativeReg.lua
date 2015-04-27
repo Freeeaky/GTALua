@@ -11,6 +11,7 @@ function CNativeReg:HasCallLayout()
 end
 
 -- Types
+-- TODO: Put this somewhere else
 scripthookv.TypeTable = {
 	i = "number",
 	f = "number",

@@ -1,7 +1,4 @@
--- Includes
-include("modules/event.lua")
-include("modules/natives.lua")
-
+-- test_script
 event.AddListener("OnScriptThread", "MyScriptThread", function()
 	print("Lua!")
 	

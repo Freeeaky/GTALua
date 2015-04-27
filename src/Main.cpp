@@ -55,6 +55,7 @@ void GTALua::ProperInit()
 		// General
 		ScriptBinds::GeneralFunctions::Bind();
 		ScriptBinds::Console::Bind();
+		ScriptBinds::FileModule::Bind();
 
 		// Script Engine
 		ScriptBinds::ScriptHookBind::Bind();
@@ -72,11 +73,27 @@ void GTALua::ProperInit()
 	}
 
 	// Include main.lua
-	if (!lua->IncludeFile("GTALua/lua/main.lua"))
+	if (!lua->IncludeFile("GTALua/internal/main.lua"))
 	{
 		printf("[Lua] Failed to include main.lua! GTALua will not work properly!\n");
 		return;
 	}
+
+	// Run _main
+	lua->GetGlobal("_main");
+	if (!lua->ProtectedCall(0, 1))
+	{
+		printf("[Lua] Failed to run _main! GTALua will not work properly!\n");
+		return;
+	}
+	if (!lua->GetBool())
+	{
+		printf("[GTALua] Failed to initialize!\n");
+		return;
+	}
+
+	// Success
+	printf("[GTALua] Successfully initialized!\n\n");
 }
 
 // =================================================================================

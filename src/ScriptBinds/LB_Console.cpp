@@ -12,8 +12,6 @@
 // =================================================================================
 int console_Log(lua_State* L)
 {
-	printf("[Lua] ");
-
 	int iArgumentCount = lua->Top();
 	for (int i = 1; i <= iArgumentCount; i++)
 	{

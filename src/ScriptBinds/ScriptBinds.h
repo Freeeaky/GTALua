@@ -27,4 +27,9 @@ namespace ScriptBinds
 	{
 		void Bind();
 	}
+
+	namespace FileModule
+	{
+		void Bind();
+	}
 }

@@ -58,6 +58,11 @@ int main()
 	lua->GetEvent("OnScriptEngineInitialized");
 	lua->ProtectedCall(1);
 
+	// Script Thread
+	printf("[GTALua EXE] Script Thread..\n");
+	g_pGTALua->DoScriptThread();
+
+	// Done
 	return 0;
 }
 #endif
