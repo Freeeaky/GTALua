@@ -54,7 +54,6 @@ namespace ScriptBinds
 			void Wait(DWORD uiTime);
 			void Kill();
 			void Reset();
-
 		private:
 			string m_sName;
 			bool m_bActive;

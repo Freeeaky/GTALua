@@ -50,3 +50,15 @@ void UTIL::ParseFilePath(std::string& path)
 	ReplaceString(path, "\\/", "/");
 	ReplaceString(path, "//", "/");
 }
+vector<string> UTIL::SplitString(string str, string del)
+{
+	string temp;
+	vector<string> res;
+	while (temp != str)
+	{
+		temp = str.substr(0, str.find_first_of(del));
+		str = str.substr(str.find_first_of(del) + 1);
+		res.push_back(temp);
+	}
+	return res;
+}

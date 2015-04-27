@@ -28,7 +28,8 @@ LuaScriptThread::~LuaScriptThread()
 struct ScriptThreadReset : public std::exception {};
 void LuaScriptThread::Reset()
 {
-	m_bResetting = true;
+	if (!m_bActive)
+		m_bResetting = true;
 }
 
 // =================================================================================
@@ -37,6 +38,8 @@ void LuaScriptThread::Reset()
 void LuaScriptThread::Run()
 {
 	printf("[LuaScriptThread] Thread %s started\n", m_sName.c_str());
+
+	// Flag
 	m_bActive = true;
 
 	// Check if callback is present
@@ -100,7 +103,7 @@ void LuaScriptThread::Run()
 // =================================================================================
 void LuaScriptThread::Wait(DWORD uiTime)
 {
-	if (m_bResetting)
+	if (m_bActive && m_bResetting)
 		throw ScriptThreadReset();
 	if (!m_bActive)
 		throw LuaException("ScriptThread:Wait called on an invalid thread!");
@@ -130,6 +133,7 @@ void ScriptBinds::ScriptThread::Bind()
 		.def("IsRunning", &LuaScriptThread::IsRunning) // is running
 		.def("IsActive", &LuaScriptThread::IsActive) // is valid in general
 		.def("Wait", &LuaScriptThread::Wait)
+		.def("Reset", &LuaScriptThread::Reset)
 		.def("internal_Kill", &LuaScriptThread::Kill)
 	];
 }

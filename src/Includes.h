@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <vector>
+#include <iostream>
+#include <string>
 
 using namespace std;
 

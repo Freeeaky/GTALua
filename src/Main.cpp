@@ -20,6 +20,7 @@ GTALua::GTALua()
 	AllocConsole();
 	AttachConsole(GetCurrentProcessId());
 	freopen("CON", "w", stdout); 
+	freopen("CONIN$", "r", stdin);
 #endif
 
 	// Prepare Memory
@@ -114,6 +115,9 @@ void GTALua::Update()
 	// AutoRefresh
 	/*if (LuaFunctions::Autorefresh::IsInitialized())
 		LuaFunctions::Autorefresh::Update();*/
+
+	// Console Input
+	ProcessConsoleInput();
 }
 
 // =================================================================================
@@ -121,11 +125,8 @@ void GTALua::Update()
 // =================================================================================
 void GTALua::UpdateLoop()
 {
-	/*while (true)
+	while (true)
 	{
-		if (lua != NULL)
-		{
-			Update();
-		}
-	}*/
+		Update();
+	}
 }

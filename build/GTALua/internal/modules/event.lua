@@ -14,12 +14,15 @@ function event.AddListener(event_name, listener_name, callback)
 end
 
 -- Call Event Listener
--- This function calls ALL event listeners
+-- This function calls ALL event listeners UNTIL a value is returned != nil
 function event.Call(event_name, ...)
 	if event.Listener[event_name] == nil then return end
 	
 	for k,v in pairs(event.Listener[event_name]) do
-		v(...)
+		local rv = v(...)
+		if rv ~= nil then
+			return rv
+		end
 	end
 end
 

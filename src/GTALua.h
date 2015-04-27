@@ -11,6 +11,7 @@ public:
 	// Update
 	void Update();
 	void UpdateLoop();
+	void ProcessConsoleInput();
 
 	// Game Version
 	bool VersionCheck();

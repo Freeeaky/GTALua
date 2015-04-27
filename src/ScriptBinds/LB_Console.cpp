@@ -26,7 +26,7 @@ int console_Log(lua_State* L)
 		{
 			double num = lua_tonumber(L, i);
 			if (num == (int)num)
-				printf("%i", lua_tointeger(L, num));
+				printf("%i", (int)(num)); 
 			else
 				printf("%f", num);
 			break;
