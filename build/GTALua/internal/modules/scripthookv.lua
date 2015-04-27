@@ -32,4 +32,7 @@ event.AddListener("OnScriptEngineInitialized", "internal_RegisterQueuedThreads",
 	for _,thread in pairs(scripthookv.RegisterThreadQueue) do
 		scripthookv.RegisterThread(thread)
 	end
+	
+	-- Clean Queue
+	scripthookv.RegisterThreadQueue = {}
 end)

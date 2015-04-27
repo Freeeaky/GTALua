@@ -96,12 +96,3 @@ void GTALua::ProperInit()
 	// Success
 	printf("[GTALua] Successfully initialized!\n\n");
 }
-
-// =================================================================================
-// ScriptThread 
-// =================================================================================
-void GTALua::DoScriptThread()
-{
-	lua->GetEvent("OnScriptThread");
-	lua->ProtectedCall(1);
-}

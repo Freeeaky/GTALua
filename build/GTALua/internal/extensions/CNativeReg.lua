@@ -26,7 +26,6 @@ scripthookv.TypeTable = {
 -- Call Native by Call Layout
 function CNativeReg:__call(...)
 	local function _err(msg)
-		print("CNativeReg:Call ["..self.m_sCategory.."/"..self.m_sName.."] "..msg)
 		error("CNativeReg:Call ["..self.m_sCategory.."/"..self.m_sName.."] "..msg)
 	end
 
@@ -86,7 +85,6 @@ function CNativeReg:__call(...)
 		local value, type_char = native_args[i][1], native_args[i][2]
 		local c_type = scripthookv.TypeTable[type_char]
 		
-		print("push arg")
 		if type_char == "i" or type_char == "a" or type_char == "u"  then
 			scripthookv.NativePushInt(value)
 		elseif type_char == "f" then
@@ -102,16 +100,12 @@ function CNativeReg:__call(...)
 	local c_type = scripthookv.TypeTable[return_value]
 	
 	if return_value == "i" or return_value == "a" or return_value == "u" then
-		print("get int")
 		return scripthookv.NativeCall_GetInt()
 	elseif return_value == "f" then
-		print("get float")
 		return scripthookv.NativeCall_GetFloat()
 	elseif c_type == "Vector" then
-		print("get vector")
 		return scripthookv.NativeCall_GetVector()
 	elseif c_type == "boolean" then
-		print("get bool")
 		return scripthookv.NativeCall_GetBool()
 	end
 	

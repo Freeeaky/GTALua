@@ -6,6 +6,7 @@ namespace ScriptHook
 {
 	// Initialized
 	extern bool IsInitialized;
+	bool Initialize();
 
 	// Register Script
 	typedef void(*scriptRegister_t)(HMODULE module, void(*LP_SCRIPT_MAIN)());
