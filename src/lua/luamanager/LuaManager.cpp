@@ -20,7 +20,7 @@ void LuaManager::Init()
 	if (m_pState == NULL)
 	{
 		m_bSuccess = false;
-		printf("[LuaManager] luaL_newstate Failed: NULL pointer\n");
+		printf("\n[LuaManager] luaL_newstate Failed: NULL pointer\n");
 		return;
 	}
 
@@ -34,7 +34,7 @@ void LuaManager::Init()
 	luabind::open(m_pState);
 
 	// Done
-	printf("[LuaManager] Initialized Lua successfully\n");
+	printf("\n[LuaManager] Initialized Lua successfully\n");
 	m_bSuccess = true;
 }
 

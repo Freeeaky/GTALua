@@ -8,7 +8,6 @@ namespace GameMemory
 	void FetchVersion();
 
 	// "Installers"
-	void InstallPatches();
 	void InstallInitHooks();
 	void InstallHooks();
 

@@ -40,10 +40,9 @@ void GTALua::ProperInit()
 	// Debug
 	printf("[GTALua] Initializing..\n");
 
-	// Hooks & Patches
+	// Hooks
 #ifndef GTA_LUA_TEST_EXE
 	GameMemory::InstallHooks();
-	GameMemory::InstallPatches();
 #endif
 
 	// Initialize Lua
@@ -60,7 +59,7 @@ void GTALua::ProperInit()
 		// Script Engine
 		ScriptBinds::ScriptHookBind::Bind();
 		ScriptBinds::NativesWrapper::Bind();
-		ScriptBinds::NativeInvocation::Bind();
+		ScriptBinds::Types::Bind();
 	}
 	catch (std::exception& e)
 	{

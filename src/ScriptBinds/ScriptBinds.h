@@ -13,7 +13,7 @@ namespace ScriptBinds
 		void Bind();
 	}
 
-	namespace NativeInvocation
+	namespace Types
 	{
 		void Bind();
 	}

@@ -12,7 +12,7 @@
 // =================================================================================
 // Sleep 
 // =================================================================================
-void ThreadSleep(UINT s)
+void LB_ThreadSleep(UINT s)
 {
 	ScriptHook::ThreadWait(s);
 }
@@ -20,7 +20,7 @@ void ThreadSleep(UINT s)
 // =================================================================================
 // Init Native
 // =================================================================================
-void InitNative(Natives::NativeReg* pNative)
+void LB_InitNative(Natives::NativeReg* pNative)
 {
 	ScriptHook::InitNative(pNative->hHash);
 }
@@ -33,8 +33,8 @@ void ScriptBinds::ScriptHookBind::Bind()
 	// TODO: Add ability to register own threads
 	luabind::module(lua->State(), "scripthookv")
 	[
-		luabind::def("ThreadSleep", ThreadSleep),
-		luabind::def("InitNative", InitNative),
+		luabind::def("ThreadSleep", LB_ThreadSleep),
+		luabind::def("InitNative", LB_InitNative),
 		luabind::def("NativePushInt", ScriptHook::PushValue<int>),
 		luabind::def("NativePushFloat", ScriptHook::PushValue<float>),
 		luabind::def("NativePushVector", ScriptHook::PushValue<rage::CVector>),

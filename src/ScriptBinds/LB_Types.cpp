@@ -6,7 +6,6 @@
 #include "lua/Lua.h"
 #include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds.h"
-#include "thirdparty/ScriptHookV/ScriptHookV.h"
 
 // =================================================================================
 // Vector 
@@ -26,7 +25,7 @@ struct LuaVectorWrapper : public rage::CVector
 // =================================================================================
 // Bind
 // =================================================================================
-void ScriptBinds::NativeInvocation::Bind()
+void ScriptBinds::Types::Bind()
 {
 	// Rage
 	// rage::CVector
