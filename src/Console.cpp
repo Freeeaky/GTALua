@@ -45,7 +45,7 @@ void GTALua::ProcessConsoleInput()
 	lua->GetEvent("OnConsoleInput");
 	lua->PushString(const_cast<char*>(cmd.c_str()));
 	l_args.push(lua->State());
-	lua->Call(3, 1);
+	lua->ProtectedCall(3, 1);
 
 	// Lua: result-check
 	if (lua->IsNil() || lua->GetBool() == false)
