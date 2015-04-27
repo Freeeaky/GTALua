@@ -62,10 +62,6 @@ void ScriptEngine__Init(DWORD64 ptr)
 	// Mark as initialized
 	GameMemory::ScriptEngineInitialized = true;
 	printf("[GTA ScriptEngine] Initialized\n");
-
-	// Lua Callback
-	lua->GetEvent("OnScriptEngineInitialized");
-	lua->ProtectedCall(1);
 	
 	// Thread
 	// Load ScriptHook
@@ -94,6 +90,10 @@ void ScriptEngine__Init(DWORD64 ptr)
 		printf("[ScriptHook] GTALua failed to find all ScriptHook functions! Make sure you have the most recent version installed!\n");
 		return;
 	}
+
+	// Lua Callback
+	lua->GetEvent("OnScriptEngineInitialized");
+	lua->ProtectedCall(1);
 
 	// Register Thread
 	ScriptHook::RegisterScript(GetModuleHandle("GTALua.dll"), script_main);

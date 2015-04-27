@@ -32,4 +32,32 @@ namespace ScriptBinds
 	{
 		void Bind();
 	}
+
+	namespace ScriptThread
+	{
+		// ScriptThread
+		class LuaScriptThread : public luabind::wrap_base
+		{
+		public:
+			LuaScriptThread(string sName);
+			~LuaScriptThread();
+
+			// Internal
+			void Run();
+
+			// Getter
+			string GetName() { return m_sName; };
+			bool IsActive() { return m_bActive; };
+
+			// Thread Functions
+			void Wait(DWORD uiTime);
+
+		private:
+			string m_sName;
+			bool m_bActive;
+		};
+
+		// Bind
+		void Bind();
+	}
 }

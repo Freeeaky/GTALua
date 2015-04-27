@@ -1,6 +1,8 @@
 -- test_script
-event.AddListener("OnScriptThread", "MyScriptThread", function()
-	print("Lua!")
+thread = ScriptThread("test_script")
+
+function thread:Run()
+	print("Lua: thread:Run()")
 	
 	while true do
 		print("still alive")
@@ -17,4 +19,8 @@ event.AddListener("OnScriptThread", "MyScriptThread", function()
 		end
 		scripthookv.ThreadSleep(50)
 	end
+end
+
+event.AddListener("OnScriptEngineInitialized", "Addmy", function()
+	scripthookv.CreateThread(thread)
 end)
