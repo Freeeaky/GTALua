@@ -36,10 +36,11 @@ void Lua_StartThread()
 {
 	ScriptHook::CanRegisterThreads = false;
 
-	printf("Lua_StartThread\n");
+	// Update Queue
 	ScriptBinds::ScriptThread::LuaScriptThread* pScriptThread = vScriptThreadQueue.at(0);
 	vScriptThreadQueue.erase(vScriptThreadQueue.begin());
 
+	// Run
 	pScriptThread->Run();
 }
 
@@ -54,7 +55,6 @@ void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 		if (*it == pThread) return;
 
 	// Register
-	printf("Register Thread\n");
 	vScriptThreadQueue.push_back(pThread);
 	ScriptHook::RegisterScript(GetModuleHandle("GTALua.dll"), Lua_StartThread);
 }

@@ -1,6 +1,7 @@
 -- Script Thread CTOR
 function ScriptThread(name)
 	-- Reset thread with same name
+	-- I really hope people will find proper names for them..
 	local existing_thread = scripthookv.FindThread(name)
 	if existing_thread then
 		existing_thread:Reset()

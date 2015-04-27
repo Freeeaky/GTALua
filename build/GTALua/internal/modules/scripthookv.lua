@@ -1,6 +1,18 @@
 -- List of threads
 scripthookv.ThreadList = {}
 
+-- Types
+scripthookv.TypeTable = {
+	i = "number",
+	f = "number",
+	b = "boolean",
+	v = "void",
+	V = "Vector",
+	
+	a = "number", -- any = int
+	u = "number", -- unknown = int
+}
+
 -- Find Thread
 function scripthookv.FindThread(name)
 	return scripthookv.ThreadList[name]

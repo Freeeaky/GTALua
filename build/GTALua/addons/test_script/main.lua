@@ -1,8 +1,6 @@
 -- test_script
 local thread = ScriptThread("test_script")
 
-print("h")
-
 -- Run
 function thread:Run()
 	print("test_script:Run")
@@ -20,10 +18,8 @@ function thread:Run()
 		self:Wait(50)
 	end
 	
-	print("oh no!")
+	print("test_script:Run ending..")
 end
-
-print("HELLO MATE ?")
  
 -- Register Thread
 thread:Register()  

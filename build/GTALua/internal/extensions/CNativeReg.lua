@@ -10,19 +10,6 @@ function CNativeReg:HasCallLayout()
 	return self.m_bHasCallLayout
 end
 
--- Types
--- TODO: Put this somewhere else
-scripthookv.TypeTable = {
-	i = "number",
-	f = "number",
-	b = "boolean",
-	v = "void",
-	V = "Vector",
-	
-	a = "number", -- any = int
-	u = "number", -- unknown = int
-}
-
 -- Call Native by Call Layout
 function CNativeReg:__call(...)
 	local function _err(msg)

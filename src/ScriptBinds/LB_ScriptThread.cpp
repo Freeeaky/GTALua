@@ -19,7 +19,7 @@ LuaScriptThread::LuaScriptThread(string sName)
 }
 LuaScriptThread::~LuaScriptThread()
 {
-	printf("LuaScriptThread::~\n");
+	
 }
 
 // =================================================================================

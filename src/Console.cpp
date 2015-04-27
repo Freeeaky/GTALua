@@ -18,6 +18,13 @@ void GTALua::ProcessConsoleInput()
 	string input_line;
 	getline(cin, input_line);
 
+	// Pre-Lua?
+	if (lua == NULL)
+	{
+		printf("Please wait until Lua has initialized!\n");
+		return;
+	}
+
 	// Split spaces
 	vector<string> args = UTIL::SplitString(input_line, " ");
 	if (args.size() == 0) return;
