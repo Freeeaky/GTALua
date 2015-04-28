@@ -1,14 +1,11 @@
-example_spawn_bodyguard = {}
-example_spawn_bodyguard.Thread = ScriptThread("example_spawn_bodyguard") 
-
+example_spawn_bodyguard = ScriptThread("example_spawn_bodyguard") 
 
 -- Run function
-function example_spawn_bodyguard.Thread:Run()
+function example_spawn_bodyguard:Run()
 	while self:IsRunning() do
 		-- F9
 		if IsKeyDown(0x78) then
 			local local_player_ped = natives.PLAYER.GET_PLAYER_PED(-1)
-			--natives.PLAYER.CLEAR_PLAYER_WANTED_LEVEL(-1)
 			local vec = natives.ENTITY.GET_ENTITY_COORDS(local_player_ped, true)
 			
 			-- Load Model
@@ -46,6 +43,13 @@ function example_spawn_bodyguard.Thread:Run()
 		self:Wait(50)
 	end
 end
+
+-- OnError
+function example_spawn_bodyguard:OnError()
+	-- Read Tutorial 1 to find out what this does
+	print("Oh no! Example Thread caused an error!")
+	self:Reset()
+end
  
--- Register Thread
-example_spawn_bodyguard.Thread:Register()  
+-- Register
+example_spawn_bodyguard:Register()  

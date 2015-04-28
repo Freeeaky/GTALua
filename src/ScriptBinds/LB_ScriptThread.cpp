@@ -19,80 +19,8 @@ LuaScriptThread::LuaScriptThread(string sName)
 }
 LuaScriptThread::~LuaScriptThread()
 {
-	
-}
-
-// =================================================================================
-// Resest 
-// =================================================================================
-struct ScriptThreadReset : public std::exception {};
-void LuaScriptThread::Reset()
-{
-	if (m_bActive)
-		m_bResetting = true;
-}
-
-// =================================================================================
-// Run 
-// =================================================================================
-void LuaScriptThread::Run()
-{
-	printf("[LuaScriptThread] Thread %s started\n", m_sName.c_str());
-
-	// Flag
-	m_bActive = true;
-
-	// Check if callback is present
-	m_self.get(lua->State());
-	if (lua->IsNil())
-	{
-		lua->Pop(1);
-		return;
-	}
-	lua->GetField("Run", -1);
-	if (lua->IsNil())
-	{
-		lua->Pop(2);
-		return;
-	}
-	lua->Pop(2);
-
-	// Call
-	try
-	{
-		call<void>("Run");
-	}
-	catch (ScriptThreadReset) {
-		// Do nothing
-	}
-	catch (luabind::error& e) {
-		printf("[LuaScriptThread] Thread %s:Run caused an error!\n", m_sName.c_str());
-
-		if (lua->IsString(-1))
-			lua->PrintErrorMessage(lua->GetString(-1), true, false);
-		else
-			lua->PrintErrorMessage(const_cast<char*>(e.what()), true, false);
-		lua->Pop(1);
-	}
-	catch (std::exception& e) {
-		printf("[LuaScriptThread] Thread %s:Run caused an error: %s\n", m_sName.c_str(), e.what());
-	}
-	catch (...) {
-		printf("LuaScriptThread] Thread %s:Run caused an error: (unknown exception thrown)\n", m_sName.c_str());
-	}
-
-	// Handle Reset
-	if (m_bResetting && m_bActive)
-	{
-		m_bResetting = false;
-		printf("[LuaScriptThread] Thread %s reset\n", m_sName.c_str());
-		Run();
-		return;
-	}
-
-	// Exit Message
 	m_bActive = false;
-	printf("[LuaScriptThread] Thread %s quit\n", m_sName.c_str());
+	m_bResetting = false;
 }
 
 // =================================================================================
@@ -100,15 +28,163 @@ void LuaScriptThread::Run()
 // =================================================================================
 void LuaScriptThread::Wait(DWORD uiTime)
 {
+	// Reset
 	if (m_bActive && m_bResetting)
 		throw ScriptThreadReset();
+
+	// No longer active
 	if (!m_bActive)
 	{
 		lua->PushString("ScriptThread:Wait called on an invalid thread!");
 		throw luabind::error(lua->State());
 	}
-	
+
+	// Wait
 	ScriptHook::ThreadWait(uiTime);
+}
+
+// =================================================================================
+// IsCallbackPresent 
+// =================================================================================
+bool LuaScriptThread::IsCallbackPresent(char* sName)
+{
+	// Check if callback is present
+	m_self.get(lua->State());
+	if (lua->IsNil())
+	{
+		lua->Pop(1);
+		return false;
+	}
+	lua->GetField(sName, -1);
+	if (lua->IsNil())
+	{
+		lua->Pop(2);
+		return false;
+	}
+	lua->Pop(2);
+}
+
+
+// =================================================================================
+// Call Lua Callback
+// Returns true when normal exit
+// =================================================================================
+bool LuaScriptThread::Call_LuaCallback(char* sName)
+{
+	try
+	{
+		call<void>(sName);
+	}
+	catch (ScriptThreadReset) {
+		return true;
+	}
+	catch (luabind::error& e) {
+		printf("[LuaScriptThread] Thread %s:%s caused an error!\n", m_sName.c_str(), sName);
+
+		if (lua->IsString(-1))
+			lua->PrintErrorMessage(lua->GetString(-1), true, false);
+		else
+			lua->PrintErrorMessage(const_cast<char*>(e.what()), true, false);
+		lua->Pop(1);
+		return false;
+	}
+	catch (std::exception& e) {
+		printf("[LuaScriptThread] Thread %s:%s caused an error: %s\n", m_sName.c_str(), sName, e.what());
+		return false;
+	}
+	catch (...) {
+		printf("LuaScriptThread] Thread %s:%s caused an error: (unknown exception thrown)\n", m_sName.c_str(), sName);
+		return false;
+	}
+
+	return true;
+}
+
+// =================================================================================
+// Start 
+// =================================================================================
+void LuaScriptThread::Start()
+{
+	// Message
+	printf("[LuaScriptThread] Thread %s started\n", m_sName.c_str());
+
+	// Flag
+	m_bActive = true;
+
+	// Run
+	while (m_bActive)
+	{
+		Run();
+
+		if (m_bActive)
+			Run_IdleState();
+	}
+
+	// Flag
+	m_bActive = false;
+
+	// Message
+	printf("[LuaScriptThread] Thread %s quit\n", m_sName.c_str());
+}
+
+// =================================================================================
+// Run 
+// =================================================================================
+void LuaScriptThread::Run()
+{
+	// Check if callback is present
+	if (!IsCallbackPresent("Run"))
+	{
+		printf("[LuaScriptThread] Thread %s has no Run callback!", m_sName.c_str());
+		Run_IdleState();
+		return;
+	}
+
+	// Call
+	bool bNormalExit = Call_LuaCallback("Run");
+
+	// Quit
+	if (!m_bActive)
+	{
+		printf("[LuaScriptThread] Thread %s quit\n", m_sName.c_str());
+		return;
+	}
+
+	// OnError
+	if (!bNormalExit)
+		if (IsCallbackPresent("OnError"))
+			Call_LuaCallback("OnError");
+}
+
+// =================================================================================
+// Idle State
+// Thread is still alive, but idling
+// =================================================================================
+void LuaScriptThread::Run_IdleState()
+{
+	while (m_bActive)
+	{
+		// Handle Reset
+		if (m_bResetting)
+		{
+			m_bResetting = false;
+			printf("[LuaScriptThread] Thread %s reset\n", m_sName.c_str());
+
+			return;
+		}
+
+		// Wait
+		ScriptHook::ThreadWait(5);
+	}
+}
+
+// =================================================================================
+// Resest 
+// =================================================================================
+void LuaScriptThread::Reset()
+{
+	if (m_bActive)
+		m_bResetting = true;
 }
 
 // =================================================================================

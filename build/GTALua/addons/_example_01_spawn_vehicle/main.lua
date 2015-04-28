@@ -1,13 +1,12 @@
--- Setup a table where we put all our values
-example_vehicle = {}
-
 -- Create a ScriptThread
 -- Make sure you have a unique name for your thread!
-example_vehicle.Thread = ScriptThread("example_spawn_vehicle") 
+example_vehicle = ScriptThread("example_spawn_vehicle") 
+
+-- As example_vehicle is also a table, you can define variables there
 
 -- Run function
 -- This is called once! It's your job to keep this alive!
-function example_vehicle.Thread:Run()
+function example_vehicle:Run()
 	-- while-loop, do not use while true !
 	while self:IsRunning() do
 		-- Key-Down-Check, 0x78 = F9
@@ -62,6 +61,25 @@ function example_vehicle.Thread:Run()
 		self:Wait(50)
 	end
 end
+
+-- OnError
+function example_vehicle:OnError()
+	-- If :Run causes an error, this function is called
+	-- You have 3 options here
+	-- -> 1: Reset
+	--       The :Run function is ran again
+	-- -> 2: Kill
+	--       This will Kill the thread ->completely<-
+	--       After that you'll not be able to restart the thread
+	-- -> 3: Do Nothing
+	--       The thread will be kept alive
+	--       You are able to restart the thread with reload_addon
+	--
+	-- I recommend that you keep the thread alive (option 1/3)
+	-- because if you Kill it, you can no longer work with it!
+	print("Oh no! Example Thread caused an error!")
+	self:Reset()
+end
  
 -- Register Thread
-example_vehicle.Thread:Register()  
+example_vehicle:Register()  

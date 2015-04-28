@@ -35,6 +35,10 @@ namespace ScriptBinds
 
 	namespace ScriptThread
 	{
+		// "Exception"
+		// Hack to force stop
+		struct ScriptThreadReset : public std::exception {};
+
 		// ScriptThread
 		class LuaScriptThread : public luabind::wrap_base
 		{
@@ -43,7 +47,12 @@ namespace ScriptBinds
 			~LuaScriptThread();
 
 			// Internal
+			bool IsCallbackPresent(char* sName);
+			bool Call_LuaCallback(char* sName); // returns true if normal exit
+
+			void Start();
 			void Run();
+			void Run_IdleState();
 
 			// Getter
 			string GetName() { return m_sName; };

@@ -40,10 +40,10 @@ void Lua_StartThread()
 	ScriptBinds::ScriptThread::LuaScriptThread* pScriptThread = vScriptThreadQueue.at(0);
 	vScriptThreadQueue.erase(vScriptThreadQueue.begin());
 
-	// Run
+	// Start Thread
 	try
 	{
-		pScriptThread->Run();
+		pScriptThread->Start();
 	}
 	catch (...)
 	{
