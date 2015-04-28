@@ -15,9 +15,8 @@ example_vehicle = ScriptThread("example_spawn_vehicle")
 function example_vehicle:Run()
 	-- while-loop, do not use while true !
 	while self:IsRunning() do
-		-- Key-Down-Check, 0x78 = F9
-		-- You can look up key codes in Google ("virtual key codes")
-		if IsKeyDown(0x78) then
+		-- Key-Down-Check
+		if IsKeyDown(KEY_F9) then
 			-- Get Local Player Ped
 			-- -1 is always the ID for the local player
 			local local_player_ped = natives.PLAYER.GET_PLAYER_PED(-1)
