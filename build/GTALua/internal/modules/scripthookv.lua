@@ -6,6 +6,7 @@ scripthookv.TypeTable = {
 	i = "number",
 	f = "number",
 	b = "boolean",
+	s = "string",
 	v = "void",
 	V = "Vector",
 	

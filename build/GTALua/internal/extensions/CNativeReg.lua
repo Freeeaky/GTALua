@@ -76,6 +76,10 @@ function CNativeReg:__call(...)
 			scripthookv.NativePushInt(value)
 		elseif type_char == "f" then
 			scripthookv.NativePushFloat(value)
+		elseif c_type == "string" then
+			print("push string ", value)
+			scripthookv.NativePushString(value)
+			print("pushed")
 		elseif c_type == "Vector" then
 			scripthookv.NativePushVector(value)
 		elseif c_type == "boolean" then
@@ -90,9 +94,12 @@ function CNativeReg:__call(...)
 		scripthookv.NativeCall_Void()
 		return
 	elseif return_value == "i" or return_value == "a" or return_value == "u" then
+		print("call get i")
 		return scripthookv.NativeCall_GetInt()
 	elseif return_value == "f" then
 		return scripthookv.NativeCall_GetFloat()
+	elseif c_type == "string" then
+		return scripthookv.NativeCall_GetString()
 	elseif c_type == "Vector" then
 		return scripthookv.NativeCall_GetVector()
 	elseif c_type == "boolean" then

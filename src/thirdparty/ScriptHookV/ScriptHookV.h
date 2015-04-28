@@ -34,7 +34,7 @@ namespace ScriptHook
 	template <typename T>
 	static inline void PushValue(T val)
 	{
-		UINT val64 = NULL;
+		UINT64 val64 = NULL;
 		*reinterpret_cast<T *>(&val64) = val;
 		NativePush64(val64);
 	}
