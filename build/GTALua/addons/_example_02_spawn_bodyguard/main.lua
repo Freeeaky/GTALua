@@ -1,3 +1,9 @@
+--
+-- Check out "Getting started" on the Wiki!
+--     http://freeschi.com/w/index.php/Main_Page
+--     http://freeschi.com/w/index.php/Getting_Started
+--
+
 example_spawn_bodyguard = ScriptThread("example_spawn_bodyguard") 
 
 -- Run function

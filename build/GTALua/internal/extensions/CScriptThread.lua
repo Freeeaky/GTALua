@@ -24,5 +24,8 @@ function CScriptThread:Register()
 	if self:IsActive() then return end
 	
 	-- Register
-	scripthookv.RegisterThread(self)
+	local r = scripthookv.RegisterThread(self, true)
+	if not r then
+		error("ScriptThread:Register() failed - Has the Script Thread already been killed?")
+	end
 end

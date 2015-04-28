@@ -62,8 +62,8 @@ bool LuaScriptThread::IsCallbackPresent(char* sName)
 		return false;
 	}
 	lua->Pop(2);
+	return true;
 }
-
 
 // =================================================================================
 // Call Lua Callback
@@ -136,7 +136,6 @@ void LuaScriptThread::Run()
 	if (!IsCallbackPresent("Run"))
 	{
 		printf("[LuaScriptThread] Thread %s has no Run callback!", m_sName.c_str());
-		Run_IdleState();
 		return;
 	}
 
@@ -162,6 +161,7 @@ void LuaScriptThread::Run()
 // =================================================================================
 void LuaScriptThread::Run_IdleState()
 {
+	printf("IDLE STATE\n");
 	while (m_bActive)
 	{
 		// Handle Reset
@@ -183,8 +183,12 @@ void LuaScriptThread::Run_IdleState()
 // =================================================================================
 void LuaScriptThread::Reset()
 {
+	printf("LuaScriptThread::Reset\n");
 	if (m_bActive)
+	{
+		printf("resetting\n");
 		m_bResetting = true;
+	}
 }
 
 // =================================================================================

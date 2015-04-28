@@ -1,3 +1,9 @@
+--
+-- Check out "Getting started" on the Wiki!
+--     http://freeschi.com/w/index.php/Main_Page
+--     http://freeschi.com/w/index.php/Getting_Started
+--
+
 -- Create a ScriptThread
 -- Make sure you have a unique name for your thread!
 example_vehicle = ScriptThread("example_spawn_vehicle") 
@@ -82,4 +88,4 @@ function example_vehicle:OnError()
 end
  
 -- Register Thread
-example_vehicle:Register()  
+example_vehicle:Register()

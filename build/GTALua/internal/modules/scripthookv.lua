@@ -39,14 +39,20 @@ end
 
 -- Register Thread
 scripthookv.RegisterThreadQueue = {}
-function scripthookv.RegisterThread(thread)
+function scripthookv.RegisterThread(thread, _noerror)
 	if not scripthookv.IsInitialized() then
 		table.insert(scripthookv.RegisterThreadQueue, thread)
+		return true
 	else
 		if scripthookv.CanRegisterThreads() then
 			scripthookv.internal_RegisterThread(thread)
+			return true
 		else
-			error("You can no longer register threads! Make sure that your script registers your thread on startup!")
+			if _noerror ~= true then
+				error("You can no longer register threads! Make sure that your script registers your thread on startup!")
+			end
+			
+			return false
 		end
 	end
 end
