@@ -5,6 +5,7 @@ include("modules/scripthookv.lua")
 include("modules/console/console.lua")
 
 -- Extensions
+include("extensions/keycodes.lua")
 include("extensions/CNativeReg.lua")
 include("extensions/CScriptThread.lua")
 
