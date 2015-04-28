@@ -161,7 +161,6 @@ void LuaScriptThread::Run()
 // =================================================================================
 void LuaScriptThread::Run_IdleState()
 {
-	printf("IDLE STATE\n");
 	while (m_bActive)
 	{
 		// Handle Reset
@@ -183,12 +182,8 @@ void LuaScriptThread::Run_IdleState()
 // =================================================================================
 void LuaScriptThread::Reset()
 {
-	printf("LuaScriptThread::Reset\n");
 	if (m_bActive)
-	{
-		printf("resetting\n");
 		m_bResetting = true;
-	}
 }
 
 // =================================================================================
