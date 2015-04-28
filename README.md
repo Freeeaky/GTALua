@@ -1,4 +1,9 @@
 # GTALua
-With GTALua you can script in Lua instead of C++. This makes development a lot easier and allows editing scripts while in-game! No need to restart your game if you changed anything.
+GTALua is a powerful and flexible scripting engine for GTA V. You can easily create new scripts and even reload them without restarting the game. Writing own plugins has never been as easy.
 
-#####This is Work-In-Progress and not fully functional!
+## Getting Started
+Make sure to check out or website and our wiki!
+
+http://freeschi.com/
+
+http://freeschi.com/w/index.php/Main_Page
