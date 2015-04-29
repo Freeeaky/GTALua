@@ -6,6 +6,7 @@ include("modules/console/console.lua")
 
 -- Extensions
 include("extensions/keycodes.lua")
+include("extensions/vehicles.lua")
 include("extensions/CNativeReg.lua")
 include("extensions/CScriptThread.lua")
 include("extensions/Vector.lua")

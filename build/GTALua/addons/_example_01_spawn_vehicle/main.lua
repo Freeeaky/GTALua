@@ -28,7 +28,7 @@ function example_vehicle:Run()
 			-- You can access vec.x vec.y and vec.z for the coordinates
 			
 			-- Model Hash
-			local model_hash = 0xC703DB5F -- 0xC703DB5F = Taxi
+			local model_hash = VEHICLE_TAXI -- 0xC703DB5F
 			
 			-- Before we can use the model, we need to load it first
 			-- Check if already loaded
