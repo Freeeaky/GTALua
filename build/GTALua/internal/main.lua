@@ -8,6 +8,17 @@ include("modules/console/console.lua")
 include("extensions/keycodes.lua")
 include("extensions/CNativeReg.lua")
 include("extensions/CScriptThread.lua")
+include("extensions/Vector.lua")
+
+-- Wrapper
+include("game/Object.lua")
+include("game/Entity.lua")
+include("game/Ped.lua")
+include("game/Player.lua")
+
+-- Helper
+include("game/game.lua")
+include("game/streaming.lua")
 
 -- Main
 function _main()

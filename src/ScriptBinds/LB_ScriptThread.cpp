@@ -150,9 +150,8 @@ void LuaScriptThread::Run()
 	}
 
 	// OnError
-	if (!bNormalExit)
-		if (IsCallbackPresent("OnError"))
-			Call_LuaCallback("OnError");
+	if (!bNormalExit && IsCallbackPresent("OnError"))
+		Call_LuaCallback("OnError");
 }
 
 // =================================================================================
@@ -182,8 +181,7 @@ void LuaScriptThread::Run_IdleState()
 // =================================================================================
 void LuaScriptThread::Reset()
 {
-	if (m_bActive)
-		m_bResetting = true;
+	m_bResetting = true;
 }
 
 // =================================================================================

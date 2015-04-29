@@ -19,5 +19,6 @@ function console.cmd_reload_addon(name)
 	
 	-- Load
 	addon.Load(name)
+	print("")
 end
 console.RegisterCommand("reload_addon", console.cmd_reload_addon)
