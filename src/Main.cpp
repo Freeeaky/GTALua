@@ -69,7 +69,6 @@ void GTALua::ProperInit()
 
 		// Script Engine
 		ScriptBinds::ScriptThread::Bind();
-		ScriptBinds::ScriptHookBind::Bind();
 		ScriptBinds::NativesWrapper::Bind();
 		ScriptBinds::Types::Bind();
 		ScriptBinds::Memory::Bind();

@@ -6,7 +6,6 @@
 #include "Memory/Memory.h"
 #include "ScriptEngine/ScriptEngine.h"
 #include "lua/Lua.h"
-#include "thirdparty/ScriptHookV/ScriptHookV.h"
 
 // =================================================================================
 // Local Definitions
@@ -57,9 +56,6 @@ void ScriptEngine__Init(DWORD64 ptr)
 		// Mark as initialized
 		GameMemory::ScriptEngineInitialized = true;
 		printf("[GTA ScriptEngine] Initialized\n");
-
-		// Init ScriptHook
-		ScriptHook::Initialize();
 
 		// Lua Callback
 		lua->GetEvent("OnScriptEngineInitialized");
