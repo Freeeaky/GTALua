@@ -6,7 +6,6 @@
 #include "lua/Lua.h"
 #include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds.h"
-#include "thirdparty/ScriptHookV/ScriptHookV.h"
 
 DWORD d;
 

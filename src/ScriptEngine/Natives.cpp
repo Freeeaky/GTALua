@@ -6,7 +6,6 @@
 #include "ScriptEngine.h"
 #include "Memory/Memory.h"
 #include "UTIL/UTIL.h"
-#include "thirdparty/ScriptHookV/ScriptHookV.h"
 
 // =================================================================================
 // Category By Name 
