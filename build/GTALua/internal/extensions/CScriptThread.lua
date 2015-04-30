@@ -1,4 +1,5 @@
 -- Script Thread CTOR
+-- TODO: Move Reset to Register
 function ScriptThread(name)
 	-- Reset thread with same name
 	-- I really hope people will find proper names for them..

@@ -10,6 +10,7 @@ include("extensions/vehicles.lua")
 include("extensions/CNativeReg.lua")
 include("extensions/CScriptThread.lua")
 include("extensions/Vector.lua")
+include("extensions/CMemoryBlock.lua")
 
 -- Wrapper
 include("game/Object.lua")

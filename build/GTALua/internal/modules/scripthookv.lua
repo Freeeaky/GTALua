@@ -9,6 +9,7 @@ scripthookv.TypeTable = {
 	s = "string",
 	v = "void",
 	V = "Vector",
+	m = "CMemoryBlock",
 	
 	a = "number", -- any = int
 	u = "number", -- unknown = int

@@ -79,3 +79,13 @@ function Entity:SetInvincible(b)
 	self:_CheckExists()
 	natives.ENTITY.SET_ENTITY_INVINCIBLE(self.ID, b)
 end
+
+-- Fire
+function Entity:Ignite()
+	self:_CheckExists()
+	natives.FIRE.START_ENTITY_FIRE(self.ID)
+end
+function Entity:Extinguish()
+	self:_CheckExists()
+	natives.FIRE.STOP_ENTITY_FIRE(self.ID)
+end

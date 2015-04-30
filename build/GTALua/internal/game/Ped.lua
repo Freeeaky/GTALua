@@ -10,6 +10,7 @@ end
 
 -- Weapon Switching
 function Ped:AllowWeaponSwitching(b)
+	self:_CheckExists()
 	if b == nil then b = true end
 	
 	natives.PED.SET_PED_CAN_SWITCH_WEAPON(self.ID, b)
@@ -17,6 +18,7 @@ end
 
 -- Weapon
 function Ped:DelayedGiveWeapon(wep, ammo)
+	self:_CheckExists()
 	if type(wep) == "string" then
 		wep = natives.GAMEPLAY.GET_HASH_KEY(wep)
 	end
@@ -25,6 +27,7 @@ end
 
 -- Group Member
 function Ped:AddGroupMember(other_ped)
+	self:_CheckExists()
 	local group_id = other_ped
 	print(type(other_ped))
 	if type(other_ped) == "Ped" or type(other_ped) == "Player" then
@@ -33,5 +36,40 @@ function Ped:AddGroupMember(other_ped)
 	natives.PED.SET_PED_AS_GROUP_MEMBER(self.ID, group_id)
 end
 function Ped:GetGroupIndex()
+	self:_CheckExists()
 	return natives.PED.GET_PED_GROUP_INDEX(self.ID)
+end
+
+-- Nearby
+function Ped:GetNearbyPeds(max_peds)
+	self:_CheckExists()
+	
+	-- default value
+	if max_peds == nil then
+		-- lets just put a high number in here for now
+		max_peds = 100
+	end
+	
+	-- c array
+	local array_size = 2 * max_peds + 2
+	local c_array_peds = CMemoryBlock(array_size * 4)
+	
+	-- index 0 defines the length of the array
+	c_array_peds:WriteInt32(0, max_peds)
+	
+	-- call native
+	natives.PED.GET_PED_NEARBY_PEDS(self.ID, c_array_peds, -1)
+	
+	-- check returned peds
+	local nearby_peds = {}
+	for offset = 4, array_size, 4 do
+		local ped = c_array_peds:ReadDWORD32(offset)
+		if ped:Exists() then
+			table.insert(nearby_peds, ped)
+		end
+	end
+	
+	-- release
+	c_array_peds:Release()
+	return nearby_peds
 end

@@ -72,6 +72,7 @@ void GTALua::ProperInit()
 		ScriptBinds::ScriptHookBind::Bind();
 		ScriptBinds::NativesWrapper::Bind();
 		ScriptBinds::Types::Bind();
+		ScriptBinds::Memory::Bind();
 	}
 	catch (std::exception& e)
 	{

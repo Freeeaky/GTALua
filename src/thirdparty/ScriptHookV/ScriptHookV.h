@@ -3,6 +3,10 @@
 // I'm importing the functions because the ASI loader is too slow
 // -> dinput8 is our loader
 // =================================================================================
+// Forward Declarations
+namespace ScriptBinds { namespace Memory { class MemoryBlock; }; };
+
+// ScriptHook
 namespace ScriptHook
 {
 	// Initialized
@@ -49,4 +53,7 @@ namespace ScriptHook
 	{
 		CallNative();
 	}
+
+	// Push: Memory Pointer
+	void PushMemory(ScriptBinds::Memory::MemoryBlock* pMemBlock);
 }

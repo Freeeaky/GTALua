@@ -12,7 +12,7 @@ end
 
 -- Call Native by Call Layout
 function CNativeReg:__call(...)
-	local _err = "CNativeReg:Call ["..self.m_sCategory.."/"..self.m_sName.."] "
+	local _err = "CNativeReg:Call ["..self.m_sCategory.."/"..self.m_sName.."]: "
 
 	-- check call layout
 	if not self.m_bHasCallLayout then
@@ -80,6 +80,8 @@ function CNativeReg:__call(...)
 			scripthookv.NativePushVector(value)
 		elseif c_type == "boolean" then
 			scripthookv.NativePushBool(value == true)
+		elseif c_type == "CMemoryBlock" then
+			scripthookv.NativePushMemoryBlock(value)
 		end
 	end
 	
