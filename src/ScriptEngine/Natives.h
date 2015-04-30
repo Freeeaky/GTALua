@@ -99,8 +99,19 @@ namespace Natives
 		"SYSTEM"
 	};
 
-	// Find category by name
+	// Native Register
+	typedef void(*Native_t)(int** pCallContext);
+	struct NativeRegisterStruct
+	{
+		NativeRegisterStruct* pNext;
+		Native_t pRegisteredNatives[7];
+		uint32_t uiEntryCount;
+		uint64_t uiHashes[7];
+	};
+
+	// "Finders"
 	eNativeCategory FindCategoryByName(char* sName);
+	Native_t FindNative(DWORD64 hash);
 
 	// Registered Natives
 	struct NativeReg
@@ -116,15 +127,3 @@ namespace Natives
 	};
 	extern std::vector<NativeReg*> Registered[_NATIVE_ENUM_SIZE + 1];
 }
-
-// =================================================================================
-// Native Register
-// =================================================================================
-typedef void(*Native_t)(int** pCallContext);
-struct NativeRegisterStruct
-{
-	NativeRegisterStruct* pNext;
-	Native_t pRegisteredNatives[7];
-	uint32_t uiEntryCount;
-	uint64_t uiHashes[7];
-};

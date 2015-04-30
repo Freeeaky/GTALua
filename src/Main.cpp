@@ -52,12 +52,12 @@ void GTALua::ProperInit()
 #endif
 
 	// Initialize Lua
-	lua = new LuaManager();
+	/*lua = new LuaManager();
 	lua->Init();
 
-	/*// Initialize AutoRefresh
-	LuaFunctions::Autorefresh::Init();
-	LuaFunctions::Autorefresh::Update();*/
+	// Initialize AutoRefresh
+	//LuaFunctions::Autorefresh::Init();
+	//LuaFunctions::Autorefresh::Update();
 
 	// Script Binds
 	try
@@ -101,7 +101,7 @@ void GTALua::ProperInit()
 	{
 		printf("[GTALua] Failed to initialize!\n");
 		return;
-	}
+	}*/
 
 	// Success
 	printf("[GTALua] Successfully initialized!\n\n");

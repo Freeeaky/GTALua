@@ -3,12 +3,25 @@
 // =================================================================================
 #include "rage.h"
 #include "Natives.h"
+#include "ScriptThread.h"
+#include "ScriptThreadWrapper.h"
+#include "ScriptHandlerManager.h"
+#include "NativeInvocation.h"
 
 // =================================================================================
 // ScriptEngine
 // =================================================================================
 namespace ScriptEngine
 {
-	// Natives
-	Native_t GetNativeAddress(DWORD64 hHash);
+	// Addresses
+	extern rage::PtrCollection* ThreadCollection;
+	extern uint32_t* ThreadID;
+	extern uint32_t* ThreadCount;
+	extern ScriptHandlerManager* HandlerManager;
+	bool CollectAddresses();
+
+	// Script Threads
+	ScriptThread* GetActiveThread();
+	void SetActiveThread(ScriptThread* pThread);
+	bool CreateScriptThread(ScriptThread* pThread);
 }

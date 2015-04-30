@@ -8,6 +8,21 @@
 #include "lua/Lua.h"
 
 // =================================================================================
+// Test
+// =================================================================================
+void TestingStuff()
+{
+	printf("Testing Stuff\n");
+
+	// Addresses
+	if (!ScriptEngine::CollectAddresses())
+	{
+		printf("Failed to collect addresses!\n");
+		return;
+	}
+}
+
+// =================================================================================
 // Local Definitions
 // =================================================================================
 // BinkOpen (intro)
@@ -58,8 +73,11 @@ void ScriptEngine__Init(DWORD64 ptr)
 		printf("[GTA ScriptEngine] Initialized\n");
 
 		// Lua Callback
-		lua->GetEvent("OnScriptEngineInitialized");
-		lua->ProtectedCall(1);
+		//lua->GetEvent("OnScriptEngineInitialized");
+		//lua->ProtectedCall(1);
+
+		// Test
+		TestingStuff();
 	}
 }
 

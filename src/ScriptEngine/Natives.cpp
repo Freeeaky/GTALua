@@ -8,6 +8,29 @@
 #include "UTIL/UTIL.h"
 
 // =================================================================================
+// Native Address
+// TODO: Pattern for Native List (48 8D 1D ? ? ? ? 33 F6 48 8B 3B) 
+// =================================================================================
+Natives::Native_t Natives::FindNative(DWORD64 hHash)
+{
+	NativeRegisterStruct** pNatives = (NativeRegisterStruct**)GameMemory::At(0x29932B0);
+	NativeRegisterStruct* pTable = pNatives[hHash & 0xFF];
+
+	while (pTable != NULL)
+	{
+		for (int i = 0; i < pTable->uiEntryCount; i++)
+		{
+			if (hHash == pTable->uiHashes[i])
+				return pTable->pRegisteredNatives[i];
+		}
+
+		pTable = pTable->pNext;
+	}
+
+	return NULL;
+}
+
+// =================================================================================
 // Category By Name 
 // =================================================================================
 Natives::eNativeCategory Natives::FindCategoryByName(char* sName)
