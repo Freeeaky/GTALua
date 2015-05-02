@@ -10,7 +10,7 @@
 // =================================================================================
 // Test Thread
 // =================================================================================
-class TestThread : public ScriptThreadWrapper
+class TestThread : public ScriptThread
 {
 public:
 	void OnRun()
@@ -20,7 +20,6 @@ public:
 		if (GetAsyncKeyState(VK_F9) & 1)
 		{
 			printf("OK!\n");
-			printf("at +0x110: %p\n", *(DWORD64*) (this + 0x110));
 
 			InvokeNative get_player_ped(0x687D51F360787909);
 			get_player_ped.PushArgument<int>(-1);
@@ -39,21 +38,37 @@ public:
 			has_model_loaded.PushArgument<int>(0xC703DB5F);
 			has_model_loaded.Call();
 			bool has_loaded = has_model_loaded.GetResult<bool>();
-			printf("has loaded: %i\n", (int)has_loaded);
+			if (has_loaded) printf("loaded!\n");
+			else printf("not loaded :(\n");
 
 			if (has_loaded)
 			{
 				InvokeNative create_vehicle(0x546974B676313326);
-				create_vehicle.PushArgument<int>(0xC703DB5F);
-				create_vehicle.PushArgument<float>(player_pos.x);
-				create_vehicle.PushArgument<float>(player_pos.y);
-				create_vehicle.PushArgument<float>(player_pos.z);
+				create_vehicle.PushArgument<uint32_t>(0xC703DB5F);
+				create_vehicle.PushArgument<float>(player_pos.x + 2);
+				create_vehicle.PushArgument<float>(player_pos.y + 2);
+				create_vehicle.PushArgument<float>(player_pos.z + 2);
 				create_vehicle.PushArgument<float>(0.0f);
 				create_vehicle.PushArgument<bool>(true);
 				create_vehicle.PushArgument<bool>(true);
 				create_vehicle.Call();
 				int vehicle_id = create_vehicle.GetResult<int>();
+				printf("args were: %p %f %f %f %f %i %i\n", create_vehicle.GetArgument<uint32_t>(0), create_vehicle.GetArgument<float>(1), create_vehicle.GetArgument<float>(2), create_vehicle.GetArgument<float>(3), create_vehicle.GetArgument<float>(4), create_vehicle.GetArgument<bool>(5), create_vehicle.GetArgument<bool>(6));
 				printf("vehicle id: %i\n", vehicle_id);
+
+				InvokeNative vehicle_exists(0xFD68187442384158);
+				vehicle_exists.PushArgument<int>(vehicle_id);
+				vehicle_exists.Call();
+				if (vehicle_exists.GetResult<bool>())
+				{
+					printf("exists!\n");
+
+					InvokeNative warp_into_vehicle(0x0F57092AA9D04B9A5);
+					warp_into_vehicle.PushArgument<int>(player_ped_id);
+					warp_into_vehicle.PushArgument<int>(vehicle_id);
+					warp_into_vehicle.PushArgument<int>(-1);
+					warp_into_vehicle.Call();
+				}
 			}
 			else {
 				printf("request!\n");
@@ -75,8 +90,8 @@ void TestingStuff()
 
 	// Size Checks
 	printf("size ScriptThreadContext: %i (should be 168)\n", sizeof(ScriptThreadContext));
-	printf("size ScriptThread: %i (should be 208)\n", sizeof(ScriptThread));
-	printf("size ScriptThreadWrapper: %i (should be 344)\n", sizeof(ScriptThreadWrapper));
+	printf("size ScriptThread: %i (should be 344)\n", sizeof(ScriptThread));
+	//printf("size ScriptThreadWrapper: %i (should be 344)\n", sizeof(ScriptThreadWrapper));
 
 	// Addresses
 	if (!ScriptEngine::CollectAddresses())
@@ -87,7 +102,7 @@ void TestingStuff()
 
 	// Register
 	TestThread* pThread = new TestThread();
-	bool r = ScriptEngine::CreateScriptThread((ScriptThread*) pThread);
+	bool r = ScriptEngine::CreateScriptThread(pThread);
 	if (!r)
 		printf("Fail!\n");
 

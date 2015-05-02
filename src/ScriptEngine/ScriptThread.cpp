@@ -12,9 +12,10 @@ ScriptThread__Init_t ScriptThread__Init = NULL;
 // =================================================================================
 // Reset 
 // =================================================================================
-eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, DWORD64 pArgs, uint32_t iArgsCount)
+eScriptThreadState ScriptThread::Reset(uint32_t hash, DWORD64 pArgs, uint32_t iArgsCount)
 {
 	printf("ScriptThreadWrapper::Reset\n");
+	printf("%p\n", (DWORD64)(&m_pMissionCleanup) - (DWORD64)this);
 	memset(&m_pContext, 0, sizeof(m_pContext));
 
 	m_pContext.eState = THREAD_STATE_IDLE;
@@ -29,8 +30,8 @@ eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, DWORD64 pArgs, uint
 		ScriptThread__Init = GameMemory::At<ScriptThread__Init_t>(0x999024);
 
 	ScriptThread__Init(this);
-	m_cNetworkFlag = true;
-	m_sExitMessage = "Normal exit";
+
+	m_pszExitMessage = "Normal exit";
 
 	return m_pContext.eState;
 }
@@ -38,13 +39,15 @@ eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, DWORD64 pArgs, uint
 // =================================================================================
 // Run 
 // =================================================================================
-eScriptThreadState ScriptThreadWrapper::Run(uint32_t opsToExecute)
+eScriptThreadState ScriptThread::Run(uint32_t opsToExecute)
 {
-	if (!*(DWORD64*)(this + 0x110))
+	if (!m_pMissionCleanup)
 	{
 		printf("attach\n");
 		ScriptEngine::HandlerManager->AttachScript(this);
-		printf("val now: %p\n", *(DWORD64*)(this + 0x110));
+		printf("val now: %p\n", m_pMissionCleanup);
+		
+		this->long_running_thread = true;
 	}
 
 	ScriptThread* pActiveThread = ScriptEngine::GetActiveThread();
@@ -65,7 +68,7 @@ eScriptThreadState ScriptThreadWrapper::Run(uint32_t opsToExecute)
 typedef eScriptThreadState(*ScriptThread__Tick_t)(ScriptThread* pThread, uint32_t opsToExecute);
 ScriptThread__Tick_t ScriptThread__Tick = NULL;
 
-eScriptThreadState ScriptThreadWrapper::Tick(uint32_t opsToExecute)
+eScriptThreadState ScriptThread::Tick(uint32_t opsToExecute)
 {
 	// TODO: Pattern
 	if (ScriptThread__Tick == NULL)
@@ -83,7 +86,7 @@ eScriptThreadState ScriptThreadWrapper::Tick(uint32_t opsToExecute)
 typedef void(*ScriptThread__Kill_t)(ScriptThread* pThread);
 ScriptThread__Kill_t ScriptThread__Kill = NULL;
 
-void ScriptThreadWrapper::Kill()
+void ScriptThread::Kill()
 {
 	printf("ScriptThreadWrapper::Kill\n");
 

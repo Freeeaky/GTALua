@@ -30,18 +30,20 @@ public:
 // =================================================================================
 // Script Thread
 // =================================================================================
-class ScriptThread
+class scrThread
 {
 protected:
-	ScriptThreadContext m_pContext;
-	void* m_pStack; // 176
-	//char _0x0B8[16];
-	void* pad_1; // 184
-	void* pad_2; // 192
-	const char* m_sExitMessage; // 200
+	ScriptThreadContext m_pContext; // 0x8 - 0xB0
+	char _0x00B0[24];
+	const char*	m_pszExitMessage; // 0xC8
+	char _0x00D0[64];
+	void* m_pMissionCleanup; // 0x110
+	char _0x0118[41];
+	bool long_running_thread; //0x0141 
+	char _0x0142[22];
 
 public:
-	virtual ~ScriptThread() { };
+	virtual ~scrThread() { };
 	virtual eScriptThreadState Reset(uint32_t hash, DWORD64 pArgs, uint32_t iArgsCount) = 0;
 	virtual eScriptThreadState Run(uint32_t opsToExecute) = 0;
 	virtual eScriptThreadState Tick(uint32_t opsToExecute) = 0;

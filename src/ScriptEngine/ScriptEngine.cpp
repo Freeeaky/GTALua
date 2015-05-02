@@ -69,7 +69,7 @@ bool ScriptEngine::CreateScriptThread(ScriptThread* pNewThread)
 		return false;
 
 	// Reset
-	pNewThread->Reset((*ThreadCount) + 1, NULL, 0);
+	pNewThread->Reset(1, NULL, 0);
 	
 	// Thread ID & Count
 	if (*ThreadID == 0)
