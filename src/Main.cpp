@@ -108,23 +108,15 @@ void GTALua::ProperInit()
 }
 
 
+
 // =================================================================================
 // Update 
 // =================================================================================
-bool t = false;
 void GTALua::Update()
 {
 	// AutoRefresh
 	/*if (LuaFunctions::Autorefresh::IsInitialized())
 		LuaFunctions::Autorefresh::Update();*/
-
-	if (GetAsyncKeyState(VK_F9) & 1 && !t)
-	{
-		printf("ok\n");
-		t = true;
-
-		
-	}
 
 	// Console Input
 	//ProcessConsoleInput();
