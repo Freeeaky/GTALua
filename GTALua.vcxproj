@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Console.cpp" />
+    <ClCompile Include="src\DLLMain.cpp" />
+    <ClCompile Include="src\GameHooks.cpp" />
+    <ClCompile Include="src\lua\GeneralFunctions.cpp" />
+    <ClCompile Include="src\lua\luamanager\LuaManager.cpp" />
+    <ClCompile Include="src\lua\luamanager\LuaManager_Debug.cpp" />
+    <ClCompile Include="src\lua\luamanager\LuaManager_General.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Memory\GameMemory.cpp" />
+    <ClCompile Include="src\Memory\Hooking.cpp" />
+    <ClCompile Include="src\Memory\Memory.cpp" />
+    <ClCompile Include="src\Memory\minhook\src\buffer.c" />
+    <ClCompile Include="src\Memory\minhook\src\HDE\hde32.c" />
+    <ClCompile Include="src\Memory\minhook\src\HDE\hde64.c" />
+    <ClCompile Include="src\Memory\minhook\src\hook.c" />
+    <ClCompile Include="src\Memory\minhook\src\trampoline.c" />
+    <ClCompile Include="src\NativesINI.cpp" />
+    <ClCompile Include="src\ScriptBinds\LB_Console.cpp" />
+    <ClCompile Include="src\ScriptBinds\LB_File.cpp" />
+    <ClCompile Include="src\ScriptBinds\LB_GeneralFunctions.cpp" />
+    <ClCompile Include="src\ScriptBinds\LB_ScriptHookV.cpp" />
+    <ClCompile Include="src\ScriptBinds\LB_ScriptThread.cpp" />
+    <ClCompile Include="src\ScriptBinds\LB_Types.cpp" />
+    <ClCompile Include="src\ScriptBinds\LB_Natives.cpp" />
+    <ClCompile Include="src\ScriptBinds\NativeCallLayoutsINI.cpp" />
+    <ClCompile Include="src\ScriptEngine\Natives.cpp" />
+    <ClCompile Include="src\ScriptEngine\ScriptHookV.cpp" />
+    <ClCompile Include="src\thirdparty\inih\ini.c" />
+    <ClCompile Include="src\UTIL\IniFile.cpp" />
+    <ClCompile Include="src\UTIL\UTIL.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GTALua.h" />
+    <ClInclude Include="src\Includes.h" />
+    <ClInclude Include="src\lua\ClassWrappers.h" />
+    <ClInclude Include="src\lua\GeneralFunctions.h" />
+    <ClInclude Include="src\lua\Lua.h" />
+    <ClInclude Include="src\lua\luabind\adopt_policy.hpp" />
+    <ClInclude Include="src\lua\luabind\back_reference.hpp" />
+    <ClInclude Include="src\lua\luabind\back_reference_fwd.hpp" />
+    <ClInclude Include="src\lua\luabind\class.hpp" />
+    <ClInclude Include="src\lua\luabind\class_info.hpp" />
+    <ClInclude Include="src\lua\luabind\config.hpp" />
+    <ClInclude Include="src\lua\luabind\container_policy.hpp" />
+    <ClInclude Include="src\lua\luabind\copy_policy.hpp" />
+    <ClInclude Include="src\lua\luabind\dependency_policy.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\call.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\call_function.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\call_member.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\call_operator_iterate.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\class_registry.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\class_rep.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\constructor.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\conversion_storage.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\convert_to_lua.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\debug.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\decorate_type.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\deduce_signature.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\enum_maker.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\format_signature.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\garbage_collector.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\has_get_pointer.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\inheritance.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\instance_holder.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\link_compatibility.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\make_instance.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\most_derived.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\object_call.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\object_rep.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\open.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\operator_id.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\other.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\pcall.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\pointee_sizeof.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\pointee_typeid.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\policy.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\primitives.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\property.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\ref.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\signature_match.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\stack_utils.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\typetraits.hpp" />
+    <ClInclude Include="src\lua\luabind\detail\yes_no.hpp" />
+    <ClInclude Include="src\lua\luabind\discard_result_policy.hpp" />
+    <ClInclude Include="src\lua\luabind\error.hpp" />
+    <ClInclude Include="src\lua\luabind\exception_handler.hpp" />
+    <ClInclude Include="src\lua\luabind\from_stack.hpp" />
+    <ClInclude Include="src\lua\luabind\function.hpp" />
+    <ClInclude Include="src\lua\luabind\get_main_thread.hpp" />
+    <ClInclude Include="src\lua\luabind\get_pointer.hpp" />
+    <ClInclude Include="src\lua\luabind\handle.hpp" />
+    <ClInclude Include="src\lua\luabind\iterator_policy.hpp" />
+    <ClInclude Include="src\lua\luabind\luabind.hpp" />
+    <ClInclude Include="src\lua\luabind\lua_include.hpp" />
+    <ClInclude Include="src\lua\luabind\make_function.hpp" />
+    <ClInclude Include="src\lua\luabind\nil.hpp" />
+    <ClInclude Include="src\lua\luabind\no_dependency.hpp" />
+    <ClInclude Include="src\lua\luabind\object.hpp" />
+    <ClInclude Include="src\lua\luabind\open.hpp" />
+    <ClInclude Include="src\lua\luabind\operator.hpp" />
+    <ClInclude Include="src\lua\luabind\out_value_policy.hpp" />
+    <ClInclude Include="src\lua\luabind\prefix.hpp" />
+    <ClInclude Include="src\lua\luabind\raw_policy.hpp" />
+    <ClInclude Include="src\lua\luabind\return_reference_to_policy.hpp" />
+    <ClInclude Include="src\lua\luabind\scope.hpp" />
+    <ClInclude Include="src\lua\luabind\shared_ptr_converter.hpp" />
+    <ClInclude Include="src\lua\luabind\tag_function.hpp" />
+    <ClInclude Include="src\lua\luabind\typeid.hpp" />
+    <ClInclude Include="src\lua\luabind\value_wrapper.hpp" />
+    <ClInclude Include="src\lua\luabind\version.hpp" />
+    <ClInclude Include="src\lua\luabind\weak_ref.hpp" />
+    <ClInclude Include="src\lua\luabind\wrapper_base.hpp" />
+    <ClInclude Include="src\lua\luabind\yield_policy.hpp" />
+    <ClInclude Include="src\lua\luamanager\LuaManager.h" />
+    <ClInclude Include="src\lua\lua\lauxlib.h" />
+    <ClInclude Include="src\lua\lua\lua.h" />
+    <ClInclude Include="src\lua\lua\luaconf.h" />
+    <ClInclude Include="src\lua\lua\lualib.h" />
+    <ClInclude Include="src\Memory\GameMemory.h" />
+    <ClInclude Include="src\Memory\Memory.h" />
+    <ClInclude Include="src\Memory\minhook\include\MinHook.h" />
+    <ClInclude Include="src\Memory\minhook\src\buffer.h" />
+    <ClInclude Include="src\Memory\minhook\src\HDE\hde32.h" />
+    <ClInclude Include="src\Memory\minhook\src\HDE\hde64.h" />
+    <ClInclude Include="src\Memory\minhook\src\HDE\pstdint.h" />
+    <ClInclude Include="src\Memory\minhook\src\HDE\table32.h" />
+    <ClInclude Include="src\Memory\minhook\src\HDE\table64.h" />
+    <ClInclude Include="src\Memory\minhook\src\trampoline.h" />
+    <ClInclude Include="src\ScriptBinds\ScriptBinds.h" />
+    <ClInclude Include="src\ScriptEngine\Natives.h" />
+    <ClInclude Include="src\ScriptEngine\rage.h" />
+    <ClInclude Include="src\ScriptEngine\ScriptEngine.h" />
+    <ClInclude Include="src\thirdparty\inih\ini.h" />
+    <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcher.h" />
+    <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcherImpl.h" />
+    <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcherWin32.h" />
+    <ClInclude Include="src\UTIL\IniFile.h" />
+    <ClInclude Include="src\UTIL\UTIL.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1705AE25-2E07-44DD-B4B7-A002FA02D853}</ProjectGuid>
+    <RootNamespace>GTALua</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>build/GTALua/</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>src/;src/lua/;src/lua/lua/</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>GTALua/</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /s /q /y "C:\Projekte\GTA5\GTALua\GTALua\build\GTALua\GTALua.dll" "C:\Program Files (x86)\Steam\steamapps\common\Grand Theft Auto V\GTALua"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

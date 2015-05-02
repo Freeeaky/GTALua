@@ -38,11 +38,12 @@ bool ScriptHook::Initialize()
 	}
 
 	// ScriptHook
-	RegisterScript = (ScriptHook::scriptRegister_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x48\x8B\xC4\x57", "xxxx");
+	// TODO: Change this
+	RegisterScript = (ScriptHook::scriptRegister_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x40\x55\x56", "xxx");
 	ThreadWait = (ScriptHook::scriptWait_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x40\x57\x48\x83\xEC\x20\x65\x4C\x8B\x0C\x25\x00\x00\x00\x00", "xxxxxxxxxxx????");
-	CallNative = (ScriptHook::nativeCall_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x48\x83\xEC\x28\x48\x8D\x0D\x00\x00\x00\x00\xFF\x15\x00\x00\x00\x00\x48\x63\x05\x00\x00\x00\x00", "xxxxxxx????xx????xxx????");
-	InitNative = (ScriptHook::nativeInit_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x48\x89\x5C\x24\x00\x57\x48\x83\xEC\x20\x48\x8B\xD9\x48\x8D\x3D\x00\x00\x00\x00\x33\xD2", "xxxx?xxxxxxxxxxx????xx");
-	NativePush64 = (ScriptHook::nativeInit_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x48\x8B\x05\x00\x00\x00\x00\x48\x8B\x15\x00\x00\x00\x00", "xxx????xxx????");
+	CallNative = (ScriptHook::nativeCall_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x48\x83\xEC\x28\x48\x8D\x0D\x00\x00\x00\x00\xFF\x15\x00\x00\x00\x00\x8B\x05\x00\x00\x00\x00", "xxxxxxx????xx????xx????");
+	InitNative = (ScriptHook::nativeInit_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x48\x89\x5C\x24\x00\x57\x48\x83\xEC\x20\x48\x8B\xD9\xE8\x00\x00\x00\x00", "xxxx?xxxxxxxxx????");
+	NativePush64 = (ScriptHook::nativeInit_t) Memory::Find((DWORD64)hModule, Memory::GetModuleSize(hModule), (PBYTE)"\x8B\x15\x00\x00\x00\x00\x48\x8B\x05\x00\x00\x00\x00\x48\x89\x0C\xD0", "xx????xxx????xxxx");
 
 	// Checkup
 	if (!ScriptHook::RegisterScript || !ScriptHook::ThreadWait || !ScriptHook::CallNative || !ScriptHook::InitNative || !ScriptHook::NativePush64)
