@@ -21,7 +21,7 @@ class ScriptThreadWrapper;
 namespace ScriptEngine
 {
 	// Addresses
-	extern rage::PtrCollection* ThreadCollection;
+	extern rage::PtrCollection<ScriptThread>* ThreadCollection;
 	extern uint32_t* ThreadID;
 	extern uint32_t* ThreadCount;
 	extern ScriptHandlerManager* HandlerManager;

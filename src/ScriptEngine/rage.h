@@ -3,16 +3,18 @@
 // =================================================================================
 namespace rage
 {
+	template <typename T>
 	struct PtrCollection
 	{
-		DWORD64** m_ppData;
+		T** m_ppData;
 		uint16_t m_iCount;
 		uint16_t m_iSize;
 
-		DWORD64** begin() { return m_ppData; }
-		DWORD64** end() { return m_ppData + m_iCount; }
-		DWORD64* at(uint16_t iIndex) { return m_ppData[iIndex]; }
+		T** begin() { return m_ppData; }
+		T** end() { return m_ppData + m_iCount; }
+		T* at(uint16_t iIndex) { return m_ppData[iIndex]; }
 		uint16_t count() { return m_iCount; }
+		void set(uint16_t iIndex, T* pValue) { m_ppData[iIndex] = pValue; }
 	};
 
 	struct CVector

@@ -8,11 +8,27 @@
 #include "lua/Lua.h"
 
 // =================================================================================
+// Test Thread
+// =================================================================================
+class TestThread : public ScriptThreadWrapper
+{
+public:
+	void OnRun()
+	{
+		printf("TestThread::OnRun -> %p\n", m_pUnknown);
+	}
+};
+
+// =================================================================================
 // Test
 // =================================================================================
 void TestingStuff()
 {
 	printf("Testing Stuff\n");
+
+	// Size Checks
+	printf("size ScriptThreadContext: %i (should be 168)\n", sizeof(ScriptThreadContext));
+	printf("size ScriptThreadWrapper: %i (should be 344)\n", sizeof(ScriptThreadWrapper));
 
 	// Addresses
 	if (!ScriptEngine::CollectAddresses())
@@ -20,13 +36,20 @@ void TestingStuff()
 		printf("Failed to collect addresses!\n");
 		return;
 	}
-	
+
+	// Register
+	TestThread* pThread = new TestThread();
+	bool r = ScriptEngine::CreateScriptThread((ScriptThread*) pThread);
+	if (!r)
+		printf("Fail!\n");
+
+	/*
 	DWORD64* VTable = *(DWORD64**)ScriptEngine::HandlerManager;
 	printf("VTable: %p\n", VTable - GameMemory::Base);
 	for (int i = 0; i < 15; i++)
 	{
 		printf("\t%i: %p\n", i, VTable[i] - GameMemory::Base);
-	}
+	}*/
 }
 
 // =================================================================================
