@@ -79,13 +79,13 @@ bool ScriptEngine::CreateScriptThread(ScriptThread* pThread)
 	if (iSlot == ThreadCollection->m_iCount)
 		return false;
 
+	// Reset
+	pThread->Reset((*ThreadCount) + 1, NULL, 0);
+
 	// Increase number
 	// Don't use thread id 0
 	if (*ThreadID == 0)
 		(*ThreadID)++;
-
-	// Reset
-	pThread->Reset(0, NULL, 0);
 
 	// Update Context
 	pThread->GetContext()->uiThreadID = *ThreadID;

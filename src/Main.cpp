@@ -107,17 +107,27 @@ void GTALua::ProperInit()
 	printf("[GTALua] Successfully initialized!\n\n");
 }
 
+
 // =================================================================================
 // Update 
 // =================================================================================
+bool t = false;
 void GTALua::Update()
 {
 	// AutoRefresh
 	/*if (LuaFunctions::Autorefresh::IsInitialized())
 		LuaFunctions::Autorefresh::Update();*/
 
+	if (GetAsyncKeyState(VK_F9) & 1 && !t)
+	{
+		printf("ok\n");
+		t = true;
+
+		
+	}
+
 	// Console Input
-	ProcessConsoleInput();
+	//ProcessConsoleInput();
 }
 
 // =================================================================================
@@ -128,5 +138,6 @@ void GTALua::UpdateLoop()
 	while (true)
 	{
 		Update();
+		Sleep(200);
 	}
 }

@@ -20,16 +20,31 @@ struct ScriptThreadContext
 	eScriptThreadState eState; // 0x12
 	uint32_t uiIP; // 0x10
 	uint32_t uiFrameSP; // 0x14
-	uint32_t Timer[3]; // 0x18
+	uint32_t TimerA;
+	uint32_t TimerB;
+	uint32_t TimerC;
 	uint32_t _unknown_1; // 0x1C
 	uint32_t _unknown_2; // 0x20
-	BYTE _shit[48]; // 0x2C - 0x5C
+
+	uint32_t _f2C;
+	uint32_t _f30;
+	uint32_t _f34;
+	uint32_t _f38;
+	uint32_t _f3C;
+	uint32_t _f40;
+	uint32_t _f44;
+	uint32_t _f48;
+	uint32_t _f4C;
+	uint32_t _f50;
+
+	uint32_t pad1;
+	uint32_t pad2;
+	uint32_t pad3;
+
 	uint32_t _unknown_3; // 0x60
 	BYTE _shit2[68]; // 0xA4 (168)
 
-	//BYTE _shit3[176]; // mostly initialized by Reset
-
-	// 0xD0/200 - thread name
+	uint32_t pad[68 / 4];
 };
 
 // =================================================================================
@@ -39,6 +54,11 @@ class ScriptThread
 {
 public:
 	ScriptThreadContext m_pContext;
+	void* m_pStack;
+	void* pad;
+	void* pad2;
+
+	const char* m_szExitMessage;
 
 	virtual ~ScriptThread() {};
 	virtual eScriptThreadState Reset(uint32_t hash, void* pArgs, uint32_t iArgumentsCount) = 0;

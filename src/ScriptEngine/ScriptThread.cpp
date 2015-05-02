@@ -10,22 +10,6 @@
 // Thread 
 // =================================================================================
 typedef void(*ScriptThread__Init)(ScriptThread* pThis);
-ScriptThreadWrapper::ScriptThreadWrapper()
-{
-	// Context
-	memset(&m_pContext, 0, sizeof(m_pContext));
-	m_pContext.eState = THREAD_STATE_IDLE;
-	m_pContext._unknown_1 = -1;
-	m_pContext._unknown_2 = -1;
-	m_pContext._unknown_3 = 1;
-
-	// Init
-	ScriptThread__Init pInit = (ScriptThread__Init)GameMemory::At(0x997850);
-	pInit(this);
-
-	// attach
-	ScriptEngine::HandlerManager->AttachScript(this);
-}
 
 // =================================================================================
 // Reset 
@@ -33,6 +17,8 @@ ScriptThreadWrapper::ScriptThreadWrapper()
 
 eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, void* pArgs, uint32_t iArgumentsCount)
 {
+	printf("RESET\n");
+
 	// Context
 	memset(&m_pContext, 0, sizeof(m_pContext));
 	m_pContext.eState = THREAD_STATE_IDLE;
@@ -41,11 +27,10 @@ eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, void* pArgs, uint32
 	m_pContext._unknown_3 = 1;
 
 	// Init
-	ScriptThread__Init pInit = (ScriptThread__Init)GameMemory::At(0x997850);
+	ScriptThread__Init pInit = (ScriptThread__Init)GameMemory::At(0x999024);
 	pInit(this);
 
-	// attach
-	ScriptEngine::HandlerManager->AttachScript(this);
+	m_szExitMessage = "Normal exit";
 
 	// Done
 	return m_pContext.eState;
@@ -81,7 +66,7 @@ eScriptThreadState ScriptThreadWrapper::Tick(uint32_t iNumber)
 		OnTick();
 
 	// Tick
-	ScriptThread__Tick pThread_Tick = (ScriptThread__Tick) GameMemory::At(0x9A2124);
+	ScriptThread__Tick pThread_Tick = (ScriptThread__Tick)GameMemory::At(0x9A3C34);
 	return pThread_Tick(this, iNumber);
 }
 
@@ -93,11 +78,11 @@ typedef void (*ScriptThread__Kill)(ScriptThread* pThis);
 void ScriptThreadWrapper::Kill()
 {
 	// Callback
-	if (m_pContext.eState != THREAD_STATE_KILLED)
-		OnKill();
+	//if (m_pContext.eState != THREAD_STATE_KILLED)
+	OnKill();
 
 	// Kill
-	ScriptThread__Kill pThread_Kill = (ScriptThread__Kill) GameMemory::At(0x999128);
+	ScriptThread__Kill pThread_Kill = (ScriptThread__Kill)GameMemory::At(0x99A96C);
 	pThread_Kill(this);
 }
 

@@ -3,10 +3,15 @@
 // =================================================================================
 class ScriptThreadWrapper : public ScriptThread
 {
-public:
-	ScriptThreadWrapper();
-	//~ScriptThreadWrapper();
+protected:
+	char gta_pad[64];
+	void* m_pMissionCleanup;
+	char gta_pad2[40];
+	char flag1;
+	char m_networkFlag;
+	char gta_pad3[22];
 
+public:
 	// Internal, do not overwrite
 	virtual eScriptThreadState Reset(uint32_t hash, void* pArgs, uint32_t iArgumentsCount);
 	virtual eScriptThreadState Run(uint32_t iNumber);
