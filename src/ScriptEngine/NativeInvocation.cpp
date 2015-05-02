@@ -66,5 +66,6 @@ bool InvokeNative::Call()
 	}
 
 	// Native not found!
+	printf("Unknown Native Hash %p\n", m_hHash);
 	return false;
 }

@@ -15,7 +15,54 @@ class TestThread : public ScriptThreadWrapper
 public:
 	void OnRun()
 	{
-		printf("TestThread::OnRun -> %p\n", m_pUnknown);
+		
+
+		if (GetAsyncKeyState(VK_F9) & 1)
+		{
+			printf("OK!\n");
+			printf("at +0x110: %p\n", *(DWORD64*) (this + 0x110));
+
+			InvokeNative get_player_ped(0x687D51F360787909);
+			get_player_ped.PushArgument<int>(-1);
+			get_player_ped.Call();
+			int player_ped_id = get_player_ped.GetResult<int>(0);
+			printf("player ped : %i\n", player_ped_id);
+
+			InvokeNative get_entity_coords(0xBF1B13057E5119A4);
+			get_entity_coords.PushArgument<int>(player_ped_id);
+			get_entity_coords.PushArgument<bool>(true);
+			get_entity_coords.Call();
+			rage::CVector player_pos = get_entity_coords.GetResult<rage::CVector>();
+			printf("pos: %f %f %f\n", player_pos.x, player_pos.y, player_pos.z);
+
+			InvokeNative has_model_loaded(0xD291857D0C9C7FEC);
+			has_model_loaded.PushArgument<int>(0xC703DB5F);
+			has_model_loaded.Call();
+			bool has_loaded = has_model_loaded.GetResult<bool>();
+			printf("has loaded: %i\n", (int)has_loaded);
+
+			if (has_loaded)
+			{
+				InvokeNative create_vehicle(0x546974B676313326);
+				create_vehicle.PushArgument<int>(0xC703DB5F);
+				create_vehicle.PushArgument<float>(player_pos.x);
+				create_vehicle.PushArgument<float>(player_pos.y);
+				create_vehicle.PushArgument<float>(player_pos.z);
+				create_vehicle.PushArgument<float>(0.0f);
+				create_vehicle.PushArgument<bool>(true);
+				create_vehicle.PushArgument<bool>(true);
+				create_vehicle.Call();
+				int vehicle_id = create_vehicle.GetResult<int>();
+				printf("vehicle id: %i\n", vehicle_id);
+			}
+			else {
+				printf("request!\n");
+
+				InvokeNative request_model(0xCBE6AC5010E5CE5C);
+				request_model.PushArgument<int>(0xC703DB5F);
+				request_model.Call();
+			}
+		}
 	}
 };
 
@@ -28,6 +75,7 @@ void TestingStuff()
 
 	// Size Checks
 	printf("size ScriptThreadContext: %i (should be 168)\n", sizeof(ScriptThreadContext));
+	printf("size ScriptThread: %i (should be 208)\n", sizeof(ScriptThread));
 	printf("size ScriptThreadWrapper: %i (should be 344)\n", sizeof(ScriptThreadWrapper));
 
 	// Addresses

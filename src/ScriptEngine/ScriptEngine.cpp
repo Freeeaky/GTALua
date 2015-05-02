@@ -80,7 +80,7 @@ bool ScriptEngine::CreateScriptThread(ScriptThread* pNewThread)
 
 	// Register Thread in Game Memory
 	ThreadCollection->set(iSlot, pNewThread);
-	HandlerManager->AttachScript(pNewThread);
+	//HandlerManager->AttachScript(pNewThread);
 
 	// Done
 	return true;

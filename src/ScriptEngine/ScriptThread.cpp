@@ -40,7 +40,12 @@ eScriptThreadState ScriptThreadWrapper::Reset(uint32_t hash, DWORD64 pArgs, uint
 // =================================================================================
 eScriptThreadState ScriptThreadWrapper::Run(uint32_t opsToExecute)
 {
-	printf("ScriptThreadWrapper::Run\n");
+	if (!*(DWORD64*)(this + 0x110))
+	{
+		printf("attach\n");
+		ScriptEngine::HandlerManager->AttachScript(this);
+		printf("val now: %p\n", *(DWORD64*)(this + 0x110));
+	}
 
 	ScriptThread* pActiveThread = ScriptEngine::GetActiveThread();
 	ScriptEngine::SetActiveThread(this);
@@ -62,8 +67,6 @@ ScriptThread__Tick_t ScriptThread__Tick = NULL;
 
 eScriptThreadState ScriptThreadWrapper::Tick(uint32_t opsToExecute)
 {
-	printf("ScriptThreadWrapper::Tick\n");
-
 	// TODO: Pattern
 	if (ScriptThread__Tick == NULL)
 		ScriptThread__Tick = GameMemory::At<ScriptThread__Tick_t>(0x9A3C34);

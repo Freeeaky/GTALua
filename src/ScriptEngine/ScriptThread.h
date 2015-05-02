@@ -34,9 +34,11 @@ class ScriptThread
 {
 protected:
 	ScriptThreadContext m_pContext;
-	void* m_pStack; // B0
-	char _0x0B8[16];
-	const char* m_sExitMessage; // 0xC8
+	void* m_pStack; // 176
+	//char _0x0B8[16];
+	void* pad_1; // 184
+	void* pad_2; // 192
+	const char* m_sExitMessage; // 200
 
 public:
 	virtual ~ScriptThread() { };
