@@ -20,7 +20,7 @@ void Init()
 	g_pGTALua = new GTALua();
 
 	// Update
-	g_pGTALua->UpdateLoop();
+	//g_pGTALua->UpdateLoop();
 }
 
 // =================================================================================
@@ -31,7 +31,8 @@ BOOL __stdcall DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
 	// Startup
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
-		CreateThread(0, 0, (LPTHREAD_START_ROUTINE)Init, 0, 0, 0);
+		//CreateThread(0, 0, (LPTHREAD_START_ROUTINE)Init, 0, 0, 0);
+		Init();
 	}
 
 	// Cleanup

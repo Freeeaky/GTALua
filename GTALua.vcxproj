@@ -208,7 +208,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>build/GTALua/</OutDir>
+    <OutDir>build/</OutDir>
+    <TargetExt>.asi</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -260,7 +261,7 @@
       <AdditionalLibraryDirectories>GTALua/</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /s /q /y "C:\Projekte\GTA5\GTALua\GTALua\build\GTALua\GTALua.dll" "C:\Program Files (x86)\Steam\steamapps\common\Grand Theft Auto V\GTALua"</Command>
+      <Command>xcopy /s /q /y "C:\Projekte\GTA5\GTALua\GTALua\build\GTALua.asi" "C:\Program Files (x86)\Steam\steamapps\common\Grand Theft Auto V\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
