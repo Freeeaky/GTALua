@@ -1,2 +1,2 @@
-Addons that start with _ (like the examples) are NOT loaded!
-You have to remove the "_" at the beginning to enable them!
+In order for your addons to be loaded, you need to have an ASI file for them!
+It is recommended to start based on the empty_addon!

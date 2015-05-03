@@ -4,6 +4,15 @@
 --     http://freeschi.com/w/index.php/Getting_Started
 --
 
+-- !! !! !! !! !!
+-- !! IMPORTANT!!
+-- !! !! !! !! !!
+--
+-- You need to copy the example_02_spawn_bodyguard.asi file to your
+-- GTA main directory! Otherwise this addon will not be loaded!
+--
+--
+
 example_spawn_bodyguard = ScriptThread("example_spawn_bodyguard") 
 
 -- Run function

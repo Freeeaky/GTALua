@@ -4,6 +4,15 @@
 --     http://freeschi.com/w/index.php/Getting_Started
 --
 
+-- !! !! !! !! !!
+-- !! IMPORTANT!!
+-- !! !! !! !! !!
+--
+-- You need to copy the example_01_spawn_vehicle.asi file to your
+-- GTA main directory! Otherwise this addon will not be loaded!
+--
+--
+
 -- Create a ScriptThread
 -- Make sure you have a unique name for your thread!
 example_vehicle = ScriptThread("example_spawn_vehicle") 
