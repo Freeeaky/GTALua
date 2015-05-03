@@ -21,12 +21,16 @@ GTALua::GTALua()
 	AttachConsole(GetCurrentProcessId());
 	freopen("CON", "w", stdout); 
 	freopen("CONIN$", "r", stdin);
+	SetConsoleTitle("GTALua - Version 1.0.1");
 
 	HWND hConsole = GetConsoleWindow();
 	RECT rect;
 	GetWindowRect(hConsole, &rect);
 	SetWindowPos(hConsole, NULL, 2000, 25, rect.right - rect.left,  rect.bottom - rect.top, 0);
 #endif
+
+	// Active
+	m_bActive = true;
 
 	// Prepare Memory
 	Memory::Init(); 
@@ -59,7 +63,6 @@ GTALua::~GTALua()
 // =================================================================================
 void GTALua::ProperInit()
 {
-	m_bActive = true;
 	printf("[GTALua] Initializing..\n");
 
 	// Hooks
@@ -119,13 +122,23 @@ void GTALua::ProperInit()
 		printf("[GTALua] Failed to initialize!\n");
 		return;
 	}
+}
+
+// =================================================================================
+// Addons 
+// =================================================================================
+void GTALua::InitAddons()
+{
+	if (lua == NULL) return;
 
 	// Queued Addons
+	printf("\n");
 	API::LoadQueuedAddons();
+	printf("\n");
 
 	// Success
 	printf("===================================================================\n");
-	printf("[GTALua] Initialized!\n"); 
+	printf("[GTALua] Initialized!\n");
 	printf("===================================================================\n\n");
 }
 

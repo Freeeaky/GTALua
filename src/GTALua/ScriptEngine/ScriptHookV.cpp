@@ -22,7 +22,13 @@ bool ScriptHook::CanRegisterThreads = true;
 // =================================================================================
 void ScriptHook::PushMemory(ScriptBinds::Memory::MemoryBlock* pMemBlock)
 {
-	PushValue(pMemBlock->GetMemoryPointer());
+	if (pMemBlock == NULL || !pMemBlock->IsValid())
+	{
+		MessageBox(0, 0, 0, 0);
+		lua->PushString("ScriptHook::PushMemory failed! Invalid CMemoryBlock passed!");
+		throw luabind::error(lua->State());
+	}
+	PushValue(pMemBlock->GetMemoryPointer()); 
 }
 
 // =================================================================================
@@ -33,9 +39,9 @@ void ScriptHook::ScriptWait(DWORD dwTime)
 {
 	scriptWait(dwTime);
 }
-void ScriptHook::ScriptRegister(ScriptHook_Callback ptr)
+void ScriptHook::ScriptRegister(HMODULE hModule, ScriptHook_Callback ptr)
 {
-	scriptRegister(GetModuleHandle("GTALua.asi"), ptr);
+	scriptRegister(hModule, ptr);
 }
 void ScriptHook::ScriptUnregister(ScriptHook_Callback ptr)
 {

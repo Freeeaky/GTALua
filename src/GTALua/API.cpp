@@ -48,8 +48,6 @@ void API::LoadQueuedAddons()
 // =================================================================================
 __declspec(dllexport) void LoadAddon(int version, HMODULE hModule)
 {
-	printf("LOAD ADDON: version %i\n", version);
-
 	// Get Module File Name
 	char* sPath = Memory::GetModulePath(hModule);
 	char* sFileName = new char[64];
@@ -67,5 +65,28 @@ __declspec(dllexport) void LoadAddon(int version, HMODULE hModule)
 // =================================================================================
 __declspec(dllexport) void UnloadAddon(HMODULE hModule)
 {
-	printf("UNLOAD ADDON\n");
+	// Get Module File Name
+	char* sPath = Memory::GetModulePath(hModule);
+	char* sFileName = new char[64];
+	_splitpath(sPath, NULL, NULL, sFileName, NULL);
+	free(sPath);
+
+	// Lua
+	if (lua == NULL)
+	{
+		printf("%s: You cannot unload your addon yet! It's not even loaded!\n", sFileName);
+		return;
+	}
+
+	// Debug
+	printf("[GTALua] Unloading %s\n", sPath);
+
+	// Unload
+	lua->GetGlobal("addon");
+	lua->GetField("Unload");
+	lua->PushString(sPath);
+	lua->ProtectedCall(1);
+
+	// Cleanup
+	free(sPath);
 }

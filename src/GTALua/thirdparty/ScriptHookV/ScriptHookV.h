@@ -13,7 +13,7 @@ namespace ScriptHook
 
 	// Imported
 	void ScriptWait(DWORD dwTime);
-	void ScriptRegister(ScriptHook_Callback ptr);
+	void ScriptRegister(HMODULE hModule, ScriptHook_Callback ptr);
 	void ScriptUnregister(ScriptHook_Callback ptr);
 
 	void NativeInit(UINT64 hash);

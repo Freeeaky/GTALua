@@ -17,9 +17,14 @@ MemoryBlock::MemoryBlock(int iSize)
 {
 	m_iSize = iSize;
 	m_pMemory = (int*)malloc(iSize);
-	memset(m_pMemory, 0, iSize);
+	if (m_pMemory != NULL)
+		memset(m_pMemory, 0, iSize);
 }
 MemoryBlock::~MemoryBlock()
+{
+	Release();
+}
+void MemoryBlock::Release()
 {
 	if (m_iSize > 0 && m_pMemory != NULL)
 	{
@@ -28,9 +33,13 @@ MemoryBlock::~MemoryBlock()
 	}
 	m_iSize = 0;
 }
-void MemoryBlock::Release()
+
+// =================================================================================
+// Valid-Check 
+// =================================================================================
+bool MemoryBlock::IsValid()
 {
-	delete this;
+	return m_iSize > 0 && m_pMemory != NULL;
 }
 
 // =================================================================================
@@ -43,6 +52,7 @@ void ScriptBinds::Memory::Bind()
 		luabind::class_<MemoryBlock>("CMemoryBlock")
 		.def(luabind::constructor<int>())
 		.def("Release", &MemoryBlock::Release)
+		.def("IsValid", &MemoryBlock::IsValid)
 		.def("WriteInt64", &MemoryBlock::Write<int>)
 		.def("WriteInt32", &MemoryBlock::Write<__int32>)
 		.def("WriteFloat", &MemoryBlock::Write<int>)

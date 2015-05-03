@@ -6,6 +6,8 @@ class GTALua
 public:
 	GTALua();
 	~GTALua();
+
+	void InitAddons();
 	void ProperInit();
 
 	// Update

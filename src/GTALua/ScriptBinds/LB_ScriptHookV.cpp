@@ -61,9 +61,23 @@ void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 	for (vector<ScriptBinds::ScriptThread::LuaScriptThread*>::iterator it = vScriptThreadQueue.begin(); it != vScriptThreadQueue.end(); ++it)
 		if (*it == pThread) return;
 
+	// Get Module
+	char buf[256];
+	sprintf(buf, "%s.asi", pThread->GetName().c_str());
+	HMODULE hASIAddon = GetModuleHandle(buf);
+
+	// Check
+	if (hASIAddon == NULL)
+	{
+		char error_buf[512];
+		sprintf(error_buf, "[GTALua] Thread name and addon name must match! Unable to find a match for %s!", pThread->GetName().c_str());
+		lua->PushString(error_buf);
+		throw luabind::error(lua->State());
+	}
+
 	// Register
 	vScriptThreadQueue.push_back(pThread);
-	ScriptHook::ScriptRegister(Lua_StartThread);
+	ScriptHook::ScriptRegister(hASIAddon, Lua_StartThread);
 }
 
 // =================================================================================

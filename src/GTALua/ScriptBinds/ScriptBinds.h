@@ -90,10 +90,18 @@ namespace ScriptBinds
 			// Used for native invocation
 			int* GetMemoryPointer() { return m_pMemory; };
 
+			// Valid-Check
+			bool IsValid();
+			
 			// Read
 			template <typename T>
 			T Read(int iOffset)
 			{
+				if (!IsValid())
+				{
+					lua->PushString("CMemoryBlock::Read - IsValid returned false!");
+					throw luabind::error(lua->State());
+				}
 				if ((iOffset + sizeof(T)) > m_iSize)
 				{
 					lua->PushString("CMemoryBlock::Read - Offset out of allocated memory");
@@ -106,6 +114,11 @@ namespace ScriptBinds
 			template <typename T>
 			void Write(int iOffset, T tValue)
 			{
+				if (!IsValid())
+				{
+					lua->PushString("CMemoryBlock::Write - IsValid returned false!");
+					throw luabind::error(lua->State());
+				}
 				if ((iOffset + sizeof(T)) > m_iSize)
 				{
 					lua->PushString("CMemoryBlock::Write - Offset out of allocated memory");
