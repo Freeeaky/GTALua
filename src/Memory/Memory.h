@@ -3,8 +3,9 @@
 // =================================================================================
 namespace Memory
 {
-	// Init
+	// Init / Shutdown
 	void Init(); // initializes hooking engine
+	void CleanUp();
 
 	// Memory Operations
 	void Copy(DWORD64 pAddress, BYTE* bData, size_t stSize);

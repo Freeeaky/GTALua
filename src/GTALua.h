@@ -20,6 +20,9 @@ public:
 	// Configuration file(s)
 	void LoadNativesINI();
 	void LoadCallLayoutsINI();
+
+private:
+	bool m_bActive;
 };
 
 // =================================================================================

@@ -17,6 +17,10 @@ void Memory::Init()
 		return;
 	}
 }
+void Memory::CleanUp()
+{
+	MH_Uninitialize();
+}
 
 // =================================================================================
 // Hook Function

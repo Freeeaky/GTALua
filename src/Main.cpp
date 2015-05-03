@@ -38,7 +38,18 @@ GTALua::GTALua()
 }
 GTALua::~GTALua()
 {
+	// Update-Thread
+	m_bActive = false;
+
+	// Lua
+	if (lua != NULL)
+		lua->Destroy();
 	
+	// Memory & Hooking
+	Memory::CleanUp();
+
+	// Console
+	DestroyWindow(GetConsoleWindow());
 }
 
 // =================================================================================
@@ -48,7 +59,7 @@ GTALua::~GTALua()
 // =================================================================================
 void GTALua::ProperInit()
 {
-	// Debug
+	m_bActive = true;
 	printf("[GTALua] Initializing..\n");
 
 	// Hooks
@@ -110,7 +121,9 @@ void GTALua::ProperInit()
 	}
 
 	// Success
-	printf("[GTALua] Successfully initialized!\n\n");
+	printf("===================================================================\n");
+	printf("[GTALua] Initialized!\n"); 
+	printf("===================================================================\n\n");
 }
 
 // =================================================================================
@@ -131,7 +144,7 @@ void GTALua::Update()
 // =================================================================================
 void GTALua::UpdateLoop()
 {
-	while (true)
+	while (m_bActive)
 	{
 		Update();
 	}

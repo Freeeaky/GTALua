@@ -29,17 +29,31 @@ void GameMemory::Init()
 
 	// Base
 	Base = (DWORD64) GameModule;
-	printf("[GameMemory] Game Base: %p\n", Base);
+	//printf("[GameMemory] Game Base: %p\n", Base);
 
 	// Size
 	Size = Memory::GetModuleSize(GameModule);
-	printf("[GameMemory] Game Size: %p\n", Size);
+	//printf("[GameMemory] Game Size: %p\n", Size);
 
 	// Content
 	ScriptEngineInitialized = false;
 
 	// Version
 	FetchVersion();
+
+	// Version Check
+	printf("===================================================================\n");
+	printf("Version: %s ", Version);
+	if(strcmp(Version, "1.0.350.1") == 0 || strcmp(Version, "1.0.350.2") == 0)
+		printf("(Supported)\n");
+	else
+	{
+		if (strcmp(Version, "1.0.335.1") == 0)
+			printf("(Unsupported)\nThis version is no longer supported! Try GTALua 1.0.0!\n");
+		else
+			printf("\nThis version may not be supported!\n");
+	}
+	printf("===================================================================\n");
 
 	// Init Hook
 	InstallInitHooks();
@@ -151,7 +165,6 @@ void GameMemory::FetchVersion()
 		(pVersionInfo->dwFileVersionMS >> 0) & 0xffff,
 		(pVersionInfo->dwFileVersionLS >> 16) & 0xffff,
 		(pVersionInfo->dwFileVersionLS >> 0) & 0xffff);
-	printf("[GameMemory] Detected Version %s\n", Version);
 
 	// Cleanup
 	free(sVersionFile);

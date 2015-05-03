@@ -18,9 +18,19 @@ void Init()
 {
 	// Init
 	g_pGTALua = new GTALua();
+}
+
+// =================================================================================
+// Init (Thread)
+// =================================================================================
+void ThreadInit()
+{
+	// Wait for GTALua
+	while (g_pGTALua == NULL)
+		Sleep(200);
 
 	// Update
-	//g_pGTALua->UpdateLoop();
+	g_pGTALua->UpdateLoop();
 }
 
 // =================================================================================
@@ -31,18 +41,15 @@ BOOL __stdcall DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
 	// Startup
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
-		//CreateThread(0, 0, (LPTHREAD_START_ROUTINE)Init, 0, 0, 0);
 		Init();
+		CreateThread(0, 0, (LPTHREAD_START_ROUTINE) ThreadInit, 0, 0, 0);
 	}
 
 	// Cleanup
-	if (dwReason == DLL_PROCESS_DETACH)
+	if (dwReason == DLL_PROCESS_DETACH && g_pGTALua != NULL)
 	{
-		if (g_pGTALua != NULL)
-		{
-			delete g_pGTALua;
-			g_pGTALua = NULL;
-		}
+		delete g_pGTALua;
+		g_pGTALua = NULL;
 	}
 
 	// Success
