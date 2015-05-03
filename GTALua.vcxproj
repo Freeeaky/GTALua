@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GTALua\API.cpp" />
     <ClCompile Include="src\GTALua\Console.cpp" />
     <ClCompile Include="src\GTALua\DLLMain.cpp" />
     <ClCompile Include="src\GTALua\GameHooks.cpp" />
@@ -134,6 +135,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>build/</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\GTALua\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

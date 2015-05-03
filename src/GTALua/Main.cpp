@@ -120,6 +120,9 @@ void GTALua::ProperInit()
 		return;
 	}
 
+	// Queued Addons
+	API::LoadQueuedAddons();
+
 	// Success
 	printf("===================================================================\n");
 	printf("[GTALua] Initialized!\n"); 

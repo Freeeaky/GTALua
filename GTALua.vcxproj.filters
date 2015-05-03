@@ -272,5 +272,8 @@
     <ClCompile Include="src\GTALua\Memory\minhook\src\trampoline.c">
       <Filter>Quelldateien\Memory\minhook</Filter>
     </ClCompile>
+    <ClCompile Include="src\GTALua\API.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

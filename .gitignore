@@ -1,3 +1,3 @@
 x64*
-build/GTALua.asi
-build/GTALua.exe
+build/GTALua.*
+build/ASIAddon.asi
