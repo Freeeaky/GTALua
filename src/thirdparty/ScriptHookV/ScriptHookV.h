@@ -3,10 +3,7 @@
 // =================================================================================
 // Forward Declarations
 namespace ScriptBinds { namespace Memory { class MemoryBlock; }; };
-
-// Includes
-#include "inc/main.h"
-#pragma comment(lib, "src/thirdparty/ScriptHookV/lib/ScriptHookV.lib")
+typedef void(*ScriptHook_Callback)();
 
 // ScriptHook
 namespace ScriptHook
@@ -14,24 +11,33 @@ namespace ScriptHook
 	// Initialized
 	extern bool CanRegisterThreads;
 
+	// Imported
+	void ScriptWait(DWORD dwTime);
+	void ScriptRegister(ScriptHook_Callback ptr);
+	void ScriptUnregister(ScriptHook_Callback ptr);
+
+	void NativeInit(UINT64 hash);
+	void NativePush64(UINT64 val);
+	PUINT64 NativeCall();
+
 	// Push Value Wrapper
 	template <typename T>
 	static inline void PushValue(T val)
 	{
 		UINT64 val64 = NULL;
 		*reinterpret_cast<T *>(&val64) = val;
-		nativePush64(val64);
+		NativePush64(val64);
 	}
 
 	// Call Wrapper
 	template <typename T>
 	static inline T Call()
 	{
-		return *reinterpret_cast<T *>(nativeCall());
+		return *reinterpret_cast<T *>(NativeCall());
 	}
 	static inline void CallVoid()
 	{
-		nativeCall();
+		NativeCall();
 	}
 
 	// Push: Memory Pointer

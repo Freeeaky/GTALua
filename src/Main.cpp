@@ -21,6 +21,11 @@ GTALua::GTALua()
 	AttachConsole(GetCurrentProcessId());
 	freopen("CON", "w", stdout); 
 	freopen("CONIN$", "r", stdin);
+
+	HWND hConsole = GetConsoleWindow();
+	RECT rect;
+	GetWindowRect(hConsole, &rect);
+	SetWindowPos(hConsole, NULL, 2000, 25, rect.right - rect.left,  rect.bottom - rect.top, 0);
 #endif
 
 	// Prepare Memory

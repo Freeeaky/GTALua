@@ -39,33 +39,15 @@ function scripthookv.KillThread(name)
 end
 
 -- Register Thread
-scripthookv.RegisterThreadQueue = {}
 function scripthookv.RegisterThread(thread, _noerror)
-	if not scripthookv.IsInitialized() then
-		table.insert(scripthookv.RegisterThreadQueue, thread)
+	if scripthookv.CanRegisterThreads() then
+		scripthookv.internal_RegisterThread(thread)
 		return true
 	else
-		if scripthookv.CanRegisterThreads() then
-			scripthookv.internal_RegisterThread(thread)
-			return true
-		else
-			if _noerror ~= true then
-				error("You can no longer register threads! Make sure that your script registers your thread on startup!")
-			end
-			
-			return false
+		if _noerror ~= true then
+			error("You can no longer register threads! Make sure that your script registers your thread on startup!")
 		end
+		
+		return false
 	end
 end
-
--- Thread Queue
-event.AddListener("OnScriptEngineInitialized", "internal_RegisterQueuedThreads", function()
-	-- Register queued threads
-	-- scripthookv.RegisterThread is now safe since the script engine is initialized
-	for _,thread in pairs(scripthookv.RegisterThreadQueue) do
-		scripthookv.RegisterThread(thread)
-	end
-	
-	-- Clean Queue
-	scripthookv.RegisterThreadQueue = {}
-end)

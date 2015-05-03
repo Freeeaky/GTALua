@@ -40,7 +40,7 @@ void LuaScriptThread::Wait(DWORD uiTime)
 	}
 
 	// Wait
-	scriptWait(uiTime);
+	ScriptHook::ScriptWait(uiTime);
 }
 
 // =================================================================================
@@ -172,7 +172,7 @@ void LuaScriptThread::Run_IdleState()
 		}
 
 		// Wait
-		scriptWait(5);
+		ScriptHook::ScriptWait(5);
 	}
 }
 

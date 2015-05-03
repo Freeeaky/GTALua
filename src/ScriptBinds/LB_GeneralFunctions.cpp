@@ -6,6 +6,7 @@
 #include "lua/Lua.h"
 #include "ScriptEngine/ScriptEngine.h"
 #include "ScriptBinds.h"
+#include "Memory/Memory.h"
 
 // =================================================================================
 // type 
@@ -58,6 +59,14 @@ bool LB_IsKeyDown(int vk)
 }
 
 // =================================================================================
+// Script Engine
+// =================================================================================
+bool LB_IsScriptEngineInitialized()
+{
+	return GameMemory::ScriptEngineInitialized;
+}
+
+// =================================================================================
 // Binds
 // =================================================================================
 void ScriptBinds::GeneralFunctions::Bind()
@@ -67,7 +76,9 @@ void ScriptBinds::GeneralFunctions::Bind()
 		luabind::def("type", LB_type),
 		// TODO: Change this
 		luabind::def("IsKeyCurrentlyDown", LB_IsKeyCurrentlyDown),
-		luabind::def("IsKeyDown", LB_IsKeyDown)
+		luabind::def("IsKeyDown", LB_IsKeyDown),
+		// TODO: Add game module
+		luabind::def("IsScriptEngineInitialized", LB_IsScriptEngineInitialized)
 	];
 
 	// like include

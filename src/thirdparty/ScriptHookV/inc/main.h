@@ -7,6 +7,7 @@
 #pragma once
 
 #include <windows.h>
+#pragma comment(lib, "src/thirdparty/ScriptHookV/lib/ScriptHookV.lib")
 
 //namespace ScriptHook
 //{

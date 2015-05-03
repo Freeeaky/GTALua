@@ -15,7 +15,7 @@
 void LB_ThreadSleep(UINT s)
 {
 #ifndef GTA_LUA_TEST_EXE
-	scriptWait(s);
+	ScriptHook::ScriptWait(s);
 #endif
 }
 
@@ -24,7 +24,7 @@ void LB_ThreadSleep(UINT s)
 // =================================================================================
 void LB_InitNative(Natives::NativeReg* pNative)
 {
-	nativeInit(pNative->hHash);
+	ScriptHook::NativeInit(pNative->hHash);
 }
 
 // =================================================================================
@@ -63,7 +63,7 @@ void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 
 	// Register
 	vScriptThreadQueue.push_back(pThread);
-	scriptRegister(GetModuleHandle("GTALua.asi"), Lua_StartThread);
+	ScriptHook::ScriptRegister(Lua_StartThread);
 }
 
 // =================================================================================

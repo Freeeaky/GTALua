@@ -9,7 +9,7 @@ function addon.Load(name)
 	include("../../addons/"..name.."/main.lua")
 	
 	-- Game Pause
-	if scripthookv.IsInitialized() and game.IsPaused() then
+	if IsScriptEngineInitialized() and game.IsPaused() then
 		print("Note: Game is paused. Script Thread will reset after you unpaused it!")
 	end
 end
