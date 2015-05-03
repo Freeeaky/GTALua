@@ -36,3 +36,12 @@ end
 function Player:IsDead()
 	return natives.PLAYER.IS_PLAYER_DEAD(self.PlayerID)
 end
+
+-- Model
+function Player:SetModel(h)
+	if not streaming.HasModelLoaded(h) then
+		error("You need to load the model before applying it to a Player!")
+	end
+	
+	natives.PLAYER.SET_PLAYER_MODEL(self.PlayerID, h)
+end

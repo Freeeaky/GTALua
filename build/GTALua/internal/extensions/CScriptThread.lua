@@ -1,11 +1,10 @@
 -- Script Thread CTOR
 -- TODO: Move Reset to Register
 function ScriptThread(name)
-	-- Reset thread with same name
 	-- I really hope people will find proper names for them..
 	local existing_thread = scripthookv.FindThread(name)
 	if existing_thread then
-		existing_thread:Reset()
+		existing_thread._Reset = true
 		return scripthookv.ThreadList[name]
 	end
 	
@@ -21,8 +20,12 @@ end
 
 -- Register Thread
 function CScriptThread:Register()
-	-- AutoRefresh
-	if self:IsActive() then return end
+	if self._Reset == true then
+		self:Reset()
+		self._Reset = nil
+		return
+	end
+	if self:IsActive() then end
 	
 	-- Register
 	local r = scripthookv.RegisterThread(self, true)

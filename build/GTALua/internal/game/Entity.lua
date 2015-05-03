@@ -19,14 +19,22 @@ function Entity:_CheckExists()
 	end
 end
 
+-- Delete/Remove
+function Entity:Delete()
+	self:_CheckExists()
+	natives.ENTITY.DELETE_ENTITY(self.ID)
+end
+Entity.Remove = Entity.Delete
+
 -- Position
 function Entity:SetPosition(x, y, z)
 	self:_CheckExists()
 
 	if type(x) == "Vector" then
-		x = x.x
+		print(type(x), " - [", x, "]")
 		y = x.y
 		z = x.z
+		x = x.x
 	end
 	
 	natives.ENTITY.SET_ENTITY_COORDS(self.ID, x, y, z, false, false, false, true)
@@ -78,6 +86,12 @@ end
 function Entity:SetInvincible(b)
 	self:_CheckExists()
 	natives.ENTITY.SET_ENTITY_INVINCIBLE(self.ID, b)
+end
+
+-- Model
+function Entity:GetModel()
+	self:_CheckExists()
+	return natives.ENTITY.GET_ENTITY_MODEL(self.ID)
 end
 
 -- Fire

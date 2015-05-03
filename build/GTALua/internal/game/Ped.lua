@@ -29,7 +29,6 @@ end
 function Ped:AddGroupMember(other_ped)
 	self:_CheckExists()
 	local group_id = other_ped
-	print(type(other_ped))
 	if type(other_ped) == "Ped" or type(other_ped) == "Player" then
 		group_id = other_ped:GetGroupIndex()
 	end
@@ -40,7 +39,20 @@ function Ped:GetGroupIndex()
 	return natives.PED.GET_PED_GROUP_INDEX(self.ID)
 end
 
--- Nearby
+-- Vehicle
+function Ped:IsInVehicle()
+	self:_CheckExists()
+	return natives.PED.IS_PED_IN_ANY_VEHICLE(self.ID, false)
+end
+function Ped:GetVehicle()
+	self:_CheckExists()
+	if self:IsInVehicle() then
+		local veh = natives.PED.GET_VEHICLE_PED_IS_IN(self.ID, false)
+		return Vehicle(veh)
+	end
+end
+
+-- Nearby Peds
 function Ped:GetNearbyPeds(max_peds)
 	self:_CheckExists()
 	
@@ -63,7 +75,7 @@ function Ped:GetNearbyPeds(max_peds)
 	-- check returned peds
 	local nearby_peds = {}
 	for offset = 4, array_size, 4 do
-		local ped = c_array_peds:ReadDWORD32(offset)
+		local ped = Ped(c_array_peds:ReadDWORD32(offset))
 		if ped:Exists() then
 			table.insert(nearby_peds, ped)
 		end
@@ -72,4 +84,35 @@ function Ped:GetNearbyPeds(max_peds)
 	-- release
 	c_array_peds:Release()
 	return nearby_peds
+end
+
+-- Nearby Vehicles
+function Ped:GetNearbyVehicles(max_vehicles)
+	self:_CheckExists()
+	
+	-- default value
+	if max_vehicles == nil then
+		max_vehicles = 50
+	end
+	
+	-- c array
+	local array_size = 2 * max_vehicles + 2
+	local c_array_vehicles = CMemoryBlock(array_size * 4)
+	c_array_vehicles:WriteInt32(0, max_vehicles)
+	
+	-- call native
+	natives.PED.GET_PED_NEARBY_VEHICLES(self.ID, c_array_vehicles)
+	
+	-- check
+	local nearby_vehicles = {}
+	for offset = 4, array_size, 4 do
+		local veh = Vehicle(c_array_vehicles:ReadDWORD32(offset))
+		if veh:Exists() then
+			table.insert(nearby_vehicles, veh)
+		end
+	end
+	
+	-- release
+	c_array_vehicles:Release()
+	return nearby_vehicles
 end

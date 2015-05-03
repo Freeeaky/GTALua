@@ -15,6 +15,7 @@ include("extensions/CMemoryBlock.lua")
 -- Wrapper
 include("game/Object.lua")
 include("game/Entity.lua")
+include("game/Vehicle.lua")
 include("game/Ped.lua")
 include("game/Player.lua")
 

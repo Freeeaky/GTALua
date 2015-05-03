@@ -6,6 +6,7 @@ function streaming.RequestModel(hash)
 	natives.STREAMING.REQUEST_MODEL(hash)
 end
 function streaming.HasModelLoaded(hash)
+	print("loaded check ", hash)
 	return natives.STREAMING.HAS_MODEL_LOADED(hash)
 end
 function streaming.ReleaseModel(hash)
@@ -14,7 +15,9 @@ end
 
 -- Model Loading & Waiting
 function streaming.RequestAndWaitForModel(thread, hash)
+	print("raw ", hash)
 	if streaming.HasModelLoaded(hash) then return end
+	print("hm")
 	streaming.RequestModel(hash)
 	
 	while thread:IsRunning() do

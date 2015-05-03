@@ -8,8 +8,6 @@
 #include "ScriptBinds.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"
 
-DWORD d;
-
 using namespace ScriptBinds::Memory;
 
 // =================================================================================
@@ -20,7 +18,6 @@ MemoryBlock::MemoryBlock(int iSize)
 	m_iSize = iSize;
 	m_pMemory = (int*)malloc(iSize);
 	memset(m_pMemory, 0, iSize);
-	printf("MemoryBlock::MemoryBlock\n");
 }
 MemoryBlock::~MemoryBlock()
 {
@@ -30,7 +27,6 @@ MemoryBlock::~MemoryBlock()
 		m_pMemory = NULL;
 	}
 	m_iSize = 0;
-	printf("MemoryBlock::~MemoryBlock\n");
 }
 void MemoryBlock::Release()
 {
