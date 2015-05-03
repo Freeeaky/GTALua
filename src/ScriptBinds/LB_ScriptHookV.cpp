@@ -15,7 +15,7 @@
 void LB_ThreadSleep(UINT s)
 {
 #ifndef GTA_LUA_TEST_EXE
-	ScriptHook::ThreadWait(s);
+	scriptWait(s);
 #endif
 }
 
@@ -24,7 +24,7 @@ void LB_ThreadSleep(UINT s)
 // =================================================================================
 void LB_InitNative(Natives::NativeReg* pNative)
 {
-	ScriptHook::InitNative(pNative->hHash);
+	nativeInit(pNative->hHash);
 }
 
 // =================================================================================
@@ -63,16 +63,12 @@ void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 
 	// Register
 	vScriptThreadQueue.push_back(pThread);
-	ScriptHook::RegisterScript(GetModuleHandle("GTALua.dll"), Lua_StartThread);
+	scriptRegister(GetModuleHandle("GTALua.asi"), Lua_StartThread);
 }
 
 // =================================================================================
 // State Check
 // =================================================================================
-bool LB_IsInitialized()
-{
-	return ScriptHook::IsInitialized;
-}
 bool LB_CanRegisterThreads()
 {
 	return ScriptHook::CanRegisterThreads;
@@ -86,7 +82,6 @@ void ScriptBinds::ScriptHookBind::Bind()
 	// TODO: Add ability to register own threads
 	luabind::module(lua->State(), "scripthookv")
 	[
-		luabind::def("IsInitialized", LB_IsInitialized),
 		luabind::def("CanRegisterThreads", LB_CanRegisterThreads),
 
 		luabind::def("internal_RegisterThread", LB_RegisterThread),

@@ -5,7 +5,7 @@
 */
 
 //	You can always get the latest native delclarations from NATIVE DB (http://dev-c.com/nativedb)
-//	Prior to 25 Apr 2015 NATIVE DB isn't updated yet to support PC natives.	
+//	Prior to 02 May 2015 NATIVE DB isn't updated yet to support PC natives.	
 
 //	Most param names are not filled yet because this is what must be done via NATIVEDB
 //	and not using manual changes into the header file.

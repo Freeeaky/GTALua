@@ -153,6 +153,7 @@
     <ClInclude Include="src\ScriptEngine\rage.h" />
     <ClInclude Include="src\ScriptEngine\ScriptEngine.h" />
     <ClInclude Include="src\thirdparty\inih\ini.h" />
+    <ClInclude Include="src\thirdparty\ScriptHookV\ScriptHookV.h" />
     <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcher.h" />
     <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcherImpl.h" />
     <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcherWin32.h" />

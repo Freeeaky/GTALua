@@ -58,9 +58,6 @@ void ScriptEngine__Init(DWORD64 ptr)
 		GameMemory::ScriptEngineInitialized = true;
 		printf("[GTA ScriptEngine] Initialized\n");
 
-		// Init ScriptHook
-		ScriptHook::Initialize();
-
 		// Lua Callback
 		lua->GetEvent("OnScriptEngineInitialized");
 		lua->ProtectedCall(1);
