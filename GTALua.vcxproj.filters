@@ -84,421 +84,193 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Includes.h">
+    <ClInclude Include="src\GTALua\GTALua.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua.h">
+    <ClInclude Include="src\GTALua\Includes.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\Memory\Memory.h">
+    <ClInclude Include="src\GTALua\Memory\minhook\src\buffer.h">
+      <Filter>Headerdateien\Memory\minhook</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcher.h">
+      <Filter>Headerdateien\thirdparty\SimpleFileWatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcherImpl.h">
+      <Filter>Headerdateien\thirdparty\SimpleFileWatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcherWin32.h">
+      <Filter>Headerdateien\thirdparty\SimpleFileWatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\hde32.h">
+      <Filter>Headerdateien\Memory\minhook</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\hde64.h">
+      <Filter>Headerdateien\Memory\minhook</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\Memory\GameMemory.h">
       <Filter>Headerdateien\Memory</Filter>
     </ClInclude>
-    <ClInclude Include="src\Memory\minhook\include\MinHook.h">
-      <Filter>Headerdateien\Memory\minhook</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Memory\minhook\src\trampoline.h">
-      <Filter>Headerdateien\Memory\minhook</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Memory\minhook\src\buffer.h">
-      <Filter>Headerdateien\Memory\minhook</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Memory\minhook\src\HDE\hde32.h">
-      <Filter>Headerdateien\Memory\minhook</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Memory\minhook\src\HDE\hde64.h">
-      <Filter>Headerdateien\Memory\minhook</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Memory\minhook\src\HDE\pstdint.h">
-      <Filter>Headerdateien\Memory\minhook</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Memory\minhook\src\HDE\table32.h">
-      <Filter>Headerdateien\Memory\minhook</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Memory\minhook\src\HDE\table64.h">
-      <Filter>Headerdateien\Memory\minhook</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Memory\GameMemory.h">
-      <Filter>Headerdateien\Memory</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ScriptEngine\ScriptEngine.h">
-      <Filter>Headerdateien\ScriptEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ScriptEngine\rage.h">
-      <Filter>Headerdateien\ScriptEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\ClassWrappers.h">
+    <ClInclude Include="src\GTALua\lua\ClassWrappers.h">
       <Filter>Headerdateien\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\lua\GeneralFunctions.h">
+    <ClInclude Include="src\GTALua\lua\GeneralFunctions.h">
       <Filter>Headerdateien\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\lua\Lua.h">
-      <Filter>Headerdateien\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\lua\lauxlib.h">
-      <Filter>Headerdateien\lua\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\lua\lua.h">
-      <Filter>Headerdateien\lua\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\lua\luaconf.h">
-      <Filter>Headerdateien\lua\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\lua\lualib.h">
-      <Filter>Headerdateien\lua\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\adopt_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\back_reference.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\back_reference_fwd.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\call.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\call_function.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\call_member.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\call_operator_iterate.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\class.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\class_info.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\class_registry.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\class_rep.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\config.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\constructor.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\container_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\conversion_storage.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\convert_to_lua.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\copy_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\debug.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\decorate_type.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\deduce_signature.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\dependency_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\discard_result_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\enum_maker.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\error.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\exception_handler.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\format_signature.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\from_stack.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\function.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\garbage_collector.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\get_main_thread.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\get_pointer.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\handle.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\has_get_pointer.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\inheritance.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\instance_holder.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\iterator_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\link_compatibility.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\lua_include.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\luabind.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\make_function.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\make_instance.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\most_derived.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\nil.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\no_dependency.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\object.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\object_call.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\object_rep.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\open.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\open.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\operator.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\operator_id.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\other.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\out_value_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\pcall.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\pointee_sizeof.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\pointee_typeid.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\prefix.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\primitives.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\property.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\raw_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\ref.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\return_reference_to_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\scope.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\shared_ptr_converter.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\signature_match.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\stack_utils.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\tag_function.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\typeid.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\typetraits.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\value_wrapper.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\version.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\weak_ref.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\wrapper_base.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\detail\yes_no.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luabind\yield_policy.hpp">
-      <Filter>Headerdateien\lua\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lua\luamanager\LuaManager.h">
-      <Filter>Headerdateien\lua</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ScriptBinds\ScriptBinds.h">
-      <Filter>Headerdateien\ScriptBinds</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UTIL\UTIL.h">
-      <Filter>Headerdateien\UTIL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\thirdparty\inih\ini.h">
+    <ClInclude Include="src\GTALua\thirdparty\inih\ini.h">
       <Filter>Headerdateien\thirdparty\inih</Filter>
     </ClInclude>
-    <ClInclude Include="src\UTIL\IniFile.h">
-      <Filter>Headerdateien\UTIL</Filter>
+    <ClInclude Include="src\GTALua\UTIL\IniFile.h">
+      <Filter>Headerdateien\thirdparty\inih</Filter>
     </ClInclude>
-    <ClInclude Include="src\ScriptEngine\Natives.h">
+    <ClInclude Include="src\GTALua\lua\lua\lauxlib.h">
+      <Filter>Headerdateien\lua\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\lua\lua\lua.h">
+      <Filter>Headerdateien\lua\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\lua\Lua.h">
+      <Filter>Headerdateien\lua\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\lua\lua\luaconf.h">
+      <Filter>Headerdateien\lua\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\lua\lua\lualib.h">
+      <Filter>Headerdateien\lua\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\lua\luamanager\LuaManager.h">
+      <Filter>Headerdateien\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\Memory\Memory.h">
+      <Filter>Headerdateien\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\Memory\minhook\include\MinHook.h">
+      <Filter>Headerdateien\Memory\minhook</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\pstdint.h">
+      <Filter>Headerdateien\Memory\minhook</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\ScriptEngine\rage.h">
       <Filter>Headerdateien\ScriptEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcher.h">
-      <Filter>Headerdateien\thirdparty\SimpleFileWatcher</Filter>
+    <ClInclude Include="src\GTALua\ScriptBinds\ScriptBinds.h">
+      <Filter>Headerdateien\ScriptBinds</Filter>
     </ClInclude>
-    <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcherImpl.h">
-      <Filter>Headerdateien\thirdparty\SimpleFileWatcher</Filter>
+    <ClInclude Include="src\GTALua\ScriptEngine\ScriptEngine.h">
+      <Filter>Headerdateien\ScriptEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcherWin32.h">
-      <Filter>Headerdateien\thirdparty\SimpleFileWatcher</Filter>
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\ScriptHookV.h">
+      <Filter>Headerdateien\ScriptEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\thirdparty\ScriptHookV\ScriptHookV.h">
-      <Filter>Headerdateien\thirdparty\ScriptHookV</Filter>
+    <ClInclude Include="src\GTALua\ScriptEngine\Natives.h">
+      <Filter>Headerdateien\ScriptEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\table32.h">
+      <Filter>Headerdateien\Memory\minhook</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\table64.h">
+      <Filter>Headerdateien\Memory\minhook</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\Memory\minhook\src\trampoline.h">
+      <Filter>Headerdateien\Memory\minhook</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\UTIL\UTIL.h">
+      <Filter>Headerdateien\UTIL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\DLLMain.cpp">
+    <ClCompile Include="src\GTALua\Console.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\Memory\minhook\src\buffer.c">
-      <Filter>Quelldateien\Memory\minhook</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Memory\minhook\src\hook.c">
-      <Filter>Quelldateien\Memory\minhook</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Memory\minhook\src\trampoline.c">
-      <Filter>Quelldateien\Memory\minhook</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Memory\minhook\src\HDE\hde32.c">
-      <Filter>Quelldateien\Memory\minhook</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Memory\minhook\src\HDE\hde64.c">
-      <Filter>Quelldateien\Memory\minhook</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Memory\Memory.cpp">
-      <Filter>Quelldateien\Memory</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Memory\GameMemory.cpp">
-      <Filter>Quelldateien\Memory</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Main.cpp">
+    <ClCompile Include="src\GTALua\DLLMain.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameHooks.cpp">
+    <ClCompile Include="src\GTALua\GameHooks.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\Memory\Hooking.cpp">
+    <ClCompile Include="src\GTALua\Main.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Memory\GameMemory.cpp">
       <Filter>Quelldateien\Memory</Filter>
     </ClCompile>
-    <ClCompile Include="src\lua\luamanager\LuaManager_General.cpp">
-      <Filter>Quelldateien\lua\LuaManager</Filter>
+    <ClCompile Include="src\GTALua\Memory\Hooking.cpp">
+      <Filter>Quelldateien\Memory</Filter>
     </ClCompile>
-    <ClCompile Include="src\lua\luamanager\LuaManager.cpp">
-      <Filter>Quelldateien\lua\LuaManager</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lua\luamanager\LuaManager_Debug.cpp">
-      <Filter>Quelldateien\lua\LuaManager</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ScriptBinds\LB_Console.cpp">
-      <Filter>Quelldateien\ScriptBinds</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ScriptBinds\LB_GeneralFunctions.cpp">
-      <Filter>Quelldateien\ScriptBinds</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lua\GeneralFunctions.cpp">
-      <Filter>Quelldateien\lua\LuaManager</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UTIL\UTIL.cpp">
-      <Filter>Quelldateien\UTIL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\thirdparty\inih\ini.c">
+    <ClCompile Include="src\GTALua\UTIL\IniFile.cpp">
       <Filter>Quelldateien\thirdparty\inih</Filter>
     </ClCompile>
-    <ClCompile Include="src\UTIL\IniFile.cpp">
+    <ClCompile Include="src\GTALua\thirdparty\inih\ini.c">
+      <Filter>Quelldateien\thirdparty\inih</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptBinds\LB_Console.cpp">
+      <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptBinds\LB_File.cpp">
+      <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptBinds\LB_GeneralFunctions.cpp">
+      <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptBinds\LB_Memory.cpp">
+      <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptBinds\LB_Natives.cpp">
+      <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptBinds\LB_ScriptHookV.cpp">
+      <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptBinds\LB_ScriptThread.cpp">
+      <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptBinds\LB_Types.cpp">
+      <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\lua\GeneralFunctions.cpp">
+      <Filter>Quelldateien\lua\LuaManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\lua\luamanager\LuaManager.cpp">
+      <Filter>Quelldateien\lua\LuaManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\lua\luamanager\LuaManager_Debug.cpp">
+      <Filter>Quelldateien\lua\LuaManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\lua\luamanager\LuaManager_General.cpp">
+      <Filter>Quelldateien\lua\LuaManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\UTIL\UTIL.cpp">
       <Filter>Quelldateien\UTIL</Filter>
     </ClCompile>
-    <ClCompile Include="src\ScriptBinds\LB_Natives.cpp">
-      <Filter>Quelldateien\ScriptBinds</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NativesINI.cpp">
-      <Filter>Quelldateien\Configuration</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ScriptBinds\NativeCallLayoutsINI.cpp">
-      <Filter>Quelldateien\Configuration</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ScriptEngine\Natives.cpp">
+    <ClCompile Include="src\GTALua\ScriptEngine\ScriptHookV.cpp">
       <Filter>Quelldateien\ScriptEngine</Filter>
     </ClCompile>
-    <ClCompile Include="src\ScriptBinds\LB_Types.cpp">
-      <Filter>Quelldateien\ScriptBinds</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ScriptBinds\LB_File.cpp">
-      <Filter>Quelldateien\ScriptBinds</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ScriptBinds\LB_ScriptThread.cpp">
-      <Filter>Quelldateien\ScriptBinds</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Console.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ScriptBinds\LB_Memory.cpp">
-      <Filter>Quelldateien\ScriptBinds</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ScriptEngine\ScriptHookV.cpp">
+    <ClCompile Include="src\GTALua\ScriptEngine\Natives.cpp">
       <Filter>Quelldateien\ScriptEngine</Filter>
     </ClCompile>
-    <ClCompile Include="src\ScriptBinds\LB_ScriptHookV.cpp">
-      <Filter>Quelldateien\ScriptBinds</Filter>
+    <ClCompile Include="src\GTALua\ScriptBinds\NativeCallLayoutsINI.cpp">
+      <Filter>Quelldateien\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\NativesINI.cpp">
+      <Filter>Quelldateien\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Memory\Memory.cpp">
+      <Filter>Quelldateien\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Memory\minhook\src\hook.c">
+      <Filter>Quelldateien\Memory\minhook</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Memory\minhook\src\buffer.c">
+      <Filter>Quelldateien\Memory\minhook</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Memory\minhook\src\HDE\hde32.c">
+      <Filter>Quelldateien\Memory\minhook</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Memory\minhook\src\HDE\hde64.c">
+      <Filter>Quelldateien\Memory\minhook</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Memory\minhook\src\trampoline.c">
+      <Filter>Quelldateien\Memory\minhook</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -9,8 +9,8 @@ extern "C"
 }
 #include "luabind/luabind.hpp"
 
-#pragma comment(lib,"src/lua/lib/lua.lib")
-#pragma comment(lib,"src/lua/lib/luabind.lib")
+#pragma comment(lib,"src/GTALua/lua/lib/lua.lib")
+#pragma comment(lib,"src/GTALua/lua/lib/luabind.lib")
 
 #define lua_nil luabind::globals(lua->State())["nil"]
 
