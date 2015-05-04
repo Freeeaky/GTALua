@@ -3,8 +3,6 @@ AI = {}
 
 -- Sequence
 function AI.OpenSequenceTask()
-	natives.AI.OPEN_SEQUENCE_TASK:AddCallLayout("m)v")
-	
 	local c_handle = CMemoryBlock(4)
 	natives.AI.OPEN_SEQUENCE_TASK(c_handle)
 	local handle = c_handle:ReadDWORD32(0)
@@ -15,8 +13,6 @@ function AI.CloseSequenceTask(handle)
 	natives.AI.CLOSE_SEQUENCE_TASK(handle)
 end
 function AI.ClearSequenceTask(handle)
-	natives.AI.CLEAR_SEQUENCE_TASK:AddCallLayout("m)v")
-
 	local c_handle = CMemoryBlock(4)
 	c_handle:WriteDWORD32(0, handle)
 	natives.AI.CLEAR_SEQUENCE_TASK(c_handle)
