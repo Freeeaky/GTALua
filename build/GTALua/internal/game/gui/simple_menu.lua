@@ -73,7 +73,7 @@ end
 -- Result
 function GUISimpleMenu:GetResult()
 	local r = self.Result
-	if r ~= nil then
+	if r ~= nil and r ~= false then
 		local index = 0
 		for k,v in pairs(self.Options) do
 			index = index + 1
@@ -102,6 +102,8 @@ function GUISimpleMenu:WaitForResult(thread, max_wait_time)
 		self:Draw()
 		thread:Wait(0)
 	end
+	
+	return false
 end
 
 -- CTor

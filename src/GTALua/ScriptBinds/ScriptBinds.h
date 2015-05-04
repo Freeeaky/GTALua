@@ -36,10 +36,6 @@ namespace ScriptBinds
 
 	namespace ScriptThread
 	{
-		// "Exception"
-		// Hack to force stop
-		struct ScriptThreadReset : public std::exception {};
-
 		// ScriptThread
 		class LuaScriptThread : public luabind::wrap_base
 		{

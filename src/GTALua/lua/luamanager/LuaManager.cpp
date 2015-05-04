@@ -83,8 +83,13 @@ bool LuaManager::ProtectedCall(int narg, int nresults)
 	catch (luabind::error e)
 	{
 		m_bSuccess = false;
-		PrintErrorMessage(lua->GetString(), true, true);
-		lua->Pop();
+		if (lua->IsString())
+		{
+			PrintErrorMessage(lua->GetString(), true, true);
+			lua->Pop();
+		}
+		else
+			PrintErrorMessage("LuaManager::ProtectedCall failed - luabind::error thrown, but not error message in stack!", true, false);
 	}
 	catch (...)
 	{
@@ -184,6 +189,9 @@ void LuaManager::PrintErrorMessage(char* sErrorMsg, bool bDoNotTriggerLuaError, 
 {
 	lua_State* L = State();
 
+	if (sErrorMsg == NULL)
+		sErrorMsg = "(unknown error)";
+
 	if (!bDoNotTriggerLuaError)
 		luaL_error(L, sErrorMsg);
 	else
@@ -198,6 +206,7 @@ void LuaManager::PrintErrorMessage(char* sErrorMsg, bool bDoNotTriggerLuaError, 
 		Remove(-2);
 
 		printf("%s\n", lua_tostring(L, -1));
+		lua->Pop();
 	}
 }
 

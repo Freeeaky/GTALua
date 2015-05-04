@@ -30,7 +30,10 @@ void LuaScriptThread::Wait(DWORD uiTime)
 {
 	// Reset
 	if (m_bActive && m_bResetting)
-		throw ScriptThreadReset();
+	{
+		lua->PushString("ScriptThreadReset");
+		throw luabind::error(lua->State());
+	}
 
 	// No longer active
 	if (!m_bActive)
@@ -75,17 +78,25 @@ bool LuaScriptThread::Call_LuaCallback(char* sName)
 	{
 		call<void>(sName);
 	}
-	catch (ScriptThreadReset) {
-		return true;
-	}
 	catch (luabind::error& e) {
+		// Reset
+		if (lua->IsString() && strcmp(lua->GetString(), "ScriptThreadReset") == 0)
+		{
+			lua->Pop(1);
+			return true;
+		}
+
+		// Error
 		printf("[LuaScriptThread] Thread %s:%s caused an error!\n", m_sName.c_str(), sName);
 
-		if (lua->IsString(-1))
-			lua->PrintErrorMessage(lua->GetString(-1), true, false);
+		if (lua->IsString())
+		{
+			lua->PrintErrorMessage(lua->GetString(), true, false);
+			lua->Pop(1);
+		}
 		else
 			lua->PrintErrorMessage(const_cast<char*>(e.what()), true, false);
-		lua->Pop(1);
+
 		return false;
 	}
 	catch (std::exception& e) {
