@@ -21,7 +21,7 @@ GTALua::GTALua()
 	AttachConsole(GetCurrentProcessId());
 	freopen("CON", "w", stdout); 
 	freopen("CONIN$", "r", stdin);
-	SetConsoleTitle("GTALua - Version 1.0.1");
+	SetConsoleTitle("GTALua - Version 1.1.0");
 
 	HWND hConsole = GetConsoleWindow();
 	RECT rect;

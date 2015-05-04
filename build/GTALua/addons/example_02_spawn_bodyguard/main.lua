@@ -13,7 +13,8 @@
 --
 --
 
-example_spawn_bodyguard = ScriptThread("example_spawn_bodyguard") 
+-- Thread name & addon name MUST MATCH!
+example_spawn_bodyguard = ScriptThread("example_02_spawn_bodyguard") 
 
 -- Run function
 function example_spawn_bodyguard:Run()

@@ -24,6 +24,9 @@ function Ped:DelayedGiveWeapon(wep, ammo)
 	end
 	natives.WEAPON.GIVE_DELAYED_WEAPON_TO_PED(self.ID, wep, ammo, false)
 end
+function Ped:RemoveAllWeapons()
+	natives.WEAPON.REMOVE_ALL_PED_WEAPONS(self.ID, true)
+end
 
 -- Group Member
 function Ped:AddGroupMember(other_ped)
@@ -51,6 +54,18 @@ function Ped:GetVehicle()
 		return Vehicle(veh)
 	end
 end
+
+-- Armour
+function Ped:SetArmour(i)
+	self:_CheckExists()
+	natives.PED.SET_PED_ARMOUR(self.ID, i)
+end
+Ped.SetArmor = Ped.SetArmour
+function Ped:GetArmour(i)
+	self:_CheckExists()
+	return natives.PED.GET_PED_ARMOUR(self.ID, i)
+end
+Ped.GetArmor = Ped.GetArmour
 
 -- Nearby Peds
 function Ped:GetNearbyPeds(max_peds)

@@ -14,8 +14,8 @@
 --
 
 -- Create a ScriptThread
--- Make sure you have a unique name for your thread!
-example_vehicle = ScriptThread("example_spawn_vehicle") 
+-- Thread name & addon name MUST MATCH!
+example_vehicle = ScriptThread("example_01_spawn_vehicle") 
 
 -- As example_vehicle is also a table, you can define variables there
 

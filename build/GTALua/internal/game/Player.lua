@@ -24,7 +24,7 @@ function Player:GetWantedLevel()
 	return natives.PLAYER.GET_PLAYER_WANTED_LEVEL(self.PlayerID)
 end
 function Player:SetWantedLevel(i)
-	natives.PLAYER.SET_PLAYER_WANTED_LEVEL(self.PlayerID, false)
+	natives.PLAYER.SET_PLAYER_WANTED_LEVEL(self.PlayerID, i, false)
 	natives.PLAYER.SET_PLAYER_WANTED_LEVEL_NOW(self.PlayerID, false)
 end
 function Player:ClearWantedLevel()

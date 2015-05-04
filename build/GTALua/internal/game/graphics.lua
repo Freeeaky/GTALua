@@ -1,20 +1,22 @@
 -- graphics
 graphics = {}
 
-natives.GRAPHICS.GET_SCREEN_RESOLUTION:AddCallLayout("mm)v")
-
 -- Screen Resolution
 function graphics.GetScreenResolution()
+	-- alloc
 	local cX = CMemoryBlock(4)
 	local cY = CMemoryBlock(4)
-	
+
+	-- call
 	natives.GRAPHICS.GET_SCREEN_RESOLUTION(cX, cY)
-	
+
+	-- read
 	local x = cX:ReadDWORD32(0)
-	cX:Release()
-	
 	local y = cY:ReadDWORD32(0)
-	cY:Release()
 	
+	-- release
+	cX:Release()
+	cY:Release()
+
 	return x, y
 end

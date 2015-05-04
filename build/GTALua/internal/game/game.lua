@@ -25,3 +25,8 @@ function game.CreateVehicle(model_hash, vec)
 	local veh_handle = natives.VEHICLE.CREATE_VEHICLE(model_hash, vec.x, vec.y, vec.z, 0, true, true)
 	return Vehicle(veh_handle)
 end
+
+-- Time
+function game.GetTime()
+	return natives.GAMEPLAY.GET_GAME_TIMER()
+end

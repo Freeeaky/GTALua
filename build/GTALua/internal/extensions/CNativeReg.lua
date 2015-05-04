@@ -15,7 +15,7 @@ function CNativeReg:__call(...)
 	local _err = "CNativeReg:Call ["..self.m_sCategory.."/"..self.m_sName.."]: "
 
 	-- check call layout
-	if not self.m_bHasCallLayout then
+	if not self.m_bHasCallLayout or self.m_sCallLayout == nil then
 		error(_err .. "Native doesn't have a Call Layout!")
 	end
 	
@@ -47,6 +47,11 @@ function CNativeReg:__call(...)
 			-- type check
 			if not parsing_return_values and c_type ~= type(arg) then
 				error(_err .. "Argument type mismatch (index "..i.." - got "..type(arg).." expected "..c_type..")")
+			end
+			
+			-- CMemoryBlock check
+			if c_type == "CMemoryBlock" and not arg:IsValid() then
+				error(_err .. "Argument index "..i.." is an invalid CMemoryBlock!")
 			end
 			
 			-- process
