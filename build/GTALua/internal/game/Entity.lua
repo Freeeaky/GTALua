@@ -31,7 +31,6 @@ function Entity:SetPosition(x, y, z)
 	self:_CheckExists()
 
 	if type(x) == "Vector" then
-		print(type(x), " - [", x, "]")
 		y = x.y
 		z = x.z
 		x = x.x

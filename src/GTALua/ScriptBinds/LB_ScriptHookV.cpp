@@ -9,6 +9,9 @@
 #include "Memory/Memory.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"
 
+// Imports
+typedef void(*RegisterThread_Proxy_t)();
+
 // =================================================================================
 // Sleep 
 // =================================================================================
@@ -29,7 +32,7 @@ void LB_InitNative(Natives::NativeReg* pNative)
 
 // =================================================================================
 // Start Lua Thread
-// Called from ScriptHookV
+// Called from ScriptHookV, but redirected through ASI Addon
 // =================================================================================
 vector<ScriptBinds::ScriptThread::LuaScriptThread*> vScriptThreadQueue;
 void Lua_StartThread()
@@ -75,9 +78,19 @@ void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 		throw luabind::error(lua->State());
 	}
 
+	// RegisterThread Proxy
+	RegisterThread_Proxy_t pRegisterThreadProxy = (RegisterThread_Proxy_t) GetProcAddress(hASIAddon, "RegisterThread_Proxy");
+	if (pRegisterThreadProxy == NULL)
+	{
+		char error_buf[512];
+		sprintf(error_buf, "[ASIAddon] %s: Failed to import RegisterThread_Proxy!\n", buf);
+		lua->PushString(error_buf);
+		throw luabind::error(lua->State());
+	}
+
 	// Register
 	vScriptThreadQueue.push_back(pThread);
-	ScriptHook::ScriptRegister(hASIAddon, Lua_StartThread);
+	ScriptHook::ScriptRegister(hASIAddon, pRegisterThreadProxy);
 }
 
 // =================================================================================

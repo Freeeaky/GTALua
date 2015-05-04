@@ -5,6 +5,8 @@
 #include "GTALua.h"
 #include "Memory/Memory.h"
 #include "lua/Lua.h"
+#include "thirdparty/ScriptHookV/ScriptHookV.h"
+#include "ScriptBinds/ScriptBinds.h"
 
 // =================================================================================
 // Exports 
@@ -15,6 +17,9 @@ extern "C"
 	__declspec(dllexport) void LoadAddon(int version, HMODULE hModule);
 	__declspec(dllexport) void UnloadAddon(HMODULE hModule);
 }
+
+// Imports
+typedef void(*SetActualCallback_t)(ScriptHook_Callback pCallback);
 
 // =================================================================================
 // Load Queued Addons 
@@ -53,6 +58,22 @@ __declspec(dllexport) void LoadAddon(int version, HMODULE hModule)
 	char* sFileName = new char[64];
 	_splitpath(sPath, NULL, NULL, sFileName, NULL);
 	free(sPath);
+
+	// Version
+	if (version != 2)
+	{
+		printf("[ASIAddon] Module %s unsupported! Version: %i, Required Version: 2\n", sFileName, version);
+		return;
+	}
+
+	// Callback
+	SetActualCallback_t pSetCallback = (SetActualCallback_t)GetProcAddress(hModule, "SetActualCallback");
+	if (!pSetCallback)
+	{
+		printf("[ASIAddon] %s: Failed to import SetActualCallback!\n", sFileName);
+		return;
+	}
+	pSetCallback(&Lua_StartThread);
 
 	// Load
 	API::vLoadQueue.push_back(sFileName);

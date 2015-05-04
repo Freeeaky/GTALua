@@ -2,6 +2,8 @@
 // Script Binds 
 // TODO: Clean up this file
 // =================================================================================
+void Lua_StartThread();
+
 namespace ScriptBinds
 {
 	namespace GeneralFunctions
