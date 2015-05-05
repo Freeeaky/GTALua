@@ -13,14 +13,12 @@ using namespace ScriptBinds::ScriptThread;
 // =================================================================================
 LuaScriptThread::LuaScriptThread(string sName)
 {
-	printf("LuaScriptThread::LuaScriptThread\n");
 	m_sName = sName;
 	m_bActive = false;
 	m_bResetting = false;
 }
 LuaScriptThread::~LuaScriptThread()
 {
-	printf("LuaScriptThread::~LuaScriptThread\n");
 	m_bActive = false;
 	m_bResetting = false;
 }

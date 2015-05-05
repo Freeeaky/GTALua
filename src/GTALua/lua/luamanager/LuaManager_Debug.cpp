@@ -111,7 +111,7 @@ void LuaManager::DumpStack() {
 				lua->PushValue(index);
 				lua->ProtectedCall(1, 1);
 				printf("[type: %s]", lua->GetString());
-				lua->Pop(1);
+				lua->Pop(2);
 			break;
 		}
 		printf("\n");

@@ -21,6 +21,25 @@ void Init()
 }
 
 // =================================================================================
+// Debug Thread
+// TODO: Remove
+// =================================================================================
+void TempThread()
+{
+	while (lua == NULL)
+		Sleep(50);
+
+	while (g_pGTALua != NULL && lua != NULL)
+	{
+		char buf[256];
+		sprintf(buf, "Stack Size: %i", lua->Top());
+		SetConsoleTitle(buf);
+
+		Sleep(500);
+	}
+}
+
+// =================================================================================
 // Init (Thread)
 // =================================================================================
 void ThreadInit()
@@ -28,6 +47,9 @@ void ThreadInit()
 	// Wait for GTALua
 	while (g_pGTALua == NULL)
 		Sleep(200);
+
+	// Temporary debug thread
+	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)TempThread, 0, 0, 0);
 
 	// Update
 	g_pGTALua->UpdateLoop();

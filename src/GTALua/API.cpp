@@ -11,6 +11,8 @@
 // =================================================================================
 // Exports 
 // =================================================================================
+#define ASI_ADDON_VERSION 3
+
 // Noone needs name mangling
 extern "C"
 {
@@ -61,9 +63,9 @@ __declspec(dllexport) void LoadAddon(int version, HMODULE hModule)
 	free(sPath);
 
 	// Version
-	if (version != 2)
+	if (version != ASI_ADDON_VERSION)
 	{
-		printf("[ASIAddon] Module %s unsupported! Version: %i, Required Version: 2\n", sFileName, version);
+		printf("[ASIAddon] Module %s unsupported! Version: %i, Required Version: %i\n", sFileName, version, ASI_ADDON_VERSION);
 		return;
 	}
 
