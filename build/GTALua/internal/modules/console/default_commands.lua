@@ -18,6 +18,7 @@ function console.cmd_reload_addon(name)
 	end
 	
 	-- Load
+	print("Reloading ", name, "...")
 	addon.Load(name)
 	print("")
 end

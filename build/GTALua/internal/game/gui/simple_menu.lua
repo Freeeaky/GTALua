@@ -1,5 +1,10 @@
 -- Simple Menu
-GUISimpleMenu = {}
+class 'GUISimpleMenu'
+
+-- CTor
+function GUISimpleMenu:__init()
+	--
+end
 
 -- Draw
 function GUISimpleMenu:Draw()
@@ -108,7 +113,7 @@ end
 
 -- CTor
 function gui.Menu(settings, options)
-	local data = GUISimpleMenu
+	local data = GUISimpleMenu()
 	
 	-- Settings
 	data.Title = settings.Title or "Simple Menu"
