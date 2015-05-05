@@ -50,11 +50,11 @@ void GTALua::ProcessConsoleInput()
 	// Lua: result-check
 	if (lua->IsNil() || lua->GetBool() == false)
 	{
-		lua->Pop();
+		lua->Pop(3);
 		printf("Unknown console command: %s\n", cmd);
 		return;
 	}
 
 	// Done
-	lua->Pop();
+	lua->Pop(3);
 }

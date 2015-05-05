@@ -82,6 +82,9 @@ bool LuaManager::ProtectedCall(int narg, int nresults)
 	}
 	catch (luabind::error e)
 	{
+		printf("LuaManager::ProtectedCall\n");
+		lua->DumpStack();
+
 		m_bSuccess = false;
 		if (lua->IsString())
 		{
@@ -141,8 +144,15 @@ bool LuaManager::IncludeFile(char* sPath)
 // ====================================================================================================
 int LuaPanicHandler(lua_State* L)
 {
+	printf("Lua Panic\n");
+
 	// Message
-	char* msg = const_cast<char*>(lua_tostring(L, -1));
+	char* msg = NULL;
+	if (lua->IsString())
+	{
+		msg = const_cast<char*>(lua_tostring(L, -1));
+		lua->Pop();
+	}
 	if (msg == NULL)
 		msg = "(error object invalid)";
 
@@ -163,11 +173,6 @@ void LuaManager::CheckForLuaErrors(int iErrorIndex)
 	lua_State* L = State();
 	if (lua_isstring(L, -1))
 	{
-		// Message
-		char* msg = const_cast<char*>(lua_tostring(L, -1));
-		if (msg == NULL)
-			msg = "(error object invalid)";
-
 		lua->GetGlobal("debug");
 		lua->GetField("traceback");
 		lua->ProtectedCall(0, 1);

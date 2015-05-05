@@ -61,6 +61,7 @@ void ScriptEngine__Init(DWORD64 ptr)
 		// Lua Callback
 		lua->GetEvent("OnScriptEngineInitialized");
 		lua->ProtectedCall(1);
+		lua->Pop(2);
 
 		// Addons
 		g_pGTALua->InitAddons(); 

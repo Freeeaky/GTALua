@@ -114,14 +114,17 @@ void GTALua::ProperInit()
 	lua->GetGlobal("_main");
 	if (!lua->ProtectedCall(0, 1))
 	{
+		lua->Pop(3);
 		printf("[Lua] Failed to run _main! GTALua will not work properly!\n");
 		return;
 	}
 	if (!lua->GetBool())
 	{
+		lua->Pop(3);
 		printf("[GTALua] Failed to initialize!\n");
 		return;
 	}
+	lua->Pop(3);
 }
 
 // =================================================================================
