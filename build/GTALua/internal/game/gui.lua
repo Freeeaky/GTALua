@@ -64,11 +64,10 @@ function gui.BeepBack()
 end
 
 -- Notify Above Map
--- TODO : Test
-function gui.NotifyAboveMap(text)
+function gui.NotifyAboveMap(text, time_or_2000)
 	natives.UI._0x202709F4C58A0424("STRING")
 	natives.UI._ADD_TEXT_COMPONENT_STRING(text)
-	natives.UI._0x2ED7843F8F801023(2000, true)
+	natives.UI._0x2ED7843F8F801023(time_or_2000 or 2000, true)
 end
 
 include("gui/simple_menu.lua")

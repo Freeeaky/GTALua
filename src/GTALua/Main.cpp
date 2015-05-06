@@ -26,7 +26,7 @@ GTALua::GTALua()
 	HWND hConsole = GetConsoleWindow();
 	RECT rect;
 	GetWindowRect(hConsole, &rect);
-	SetWindowPos(hConsole, NULL, 2000, 25, rect.right - rect.left,  rect.bottom - rect.top, 0);
+	//SetWindowPos(hConsole, NULL, 2000, 25, rect.right - rect.left,  rect.bottom - rect.top, 0);
 #endif
 
 	// Active
