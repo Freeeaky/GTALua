@@ -178,8 +178,6 @@ void LuaScriptThread::Run()
 		lua->Lock();
 		bNormalExit = Call_LuaCallback("Tick");
 		lua->Unlock();
-
-		ScriptHook::ScriptWait(0);
 	}
 
 	// Quit
