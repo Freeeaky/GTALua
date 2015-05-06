@@ -45,3 +45,28 @@ function Player:SetModel(h)
 	
 	natives.PLAYER.SET_PLAYER_MODEL(self.PlayerID, h)
 end
+
+-- Aimed Entity
+function Player:GetAimedEntity()
+	local c_handle = CMemoryBlock(4)
+	if not natives.PLAYER._0x2975C866E6713290(self.PlayerID, c_handle) then
+		c_handle:Release()
+		return nil
+	end
+	
+	-- memory
+	local ent_id = c_handle:ReadDWORD32(0)
+	c_handle:Release()
+	
+	-- return ent
+	local ent = Entity(ent_id)
+	if not ent:Exists() then return nil end
+	
+	-- proper type
+	if ent:IsPed() then
+		return Ped(ent_id)
+	elseif ent:IsVehicle() then
+		return Vehicle(ent_id)
+	end
+	return ent
+end

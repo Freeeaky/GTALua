@@ -16,11 +16,13 @@ LuaScriptThread::LuaScriptThread(string sName)
 	m_sName = sName;
 	m_bActive = false;
 	m_bResetting = false;
+	m_iWaitTime = 0;
 }
 LuaScriptThread::~LuaScriptThread()
 {
 	m_bActive = false;
 	m_bResetting = false;
+	m_iWaitTime = 0;
 }
 
 // =================================================================================
@@ -44,7 +46,8 @@ void LuaScriptThread::Wait(DWORD uiTime)
 	}
 
 	// Wait
-	ScriptHook::ScriptWait(uiTime);
+	//ScriptHook::ScriptWait(uiTime);
+	m_iWaitTime = uiTime;
 }
 
 // =================================================================================
@@ -178,6 +181,9 @@ void LuaScriptThread::Run()
 		lua->Lock();
 		bNormalExit = Call_LuaCallback("Tick");
 		lua->Unlock();
+
+		ScriptHook::ScriptWait(m_iWaitTime);
+		m_iWaitTime = 1;
 	}
 
 	// Quit

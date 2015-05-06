@@ -61,6 +61,7 @@ namespace ScriptBinds
 			string m_sName;
 			bool m_bActive;
 			bool m_bResetting;
+			int m_iWaitTime;
 		};
 
 		// Bind

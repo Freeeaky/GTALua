@@ -9,6 +9,32 @@ function Entity:__init(id)
 	self.ID = id
 end
 
+-- Is*
+function Entity:IsPed()
+	self:_CheckExists()
+	return natives.ENTITY.IS_ENTITY_A_PED(self.ID)
+end
+function Entity:IsVehicle()
+	self:_CheckExists()
+	return natives.ENTITY.IS_ENTITY_A_VEHICLE(self.ID)
+end
+function Entity:IsObject()
+	self:_CheckExists()
+	return natives.ENTITY.IS_ENTITY_AN_OBJECT(self.ID)
+end
+
+-- Misison Entities
+function Entity:IsMissionEntity()
+	self:_CheckExists()
+	return natives.ENTITY.IS_ENTITY_A_MISSION_ENTITY(self.ID)
+end
+Entity.IsPersistant = Entity.IsMissionEntity
+function Entity:SetAsMissionEntity(toggle)
+	self:_CheckExists()
+	natives.ENTITY.SET_ENTITY_AS_MISSION_ENTITY(self.ID, toggle or true, true)
+end
+Entity.SetPersistant = Entity.SetAsMissionEntity
+
 -- Exists
 function Entity:Exists()
 	return natives.ENTITY.DOES_ENTITY_EXIST(self.ID)

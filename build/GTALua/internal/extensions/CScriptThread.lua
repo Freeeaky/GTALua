@@ -43,11 +43,14 @@ function CScriptThread:Tick()
 	end
 	if coroutine.status(self.CoRoutine) ~= "suspended" then
 		print("Something is wrong with the coroutine!")
-		self:SetupCoroutine()
-		self:Tick()
+		--self:SetupCoroutine()
+		--self:Tick()
 		return
 	end
-	coroutine.resume(self.CoRoutine)
+	local status, err = coroutine.resume(self.CoRoutine)
+	if not status then
+		error(err)
+	end
 end
 
 -- Setup CoRoutine
