@@ -84,7 +84,8 @@ BOOL __stdcall DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
 // Starting the time every 2 minutes is annoying and a waste of time
 // =================================================================================
 #ifdef GTA_LUA_TEST_EXE
-int main()
+void Lua_StartThread();
+void _main()
 {
 	// "Thread"
 	Init();
@@ -99,6 +100,32 @@ int main()
 	// Lua Callback
 	lua->GetEvent("OnScriptEngineInitialized");
 	lua->ProtectedCall(1);
+	lua->Pop(2);
+
+	// Load
+	lua->GetGlobal("addon");
+	lua->GetField("Load");
+	lua->PushString("police");
+	lua->ProtectedCall(1);
+	lua->Pop(2);
+
+	// Thread
+	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)Lua_StartThread, 0, 0, 0);
+	ThreadInit();
+}
+int main()
+{
+	// Down-most
+	try
+	{
+		_main();
+	}
+	catch (luabind::error& e) {
+		printf("Error : %s\n", lua->GetString());
+	}
+	catch (...) {
+		printf("Unhandled Exception!\n");
+	}
 
 	// Done
 	return 0;

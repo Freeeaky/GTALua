@@ -24,7 +24,6 @@ void ScriptHook::PushMemory(ScriptBinds::Memory::MemoryBlock* pMemBlock)
 {
 	if (pMemBlock == NULL || !pMemBlock->IsValid())
 	{
-		MessageBox(0, 0, 0, 0);
 		lua->PushString("ScriptHook::PushMemory failed! Invalid CMemoryBlock passed!");
 		throw luabind::error(lua->State());
 	}
@@ -37,26 +36,43 @@ void ScriptHook::PushMemory(ScriptBinds::Memory::MemoryBlock* pMemBlock)
 // =================================================================================
 void ScriptHook::ScriptWait(DWORD dwTime)
 {
+#ifndef GTA_LUA_TEST_EXE
 	scriptWait(dwTime);
+#else
+	Sleep(dwTime);
+#endif
 }
 void ScriptHook::ScriptRegister(HMODULE hModule, ScriptHook_Callback ptr)
 {
+#ifndef GTA_LUA_TEST_EXE
 	scriptRegister(hModule, ptr);
+#endif
 }
 void ScriptHook::ScriptUnregister(ScriptHook_Callback ptr)
 {
+#ifndef GTA_LUA_TEST_EXE
 	scriptUnregister(ptr);
+#endif
 }
 
 void ScriptHook::NativeInit(UINT64 hash)
 {
+#ifndef GTA_LUA_TEST_EXE
 	nativeInit(hash);
+#endif
 }
 void ScriptHook::NativePush64(UINT64 val)
 {
+#ifndef GTA_LUA_TEST_EXE
 	nativePush64(val);
+#endif
 }
 PUINT64 ScriptHook::NativeCall()
 {
+#ifndef GTA_LUA_TEST_EXE
 	return nativeCall();
+#else
+	UINT64 p = 0;
+	return &p;
+#endif
 }

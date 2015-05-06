@@ -9,6 +9,12 @@
 // ====================================================================================================
 LuaManager* lua = NULL;
 
+static struct
+{
+	CRITICAL_SECTION CriticalSection;
+	bool Initialized;
+} lua_threadsafe;
+
 // ====================================================================================================
 // LuaManager
 // ====================================================================================================
@@ -23,6 +29,11 @@ void LuaManager::Init()
 		printf("\n[LuaManager] luaL_newstate Failed: NULL pointer\n");
 		return;
 	}
+
+	// Thread-Safe
+	InitializeCriticalSection(&lua_threadsafe.CriticalSection);
+	lua_threadsafe.Initialized = true;
+	lua->Unlock();
 
 	// Error Handling
 	lua_atpanic(m_pState, LuaPanicHandler);
@@ -43,8 +54,27 @@ void LuaManager::Init()
 // ====================================================================================================
 void LuaManager::Destroy()
 {
+	// Mutext
+	if (lua_threadsafe.Initialized)
+		DeleteCriticalSection(&lua_threadsafe.CriticalSection);
+
+	// Lua
 	m_bSuccess = false;
 	lua_close(m_pState);
+}
+
+// ====================================================================================================
+// Threadsafe
+// ====================================================================================================
+void LuaManager::Lock()
+{
+	if (lua_threadsafe.Initialized)
+		EnterCriticalSection(&lua_threadsafe.CriticalSection);
+}
+void LuaManager::Unlock()
+{
+	if (lua_threadsafe.Initialized)
+		LeaveCriticalSection(&lua_threadsafe.CriticalSection);
 }
 
 // ====================================================================================================
@@ -67,10 +97,6 @@ void LuaManager::Call(int narg, int nresults)
 
 	if (!m_bSuccess)
 	{
-		char* err = GetString();
-		if (err == NULL)
-			err = "(unknown error)";
-		lua->PushString(err);
 		throw luabind::error(lua->State());
 	}
 }
@@ -82,9 +108,6 @@ bool LuaManager::ProtectedCall(int narg, int nresults)
 	}
 	catch (luabind::error e)
 	{
-		printf("LuaManager::ProtectedCall\n");
-		lua->DumpStack();
-
 		m_bSuccess = false;
 		if (lua->IsString())
 		{

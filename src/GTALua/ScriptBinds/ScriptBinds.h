@@ -26,11 +26,6 @@ namespace ScriptBinds
 		void Bind();
 	}
 
-	namespace Console
-	{
-		void Bind();
-	}
-
 	namespace FileModule
 	{
 		void Bind();

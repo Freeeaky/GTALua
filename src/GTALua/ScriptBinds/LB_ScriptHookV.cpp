@@ -40,6 +40,7 @@ void Lua_StartThread()
 	ScriptHook::CanRegisterThreads = false;
 
 	// Update Queue
+	if (vScriptThreadQueue.size() == 0) return;
 	ScriptBinds::ScriptThread::LuaScriptThread* pScriptThread = vScriptThreadQueue.at(0);
 	vScriptThreadQueue.erase(vScriptThreadQueue.begin());
 
@@ -59,6 +60,11 @@ void Lua_StartThread()
 // =================================================================================
 void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 {
+#ifdef GTA_LUA_TEST_EXE
+	vScriptThreadQueue.push_back(pThread);
+	return;
+#endif
+
 	// Only register once
 	// (Autorefresh)
 	for (vector<ScriptBinds::ScriptThread::LuaScriptThread*>::iterator it = vScriptThreadQueue.begin(); it != vScriptThreadQueue.end(); ++it)

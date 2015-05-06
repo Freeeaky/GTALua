@@ -13,6 +13,10 @@ public:
 	void Destroy();
 	lua_State* State() { return m_pState; }
 
+	// Threadsafe
+	void Lock();
+	void Unlock();
+
 	// Utility
 	bool IncludeFile(char* sPath);									// nothrow, uses ProtectedCall
 	void AddToFileList(char* sPath);

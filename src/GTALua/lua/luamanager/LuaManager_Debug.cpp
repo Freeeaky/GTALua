@@ -98,7 +98,11 @@ void LuaManager::DumpStack() {
 		printf("%i: ", index);
 		switch (ltype) {
 			case LUA_TSTRING:
-				printf("%s", lua_tostring(m_pState, index));
+			{
+				const char* s = lua_tostring(m_pState, index);
+				if (s == NULL) s = "(null str)";
+				printf("%s", s);
+			}
 			break;
 			case LUA_TBOOLEAN:
 				printf("%s", lua_toboolean(m_pState, index) ? "true" : "false");
@@ -106,12 +110,17 @@ void LuaManager::DumpStack() {
 			case LUA_TNUMBER:
 				printf("%g", lua_tonumber(m_pState, index));
 			break;
+			case LUA_TTHREAD:
+				printf("[thread]");
+			break;
 			default:
+			{
 				lua->GetGlobal("type");
 				lua->PushValue(index);
 				lua->ProtectedCall(1, 1);
 				printf("[type: %s]", lua->GetString());
 				lua->Pop(2);
+			}
 			break;
 		}
 		printf("\n");

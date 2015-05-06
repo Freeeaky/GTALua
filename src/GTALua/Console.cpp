@@ -31,6 +31,9 @@ void GTALua::ProcessConsoleInput()
 	string cmd = args.at(0);
 	args.erase(args.begin());
 
+	// Lock
+	lua->Lock();
+
 	// Lua: args table
 	luabind::object l_args = luabind::newtable(lua->State());
 	int l_index = 1;
@@ -41,20 +44,22 @@ void GTALua::ProcessConsoleInput()
 		l_index++;
 	}
 
-	// Lua: Call Event
-	lua->GetEvent("OnConsoleInput");
-	lua->PushString(const_cast<char*>(cmd.c_str()));
-	l_args.push(lua->State());
-	lua->ProtectedCall(3, 1);
+	bool bSuccess = true;
+	try
+	{
+		luabind::object event_callback = luabind::globals(lua->State())["event"]["Call"];
+		luabind::call_function<bool>(event_callback, "OnConsoleInput", cmd, l_args);
+	} catch(...) {
+		bSuccess = false;
+	}
+
+	// Unlock
+	lua->Unlock();
 
 	// Lua: result-check
-	if (lua->IsNil() || lua->GetBool() == false)
+	if (!bSuccess)
 	{
-		lua->Pop(3);
 		printf("Unknown console command: %s\n", cmd);
 		return;
 	}
-
-	// Done
-	lua->Pop(3);
 }

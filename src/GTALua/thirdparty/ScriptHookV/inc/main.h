@@ -7,11 +7,15 @@
 #pragma once
 
 #include <windows.h>
+#ifndef GTA_LUA_TEST_EXE
 #pragma comment(lib, "src/GTALua/thirdparty/ScriptHookV/lib/ScriptHookV.lib")
+#define IMPORT __declspec(dllimport)
+#else
+#define IMPORT
+#endif
 
 //namespace ScriptHook
 //{
-#define IMPORT __declspec(dllimport)
 
 	IMPORT void scriptWait(DWORD time);
 	IMPORT void scriptRegister(HMODULE module, void(*LP_SCRIPT_MAIN)());

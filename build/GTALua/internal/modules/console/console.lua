@@ -1,4 +1,5 @@
 -- Console
+console = {}
 console.Commands = {}
 
 -- Register

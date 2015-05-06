@@ -29,4 +29,4 @@ using namespace std;
 // Allow building as exe
 // This prevents memory operations so the exe doesnt crash
 // Used for testing lua related things
-//#define GTA_LUA_TEST_EXE
+#define GTA_LUA_TEST_EXE

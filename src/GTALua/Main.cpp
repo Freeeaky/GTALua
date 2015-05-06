@@ -83,7 +83,6 @@ void GTALua::ProperInit()
 	{
 		// General
 		ScriptBinds::GeneralFunctions::Bind();
-		ScriptBinds::Console::Bind();
 		ScriptBinds::FileModule::Bind();
 
 		// Script Engine
@@ -114,17 +113,17 @@ void GTALua::ProperInit()
 	lua->GetGlobal("_main");
 	if (!lua->ProtectedCall(0, 1))
 	{
-		lua->Pop(3);
+		lua->Pop(2);
 		printf("[Lua] Failed to run _main! GTALua will not work properly!\n");
 		return;
 	}
 	if (!lua->GetBool())
 	{
-		lua->Pop(3);
+		lua->Pop(2);
 		printf("[GTALua] Failed to initialize!\n");
 		return;
 	}
-	lua->Pop(3);
+	lua->Pop(2);
 }
 
 // =================================================================================

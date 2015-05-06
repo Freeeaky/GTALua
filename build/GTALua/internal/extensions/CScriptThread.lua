@@ -33,3 +33,26 @@ function CScriptThread:Register()
 		error("ScriptThread:Register() failed - Has the Script Thread already been killed?")
 	end
 end
+
+-- Tick function
+function CScriptThread:Tick()
+	if self.CoRoutine == nil then
+		self:SetupCoroutine()
+		self:Tick()
+		return
+	end
+	if coroutine.status(self.CoRoutine) ~= "suspended" then
+		print("Something is wrong with the coroutine!")
+		self:SetupCoroutine()
+		self:Tick()
+		return
+	end
+	coroutine.resume(self.CoRoutine)
+end
+
+-- Setup CoRoutine
+function CScriptThread:SetupCoroutine()
+	self.CoRoutine = coroutine.create(function()
+		return self:Run()
+	end)
+end
