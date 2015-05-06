@@ -37,7 +37,6 @@
     <ClCompile Include="src\GTALua\Memory\minhook\src\hook.c" />
     <ClCompile Include="src\GTALua\Memory\minhook\src\trampoline.c" />
     <ClCompile Include="src\GTALua\NativesINI.cpp" />
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_Console.cpp" />
     <ClCompile Include="src\GTALua\ScriptBinds\LB_File.cpp" />
     <ClCompile Include="src\GTALua\ScriptBinds\LB_GeneralFunctions.cpp" />
     <ClCompile Include="src\GTALua\ScriptBinds\LB_Memory.cpp" />
@@ -110,7 +109,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>

@@ -203,9 +203,6 @@
     <ClCompile Include="src\GTALua\thirdparty\inih\ini.c">
       <Filter>Quelldateien\thirdparty\inih</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_Console.cpp">
-      <Filter>Quelldateien\ScriptBinds</Filter>
-    </ClCompile>
     <ClCompile Include="src\GTALua\ScriptBinds\LB_File.cpp">
       <Filter>Quelldateien\ScriptBinds</Filter>
     </ClCompile>
