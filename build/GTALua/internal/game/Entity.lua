@@ -95,6 +95,16 @@ function Entity:GetHeading()
 	return natives.ENTITY.GET_ENTITY_HEADING(self.ID)
 end
 
+-- Freeze
+function Entity:Freeze()
+	self:_CheckExists()
+	natives.ENTITY.FREEZE_ENTITY_POSITION(self.ID, true)
+end
+function Entity:UnFreeze()
+	self:_CheckExists()
+	natives.ENTITY.FREEZE_ENTITY_POSITION(self.ID, false)
+end
+
 -- Health
 function Entity:SetHealth(h)
 	self:_CheckExists()
@@ -111,6 +121,42 @@ end
 function Entity:SetInvincible(b)
 	self:_CheckExists()
 	natives.ENTITY.SET_ENTITY_INVINCIBLE(self.ID, b)
+end
+
+-- Get entity max health
+function Entity:GetMaxHealth() 
+	self:_CheckExists()
+	return natives.ENTITY.GET_ENTITY_MAX_HEALTH(self.ID)
+end
+
+-- Get entity model
+function Entity:GetModel()
+	self:_CheckExists()
+	return natives.ENTITY.GET_ENTITY_MODEL(self.ID)
+end
+
+-- Get nearest player from entity
+function Entity:GetNearestPlayer()
+	self:_CheckExists()
+	return natives.ENTITY.GET_NEAREST_PLAYER_TO_ENTITY(self.ID)
+end
+
+-- Is entity visible
+function Entity:IsVisible()
+	self:_CheckExists()
+	return natives.ENTITY.IS_ENTITY_VISIBLE(self.ID)
+end
+
+-- Sets entity health
+function Entity:SetHealth(i)
+	self:_CheckExists()
+	natives.ENTITY.SET_ENTITY_HEALTH(self.ID,i)
+end
+
+-- Set if entity is visible
+function Entity:SetVisible(b)
+	self:_CheckExists()
+	natives.ENTITY.SET_ENTITY_VISIBLE(self.ID,b)
 end
 
 -- Model
