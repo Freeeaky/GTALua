@@ -105,7 +105,13 @@ void _main()
 	// Load
 	lua->GetGlobal("addon");
 	lua->GetField("Load");
-	lua->PushString("police");
+	lua->PushString("test_1");
+	lua->ProtectedCall(1);
+	lua->Pop(2);
+
+	lua->GetGlobal("addon");
+	lua->GetField("Load");
+	lua->PushString("test_2");
 	lua->ProtectedCall(1);
 	lua->Pop(2);
 

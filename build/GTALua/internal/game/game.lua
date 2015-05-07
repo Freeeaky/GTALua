@@ -9,7 +9,7 @@ end
 -- Create Ped
 function game.CreatePed(model_hash, vec)
 	if not streaming.HasModelLoaded(model_hash) then
-		error("You need to load the model before creating a Ped!")
+		error("You need to load the model before creating a Ped! Call streaming.RequestModel prior to calling game.CreatePed!")
 	end
 
 	local ped_handle = natives.PED.CREATE_PED(26, model_hash, vec.x, vec.y, vec.z, 0, true, true)
@@ -19,7 +19,7 @@ end
 -- Create Vehicle 
 function game.CreateVehicle(model_hash, vec)
 	if not streaming.HasModelLoaded(model_hash) then
-		error("You need to load the model before creating a Vehicle!")
+		error("You need to load the model before creating a Vehicle! Call streaming.RequestModel prior to calling game.CreateVehicle!")
 	end
 	
 	local veh_handle = natives.VEHICLE.CREATE_VEHICLE(model_hash, vec.x, vec.y, vec.z, 0, true, true)

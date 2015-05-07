@@ -16,7 +16,11 @@ LuaScriptThread::LuaScriptThread(string sName)
 	m_sName = sName;
 	m_bActive = false;
 	m_bResetting = false;
+	m_bRunsOnMainThread = false;
+	m_bIsMainThread = false;
+	m_bIdleState = false;
 	m_iWaitTime = 0;
+	m_iNextRun = 0;
 }
 LuaScriptThread::~LuaScriptThread()
 {
@@ -69,8 +73,8 @@ bool LuaScriptThread::IsCallbackPresent(char* sName)
 	if (lua->IsNil())
 	{
 		lua->Pop(2);
-		lua->Unlock();
-		return false;
+lua->Unlock();
+return false;
 	}
 	lua->Pop(2);
 	lua->Unlock();
@@ -138,11 +142,16 @@ void LuaScriptThread::Start()
 	// Run
 	while (m_bActive)
 	{
-		//Run();
-		Run();
+		// Normal Threads: Run
+		if (!m_bIsMainThread)
+			Run();
 
-		//
-		if (m_bActive)
+		// Main Thread: Run
+		if (m_bIsMainThread)
+			Run_MainThread();
+
+		// Main Thread will never be in idle state
+		if (!m_bIsMainThread && m_bActive)
 			Run_IdleState();
 	}
 
@@ -153,24 +162,77 @@ void LuaScriptThread::Start()
 	printf("[LuaScriptThread] Thread %s quit\n", m_sName.c_str());
 }
 
+void LuaScriptThread::Run_MainThread()
+{
+	lua->Lock();
+
+	// Time
+	int game_time = ScriptHook::GetGameTime();
+
+	// Get Thread List
+	m_self.get(lua->State());
+	lua->GetField("ThreadList");
+	luabind::object thread_list(luabind::from_stack(lua->State(), -1));
+	
+	// Threads
+	for (luabind::iterator i(thread_list), end; i != end; i++)
+	{
+		luabind::object l_thread = *i;
+		LuaScriptThread* pThread = luabind::object_cast<LuaScriptThread*>(l_thread);
+		pThread->m_bActive = true;
+
+		// Next Run
+		if (pThread->m_iNextRun == 0)
+			pThread->m_iNextRun = game_time - 1;
+
+		// Reset
+		if (pThread->m_bResetting)
+		{
+			printf("Thread reset: %s\n", pThread->GetName().c_str());
+			pThread->Call_LuaCallback("SetupCoroutine");
+			pThread->m_bResetting = false;
+			pThread->m_iNextRun = game_time - 1;
+			pThread->m_bIdleState = false;
+		}
+
+		// Tick
+		if (game_time >= pThread->m_iNextRun && !pThread->m_bIdleState)
+		{
+			// Callback
+			if (!pThread->Run())
+			{
+				pThread->m_bIdleState = !pThread->m_bResetting;
+			}
+
+			// Wait
+			pThread->m_iNextRun = game_time + pThread->m_iWaitTime;
+			pThread->m_iWaitTime = 1;
+		}
+	}
+
+	// Cleanup
+	lua->Pop(2);
+	lua->Unlock();
+
+	// Yield
+	ScriptHook::ScriptWait(0);
+}
+
 // =================================================================================
 // Run 
 // =================================================================================
-void LuaScriptThread::Run()
+bool LuaScriptThread::Run()
 {
-	// Check if callback is present
-	if (!IsCallbackPresent("Run"))
-	{
-		printf("[LuaScriptThread] Thread %s has no Run callback!", m_sName.c_str());
-		return;
-	}
+	// Idle State
+	m_bIdleState = false;
 
 	// Coroutine
 	lua->Lock();
-	if (!Call_LuaCallback("SetupCoroutine"))
+	if (!m_bRunsOnMainThread && !m_bIsMainThread && !Call_LuaCallback("SetupCoroutine"))
 	{
 		printf("[LuaScriptThread] Thread %s failed to setup its coroutine (lua thread)!", m_sName.c_str());
-		return;
+		lua->Unlock();
+		return false;
 	}
 	lua->Unlock();
 
@@ -178,24 +240,38 @@ void LuaScriptThread::Run()
 	bool bNormalExit = true;
 	while (bNormalExit && m_bActive && !m_bResetting)
 	{
+		// Callback
 		lua->Lock();
 		bNormalExit = Call_LuaCallback("Tick");
 		lua->Unlock();
 
+		// Break
+		if (m_bRunsOnMainThread)
+			break;
+
+		// Wait
 		ScriptHook::ScriptWait(m_iWaitTime);
 		m_iWaitTime = 1;
 	}
 
 	// Quit
-	if (!m_bActive)
+	if (!m_bRunsOnMainThread && !m_bActive)
 	{
 		printf("[LuaScriptThread] Thread %s quit\n", m_sName.c_str());
-		return;
+		return false;
 	}
 
 	// OnError
 	if (!bNormalExit && IsCallbackPresent("OnError"))
+	{
+		lua->Lock();
 		Call_LuaCallback("OnError");
+		lua->Unlock();
+		return false;
+	}
+
+	// smooth
+	return true;
 }
 
 // =================================================================================
@@ -204,20 +280,31 @@ void LuaScriptThread::Run()
 // =================================================================================
 void LuaScriptThread::Run_IdleState()
 {
-	while (m_bActive)
+	// Idle
+	m_bIdleState = true;
+
+	// Idle Loop
+	while (m_bActive && m_bIdleState)
 	{
 		// Handle Reset
 		if (m_bResetting)
 		{
 			m_bResetting = false;
+			m_bIdleState = false;
 			printf("[LuaScriptThread] Thread %s reset\n", m_sName.c_str());
 
 			return;
 		}
 
+		// Idle State
+		m_bIdleState = true;
+
 		// Wait
 		ScriptHook::ScriptWait(5);
 	}
+
+	// Idle
+	m_bIdleState = false;
 }
 
 // =================================================================================
@@ -252,5 +339,6 @@ void ScriptBinds::ScriptThread::Bind()
 		.def("Wait", &LuaScriptThread::Wait, luabind::yield)
 		.def("Reset", &LuaScriptThread::Reset)
 		.def("internal_Kill", &LuaScriptThread::Kill)
+		.def_readonly("m_iWaitTime", &LuaScriptThread::m_iWaitTime)
 	];
 }

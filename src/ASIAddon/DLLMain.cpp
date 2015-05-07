@@ -2,7 +2,7 @@
 // Includes 
 // =================================================================================
 #include <Windows.h>
-#define ASI_ADDON_VERSION 3
+#define ASI_ADDON_VERSION 4
 typedef void(*ScriptHook_Callback)();
 
 // =================================================================================
@@ -65,7 +65,7 @@ BOOL __stdcall DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
 	if (dwReason == DLL_PROCESS_DETACH)
 	{
 		// Check ScriptHookV & GTALua
-		if (!GetModuleHandle("ScriptHookV.dll") || !GetModuleHandle("GTALua.dll"))
+		if (!GetModuleHandle("ScriptHookV.dll") || !GetModuleHandle("GTALua.asi"))
 			return TRUE;
 
 		// Let GTALua.dll unload our addon

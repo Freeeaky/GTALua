@@ -4,71 +4,31 @@
 --     http://freeschi.com/w/index.php/Getting_Started
 --
 
--- !! !! !! !! !!
--- !! IMPORTANT!!
--- !! !! !! !! !!
---
--- You need to copy the example_01_spawn_vehicle.asi file to your
--- GTA main directory! Otherwise this addon will not be loaded!
---
---
-
 -- Create a ScriptThread
--- Thread name & addon name MUST MATCH!
+-- I recommend matching addon name & script thread name
 example_vehicle = ScriptThread("example_01_spawn_vehicle") 
-
--- As example_vehicle is also a table, you can define variables there
 
 -- Run function
 -- This is called once! It's your job to keep this alive!
 function example_vehicle:Run()
+	print("hi")
+	
 	-- while-loop, do not use while true !
 	while self:IsRunning() do
 		-- Key-Down-Check
 		if IsKeyDown(KEY_F9) then
-			-- Get Local Player Ped
-			-- -1 is always the ID for the local player
-			local local_player_ped = natives.PLAYER.GET_PLAYER_PED(-1)
-			
-			-- Get Entity Position
-			-- entity = local_player_ped
-			local vec = natives.ENTITY.GET_ENTITY_COORDS(local_player_ped, true)
-			-- This function returns a vector
-			-- You can access vec.x vec.y and vec.z for the coordinates
-			
-			-- Model Hash
-			local model_hash = VEHICLE_TAXI -- 0xC703DB5F
-			
-			-- Before we can use the model, we need to load it first
-			-- Check if already loaded
-			if not natives.STREAMING.HAS_MODEL_LOADED(model_hash) then
-				-- Request Model
-				natives.STREAMING.REQUEST_MODEL(model_hash)
-				
-				-- After you have requested the model, you need to wait until
-				-- the model is actually loaded
-				--
-				-- For that we create another while-loop, make sure that you
-				-- use self:IsRunning() again!
-				while self:IsRunning() do
-					-- Check if loaded
-					if natives.STREAMING.HAS_MODEL_LOADED(model_hash) then
-						-- Model has loaded, we can get out of the loop
-						break
-					end
-					
-					-- Wait
-					self:Wait(1)
-				end
-			end
-			-- The model is now loaded
+			-- Local Player Position
+			local player_pos = LocalPlayer():GetPosition()
+
+			-- Load Model
+			streaming.RequestModel(VEHICLE_TAXI)
 			
 			-- Create Vehicle
-			natives.VEHICLE.CREATE_VEHICLE(model_hash, vec.x, vec.y, vec.z, 0.0, true, true)
+			game.CreateVehicle(VEHICLE_TAXI, player_pos)
 			
 			-- Set model as no longer needed
 			-- Otherwise it lies around in memory
-			natives.STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(model_hash)
+			streaming.ReleaseModel(VEHICLE_TAXI)
 		end
 		
 		-- Wait

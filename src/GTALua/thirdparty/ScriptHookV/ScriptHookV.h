@@ -20,6 +20,9 @@ namespace ScriptHook
 	void NativePush64(UINT64 val);
 	PUINT64 NativeCall();
 
+	// Helper
+	int GetGameTime();
+
 	// Push Value Wrapper
 	template <typename T>
 	static inline void PushValue(T val)

@@ -68,6 +68,16 @@ function Entity:GetPosition()
 	self:_CheckExists()
 	return natives.ENTITY.GET_ENTITY_COORDS(self.ID, false)
 end
+function Entity:GetOffsetVector(x,y,z)
+	self:_CheckExists()
+	if type(x) == "Vector" then
+		x = x.x
+		y = x.y
+		z = x.z
+	end
+	
+	return natives.ENTITY.GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(self.ID, x, y, z)
+end
 
 -- Velocity
 function Entity:SetVelocity(x, y, z)
@@ -114,6 +124,10 @@ function Entity:GetHealth()
 	self:_CheckExists()
 	return natives.ENTITY.GET_ENTITY_HEALTH(self.ID)
 end
+function Entity:GetMaxHealth() 
+	self:_CheckExists()
+	return natives.ENTITY.GET_ENTITY_MAX_HEALTH(self.ID)
+end
 function Entity:IsDead()
 	self:_CheckExists()
 	return natives.ENTITY.IS_ENTITY_DEAD(self.ID)
@@ -123,37 +137,17 @@ function Entity:SetInvincible(b)
 	natives.ENTITY.SET_ENTITY_INVINCIBLE(self.ID, b)
 end
 
--- Get entity max health
-function Entity:GetMaxHealth() 
-	self:_CheckExists()
-	return natives.ENTITY.GET_ENTITY_MAX_HEALTH(self.ID)
-end
-
--- Get entity model
-function Entity:GetModel()
-	self:_CheckExists()
-	return natives.ENTITY.GET_ENTITY_MODEL(self.ID)
-end
-
--- Get nearest player from entity
+-- Nearest Player
 function Entity:GetNearestPlayer()
 	self:_CheckExists()
 	return natives.ENTITY.GET_NEAREST_PLAYER_TO_ENTITY(self.ID)
 end
 
--- Is entity visible
+-- Visible
 function Entity:IsVisible()
 	self:_CheckExists()
 	return natives.ENTITY.IS_ENTITY_VISIBLE(self.ID)
 end
-
--- Sets entity health
-function Entity:SetHealth(i)
-	self:_CheckExists()
-	natives.ENTITY.SET_ENTITY_HEALTH(self.ID,i)
-end
-
--- Set if entity is visible
 function Entity:SetVisible(b)
 	self:_CheckExists()
 	natives.ENTITY.SET_ENTITY_VISIBLE(self.ID,b)
@@ -173,4 +167,24 @@ end
 function Entity:Extinguish()
 	self:_CheckExists()
 	natives.FIRE.STOP_ENTITY_FIRE(self.ID)
+end
+
+-- Blip
+function Entity:AttachBlip()
+	self:_CheckExists()
+	local current_blip = self:GetBlip()
+	if current_blip then
+		return current_blip
+	end
+	return Blip(natives.UI.ADD_BLIP_FOR_ENTITY(self.ID))
+end
+function Entity:GetBlip()
+	self:_CheckExists()
+	local blip_id = natives.UI.GET_BLIP_FROM_ENTITY(self.ID)
+	if blip_id > 0 then
+		local blip = Blip(blip_id)
+		if blip:Exists()
+			return blip
+		end
+	end
 end

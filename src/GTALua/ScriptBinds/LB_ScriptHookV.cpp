@@ -57,18 +57,35 @@ void Lua_StartThread()
 
 // =================================================================================
 // Register Thread 
+// Returns:
+//   -1: Fail, already registered
+//    1: Add to main thread
+//    2: Addon has ASI
 // =================================================================================
-void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
+int LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 {
+	if (pThread->GetName() == "main_thread")
+		pThread->m_bIsMainThread = true;
+
 #ifdef GTA_LUA_TEST_EXE
 	vScriptThreadQueue.push_back(pThread);
-	return;
+	if (!pThread->m_bIsMainThread)
+		pThread->m_bRunsOnMainThread = true;
+	return 1;
 #endif
 
 	// Only register once
 	// (Autorefresh)
 	for (vector<ScriptBinds::ScriptThread::LuaScriptThread*>::iterator it = vScriptThreadQueue.begin(); it != vScriptThreadQueue.end(); ++it)
-		if (*it == pThread) return;
+		if (*it == pThread) return -1;
+
+	// Main Thread
+	if (pThread->m_bIsMainThread)
+	{
+		vScriptThreadQueue.push_back(pThread);
+		ScriptHook::ScriptRegister(GetModuleHandle("GTALua.asi"), Lua_StartThread);
+		return 2;
+	}
 
 	// Get Module
 	char buf[256];
@@ -76,17 +93,15 @@ void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 	HMODULE hASIAddon = GetModuleHandle(buf);
 
 	// Check
-	if (hASIAddon == NULL)
+	if (hASIAddon == NULL && !pThread->m_bIsMainThread)
 	{
-		char error_buf[512];
-		sprintf(error_buf, "[GTALua] Thread name and addon name must match! Unable to find a match for %s!", pThread->GetName().c_str());
-		lua->PushString(error_buf);
-		throw luabind::error(lua->State());
+		pThread->m_bRunsOnMainThread = true;
+		return 1;
 	}
 
 	// RegisterThread Proxy
 	RegisterThread_Proxy_t pRegisterThreadProxy = (RegisterThread_Proxy_t) GetProcAddress(hASIAddon, "RegisterThread_Proxy");
-	if (pRegisterThreadProxy == NULL)
+	if (hASIAddon != NULL && pRegisterThreadProxy == NULL)
 	{
 		char error_buf[512];
 		sprintf(error_buf, "[ASIAddon] %s: Failed to import RegisterThread_Proxy!\n", buf);
@@ -97,6 +112,7 @@ void LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 	// Register
 	vScriptThreadQueue.push_back(pThread);
 	ScriptHook::ScriptRegister(hASIAddon, pRegisterThreadProxy);
+	return 2;
 }
 
 // =================================================================================

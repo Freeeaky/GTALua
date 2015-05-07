@@ -30,6 +30,18 @@ void ScriptHook::PushMemory(ScriptBinds::Memory::MemoryBlock* pMemBlock)
 	PushValue(pMemBlock->GetMemoryPointer()); 
 }
 
+int ScriptHook::GetGameTime()
+{
+#ifndef GTA_LUA_TEST_EXE
+	NativeInit(0x9CD27B0045628463);
+	return Call<int>();
+#else
+	SYSTEMTIME st;
+	GetSystemTime(&st);
+	return st.wMilliseconds;
+#endif
+}
+
 // =================================================================================
 // Wrapper
 // I don't want the imported functions to be global

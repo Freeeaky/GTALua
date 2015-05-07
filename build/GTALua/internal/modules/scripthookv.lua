@@ -41,8 +41,7 @@ end
 -- Register Thread
 function scripthookv.RegisterThread(thread, _noerror)
 	if scripthookv.CanRegisterThreads() then
-		scripthookv.internal_RegisterThread(thread)
-		return true
+		return true, scripthookv.internal_RegisterThread(thread)
 	else
 		if _noerror ~= true then
 			error("You can no longer register threads! Make sure that your script registers your thread on startup!")

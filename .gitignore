@@ -2,3 +2,4 @@ x64*
 build/GTALua.*
 build/ASIAddon.*
 build/GTALua/addons/police*
+build/GTALua/addons/test*

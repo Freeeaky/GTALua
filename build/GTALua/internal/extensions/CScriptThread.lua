@@ -13,6 +13,14 @@ function ScriptThread(name)
 	return scripthookv.ThreadList[name]
 end
 
+-- String/Type
+function CScriptThread:__tostring()
+	return "[CScriptThread "..self:GetName().."]"
+end
+function CScriptThread:__type()
+	return "CScriptThread"
+end
+
 -- Kill Thread
 function CScriptThread:Kill()
 	scripthookv.KillThread(self:GetName())
@@ -28,26 +36,40 @@ function CScriptThread:Register()
 	if self:IsActive() then end
 	
 	-- Register
-	local r = scripthookv.RegisterThread(self, true)
+	local r, thread_type = scripthookv.RegisterThread(self, true)
 	if not r then
 		error("ScriptThread:Register() failed - Has the Script Thread already been killed?")
+	end
+	if thread_type == -1 then return end
+	
+	-- Add to main thread if it doesn't have its own thread
+	if thread_type == 1 then
+		scripthookv.FindThread("main_thread"):AddThread(self)
 	end
 end
 
 -- Tick function
 function CScriptThread:Tick()
+	-- Setup
 	if self.CoRoutine == nil then
 		self:SetupCoroutine()
 		self:Tick()
 		return
 	end
+	
+	-- Check Status
 	if coroutine.status(self.CoRoutine) ~= "suspended" then
-		print("Something is wrong with the coroutine!")
-		--self:SetupCoroutine()
-		--self:Tick()
+		if self.QuitMessage == nil then
+			print("Thread "..self:GetName().." quit.")
+			self.QuitMessage = true
+		end
 		return
 	end
+	
+	-- Resume
 	local status, err = coroutine.resume(self.CoRoutine)
+	
+	-- Rethrow errors
 	if not status then
 		error(err)
 	end
@@ -55,6 +77,7 @@ end
 
 -- Setup CoRoutine
 function CScriptThread:SetupCoroutine()
+	self.QuitMessage = nil
 	self.CoRoutine = coroutine.create(function()
 		return self:Run()
 	end)

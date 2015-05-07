@@ -108,22 +108,6 @@ void GTALua::ProperInit()
 		printf("[Lua] Failed to include main.lua! GTALua will not work properly!\n");
 		return;
 	}
-
-	// Run _main
-	lua->GetGlobal("_main");
-	if (!lua->ProtectedCall(0, 1))
-	{
-		lua->Pop(2);
-		printf("[Lua] Failed to run _main! GTALua will not work properly!\n");
-		return;
-	}
-	if (!lua->GetBool())
-	{
-		lua->Pop(2);
-		printf("[GTALua] Failed to initialize!\n");
-		return;
-	}
-	lua->Pop(2);
 }
 
 // =================================================================================
@@ -137,6 +121,22 @@ void GTALua::InitAddons()
 	printf("\n");
 	API::LoadQueuedAddons();
 	printf("\n");
+
+	// Run _main
+	lua->GetGlobal("_main");
+	if (!lua->ProtectedCall(0, 1))
+	{
+		lua->Pop(2);
+		printf("[Lua] Failed to run _main!\n");
+		return;
+	}
+	if (!lua->GetBool())
+	{
+		lua->Pop(2);
+		printf("[GTALua] Failed to load addons!\n");
+		return;
+	}
+	lua->Pop(2);
 
 	// Success
 	printf("===================================================================\n");

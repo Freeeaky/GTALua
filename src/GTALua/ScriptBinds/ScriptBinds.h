@@ -45,8 +45,9 @@ namespace ScriptBinds
 			bool Call_LuaCallback(char* sName); // returns true if normal exit
 
 			void Start();
-			void Run();
+			bool Run();
 			void Run_IdleState();
+			void Run_MainThread();
 
 			// Getter
 			string GetName() { return m_sName; };
@@ -57,11 +58,18 @@ namespace ScriptBinds
 			void Wait(DWORD uiTime);
 			void Kill();
 			void Reset();
-		private:
+
+			// Main Thread
+			bool m_bRunsOnMainThread;
+			bool m_bIsMainThread;
+			int m_iWaitTime;
+			int m_iNextRun;
+
+			// Data
 			string m_sName;
 			bool m_bActive;
+			bool m_bIdleState;
 			bool m_bResetting;
-			int m_iWaitTime;
 		};
 
 		// Bind

@@ -44,6 +44,7 @@ function AI.TaskPlayAnim(id, anim_dict, anim_name, speed, f_unknown, loop, last_
 	zlock = zlock or false
 	natives.AI.TASK_PLAY_ANIM(id, anim_dict, anim_name, speed, f_unknown, loop, last_anim, playback_rate, xlock, ylock, zlock)
 end
+
 -- Perform Sequence
 function AI.TaskPerformSequence(id, sequence_handle)
 	natives.AI.TASK_PERFORM_SEQUENCE(id, sequence_handle)

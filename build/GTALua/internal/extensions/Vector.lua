@@ -13,3 +13,9 @@ end
 function Vector:Unpack()
 	return self.x, self.y, self.z
 end
+
+-- Distance
+function Vector:Distance(other_vec)
+	local subvec = (self - other_vec)
+	return subvec.x + subvec.y + subvec.z
+end
