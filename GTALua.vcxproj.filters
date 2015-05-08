@@ -272,5 +272,8 @@
     <ClCompile Include="src\GTALua\API.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptBinds\LB_MainScriptThread.cpp">
+      <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -16,11 +16,17 @@ LuaScriptThread::LuaScriptThread(string sName)
 	m_sName = sName;
 	m_bActive = false;
 	m_bResetting = false;
-	m_bRunsOnMainThread = false;
-	m_bIsMainThread = false;
 	m_bIdleState = false;
 	m_iWaitTime = 0;
 	m_iNextRun = 0;
+
+	// Main Thread
+	m_bIsMainThread = sName == "main_thread";
+	m_bRunsOnMainThread = !m_bIsMainThread;
+	if (m_bIsMainThread)
+		m_lThreadList = luabind::newtable(lua->State());
+	else
+		m_lThreadList = lua_nil;
 }
 LuaScriptThread::~LuaScriptThread()
 {
@@ -135,12 +141,6 @@ void LuaScriptThread::Start()
 {
 	// Message
 	printf("[LuaScriptThread] Thread %s started\n", m_sName.c_str());
-
-	// Main Thread
-	if (m_bIsMainThread)
-		m_lThreadList = luabind::newtable(lua->State());
-	else
-		m_lThreadList = lua_nil;
 
 	// Flag
 	m_bActive = true;

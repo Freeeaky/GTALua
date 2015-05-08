@@ -64,9 +64,6 @@ void Lua_StartThread()
 // =================================================================================
 int LB_RegisterThread(ScriptBinds::ScriptThread::LuaScriptThread* pThread)
 {
-	if (pThread->GetName() == "main_thread")
-		pThread->m_bIsMainThread = true;
-
 #ifdef GTA_LUA_TEST_EXE
 	vScriptThreadQueue.push_back(pThread);
 	if (!pThread->m_bIsMainThread)
