@@ -60,6 +60,7 @@ namespace ScriptBinds
 			void Reset();
 
 			// Main Thread
+			luabind::object m_lThreadList;
 			bool m_bRunsOnMainThread;
 			bool m_bIsMainThread;
 			int m_iWaitTime;

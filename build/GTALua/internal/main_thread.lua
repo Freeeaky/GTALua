@@ -1,6 +1,5 @@
 -- Addons that dont have its own ASI will be running on the main thread
 main_thread = ScriptThread("main_thread")
-main_thread.ThreadList = {}
 
 -- Add Thread
 function main_thread:AddThread(thread)

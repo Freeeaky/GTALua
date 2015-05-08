@@ -97,6 +97,8 @@ function Player:GetAimedEntity()
 		return Ped(ent_id)
 	elseif ent:IsVehicle() then
 		return Vehicle(ent_id)
+	elseif ent:IsObject() then
+		return Object(ent)
 	end
 	return ent
 end

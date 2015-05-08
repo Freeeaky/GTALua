@@ -33,8 +33,6 @@ void API::LoadQueuedAddons()
 		char* sName = *it;
 		if (sName != NULL)
 		{
-			printf("Loading addon %s..\n", sName);
-
 			// Load
 			lua->GetGlobal("addon");
 			lua->GetField("Load");
@@ -95,12 +93,9 @@ __declspec(dllexport) void UnloadAddon(HMODULE hModule)
 	_splitpath(sPath, NULL, NULL, sFileName, NULL);
 	free(sPath);
 
-	// Lua
+	// Already shut down
 	if (lua == NULL || g_pGTALua == NULL)
-	{
-		printf("%s: Unable to unload addon!\n", sFileName);
 		return;
-	}
 
 	// Debug
 	printf("[GTALua] Unloading %s\n", sFileName);

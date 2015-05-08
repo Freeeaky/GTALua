@@ -10,7 +10,7 @@ function addon.Load(name)
 	
 	-- Game Pause
 	if IsScriptEngineInitialized() and game.IsPaused() then
-		print("Note: Game is paused. Script Thread will reset after you unpaused it!")
+		print("[addon.Load] Game is paused. Script Thread will reset after you unpaused it!")
 	end
 end
 

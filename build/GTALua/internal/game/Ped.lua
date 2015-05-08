@@ -83,7 +83,7 @@ function Ped:GetNearbyPeds(max_peds)
 	
 	-- index 0 defines the length of the array
 	c_array_peds:WriteInt32(0, max_peds)
-	
+
 	-- call native
 	natives.PED.GET_PED_NEARBY_PEDS(self.ID, c_array_peds, -1)
 	
