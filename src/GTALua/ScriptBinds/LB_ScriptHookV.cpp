@@ -125,7 +125,6 @@ bool LB_CanRegisterThreads()
 // =================================================================================
 void ScriptBinds::ScriptHookBind::Bind()
 {
-	// TODO: Add ability to register own threads
 	luabind::module(lua->State(), "scripthookv")
 	[
 		luabind::def("CanRegisterThreads", LB_CanRegisterThreads),

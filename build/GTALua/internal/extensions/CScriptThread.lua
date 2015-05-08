@@ -1,5 +1,4 @@
 -- Script Thread CTOR
--- TODO: Move Reset to Register
 function ScriptThread(name)
 	-- I really hope people will find proper names for them..
 	local existing_thread = scripthookv.FindThread(name)

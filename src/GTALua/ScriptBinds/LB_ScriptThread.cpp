@@ -56,7 +56,6 @@ void LuaScriptThread::Wait(DWORD uiTime)
 	}
 
 	// Wait
-	//ScriptHook::ScriptWait(uiTime);
 	m_iWaitTime = uiTime;
 }
 
@@ -177,14 +176,17 @@ bool LuaScriptThread::Run()
 	m_bIdleState = false;
 
 	// Coroutine
-	lua->Lock();
-	if (!m_bRunsOnMainThread && !m_bIsMainThread && !Call_LuaCallback("SetupCoroutine"))
+	if (!m_bRunsOnMainThread && !m_bIsMainThread)
 	{
-		printf("[LuaScriptThread] Thread %s failed to setup its coroutine (lua thread)!", m_sName.c_str());
+		lua->Lock();
+		if (!Call_LuaCallback("SetupCoroutine"))
+		{
+			printf("[LuaScriptThread] Thread %s failed to setup its coroutine (lua thread)!", m_sName.c_str());
+			lua->Unlock();
+			return false;
+		}
 		lua->Unlock();
-		return false;
 	}
-	lua->Unlock();
 
 	// Call
 	bool bNormalExit = true;
@@ -285,11 +287,10 @@ void ScriptBinds::ScriptThread::Bind()
 		.def(luabind::constructor<string>())
 		.def("GetName", &LuaScriptThread::GetName)
 		.def("IsRunning", &LuaScriptThread::IsRunning) // is running
-		.def("IsActive", &LuaScriptThread::IsActive) // is valid in general
+		.def("IsActive", &LuaScriptThread::IsActive) // is started
 		.def("Wait", &LuaScriptThread::Wait, luabind::yield)
 		.def("Reset", &LuaScriptThread::Reset)
 		.def("internal_Kill", &LuaScriptThread::Kill)
-		.def_readonly("m_iWaitTime", &LuaScriptThread::m_iWaitTime)
 		.def_readwrite("ThreadList", &LuaScriptThread::m_lThreadList)
 	];
 }
