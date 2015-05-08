@@ -9,7 +9,7 @@ function main_thread:AddThread(thread)
 	-- already registered?
 	for _,v in pairs(self.ThreadList) do
 		if v:GetName() == thread:GetName() then
-			--return
+			return
 		end
 	end
 	

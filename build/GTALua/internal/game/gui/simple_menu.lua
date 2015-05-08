@@ -3,11 +3,29 @@ class 'GUISimpleMenu'
 
 -- CTor
 function GUISimpleMenu:__init()
-	--
+	self.ActiveIndex = 1
+	self.Options = {}
+	self.Closed = false
 end
 
--- Draw
-function GUISimpleMenu:Draw()
+-- Closed
+function GUISimpleMenu:IsClosed()
+	return self.Closed
+end
+function GUISimpleMenu:SetClosed(b)
+	self.Closed = b or false
+end
+function GUISimpleMenu:Close() self:SetClosed(true) end
+function GUISimpleMenu:Open() self:SetClosed(false) end
+
+-- Update
+function GUISimpleMenu:Update()
+	-- Closed-Check
+	if self.Closed then
+		return
+	end
+	
+	--
 	local x, y = self.x, self.y
 	local title_color = Color(0,0,0)
 	local option_color = Color(0,0,0,150)
@@ -21,20 +39,16 @@ function GUISimpleMenu:Draw()
 	y = y + self.TitleHeight	
 
 	-- Objects
-	local index = 0
-	for k,v in pairs(self.Options) do
-		index = index + 1
-		
-		if index == self.ActiveIndex then
+	for k,v in pairs(self.Options) do		
+		if k == self.ActiveIndex then
 			gui.DrawRect(x, y, self.Width, self.OptionHeight, option_color_selected)
 		else
 			gui.DrawRect(x, y, self.Width, self.OptionHeight, option_color)
 		end
 		
-		gui.DrawText(x + 0.002, y, v)
+		gui.DrawText(x + 0.002, y, v.Text)
 		y = y + self.OptionHeight
 	end
-	self.OptionsCount = index
 	
 	-- Controls
 	self:UpdateControls()
@@ -43,89 +57,73 @@ end
 -- Controls
 function GUISimpleMenu:UpdateControls()	
 	-- back
-	if IsKeyDown(KEY_DELETE) or IsKeyDown(KEY_BACK) then
-		self.Result = false
+	if (IsKeyDown(KEY_DELETE) or IsKeyDown(KEY_BACK)) and self.CanBeClosed then
+		self.Closed = true
 		gui.BeepBack()
 	end
 	
 	-- down
 	if IsKeyDown(KEY_NUMPAD2) then
 		self.ActiveIndex = self.ActiveIndex + 1
-		gui.Beep()
+		gui.BeepNavUpDown()
 	end
 	
 	-- up
 	if IsKeyDown(KEY_NUMPAD8) then
 		self.ActiveIndex = self.ActiveIndex - 1
-		gui.Beep()
+		gui.BeepNavUpDown()
 	end
 	
 	-- confirm
 	if IsKeyDown(KEY_NUMPAD5) then
-		self.Result = self.ActiveIndex
+		local opt = self.Options[self.ActiveIndex]
+		opt.Callback()
 		gui.BeepSelect()
 	end
 	
 	-- out of range check
-	if self.ActiveIndex > self.OptionsCount then
+	local options_count = #self.Options
+	if self.ActiveIndex > options_count then
 		self.ActiveIndex = 1
 	end
 	if self.ActiveIndex < 1 then
-		self.ActiveIndex = self.OptionsCount
+		self.ActiveIndex = options_count
 	end
 end
 
--- Result
-function GUISimpleMenu:GetResult()
-	local r = self.Result
-	if r ~= nil and r ~= false then
-		local index = 0
-		for k,v in pairs(self.Options) do
-			index = index + 1
-			if index == self.ActiveIndex then
-				r = k
-			end
+-- Add Option
+function GUISimpleMenu:AddOption(name, callback_name_or_func, ...)
+	local args = {...}
+	local callback = callback_name_or_func
+	if type(callback) == "string" then
+		callback = function()
+			return self.Thread[callback_name_or_func](self.Thread, self, unpack(args))
+		end
+	elseif type(callback) == "function" then
+		callback = function()
+			callback_name_or_func(self, unpack(args))
 		end
 	end
-	self.Result = nil
-	return r
-end
-
--- Wait for Result
-function GUISimpleMenu:WaitForResult(thread, max_wait_time)
-	max_wait_time = max_wait_time or -1
-	local wait_until 
-	if max_wait_time ~= -1 then
-		wait_until = game.GetTime() + max_wait_time
-	end
 	
-	while thread:IsRunning() and (max_wait_time == -1 or game.GetTime() < wait_until) do
-		local res = self:GetResult()
-		if res ~= nil then
-			return res
-		end
-		self:Draw()
-		thread:Wait(0)
-	end
-	
-	return false
+	table.insert(self.Options, {
+		Text = name,
+		Callback = callback
+	})
 end
 
 -- CTor
-function gui.Menu(settings, options)
+function gui.SimpleMenu(thread, settings)
 	local data = GUISimpleMenu()
 	
 	-- Settings
+	data.Thread = thread
 	data.Title = settings.Title or "Simple Menu"
 	data.x = settings.x or 0
 	data.y = settings.y or 0
 	data.Width = settings.Width or 0.2
 	data.OptionHeight = settings.OptionHeight or 0.03
-	data.TitleHeight = settings.TitleHeight or 0.05 
-
-	-- Data
-	data.ActiveIndex = 1
-	data.Options = options
+	data.TitleHeight = settings.TitleHeight or 0.05
+	data.CanBeClosed = settings.CanBeClosed or true
 	
 	return data
 end

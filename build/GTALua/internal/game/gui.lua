@@ -53,7 +53,7 @@ function gui.DrawText(x, y, text, tbl)
 end
 
 -- Beep
-function gui.Beep()
+function gui.BeepNavUpDown()
 	natives.AUDIO.PLAY_SOUND_FRONTEND(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", false)
 end
 function gui.BeepSelect()

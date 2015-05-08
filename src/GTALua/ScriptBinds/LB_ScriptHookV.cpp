@@ -130,7 +130,7 @@ void ScriptBinds::ScriptHookBind::Bind()
 	[
 		luabind::def("CanRegisterThreads", LB_CanRegisterThreads),
 
-		luabind::def("internal_RegisterThread", LB_RegisterThread),
+		luabind::def("RegisterThread", LB_RegisterThread),
 		luabind::def("ThreadSleep", LB_ThreadSleep),
 		luabind::def("InitNative", LB_InitNative),
 		luabind::def("NativePushInt", ScriptHook::PushValue<__int32>),

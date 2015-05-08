@@ -36,10 +36,7 @@ function CScriptThread:Register()
 	if self:IsActive() then end
 	
 	-- Register
-	local r, thread_type = scripthookv.RegisterThread(self, true)
-	if not r then
-		error("ScriptThread:Register() failed - Has the Script Thread already been killed?")
-	end
+	local thread_type = scripthookv.RegisterThread(self)
 	if thread_type == -1 then return end
 	
 	-- Add to main thread if it doesn't have its own thread
