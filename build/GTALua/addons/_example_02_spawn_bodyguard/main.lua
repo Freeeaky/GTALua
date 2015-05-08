@@ -5,7 +5,7 @@
 --     http://freeschi.com/w/index.php/API
 --
 
--- Thread name & addon name MUST MATCH!
+-- I recommend matching addon name & script thread name
 example_spawn_bodyguard = ScriptThread("example_02_spawn_bodyguard") 
 
 -- Run function

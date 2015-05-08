@@ -2,6 +2,7 @@
 -- Check out "Getting started" on the Wiki!
 --     http://freeschi.com/w/index.php/Main_Page
 --     http://freeschi.com/w/index.php/Getting_Started
+--     http://freeschi.com/w/index.php/API
 --
 
 -- Create a ScriptThread
