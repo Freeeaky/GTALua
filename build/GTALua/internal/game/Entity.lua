@@ -183,7 +183,7 @@ function Entity:GetBlip()
 	local blip_id = natives.UI.GET_BLIP_FROM_ENTITY(self.ID)
 	if blip_id > 0 then
 		local blip = Blip(blip_id)
-		if blip:Exists()
+		if blip:Exists() then
 			return blip
 		end
 	end
