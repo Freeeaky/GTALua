@@ -1,10 +1,18 @@
 *****************************************************************************
-* IMPORTANT!! You need an ASI!
+* Thank you for using GTALua!                                               *
 *****************************************************************************
-In order for your addons to be loaded, you need to have an ASI file for them!
-It is recommended to start based on the empty_addon!
+If you need help, make sure to check out:
+    http://freeschi.com/w/index.php/Main_Page
+	http://freeschi.com/w/index.php/Getting_Started
+	http://freeschi.com/w/index.php/API
+
+You can also join IRC:
+    irc.gtanet.com (Port 6667)
+	#gtalua
 
 *****************************************************************************
-* Reloading your addon
+* Console                                                                   *
 *****************************************************************************
-Console: reload_addon [name]
+help - Prints a list of all available commands
+load_addon [name]
+reload_addon [name]

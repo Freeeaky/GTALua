@@ -18,14 +18,15 @@ function example_vehicle:Run()
 	while self:IsRunning() do
 		-- Key-Down-Check
 		if IsKeyDown(KEY_F9) then
-			-- Local Player Position
-			local player_pos = LocalPlayer():GetPosition()
+			-- Vehicle Spawn Position
+			-- In front of the Player
+			local vehicle_pos = LocalPlayer():GetOffsetVector(0,5,0)
 
 			-- Load Model
 			streaming.RequestModel(VEHICLE_TAXI)
 			
 			-- Create Vehicle
-			game.CreateVehicle(VEHICLE_TAXI, player_pos)
+			game.CreateVehicle(VEHICLE_TAXI, vehicle_pos)
 			
 			-- Set model as no longer needed
 			-- Otherwise it lies around in memory
