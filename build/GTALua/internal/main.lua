@@ -18,9 +18,12 @@ include("game/Entity.lua")
 include("game/Vehicle.lua")
 include("game/Ped.lua")
 include("game/Player.lua")
+include("game/AI.lua")
+include("game/Blip.lua")
 
 -- Helper
 include("game/game.lua")
+include("game/gui.lua")
 include("game/streaming.lua")
 
 -- Main Thread
