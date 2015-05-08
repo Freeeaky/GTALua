@@ -2,8 +2,8 @@
 Alex Blade - ScriptHookV
 LMS - Helping me with lots of different stuff in Steam, always very helpful and nice. Without
 him this wouldn't be possible.
-gcWorld / xalexslx - Pull requests on Github
-SirGoodSmoke / Kyron / Kanersps - Beta Testing
+gcWorld / xalexslx / VideahGams - Pull requests on Github
+SirGoodSmoke / Kyron / Kanersps / SuperXElite - Beta Testing
 Kanersps - Helping me with Wiki & Wrappers
 NTAuthority - His work on CitizenMP helped a lot on this project. Most of the code for the
 Script Thread / Engine is inspired by his code (beta-standalone/no-script-hook branch).
