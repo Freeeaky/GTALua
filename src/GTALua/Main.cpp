@@ -17,16 +17,8 @@ GTALua::GTALua()
 {
 #ifndef GTA_LUA_TEST_EXE
 	// Attach Console
-	AllocConsole();
-	AttachConsole(GetCurrentProcessId());
-	freopen("CON", "w", stdout); 
-	freopen("CONIN$", "r", stdin);
+	UTIL::Attach_Console();
 	SetConsoleTitle("GTALua - Version 1.1.0");
-
-	HWND hConsole = GetConsoleWindow();
-	RECT rect;
-	GetWindowRect(hConsole, &rect);
-	//SetWindowPos(hConsole, NULL, 2000, 25, rect.right - rect.left,  rect.bottom - rect.top, 0);
 #endif
 
 	// Active

@@ -3,6 +3,8 @@
 // =================================================================================
 namespace UTIL
 {
+	void Attach_Console();
+
 	void ReplaceString(string& str, const string& from, const string& to);
 	void ParseFilePath(string& path); // replaces \/ /\ // \\ so they can be compared to other paths
 	string SplitFilename(string& str);

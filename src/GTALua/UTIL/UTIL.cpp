@@ -5,6 +5,37 @@
 #include "UTIL.h"
 
 // =================================================================================
+// Console 
+// _ needed
+// =================================================================================
+void UTIL::Attach_Console()
+{
+	// Console
+	AllocConsole();
+	AttachConsole(GetCurrentProcessId());
+	freopen("CON", "w", stdout);
+	freopen("CONIN$", "r", stdin);
+
+	// Screens
+	// If you have multiple screens, this will automatically move the console to the 2nd
+	if (GetSystemMetrics(SM_CMONITORS) > 1)
+	{
+		// Console Window
+		HWND hConsole = GetConsoleWindow();
+		RECT rect;
+		GetWindowRect(hConsole, &rect);
+
+		// Desktop
+		HWND hDesktop = GetDesktopWindow();
+		RECT rDesktopRect;
+		GetWindowRect(hDesktop, &rDesktopRect);
+
+		// Update Position
+		SetWindowPos(hConsole, NULL, rDesktopRect.right + 100, 50, rect.right - rect.left, rect.bottom - rect.top, 0);
+	}
+}
+
+// =================================================================================
 // String 
 // =================================================================================
 void UTIL::ReplaceString(std::string& str, const std::string& from, const std::string& to)
