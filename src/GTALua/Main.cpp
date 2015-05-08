@@ -112,7 +112,6 @@ void GTALua::InitAddons()
 	// Queued Addons
 	printf("\n");
 	API::LoadQueuedAddons();
-	printf("\n");
 
 	// Run _main
 	lua->GetGlobal("_main");

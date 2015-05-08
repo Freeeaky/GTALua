@@ -12,9 +12,8 @@ include("../../internal/game/gui.lua")
 example_simple_menu = ScriptThread("example_simple_menu") 
 
 -- Callback
-function example_simple_menu:MenuCallback_Test(menu, a)
-	print("!")
-	print(a)
+function example_simple_menu:MenuCallback_Test(menu, text)
+	print("Option toggled: ", text)
 	menu:Close()
 end
 
