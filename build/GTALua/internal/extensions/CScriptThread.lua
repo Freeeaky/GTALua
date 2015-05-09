@@ -56,7 +56,7 @@ function CScriptThread:Tick()
 	-- Check Status
 	if coroutine.status(self.CoRoutine) ~= "suspended" then
 		if self.QuitMessage == nil then
-			print("Thread "..self:GetName().." quit.")
+			print("[LuaScriptThread] Thread "..self:GetName().." quit")
 			self.QuitMessage = true
 		end
 		return

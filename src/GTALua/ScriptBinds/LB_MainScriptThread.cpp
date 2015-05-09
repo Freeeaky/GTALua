@@ -32,7 +32,7 @@ void LuaScriptThread::Run_MainThread()
 		// Reset
 		if (pThread->m_bResetting)
 		{
-			printf("[LuaScriptThread] Thread %s reset\n", m_sName.c_str());
+			printf("[LuaScriptThread] Thread %s reset\n", pThread->m_sName.c_str());
 			pThread->m_bResetting = false;
 
 			// Lua

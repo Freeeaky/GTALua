@@ -44,13 +44,23 @@ void GTALua::ProcessConsoleInput()
 		l_index++;
 	}
 
-	bool bSuccess = true;
-	try
+	// Lua Callback
+	lua->GetEvent("OnConsoleInput");
+	lua->PushString(const_cast<char*>(cmd.c_str()));
+	l_args.push(lua->State());
+	bool bSuccess = lua->ProtectedCall(3, 1);
+
+	if (bSuccess)
 	{
-		luabind::object event_callback = luabind::globals(lua->State())["event"]["Call"];
-		luabind::call_function<bool>(event_callback, "OnConsoleInput", cmd, l_args);
-	} catch(...) {
-		bSuccess = false;
+		if (!lua->GetBool())
+			printf("Unknown console command: %s\n", cmd);
+		lua->Pop(3);
+	}
+	else
+	{
+		printf("[Console] Error in command callback!\n");
+		bSuccess = true; // prevent unknown command
+		lua->Pop(2);
 	}
 
 	// Unlock

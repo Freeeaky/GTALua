@@ -18,5 +18,20 @@ function main_thread:AddThread(thread)
 	table.insert(self.ThreadList, thread)
 end
 
+-- Kill Thread
+function main_thread:KillThread(thread)
+	-- self-Check, you never know
+	if thread:GetName() == self:GetName() then return end
+	
+	-- find & remove
+	for k,v in pairs(self.ThreadList) do
+		if v:GetName() == thread:GetName() then
+			print("[LuaScriptThread] Thread "..thread:GetName().." killed")
+			table.remove(self.ThreadList, k)
+			return
+		end
+	end
+end
+
 -- Register
 main_thread:Register()

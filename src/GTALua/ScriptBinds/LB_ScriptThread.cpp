@@ -264,6 +264,7 @@ void LuaScriptThread::Run_IdleState()
 // =================================================================================
 void LuaScriptThread::Reset()
 {
+	printf("LuaScriptThread::Reset %s\n", m_sName.c_str());
 	m_bResetting = true;
 }
 
@@ -292,5 +293,6 @@ void ScriptBinds::ScriptThread::Bind()
 		.def("Reset", &LuaScriptThread::Reset)
 		.def("internal_Kill", &LuaScriptThread::Kill)
 		.def_readwrite("ThreadList", &LuaScriptThread::m_lThreadList)
+		.def_readonly("m_bRunsOnMainThread", &LuaScriptThread::m_bRunsOnMainThread)
 	];
 }

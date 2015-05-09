@@ -1,5 +1,5 @@
 -- List of threads
-scripthookv.ThreadList = {}
+scripthookv.ThreadList = scripthookv.ThreadList or {}
 
 -- Types
 scripthookv.TypeTable = {
@@ -25,15 +25,11 @@ function scripthookv.KillThread(name)
 	-- Find
 	local thread = scripthookv.FindThread(name)
 	if thread then
-		thread:internal_Kill()
-		scripthookv.ThreadList[name] = nil
-	end
-	
-	-- Find in queue
-	-- Needed for AutoRefresh (in case file reloads before init)
-	for i,thread in pairs(scripthookv.RegisterThreadQueue) do
-		if thread:GetName() == name then
-			table.remove(scripthookv.RegisterThreadQueue, i)
+		if not thread.m_bRunsOnMainThread then
+			thread:internal_Kill()
+		else
+			scripthookv.FindThread("main_thread"):KillThread(thread)
 		end
+		scripthookv.ThreadList[name] = nil
 	end
 end

@@ -16,3 +16,4 @@ You can also join IRC:
 help - Prints a list of all available commands
 load_addon [name]
 reload_addon [name]
+unload_addon [name] - In order for this to work, your addon name & thread name must match!

@@ -20,6 +20,6 @@ function addon.Unload(name)
 	if thread ~= nil then
 		thread:Kill()
 	else
-		print("[addon.Unload] Can't find addon ", name)
+		print("[addon.Unload] Can't find thread ", name)
 	end
 end
