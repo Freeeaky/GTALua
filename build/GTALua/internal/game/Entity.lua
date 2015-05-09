@@ -3,8 +3,6 @@ class 'Entity'(Object)
 
 -- CTor
 function Entity:__init(id)
-	--Object.__init(self, id)
-
 	self._type = "Entity"
 	self.ID = id
 end

@@ -1,7 +1,8 @@
 --
--- Remember:
---   Your addon will only be loaded if you have an ASI file for it!
---   Take the empty_addon.asi, rename it, and copy it to your main GTA directory!
+-- Check out "Getting started" on the Wiki!
+--     http://freeschi.com/w/index.php/Main_Page
+--     http://freeschi.com/w/index.php/Getting_Started
+--     http://freeschi.com/w/index.php/API
 --
 
 -- Please rename empty_addon!

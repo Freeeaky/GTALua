@@ -12,8 +12,6 @@ example_vehicle = ScriptThread("example_01_spawn_vehicle")
 -- Run function
 -- This is called once! It's your job to keep this alive!
 function example_vehicle:Run()
-	print("hi")
-	
 	-- while-loop, do not use while true !
 	while self:IsRunning() do
 		-- Key-Down-Check

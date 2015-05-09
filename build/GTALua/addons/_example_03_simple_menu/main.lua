@@ -4,23 +4,17 @@
 --     http://freeschi.com/w/index.php/Getting_Started
 --     http://freeschi.com/w/index.php/API
 --
-
-include("../../internal/extensions/CNativeReg.lua")
-include("../../internal/game/gui.lua")
-
 -- I recommend matching addon name & script thread name
 example_simple_menu = ScriptThread("example_simple_menu") 
 
 -- Callback
 function example_simple_menu:MenuCallback_Test(menu, text)
-	print("Option toggled: ", text)
+	print("Given message: ", text)
 	menu:Close()
 end
 
 -- Run
 function example_simple_menu:Run()
-	print("hlo ?")
-	
 	-- Setup Menu
 	local menu = gui.SimpleMenu(self, {
 		Title = "Menu 123", -- title of the menu
@@ -51,6 +45,5 @@ function example_simple_menu:Run()
 	end
 end
 
-print("hi")
-
+-- Register
 example_simple_menu:Register()
