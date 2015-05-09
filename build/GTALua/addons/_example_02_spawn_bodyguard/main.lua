@@ -13,6 +13,11 @@ function example_spawn_bodyguard:Run()
 	while self:IsRunning() do
 		-- Key-Check
 		if IsKeyDown(KEY_F9) then
+			-- Delete old Bodyguard
+			if self.LastBodyguard ~= nil and self.LastBodyguard:Exists() then
+				self.LastBodyguard:Delete()
+			end
+			
 			-- Player Position
 			local player_pos = LocalPlayer():GetPosition()
 			
@@ -22,6 +27,7 @@ function example_spawn_bodyguard:Run()
 			
 			-- Spawn ped
 			local ped = game.CreatePed(model_hash, player_pos)
+			self.LastBodyguard = ped
 			
 			-- Now we can give the character certain properties
 			-- Weapons

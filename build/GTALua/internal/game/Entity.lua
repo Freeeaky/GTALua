@@ -48,7 +48,10 @@ end
 -- Delete/Remove
 function Entity:Delete()
 	self:_CheckExists()
-	natives.ENTITY.DELETE_ENTITY(self.ID)
+	local c_entity_handle = CMemoryBlock(4)
+	c_entity_handle:WriteDWORD32(0, self.ID)
+	natives.ENTITY.DELETE_ENTITY(c_entity_handle)
+	c_entity_handle:Release()
 end
 Entity.Remove = Entity.Delete
 
