@@ -264,7 +264,6 @@ void LuaScriptThread::Run_IdleState()
 // =================================================================================
 void LuaScriptThread::Reset()
 {
-	printf("LuaScriptThread::Reset %s\n", m_sName.c_str());
 	m_bResetting = true;
 }
 
