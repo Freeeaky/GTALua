@@ -157,7 +157,7 @@ function Blip:GetInfoIDType()
 end
 
 function Blip:GetInfoIDEntityIndex()
-	self:_CheckExists
+	self:_CheckExists()
 	return natives.UI.GET_BLIP_INFO_ID_ENTITY_INDEX(self.ID)
 end
 

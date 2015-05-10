@@ -16,29 +16,17 @@ int ini_gtalua_parser(void* pCustom, const char* sSection, const char* sName, co
 	{
 		// Enabled
 		if (strcmp(sName, "Enabled") == 0)
-		{
-			printf("Console::Enabled %i\n", strcmp(sValue, "true") == 0);
 			g_pGTALua->GetConfig()->bConsole_Enabled = strcmp(sValue, "true") == 0;
-		}
 
 		// Automatic Position
 		if (strcmp(sName, "AutomaticPosition") == 0)
-		{
-			printf("Console::AutomaticPosition %i\n", strcmp(sValue, "true") == 0);
 			g_pGTALua->GetConfig()->bConsole_AutomaticPosition = strcmp(sValue, "true") == 0;
-		}
 
 		// Position
 		if (strcmp(sName, "Manual_PosX") == 0)
-		{
-			printf("Console::Manual_PosX %i\n", atoi(sValue));
 			g_pGTALua->GetConfig()->iConsole_ManualX = atoi(sValue);
-		}
 		if (strcmp(sName, "Manual_PosY") == 0)
-		{
-			printf("Console::Manual_PosY %i\n", atoi(sValue));
 			g_pGTALua->GetConfig()->iConsole_ManualY = atoi(sValue);
-		}
 	}
 
 	// Done
