@@ -12,6 +12,7 @@ end
 function GUISimpleMenu:IsClosed()
 	return self.Closed
 end
+function GUISimpleMenu:IsOpen() return not self.Closed end
 function GUISimpleMenu:SetClosed(b)
 	self.Closed = b or false
 end

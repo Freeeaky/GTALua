@@ -58,8 +58,8 @@ function Entity:SetPosition(x, y, z)
 	self:_CheckExists()
 
 	if type(x) == "Vector" then
-		y = x.y
 		z = x.z
+		y = x.y
 		x = x.x
 	end
 	
@@ -72,9 +72,9 @@ end
 function Entity:GetOffsetVector(x,y,z)
 	self:_CheckExists()
 	if type(x) == "Vector" then
-		x = x.x
-		y = x.y
 		z = x.z
+		y = x.y
+		x = x.x
 	end
 	
 	return natives.ENTITY.GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(self.ID, x, y, z)
@@ -84,9 +84,9 @@ end
 function Entity:SetVelocity(x, y, z)
 	self:_CheckExists()
 	if type(x) == "Vector" then
-		x = x.x
-		y = x.y
 		z = x.z
+		y = x.y
+		x = x.x
 	end
 	
 	natives.ENTITY.SET_ENTITY_VELOCITY(self.ID, x, y, z)
