@@ -11,26 +11,12 @@
 #include "thirdparty/SimpleFileWatcher/include/FileWatcher.h"
 
 // =================================================================================
-// Init 
+// CTor/DTor 
 // =================================================================================
 GTALua::GTALua()
 {
-#ifndef GTA_LUA_TEST_EXE
-	// Attach Console
-	UTIL::Attach_Console();
-	SetConsoleTitle("GTALua - Version 1.1.0");
-#endif
-
 	// Active
 	m_bActive = true;
-
-	// Prepare Memory
-	Memory::Init(); 
-	GameMemory::Init();
-
-	// Configuration Files
-	LoadNativesINI();
-	LoadCallLayoutsINI();
 }
 GTALua::~GTALua()
 {
@@ -46,6 +32,33 @@ GTALua::~GTALua()
 
 	// Console
 	DestroyWindow(GetConsoleWindow());
+}
+
+// =================================================================================
+// Init
+// Called right after the CTor
+// =================================================================================
+void GTALua::Init()
+{
+	// Main Config
+	LoadGTALuaIni();
+
+	// Attach Console
+#ifndef GTA_LUA_TEST_EXE
+	if (m_sConfig.bConsole_Enabled)
+	{
+		UTIL::Attach_Console(m_sConfig.bConsole_AutomaticPosition, m_sConfig.iConsole_ManualX, m_sConfig.iConsole_ManualY);
+		SetConsoleTitle("GTALua - Version 1.1.0");
+	}
+#endif
+
+	// Prepare Memory
+	Memory::Init();
+	GameMemory::Init();
+
+	// Configuration Files
+	LoadNativesINI();
+	LoadCallLayoutsINI();
 }
 
 // =================================================================================

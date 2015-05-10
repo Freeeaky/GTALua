@@ -8,7 +8,7 @@
 // Console 
 // _ needed
 // =================================================================================
-void UTIL::Attach_Console()
+void UTIL::Attach_Console(bool bAutomatic, int x, int y)
 {
 	// Console
 	AllocConsole();
@@ -16,15 +16,15 @@ void UTIL::Attach_Console()
 	freopen("CON", "w", stdout);
 	freopen("CONIN$", "r", stdin);
 
-	// Screens
-	// If you have multiple screens, this will automatically move the console to the 2nd
-	if (GetSystemMetrics(SM_CMONITORS) > 1)
-	{
-		// Console Window
-		HWND hConsole = GetConsoleWindow();
-		RECT rect;
-		GetWindowRect(hConsole, &rect);
+	// Console Window
+	HWND hConsole = GetConsoleWindow();
+	RECT rect;
+	GetWindowRect(hConsole, &rect);
 
+	// Automatic
+	// If you have multiple screens, this will automatically move the console to the 2nd
+	if (bAutomatic && GetSystemMetrics(SM_CMONITORS) > 1)
+	{
 		// Desktop
 		HWND hDesktop = GetDesktopWindow();
 		RECT rDesktopRect;
@@ -32,6 +32,13 @@ void UTIL::Attach_Console()
 
 		// Update Position
 		SetWindowPos(hConsole, NULL, rDesktopRect.right + 100, 50, rect.right - rect.left, rect.bottom - rect.top, 0);
+	}
+
+	// Manual
+	if (!bAutomatic)
+	{
+		// Update Position
+		SetWindowPos(hConsole, NULL, x, y, rect.right - rect.left, rect.bottom - rect.top, 0);
 	}
 }
 

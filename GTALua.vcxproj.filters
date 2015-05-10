@@ -245,12 +245,6 @@
     <ClCompile Include="src\GTALua\ScriptEngine\Natives.cpp">
       <Filter>Quelldateien\ScriptEngine</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\NativeCallLayoutsINI.cpp">
-      <Filter>Quelldateien\Configuration</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GTALua\NativesINI.cpp">
-      <Filter>Quelldateien\Configuration</Filter>
-    </ClCompile>
     <ClCompile Include="src\GTALua\Memory\Memory.cpp">
       <Filter>Quelldateien\Memory</Filter>
     </ClCompile>
@@ -274,6 +268,15 @@
     </ClCompile>
     <ClCompile Include="src\GTALua\ScriptBinds\LB_MainScriptThread.cpp">
       <Filter>Quelldateien\ScriptBinds</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Configuration\NativeCallLayoutsINI.cpp">
+      <Filter>Quelldateien\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Configuration\GTALuaINI.cpp">
+      <Filter>Quelldateien\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\Configuration\NativesINI.cpp">
+      <Filter>Quelldateien\Configuration</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
