@@ -23,6 +23,7 @@ include("game/Blip.lua")
 
 -- Helper
 include("game/game.lua")
+include("game/ui.lua")
 include("game/gui.lua")
 include("game/streaming.lua")
 
