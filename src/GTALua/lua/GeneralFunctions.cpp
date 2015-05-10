@@ -12,6 +12,14 @@
 // ====================================================================================================
 void LuaFunctions::include(std::string file)
 {
+	// Block inside of threads
+	if (strcmp(lua_typename(lua->State(), lua_type(lua->State(), 1)), "thread") == 0)
+	{
+		luaL_error(lua->State(), "include cannot be run inside of a thread");
+		return;
+	}
+
+	//
 	char* currentpath = lua->DebugGetPath();
 	luaL_checkstring(lua->State(), 1);
 

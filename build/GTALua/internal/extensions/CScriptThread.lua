@@ -65,9 +65,10 @@ function CScriptThread:Tick()
 	-- Resume
 	local status, err = coroutine.resume(self.CoRoutine)
 	
-	-- Rethrow errors
+	-- Report errors
 	if not status then
-		error(err)
+		print("[LUA] "..err)
+		print(debug.traceback(self.CoRoutine, err))
 	end
 end
 

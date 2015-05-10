@@ -11,6 +11,13 @@
 // =================================================================================
 void LB_FindFiles(const char* sPath)
 {
+	// Block inside of threads
+	if (strcmp(lua_typename(lua->State(), lua_type(lua->State(), 1)), "thread") == 0)
+	{
+		luaL_error(lua->State(), "file.FindFiles cannot be run inside of a thread");
+		return;
+	}
+
 	// Handles
 	HANDLE hDirectoryHandle;
 	WIN32_FIND_DATA hFindData;
