@@ -21,6 +21,7 @@ string LB_type(luabind::object obj)
 		const char* sType = NULL;
 		try
 		{
+			
 			sType = luabind::call_member<const char*>(obj, "__type");
 		}
 		catch (luabind::error e)
@@ -54,7 +55,17 @@ static int LB_print(lua_State *L) {
 		size_t l;
 		lua_pushvalue(L, -1);  /* function to be called */
 		lua_pushvalue(L, i);   /* value to print */
-		lua_call(L, 1, 1);
+		int r = lua_pcall(L, 1, 1, 0);
+		if (r != 0)
+		{
+			lua_pop(L, 1);
+			lua_getglobal(L, "type");
+			lua_pushvalue(L, i);
+			lua_pcall(L, 1, 1, 0);
+			printf("[type: %s]", lua_tostring(L, -1));
+			lua_pop(L, 1);
+			continue;
+		}
 		s = lua_tolstring(L, -1, &l);  /* get result */
 		if (s == NULL)
 			return luaL_error(L, "'tostring' must return a string to 'print'");

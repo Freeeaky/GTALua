@@ -88,12 +88,6 @@ void _main()
 	lua->ProtectedCall(1);
 	lua->Pop(2);
 
-	lua->GetGlobal("addon");
-	lua->GetField("Load");
-	lua->PushString("test_2");
-	lua->ProtectedCall(1);
-	lua->Pop(2);
-
 	// Thread
 	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)Lua_StartThread, 0, 0, 0);
 	ThreadInit();
