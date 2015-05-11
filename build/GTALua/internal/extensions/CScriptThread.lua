@@ -82,7 +82,9 @@ function CScriptThread:internal_OnTick()
 	self:internal_Timers_OnTick()
 	
 	-- OnTick
-	self:OnTick()
+	if self.OnTick ~= nil then
+		self:OnTick()
+	end
 	
 	-- Active Thread
 	scripthookv.ActiveThread = nil

@@ -143,6 +143,8 @@ void ScriptBinds::ScriptHookBind::Bind()
 		luabind::def("NativeCall_GetVector", ScriptHook::Call<rage::CVector>),
 		luabind::def("NativeCall_GetBool", ScriptHook::Call<bool>),
 		luabind::def("NativeCall_GetString", ScriptHook::Call<const char*>),
-		luabind::def("NativeCall_Void", ScriptHook::CallVoid)
+		luabind::def("NativeCall_Void", ScriptHook::CallVoid),
+
+		luabind::def("GetGameTime", ScriptHook::GetGameTime)
 	];
 }
