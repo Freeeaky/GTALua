@@ -36,9 +36,7 @@ int ScriptHook::GetGameTime()
 	NativeInit(0x9CD27B0045628463);
 	return Call<int>();
 #else
-	SYSTEMTIME st;
-	GetSystemTime(&st);
-	return st.wMilliseconds;
+	return (int)GetTickCount();
 #endif
 }
 

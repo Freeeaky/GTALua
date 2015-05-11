@@ -48,6 +48,15 @@ void LuaScriptThread::Run_MainThread()
 		}
 
 		// Tick
+		if (!pThread->m_bIdleState)
+		{
+			if (!pThread->Call_LuaCallback("internal_OnTick"))
+			{
+				printf("[LuaScriptThread] Failed to call Thread %s:OnTick!\n");
+			}
+		}
+
+		// Run
 		if (!pThread->m_bIdleState && game_time >= pThread->m_iNextRun)
 		{
 			// Callback
@@ -60,9 +69,14 @@ void LuaScriptThread::Run_MainThread()
 		}
 	}
 
+	//MessageBox(0, 0, 0, 0);
 	// Cleanup
 	lua->Unlock();
 
 	// Yield
+#ifdef GTA_LUA_TEST_EXE
+	Sleep(10);
+#else
 	ScriptHook::ScriptWait(0);
+#endif
 }

@@ -4,12 +4,20 @@ function ScriptThread(name)
 	local existing_thread = scripthookv.FindThread(name)
 	if existing_thread then
 		existing_thread._Reset = true
+		existing_thread:internal_EventHandlers_Destroy()
 		return scripthookv.ThreadList[name]
 	end
 	
 	-- Create new
 	scripthookv.ThreadList[name] = CScriptThread(name)
+	scripthookv.ThreadList[name]:internal_Setup()
 	return scripthookv.ThreadList[name]
+end
+
+-- Setup
+function CScriptThread:internal_Setup()
+	-- Event Handler
+	self:internal_EventHandlers_Setup()
 end
 
 -- String/Type
@@ -22,6 +30,10 @@ end
 
 -- Kill Thread
 function CScriptThread:Kill()
+	-- Event Handlers
+	self:internal_EventHandlers_Destroy()
+	
+	-- Kill
 	scripthookv.KillThread(self:GetName())
 end
 
@@ -44,15 +56,24 @@ function CScriptThread:Register()
 	end
 end
 
--- Tick function
-function CScriptThread:Tick()
-	-- Setup
+-- internal: Tick
+function CScriptThread:internal_OnTick()
+	-- Setup CoRoutine for :Run
 	if self.CoRoutine == nil then
 		self:SetupCoroutine()
 		self:Tick()
 		return
 	end
 	
+	-- Event Handlers
+	self:internal_EventHandlers_OnTick()
+	
+	-- OnTick
+	self:OnTick()
+end
+
+-- Tick function
+function CScriptThread:Tick()	
 	-- Check Status
 	if coroutine.status(self.CoRoutine) ~= "suspended" then
 		if self.QuitMessage == nil then

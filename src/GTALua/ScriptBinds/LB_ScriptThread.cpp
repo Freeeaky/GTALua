@@ -293,5 +293,6 @@ void ScriptBinds::ScriptThread::Bind()
 		.def("internal_Kill", &LuaScriptThread::Kill)
 		.def_readwrite("ThreadList", &LuaScriptThread::m_lThreadList)
 		.def_readonly("m_bRunsOnMainThread", &LuaScriptThread::m_bRunsOnMainThread)
+		.def_readonly("m_iNextRun", &LuaScriptThread::m_iNextRun)
 	];
 }
