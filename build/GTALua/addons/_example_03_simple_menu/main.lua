@@ -22,13 +22,28 @@ function example_simple_menu:Run()
 		y = 0.02, -- y-coordinate, 0.0 = top, 1.0 = bottom
 		Width = 0.23, -- width of the whole menu
 		TitleHeight = 0.05, -- height of the title box
+		TitleFontScale = 0.8, -- title font scale
+		TitleColor = Color(0,0,0), -- background color of the title
+		TitleTextColor = Color(255,255,255), -- text color for the title
 		OptionHeight = 0.03, -- height of an option
+		OptionTextScale = 0.55, -- text scale (option text)
+		OptionTextColor = Color(255,255,255), -- text color (if not selected)
+		SelectedOptionTextColor = Color(180,255,180), -- text color if currently selected
 		CanBeClosed = true -- allow close
 	})
+	
+	-- Controls
+	-- Note: The controls given here are all defaults
+	-- You only need to bind changed keys
+	menu:BindControl("option_up", KEY_NUMPAD8)
+	menu:BindControl("option_down", KEY_NUMPAD2)
+	menu:BindControl("confirm", KEY_NUMPAD5)
+	menu:BindControl("back", KEY_BACK)
 	
 	-- Add Options
 	menu:AddOption("A", "MenuCallback_Test", "he pressed a")
 	menu:AddOption("B", "MenuCallback_Test", "he pressed b!")
+	menu:AddOption("C", "MenuCallback_Test", "he pressed c!")
 	
 	-- Update
 	while self:IsRunning() do

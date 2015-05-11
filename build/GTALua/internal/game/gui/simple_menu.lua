@@ -6,6 +6,24 @@ function GUISimpleMenu:__init()
 	self.ActiveIndex = 1
 	self.Options = {}
 	self.Closed = false
+	self.Controls = {
+		option_up = KEY_NUMPAD8,
+		option_down = KEY_NUMPAD2,
+		confirm = KEY_NUMPAD5,
+		back = KEY_BACK
+	}
+end
+
+-- Bind Control
+function GUISimpleMenu:BindControl(name, key_code)
+	if self.Controls[name] == nil then
+		error("GUISimpleMenu: Unknown control \""..tostring(name).."\"")
+	end
+	if key_code == nil then
+		error("Invalid keycode (nil)")
+	end
+	
+	self.Controls[name] = key_code
 end
 
 -- Closed
@@ -28,26 +46,31 @@ function GUISimpleMenu:Update()
 	
 	--
 	local x, y = self.x, self.y
-	local title_color = Color(0,0,0)
 	local option_color = Color(0,0,0,150)
 	local option_color_selected = Color(0,0,0,190)
 	
 	-- Title
-	gui.DrawRect(x, y, self.Width, self.TitleHeight, title_color)
+	gui.DrawRect(x, y, self.Width, self.TitleHeight, self.TitleColor)
 	gui.DrawText(x + 0.003, y + 0.003, self.Title, {
-		TextScale = 0.8
+		TextScale = 0.8,
+		Color = self.TitleTextColor
 	})
 	y = y + self.TitleHeight	
 
 	-- Objects
 	for k,v in pairs(self.Options) do		
+		local col = self.OptionTextColor
 		if k == self.ActiveIndex then
+			col = self.SelectedOptionTextColor
 			gui.DrawRect(x, y, self.Width, self.OptionHeight, option_color_selected)
 		else
 			gui.DrawRect(x, y, self.Width, self.OptionHeight, option_color)
 		end
-		
-		gui.DrawText(x + 0.002, y, v.Text)
+	
+		gui.DrawText(x + 0.002, y, v.Text, {
+			TextScale = self.OptionTextScale,
+			Color = col
+		})
 		y = y + self.OptionHeight
 	end
 	
@@ -58,25 +81,25 @@ end
 -- Controls
 function GUISimpleMenu:UpdateControls()	
 	-- back
-	if (IsKeyDown(KEY_DELETE) or IsKeyDown(KEY_BACK)) and self.CanBeClosed then
+	if IsKeyDown(self.Controls["back"]) and self.CanBeClosed then
 		self.Closed = true
 		gui.BeepBack()
 	end
 	
 	-- down
-	if IsKeyDown(KEY_NUMPAD2) then
+	if IsKeyDown(self.Controls["option_down"]) then
 		self.ActiveIndex = self.ActiveIndex + 1
 		gui.BeepNavUpDown()
 	end
 	
 	-- up
-	if IsKeyDown(KEY_NUMPAD8) then
+	if IsKeyDown(self.Controls["option_up"]) then
 		self.ActiveIndex = self.ActiveIndex - 1
 		gui.BeepNavUpDown()
 	end
 	
 	-- confirm
-	if IsKeyDown(KEY_NUMPAD5) then
+	if IsKeyDown(self.Controls["confirm"]) then
 		local opt = self.Options[self.ActiveIndex]
 		opt.Callback()
 		gui.BeepSelect()
@@ -116,14 +139,25 @@ end
 function gui.SimpleMenu(thread, settings)
 	local data = GUISimpleMenu()
 	
-	-- Settings
-	data.Thread = thread
+	-- Title
 	data.Title = settings.Title or "Simple Menu"
+	data.TitleColor = settings.TitleColor or Color(0,0,0) 
+	data.TitleTextColor = settings.TitleTextColor or Color(255,255,255)
+	data.TitleHeight = settings.TitleHeight or 0.03
+	
+	-- Options
+	data.OptionTextScale = settings.OptionTextScale or 0.54
+	data.OptionTextColor = settings.OptionTextColor or Color(255,255,255)
+	data.SelectedOptionTextColor = settings.SelectedOptionTextColor or Color(200,255,200)
+	
+	-- Sizing
 	data.x = settings.x or 0
 	data.y = settings.y or 0
 	data.Width = settings.Width or 0.2
 	data.OptionHeight = settings.OptionHeight or 0.03
-	data.TitleHeight = settings.TitleHeight or 0.05
+	
+	-- Other
+	data.Thread = thread
 	data.CanBeClosed = settings.CanBeClosed or true
 	
 	return data
