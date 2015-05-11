@@ -1,8 +1,8 @@
 --
--- Check out "Getting started" on the Wiki!
---     http://freeschi.com/w/index.php/Main_Page
---     http://freeschi.com/w/index.php/Getting_Started
---     http://freeschi.com/w/index.php/API
+-- Check out our the Wiki!
+--     http://wiki.gtalua.com/index.php/Main_Page
+--     http://wiki.gtalua.com/index.php/Getting_Started
+--     http://wiki.gtalua.com/index.php/API
 --
 
 -- Create a ScriptThread

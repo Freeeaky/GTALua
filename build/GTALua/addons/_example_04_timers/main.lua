@@ -1,8 +1,8 @@
 --
 -- Check out our the Wiki!
---     http://freeschi.com/w/index.php/Main_Page
---     http://freeschi.com/w/index.php/Getting_Started
---     http://freeschi.com/w/index.php/API
+--     http://wiki.gtalua.com/index.php/Main_Page
+--     http://wiki.gtalua.com/index.php/Getting_Started
+--     http://wiki.gtalua.com/index.php/API
 --
 -- I recommend matching addon name & script thread name
 example_timers = ScriptThread("example_04_timers")
