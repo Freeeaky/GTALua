@@ -10,6 +10,7 @@ include("extensions/vehicles.lua")
 include("extensions/CNativeReg.lua")
 include("extensions/CScriptThread.lua")
 include("extensions/CScriptThread_EventHandlers.lua")
+include("extensions/CScriptThread_Timers.lua")
 include("extensions/Vector.lua")
 include("extensions/CMemoryBlock.lua")
 
@@ -24,6 +25,7 @@ include("game/Blip.lua")
 
 -- Helper
 include("game/game.lua")
+include("game/timer.lua")
 include("game/ui.lua")
 include("game/gui.lua")
 include("game/streaming.lua")

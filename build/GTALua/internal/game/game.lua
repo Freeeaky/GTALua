@@ -28,5 +28,6 @@ end
 
 -- Time
 function game.GetTime()
-	return natives.GAMEPLAY.GET_GAME_TIMER()
+	--return natives.GAMEPLAY.GET_GAME_TIMER()
+	return scripthookv.GetGameTime()
 end

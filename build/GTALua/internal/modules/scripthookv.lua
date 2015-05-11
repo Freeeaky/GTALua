@@ -1,5 +1,6 @@
 -- List of threads
 scripthookv.ThreadList = scripthookv.ThreadList or {}
+scripthookv.ActiveThread = nil
 
 -- Types
 scripthookv.TypeTable = {

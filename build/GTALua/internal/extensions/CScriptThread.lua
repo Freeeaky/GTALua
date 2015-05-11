@@ -18,6 +18,9 @@ end
 function CScriptThread:internal_Setup()
 	-- Event Handler
 	self:internal_EventHandlers_Setup()
+	
+	-- Timers
+	self:internal_Timers_Setup()
 end
 
 -- String/Type
@@ -30,8 +33,14 @@ end
 
 -- Kill Thread
 function CScriptThread:Kill()
+	-- Active Thread
+	scripthookv.ActiveThread = nil
+
 	-- Event Handlers
 	self:internal_EventHandlers_Destroy()
+	
+	-- Timers
+	self:internal_Timers_Destroy()
 	
 	-- Kill
 	scripthookv.KillThread(self:GetName())
@@ -58,28 +67,41 @@ end
 
 -- internal: Tick
 function CScriptThread:internal_OnTick()
+	-- Active Thread
+	scripthookv.ActiveThread = self
+
 	-- Setup CoRoutine for :Run
 	if self.CoRoutine == nil then
 		self:SetupCoroutine()
-		self:Tick()
-		return
 	end
 	
 	-- Event Handlers
 	self:internal_EventHandlers_OnTick()
 	
+	-- Timers
+	self:internal_Timers_OnTick()
+	
 	-- OnTick
 	self:OnTick()
+	
+	-- Active Thread
+	scripthookv.ActiveThread = nil
 end
 
 -- Tick function
-function CScriptThread:Tick()	
+function CScriptThread:Tick()
+	-- Active Thread
+	scripthookv.ActiveThread = self
+	
 	-- Check Status
 	if coroutine.status(self.CoRoutine) ~= "suspended" then
 		if self.QuitMessage == nil then
 			print("[LuaScriptThread] Thread "..self:GetName().." quit")
 			self.QuitMessage = true
 		end
+		
+		-- Active Thread
+		scripthookv.ActiveThread = nil
 		return
 	end
 	
@@ -91,6 +113,9 @@ function CScriptThread:Tick()
 		print("[LUA] "..err)
 		print(debug.traceback(self.CoRoutine, err))
 	end
+	
+	-- Active Thread
+	scripthookv.ActiveThread = nil
 end
 
 -- Setup CoRoutine
