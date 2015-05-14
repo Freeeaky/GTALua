@@ -32,7 +32,7 @@ void GTALua::ProcessConsoleInput()
 	args.erase(args.begin());
 
 	// Lock
-	lua->Lock();
+	lua->GetMutex()->Lock();
 
 	// Lua: args table
 	luabind::object l_args = luabind::newtable(lua->State());
@@ -64,7 +64,7 @@ void GTALua::ProcessConsoleInput()
 	}
 
 	// Unlock
-	lua->Unlock();
+	lua->GetMutex()->Unlock();
 
 	// Lua: result-check
 	if (!bSuccess)

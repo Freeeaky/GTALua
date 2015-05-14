@@ -6,6 +6,7 @@
 #include "lua/Lua.h"
 #include "ScriptBinds.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"
+#include "UTIL/UTIL.h"
 using namespace ScriptBinds::ScriptThread;
 
 // =================================================================================
@@ -13,7 +14,7 @@ using namespace ScriptBinds::ScriptThread;
 // =================================================================================
 void LuaScriptThread::Run_MainThread()
 {
-	lua->Lock();
+	lua->GetMutex()->Lock();
 
 	// Time
 	int game_time = ScriptHook::GetGameTime();
@@ -71,7 +72,7 @@ void LuaScriptThread::Run_MainThread()
 
 	//MessageBox(0, 0, 0, 0);
 	// Cleanup
-	lua->Unlock();
+	lua->GetMutex()->Unlock();
 
 	// Yield
 #ifdef GTA_LUA_TEST_EXE

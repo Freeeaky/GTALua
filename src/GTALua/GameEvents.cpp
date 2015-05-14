@@ -7,6 +7,7 @@
 #include "ScriptEngine/ScriptEngine.h"
 #include "lua/Lua.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"
+#include "UTIL/UTIL.h"
 
 // =================================================================================
 // typedefs for hooked functions
@@ -31,14 +32,14 @@ __int64* __fastcall World__CreatePed(__int64* pThis, __int64 a2, __int64 a3, __i
 	__int64* r = pWorld_CreatePed(pThis, a2, a3, a4, a5, a6, a7);
 	if (r != NULL)
 	{
-		lua->Lock();
+		lua->GetMutex()->Lock();
 
 		lua->GetEvent("OnPedCreated");
 		lua->PushNumber(GetEntityID(r));
 		lua->ProtectedCall(2);
 		lua->Pop(2);
 
-		lua->Unlock();
+		lua->GetMutex()->Unlock();
 	}
 
 	return r;
@@ -52,14 +53,14 @@ __int64* __fastcall World__CreateVehicle(__int64* pThis, __int64* a2, __int64 a3
 	__int64* r = pWorld_CreateVehicle(pThis, a2, a3, a4, a5, a6, a7, a8);
 	if (r != NULL)
 	{
-		lua->Lock();
+		lua->GetMutex()->Lock();
 
 		lua->GetEvent("OnPedCreated");
 		lua->PushNumber(GetEntityID(r));
 		lua->ProtectedCall(2);
 		lua->Pop(2);
 
-		lua->Unlock();
+		lua->GetMutex()->Unlock();
 	}
 
 	return r;

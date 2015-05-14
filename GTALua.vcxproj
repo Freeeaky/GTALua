@@ -52,6 +52,7 @@
     <ClCompile Include="src\GTALua\ScriptEngine\ScriptHookV.cpp" />
     <ClCompile Include="src\GTALua\thirdparty\inih\ini.c" />
     <ClCompile Include="src\GTALua\UTIL\IniFile.cpp" />
+    <ClCompile Include="src\GTALua\UTIL\Mutex.cpp" />
     <ClCompile Include="src\GTALua\UTIL\UTIL.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +86,7 @@
     <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcherImpl.h" />
     <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcherWin32.h" />
     <ClInclude Include="src\GTALua\UTIL\IniFile.h" />
+    <ClInclude Include="src\GTALua\UTIL\Mutex.h" />
     <ClInclude Include="src\GTALua\UTIL\UTIL.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

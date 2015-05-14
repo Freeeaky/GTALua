@@ -177,6 +177,9 @@
     <ClInclude Include="src\GTALua\UTIL\UTIL.h">
       <Filter>Headerdateien\UTIL</Filter>
     </ClInclude>
+    <ClInclude Include="src\GTALua\UTIL\Mutex.h">
+      <Filter>Headerdateien\UTIL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GTALua\Console.cpp">
@@ -280,6 +283,9 @@
     </ClCompile>
     <ClCompile Include="src\GTALua\GameEvents.cpp">
       <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\UTIL\Mutex.cpp">
+      <Filter>Quelldateien\UTIL</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

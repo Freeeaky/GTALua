@@ -3,17 +3,12 @@
 // ====================================================================================================
 #include "Includes.h"
 #include "../Lua.h"
+#include "UTIL/UTIL.h"
 
 // ====================================================================================================
 // Global Instance
 // ====================================================================================================
 LuaManager* lua = NULL;
-
-static struct
-{
-	CRITICAL_SECTION CriticalSection;
-	bool Initialized;
-} lua_threadsafe;
 
 // ====================================================================================================
 // LuaManager
@@ -30,13 +25,11 @@ void LuaManager::Init()
 		return;
 	}
 
-	// Thread-Safe
-	InitializeCriticalSection(&lua_threadsafe.CriticalSection);
-	lua_threadsafe.Initialized = true;
-	lua->Unlock();
-
 	// Error Handling
 	lua_atpanic(m_pState, LuaPanicHandler);
+
+	// Mutex
+	m_pMutex = new Mutex();
 
 	// Default Libs
 	luaL_openlibs(m_pState);
@@ -55,26 +48,11 @@ void LuaManager::Init()
 void LuaManager::Destroy()
 {
 	// Mutext
-	if (lua_threadsafe.Initialized)
-		DeleteCriticalSection(&lua_threadsafe.CriticalSection);
+	delete m_pMutex;
 
 	// Lua
 	m_bSuccess = false;
 	lua_close(m_pState);
-}
-
-// ====================================================================================================
-// Threadsafe
-// ====================================================================================================
-void LuaManager::Lock()
-{
-	if (lua_threadsafe.Initialized)
-		EnterCriticalSection(&lua_threadsafe.CriticalSection);
-}
-void LuaManager::Unlock()
-{
-	if (lua_threadsafe.Initialized)
-		LeaveCriticalSection(&lua_threadsafe.CriticalSection);
 }
 
 // ====================================================================================================

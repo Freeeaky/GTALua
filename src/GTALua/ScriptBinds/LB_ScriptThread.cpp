@@ -6,6 +6,7 @@
 #include "lua/Lua.h"
 #include "ScriptBinds.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"
+#include "UTIL/UTIL.h"
 using namespace ScriptBinds::ScriptThread;
 
 // =================================================================================
@@ -64,25 +65,26 @@ void LuaScriptThread::Wait(DWORD uiTime)
 // =================================================================================
 bool LuaScriptThread::IsCallbackPresent(char* sName)
 {
-	lua->Lock();
+	lua->GetMutex()->Lock();
 
 	// Check if callback is present
 	m_self.get(lua->State());
 	if (lua->IsNil())
 	{
 		lua->Pop(1);
-		lua->Unlock();
+		lua->GetMutex()->Unlock();
 		return false;
 	}
 	lua->GetField(sName, -1);
 	if (lua->IsNil())
 	{
 		lua->Pop(2);
-lua->Unlock();
-return false;
+		lua->GetMutex()->Unlock();
+		return false;
 	}
 	lua->Pop(2);
-	lua->Unlock();
+
+	lua->GetMutex()->Unlock();
 	return true;
 }
 
@@ -178,14 +180,14 @@ bool LuaScriptThread::Run()
 	// Coroutine
 	if (!m_bRunsOnMainThread && !m_bIsMainThread)
 	{
-		lua->Lock();
+		lua->GetMutex()->Lock();
 		if (!Call_LuaCallback("SetupCoroutine"))
 		{
 			printf("[LuaScriptThread] Thread %s failed to setup its coroutine (lua thread)!", m_sName.c_str());
-			lua->Unlock();
+			lua->GetMutex()->Unlock();
 			return false;
 		}
-		lua->Unlock();
+		lua->GetMutex()->Unlock();
 	}
 
 	// Call
@@ -193,9 +195,9 @@ bool LuaScriptThread::Run()
 	while (bNormalExit && m_bActive && !m_bResetting)
 	{
 		// Callback
-		lua->Lock();
+		lua->GetMutex()->Lock();
 		bNormalExit = Call_LuaCallback("Tick");
-		lua->Unlock();
+		lua->GetMutex()->Unlock();
 
 		// Break
 		if (m_bRunsOnMainThread)
@@ -216,9 +218,9 @@ bool LuaScriptThread::Run()
 	// OnError
 	if (!bNormalExit && IsCallbackPresent("OnError"))
 	{
-		lua->Lock();
+		lua->GetMutex()->Lock();
 		Call_LuaCallback("OnError");
-		lua->Unlock();
+		lua->GetMutex()->Unlock();
 		return false;
 	}
 

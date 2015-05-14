@@ -4,6 +4,8 @@
 #ifndef H_LUA_MANAGER
 #define H_LUA_MANAGER
 
+class Mutex;
+
 class LuaManager
 {
 public:
@@ -13,9 +15,8 @@ public:
 	void Destroy();
 	lua_State* State() { return m_pState; }
 
-	// Threadsafe
-	void Lock();
-	void Unlock();
+	// Mutex
+	Mutex* GetMutex() { return m_pMutex; }
 
 	// Utility
 	bool IncludeFile(char* sPath);									// nothrow, uses ProtectedCall
@@ -75,6 +76,7 @@ private:
 	std::vector<std::string> m_vFileList;
 	lua_State* m_pState;
 	bool m_bSuccess;
+	Mutex* m_pMutex;
 };
 
 // ====================================================================================================
