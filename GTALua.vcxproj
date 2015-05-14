@@ -25,7 +25,6 @@
     <ClCompile Include="src\GTALua\Configuration\NativesINI.cpp" />
     <ClCompile Include="src\GTALua\Console.cpp" />
     <ClCompile Include="src\GTALua\DLLMain.cpp" />
-    <ClCompile Include="src\GTALua\GameEvents.cpp" />
     <ClCompile Include="src\GTALua\GameHooks.cpp" />
     <ClCompile Include="src\GTALua\lua\GeneralFunctions.cpp" />
     <ClCompile Include="src\GTALua\lua\luamanager\LuaManager.cpp" />
@@ -48,6 +47,7 @@
     <ClCompile Include="src\GTALua\ScriptBinds\LB_ScriptThread.cpp" />
     <ClCompile Include="src\GTALua\ScriptBinds\LB_Types.cpp" />
     <ClCompile Include="src\GTALua\ScriptBinds\LB_Natives.cpp" />
+    <ClCompile Include="src\GTALua\ScriptEngine\GameEvents.cpp" />
     <ClCompile Include="src\GTALua\ScriptEngine\Natives.cpp" />
     <ClCompile Include="src\GTALua\ScriptEngine\ScriptHookV.cpp" />
     <ClCompile Include="src\GTALua\thirdparty\inih\ini.c" />

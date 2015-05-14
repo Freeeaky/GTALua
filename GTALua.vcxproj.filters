@@ -281,11 +281,11 @@
     <ClCompile Include="src\GTALua\Configuration\NativesINI.cpp">
       <Filter>Quelldateien\Configuration</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\GameEvents.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="src\GTALua\UTIL\Mutex.cpp">
       <Filter>Quelldateien\UTIL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\ScriptEngine\GameEvents.cpp">
+      <Filter>Quelldateien\ScriptEngine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

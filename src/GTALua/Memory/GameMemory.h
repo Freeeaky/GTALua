@@ -10,7 +10,6 @@ namespace GameMemory
 	// "Installers"
 	void InstallInitHooks();
 	void InstallHooks();
-	void InstallEventHooks();
 
 	// Module
 	extern HMODULE GameModule;

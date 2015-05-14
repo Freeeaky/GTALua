@@ -5,6 +5,7 @@
 #include "GTALua.h"
 #include "lua/Lua.h"
 #include "ScriptBinds.h"
+#include "ScriptEngine/ScriptEngine.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"
 #include "UTIL/UTIL.h"
 using namespace ScriptBinds::ScriptThread;
@@ -14,6 +15,10 @@ using namespace ScriptBinds::ScriptThread;
 // =================================================================================
 void LuaScriptThread::Run_MainThread()
 {
+	// Dispatch Game Events
+	GameEvents::DispatchEvents();
+
+	// Mutex
 	lua->GetMutex()->Lock();
 
 	// Time
