@@ -73,6 +73,7 @@ void GTALua::ProperInit()
 	// Hooks
 #ifndef GTA_LUA_TEST_EXE
 	GameMemory::InstallHooks();
+	GameMemory::InstallEventHooks();
 #endif
 
 	// Initialize Lua

@@ -25,6 +25,7 @@
     <ClCompile Include="src\GTALua\Configuration\NativesINI.cpp" />
     <ClCompile Include="src\GTALua\Console.cpp" />
     <ClCompile Include="src\GTALua\DLLMain.cpp" />
+    <ClCompile Include="src\GTALua\GameEvents.cpp" />
     <ClCompile Include="src\GTALua\GameHooks.cpp" />
     <ClCompile Include="src\GTALua\lua\GeneralFunctions.cpp" />
     <ClCompile Include="src\GTALua\lua\luamanager\LuaManager.cpp" />

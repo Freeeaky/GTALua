@@ -278,5 +278,8 @@
     <ClCompile Include="src\GTALua\Configuration\NativesINI.cpp">
       <Filter>Quelldateien\Configuration</Filter>
     </ClCompile>
+    <ClCompile Include="src\GTALua\GameEvents.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

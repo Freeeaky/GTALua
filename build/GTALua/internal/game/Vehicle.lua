@@ -8,6 +8,12 @@ function Vehicle:__init(id)
 	self._type = "Vehicle"
 end
 
+-- Delete
+function Vehicle:Delete()
+	self:_CheckExists()
+	natives.VEHICLE.DELETE_VEHICLE(self.ID)
+end
+
 -- Is vehicle stuck on roof (returns true/false)
 function Vehicle:IsStuckOnRoof()
 	self:_CheckExists()

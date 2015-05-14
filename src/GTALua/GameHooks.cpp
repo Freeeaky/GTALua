@@ -68,6 +68,8 @@ void ScriptEngine__Init(DWORD64 ptr)
 	}
 }
 
+
+
 // =================================================================================
 // Hooks
 // =================================================================================
@@ -77,7 +79,7 @@ void GameMemory::InstallHooks()
 	Memory::HookLibraryFunction("bink2w64.dll", "BinkOpen", &BinkOpen_Hook, (void**)&pBinkOpen);
 
 	// ScriptEngine::Init
-	Memory::HookFunction(GameMemory::Find((PBYTE)"\x48\x89\x5C\x24\x00\x57\x48\x83\xEC\x20\x33\xFF\x48\x8B\xD9\x66\x89\x39\x48\x89\x79\x04", "xxxx?xxxxxxxxxxxxxxxxx"), &ScriptEngine__Init, (void**)&pScriptEngine__Init);
+	Memory::HookFunction(Find((PBYTE)"\x48\x89\x5C\x24\x00\x57\x48\x83\xEC\x20\x33\xFF\x48\x8B\xD9\x66\x89\x39\x48\x89\x79\x04", "xxxx?xxxxxxxxxxxxxxxxx"), &ScriptEngine__Init, (void**)&pScriptEngine__Init);
 }
 
 // =================================================================================

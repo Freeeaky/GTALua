@@ -51,7 +51,7 @@ function Entity:Delete()
 	natives.ENTITY.DELETE_ENTITY(c_entity_handle)
 	c_entity_handle:Release()
 end
-Entity.Remove = Entity.Delete
+Entity.Remove = function(s) return s:Delete() end
 
 -- Position
 function Entity:SetPosition(x, y, z)
