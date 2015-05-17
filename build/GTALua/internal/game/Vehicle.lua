@@ -11,7 +11,10 @@ end
 -- Delete
 function Vehicle:Delete()
 	self:_CheckExists()
-	natives.VEHICLE.DELETE_VEHICLE(self.ID)
+	local c_handle = CMemoryBlock(4)
+	c_handle:WriteDWORD32(0, self.ID)
+	natives.VEHICLE.DELETE_VEHICLE(c_handle)
+	c_handle:Release()
 end
 
 -- Is vehicle stuck on roof (returns true/false)
@@ -75,7 +78,7 @@ function Vehicle:SetEngineState(b)
 end
 
 -- Checks whether the vehicle is on all wheels
-function Vehicle:IsVehicleOnAllWheels()
+function Vehicle:IsOnAllWheels()
 	self:_CheckExists()
 	return natives.VEHICLE.IS_VEHICLE_ON_ALL_WHEELS(self.ID)
 end
@@ -84,4 +87,28 @@ end
 function Vehicle:Fix()
 	self:_CheckExists()
 	natives.VEHICLE.SET_VEHICLE_FIXED(self.ID)
+end
+
+-- Neon Lights
+function Vehicle:SetNeonLights(enabled, r, g, b, location)
+	self:_CheckExists()
+	
+	-- on/off
+	if location == nil then
+		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, 0, enabled)
+		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, 1, enabled)
+		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, 2, enabled)
+		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, 3, enabled)
+	else
+		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, location, enabled)
+	end
+	
+	-- color
+	if r == nil then return end
+	if type(r) == "table" then
+		b = r.b
+		g = r.g
+		r = r.r
+	end
+	natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_COLOUR(self.ID, r, g, b)
 end

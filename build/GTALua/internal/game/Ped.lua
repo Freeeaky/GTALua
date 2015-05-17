@@ -8,6 +8,15 @@ function Ped:__init(id)
 	self._type = "Ped"
 end
 
+-- Delete
+function Ped:Delete()
+	self:_CheckExists()
+	local c_handle = CMemoryBlock(4)
+	c_handle:WriteDWORD32(0, self.ID)
+	natives.PED.DELETE_PED(c_handle)
+	c_handle:Release()
+end
+
 -- Weapon Switching
 function Ped:AllowWeaponSwitching(b)
 	self:_CheckExists()
