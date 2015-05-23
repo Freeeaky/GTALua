@@ -3,6 +3,7 @@
 // =================================================================================
 #include "Includes.h"
 #include "GTALua.h"
+#include "ScriptEngine/ScriptEngine.h"
 #include "Memory/Memory.h"
 #include "lua/Lua.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"

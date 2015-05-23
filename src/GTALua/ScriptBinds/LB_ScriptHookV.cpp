@@ -134,7 +134,7 @@ void ScriptBinds::ScriptHookBind::Bind()
 		luabind::def("InitNative", LB_InitNative),
 		luabind::def("NativePushInt", ScriptHook::PushValue<__int32>),
 		luabind::def("NativePushFloat", ScriptHook::PushValue<float>),
-		luabind::def("NativePushVector", ScriptHook::PushValue<rage::CVector>),
+		luabind::def("NativePushVector", ScriptHook::PushVector),
 		luabind::def("NativePushBool", ScriptHook::PushValue<bool>),
 		luabind::def("NativePushString", ScriptHook::PushValue<const char*>),
 		luabind::def("NativePushMemoryBlock", ScriptHook::PushMemory),

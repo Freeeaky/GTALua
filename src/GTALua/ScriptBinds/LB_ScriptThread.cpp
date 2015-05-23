@@ -5,6 +5,7 @@
 #include "GTALua.h"
 #include "lua/Lua.h"
 #include "ScriptBinds.h"
+#include "ScriptEngine/ScriptEngine.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"
 #include "UTIL/UTIL.h"
 using namespace ScriptBinds::ScriptThread;

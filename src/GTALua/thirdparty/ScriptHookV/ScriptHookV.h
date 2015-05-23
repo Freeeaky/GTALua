@@ -31,6 +31,12 @@ namespace ScriptHook
 		*reinterpret_cast<T *>(&val64) = val;
 		NativePush64(val64);
 	}
+	static inline void PushVector(rage::CVector vec)
+	{
+		PushValue(vec.x);
+		PushValue(vec.y);
+		PushValue(vec.z);
+	}
 
 	// Call Wrapper
 	template <typename T>
