@@ -1,11 +1,12 @@
 --
--- Check out "Getting started" on the Wiki!
---     http://freeschi.com/w/index.php/Main_Page
---     http://freeschi.com/w/index.php/Getting_Started
---     http://freeschi.com/w/index.php/API
+-- Check out our the Wiki!
+--     http://wiki.gtalua.com/index.php/Main_Page
+--     http://wiki.gtalua.com/index.php/Getting_Started
+--     http://wiki.gtalua.com/index.php/API
 --
 
 -- Please rename empty_addon!
+-- I recommend matching thread name & folder name!
 empty_addon = ScriptThread("empty_addon")
 
 -- Run

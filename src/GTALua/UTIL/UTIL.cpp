@@ -13,8 +13,6 @@ void UTIL::Attach_Console(bool bAutomatic, int x, int y)
 	// Console
 	AllocConsole();
 	AttachConsole(GetCurrentProcessId());
-	freopen("CON", "w", stdout);
-	freopen("CONIN$", "r", stdin);
 
 	// Console Window
 	HWND hConsole = GetConsoleWindow();
@@ -40,6 +38,10 @@ void UTIL::Attach_Console(bool bAutomatic, int x, int y)
 		// Update Position
 		SetWindowPos(hConsole, NULL, x, y, rect.right - rect.left, rect.bottom - rect.top, 0);
 	}
+
+	// Input/Output
+	freopen("CON", "w", stdout);
+	freopen("CONIN$", "r", stdin);
 }
 
 // =================================================================================
