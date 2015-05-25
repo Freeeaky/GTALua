@@ -9,6 +9,7 @@
 #include "ScriptBinds/ScriptBinds.h"
 #include "UTIL/UTIL.h"
 #include "thirdparty/SimpleFileWatcher/include/FileWatcher.h"
+#include "GameEvents/GameEvents.h"
 
 // =================================================================================
 // CTor/DTor 
@@ -73,7 +74,11 @@ void GTALua::ProperInit()
 	// Hooks
 #ifndef GTA_LUA_TEST_EXE
 	GameMemory::InstallHooks();
-	GameEvents::InstallHooks(); 
+	
+	// Game Events
+	GameEvents::Install::Entity();
+	GameEvents::Install::OnPedCreated();
+	GameEvents::Install::OnVehicleCreated();
 #endif
 
 	// Initialize Lua

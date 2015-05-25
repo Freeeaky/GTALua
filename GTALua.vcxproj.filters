@@ -75,12 +75,14 @@
     <Filter Include="Quelldateien\thirdparty\SimpleFileWatcher">
       <UniqueIdentifier>{02f3248b-1646-4ac8-8e40-3b9ea6e21309}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Quelldateien\Ressourcendateien">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Headerdateien\thirdparty\ScriptHookV">
       <UniqueIdentifier>{0a65ea50-02f1-462a-9540-33f3766f094d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\GameEvents">
+      <UniqueIdentifier>{929336ae-42ee-4b46-8628-e8a055a2de0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\GameEvents">
+      <UniqueIdentifier>{71f39713-78b6-4e49-a7fa-0dce46da5155}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="src\GTALua\UTIL\Mutex.h">
       <Filter>Headerdateien\UTIL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\GameEvents\GameEvents.h">
+      <Filter>Headerdateien\GameEvents</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -284,8 +289,17 @@
     <ClCompile Include="src\GTALua\UTIL\Mutex.cpp">
       <Filter>Quelldateien\UTIL</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptEngine\GameEvents.cpp">
-      <Filter>Quelldateien\ScriptEngine</Filter>
+    <ClCompile Include="src\GTALua\GameEvents\GameEvents.cpp">
+      <Filter>Quelldateien\GameEvents</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\GameEvents\OnPedCreated.cpp">
+      <Filter>Quelldateien\GameEvents</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\GameEvents\Entity.cpp">
+      <Filter>Quelldateien\GameEvents</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GTALua\GameEvents\OnVehicleCreated.cpp">
+      <Filter>Quelldateien\GameEvents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

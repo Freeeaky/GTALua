@@ -8,6 +8,7 @@
 #include "ScriptEngine/ScriptEngine.h"
 #include "thirdparty/ScriptHookV/ScriptHookV.h"
 #include "UTIL/UTIL.h"
+#include "GameEvents/GameEvents.h"
 using namespace ScriptBinds::ScriptThread;
 
 // =================================================================================
