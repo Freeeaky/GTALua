@@ -53,6 +53,16 @@ function Entity:Delete()
 end
 Entity.Remove = function(s) return s:Delete() end
 
+
+--Set not needed
+function Entity:SetNotNeeded()
+	self:_CheckExists()
+	local c_entity_handle = CMemoryBlock(4)
+	c_entity_handle:WriteDWORD32(0, self.ID)
+	natives.ENTITY.SET_ENTITY_AS_NO_LONGER_NEEDED(c_entity_handle)
+	c_entity_handle:Release()
+end
+
 -- Position
 function Entity:SetPosition(x, y, z)
 	self:_CheckExists()
