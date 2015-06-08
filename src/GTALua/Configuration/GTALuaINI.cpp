@@ -11,22 +11,32 @@
 // =================================================================================
 int ini_gtalua_parser(void* pCustom, const char* sSection, const char* sName, const char* sValue)
 {
+	GTALuaConfig* pConfig = g_pGTALua->GetConfig();
+
 	// Console
 	if (strcmp(sSection, "Console") == 0)
 	{
 		// Enabled
 		if (strcmp(sName, "Enabled") == 0)
-			g_pGTALua->GetConfig()->bConsole_Enabled = strcmp(sValue, "true") == 0;
+			pConfig->bConsole_Enabled = strcmp(sValue, "true") == 0;
 
 		// Automatic Position
 		if (strcmp(sName, "AutomaticPosition") == 0)
-			g_pGTALua->GetConfig()->bConsole_AutomaticPosition = strcmp(sValue, "true") == 0;
+			pConfig->bConsole_AutomaticPosition = strcmp(sValue, "true") == 0;
 
 		// Position
 		if (strcmp(sName, "Manual_PosX") == 0)
-			g_pGTALua->GetConfig()->iConsole_ManualX = atoi(sValue);
+			pConfig->iConsole_ManualX = atoi(sValue);
 		if (strcmp(sName, "Manual_PosY") == 0)
-			g_pGTALua->GetConfig()->iConsole_ManualY = atoi(sValue);
+			pConfig->iConsole_ManualY = atoi(sValue);
+	}
+
+	// Game
+	if (strcmp(sSection, "Game") == 0)
+	{
+		// SkipIntro
+		if (strcmp(sName, "SkipIntro") == 0)
+			pConfig->bGame_SkipIntro = strcmp(sValue, "true") == 0;
 	}
 
 	// Done

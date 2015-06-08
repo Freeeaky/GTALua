@@ -8,6 +8,9 @@ struct GTALuaConfig
 	bool bConsole_AutomaticPosition;
 	int iConsole_ManualX;
 	int iConsole_ManualY;
+
+	// Game
+	bool bGame_SkipIntro;
 };
 
 // =================================================================================
