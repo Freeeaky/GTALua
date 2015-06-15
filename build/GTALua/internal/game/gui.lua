@@ -65,9 +65,9 @@ end
 
 -- Notify Above Map
 function gui.NotifyAboveMap(text, time_or_2000)
-	natives.UI._0x202709F4C58A0424("STRING")
+	natives.UI._SET_NOTIFICATION_TEXT_ENTRY("STRING")
 	natives.UI._ADD_TEXT_COMPONENT_STRING(text)
-	natives.UI._0x2ED7843F8F801023(time_or_2000 or 2000, true)
+	natives.UI._DRAW_NOTIFICATION(time_or_2000 or 2000, true)
 end
 
 include("gui/simple_menu.lua")
