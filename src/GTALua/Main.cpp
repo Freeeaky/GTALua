@@ -49,7 +49,7 @@ void GTALua::Init()
 	if (m_sConfig.bConsole_Enabled)
 	{
 		UTIL::Attach_Console(m_sConfig.bConsole_AutomaticPosition, m_sConfig.iConsole_ManualX, m_sConfig.iConsole_ManualY);
-		SetConsoleTitle("GTALua - Version 1.1.1");
+		SetConsoleTitle("GTALua - Version 1.1.2");
 	}
 #endif
 
