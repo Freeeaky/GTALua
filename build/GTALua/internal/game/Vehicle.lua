@@ -112,3 +112,22 @@ function Vehicle:SetNeonLights(enabled, r, g, b, location)
 	end
 	natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_COLOUR(self.ID, r, g, b)
 end
+
+-- Plate function
+function Vehicle:GetPlateType()
+	self:_CheckExists()
+	return natives.VEHICLE.GET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(self.ID)
+end
+function Vehicle:SetPlateType(i)
+	self:_CheckExists()
+	natives.VEHICLE.SET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(self.ID, i)
+end
+
+function Vehicle:GetPlateText()
+	self:_CheckExists()
+	return natives.VEHICLE.GET_VEHICLE_NUMBER_PLATE_TEXT(self.ID)
+end
+function Vehicle:SetPlateText(text)
+	self:_CheckExists()
+	natives.VEHICLE.SET_VEHICLE_NUMBER_PLATE_TEXT(self.ID, text)
+end
