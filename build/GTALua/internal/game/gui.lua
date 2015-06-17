@@ -70,4 +70,15 @@ function gui.NotifyAboveMap(text, time_or_2000)
 	natives.UI._DRAW_NOTIFICATION(time_or_2000 or 2000, true)
 end
 
+-- Prompt
+function gui.Prompt(title, placeholder, max_lenght)
+	natives.GAMEPLAY.DISPLAY_ONSCREEN_KEYBOARD(true, title or "", "", placeholder or "", "", "", "", ((max_lenght or 255) + 1))
+	while (natives.GAMEPLAY.UPDATE_ONSCREEN_KEYBOARD() == 0) do coroutine.yield() end
+
+	-- if user exit prompt without confirming : return placeholder
+	if not natives.GAMEPLAY.GET_ONSCREEN_KEYBOARD_RESULT() then return placeholder end
+
+	return natives.GAMEPLAY.GET_ONSCREEN_KEYBOARD_RESULT()
+end
+
 include("gui/simple_menu.lua")
