@@ -65,14 +65,13 @@ end
 
 -- Notify Above Map
 function gui.NotifyAboveMap(text, blink)
-	if blink ~= nil and type(blink) ~= "boolean" then
-		print("[GTALua] Update your script : gui.NotifyAboveMap(str text, bool blink)")
-		return
+	if blink == nil or type(blink) ~= "boolean" then
+		blink = false
 	end
 
 	natives.UI._SET_NOTIFICATION_TEXT_ENTRY("STRING")
 	natives.UI._ADD_TEXT_COMPONENT_STRING(text)
-	natives.UI._DRAW_NOTIFICATION(blink or false, true)
+	natives.UI._DRAW_NOTIFICATION(blink, true)
 end
 
 -- Prompt
