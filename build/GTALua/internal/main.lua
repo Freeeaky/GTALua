@@ -29,6 +29,7 @@ include("game/timer.lua")
 include("game/ui.lua")
 include("game/gui.lua")
 include("game/streaming.lua")
+include("game/graphics.lua")
 
 -- Main Thread
 include("main_thread.lua")
