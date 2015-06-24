@@ -20,3 +20,20 @@ function graphics.GetScreenResolution()
 
 	return x, y
 end
+
+-- Screen Effect
+function graphics.StartScreenEffect(name, play_lenght, loop)
+	natives.GRAPHICS._START_SCREEN_EFFECT(name, play_lenght or 0, loop or false)
+end
+
+function graphics.StopScreenEffect(name)
+	natives.GRAPHICS._STOP_SCREEN_EFFECT(name)
+end
+
+function graphics.ScreenEffectIsActive(name)
+	return natives.GRAPHICS._GET_SCREEN_EFFECT_IS_ACTIVE(name)
+end
+
+function graphics.ClearAllScreenEffect()
+	return natives.GRAPHICS._STOP_ALL_SCREEN_EFFECTS()
+end
