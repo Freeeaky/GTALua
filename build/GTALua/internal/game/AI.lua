@@ -30,7 +30,7 @@ end
 -- Play Animation
 -- id, anim_dict, anim_name required!
 function AI.TaskPlayAnim(id, anim_dict, anim_name, speed, f_unknown, loop, last_anim, playback_rate, xlock, ylock, zlock)
-	if not natives.STREAMING.HAS_ANIM_DICT_LOADED(anim_dict) then
+	if not streaming.HasAnimDictLoaded(anim_dict) then
 		error("AI.TaskPlayAnim: Animation Dict "..anim_dict.." not loaded!")
 	end
 	
