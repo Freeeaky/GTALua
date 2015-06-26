@@ -22,7 +22,7 @@ function GUISimpleMenu:BindControl(name, key_code)
 	if key_code == nil then
 		error("Invalid keycode (nil)")
 	end
-	
+
 	self.Controls[name] = key_code
 end
 
@@ -43,22 +43,23 @@ function GUISimpleMenu:Update()
 	if self.Closed then
 		return
 	end
-	
+
 	--
 	local x, y = self.x, self.y
 	local option_color = Color(0,0,0,150)
 	local option_color_selected = Color(0,0,0,190)
-	
+
 	-- Title
 	gui.DrawRect(x, y, self.Width, self.TitleHeight, self.TitleColor)
 	gui.DrawText(x + 0.003, y + 0.003, self.Title, {
+		Font = self.TitleFont,
 		TextScale = 0.8,
 		Color = self.TitleTextColor
 	})
-	y = y + self.TitleHeight	
+	y = y + self.TitleHeight
 
 	-- Objects
-	for k,v in pairs(self.Options) do		
+	for k,v in pairs(self.Options) do
 		local col = self.OptionTextColor
 		if k == self.ActiveIndex then
 			col = self.SelectedOptionTextColor
@@ -66,45 +67,46 @@ function GUISimpleMenu:Update()
 		else
 			gui.DrawRect(x, y, self.Width, self.OptionHeight, option_color)
 		end
-	
+
 		gui.DrawText(x + 0.002, y, v.Text, {
+			Font = self.OptionFont,
 			TextScale = self.OptionTextScale,
 			Color = col
 		})
 		y = y + self.OptionHeight
 	end
-	
+
 	-- Controls
 	self:UpdateControls()
 end
 
 -- Controls
-function GUISimpleMenu:UpdateControls()	
+function GUISimpleMenu:UpdateControls()
 	-- back
 	if IsKeyDown(self.Controls["back"]) and self.CanBeClosed then
 		self.Closed = true
 		gui.BeepBack()
 	end
-	
+
 	-- down
 	if IsKeyDown(self.Controls["option_down"]) then
 		self.ActiveIndex = self.ActiveIndex + 1
 		gui.BeepNavUpDown()
 	end
-	
+
 	-- up
 	if IsKeyDown(self.Controls["option_up"]) then
 		self.ActiveIndex = self.ActiveIndex - 1
 		gui.BeepNavUpDown()
 	end
-	
+
 	-- confirm
 	if IsKeyDown(self.Controls["confirm"]) then
 		local opt = self.Options[self.ActiveIndex]
 		opt.Callback()
 		gui.BeepSelect()
 	end
-	
+
 	-- out of range check
 	local options_count = #self.Options
 	if self.ActiveIndex > options_count then
@@ -128,7 +130,7 @@ function GUISimpleMenu:AddOption(name, callback_name_or_func, ...)
 			callback_name_or_func(self, unpack(args))
 		end
 	end
-	
+
 	table.insert(self.Options, {
 		Text = name,
 		Callback = callback
@@ -138,27 +140,29 @@ end
 -- CTor
 function gui.SimpleMenu(thread, settings)
 	local data = GUISimpleMenu()
-	
+
 	-- Title
 	data.Title = settings.Title or "Simple Menu"
-	data.TitleColor = settings.TitleColor or Color(0,0,0) 
+	data.TitleFont = settings.TitleFont or 1
+	data.TitleColor = settings.TitleColor or Color(0,0,0)
 	data.TitleTextColor = settings.TitleTextColor or Color(255,255,255)
-	data.TitleHeight = settings.TitleHeight or 0.03
-	
+	data.TitleHeight = settings.TitleHeight or 0.06
+
 	-- Options
+	data.OptionFont = settings.OptionFont or 4
 	data.OptionTextScale = settings.OptionTextScale or 0.54
 	data.OptionTextColor = settings.OptionTextColor or Color(255,255,255)
 	data.SelectedOptionTextColor = settings.SelectedOptionTextColor or Color(200,255,200)
-	
+
 	-- Sizing
 	data.x = settings.x or 0
 	data.y = settings.y or 0
 	data.Width = settings.Width or 0.2
-	data.OptionHeight = settings.OptionHeight or 0.03
-	
+	data.OptionHeight = settings.OptionHeight or 0.04
+
 	-- Other
 	data.Thread = thread
 	data.CanBeClosed = settings.CanBeClosed or true
-	
+
 	return data
 end
