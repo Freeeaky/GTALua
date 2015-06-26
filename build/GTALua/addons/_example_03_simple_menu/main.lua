@@ -21,12 +21,14 @@ function example_simple_menu:Run()
 		x = 0.03, -- x-coordinate, 0.0 = left, 1.0 = right
 		y = 0.02, -- y-coordinate, 0.0 = top, 1.0 = bottom
 		Width = 0.23, -- width of the whole menu
-		TitleHeight = 0.05, -- height of the title box
-		TitleFontScale = 0.8, -- title font scale
+		TitleHeight = 0.06, -- height of the title box
+		TitleFont = 1, -- title font family
+		TitleFontScale = 0.5, -- title font scale
 		TitleColor = Color(0,0,0), -- background color of the title
 		TitleTextColor = Color(255,255,255), -- text color for the title
-		OptionHeight = 0.03, -- height of an option
-		OptionTextScale = 0.55, -- text scale (option text)
+		OptionHeight = 0.04, -- height of an option
+		OptionFont = 4, --  font family of an option
+		OptionTextScale = 0.54, -- text scale (option text)
 		OptionTextColor = Color(255,255,255), -- text color (if not selected)
 		SelectedOptionTextColor = Color(180,255,180), -- text color if currently selected
 		CanBeClosed = true -- allow close
