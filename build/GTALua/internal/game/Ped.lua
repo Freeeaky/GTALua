@@ -33,6 +33,15 @@ function Ped:DelayedGiveWeapon(wep, ammo)
 	end
 	natives.WEAPON.GIVE_DELAYED_WEAPON_TO_PED(self.ID, wep, ammo, false)
 end
+
+function Ped:RemoveWeapon(wep)
+	self:_CheckExists()
+	if type(wep) == "string" then
+		wep = natives.GAMEPLAY.GET_HASH_KEY(wep)
+	end
+	natives.WEAPON.REMOVE_WEAPON_FROM_PED(self.ID, wep)
+end
+
 function Ped:RemoveAllWeapons()
 	natives.WEAPON.REMOVE_ALL_PED_WEAPONS(self.ID, true)
 end
