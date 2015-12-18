@@ -14,6 +14,7 @@ You can also join IRC:
 * Console                                                                   *
 *****************************************************************************
 help - Prints a list of all available commands
-load_addon [name]
-reload_addon [name]
-unload_addon [name] - In order for this to work, your addon name & thread name must match!
+load [addon name] - In order for this to work, your addon name & thread name must match!
+reload [addon name] - In order for this to work, your addon name & thread name must match!
+unload [addon name] - In order for this to work, your addon name & thread name must match!
+reloadall - Reload addon(s) already loaded
