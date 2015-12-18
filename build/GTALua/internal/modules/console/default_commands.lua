@@ -3,7 +3,9 @@ function console.cmd_help()
 	print("List of available commands:")
 	print("----------------------------------------")
 	for k,v in pairs(console.Commands) do
-		print(k)
+		if not utils.IsInArray(_deprecated_ConsoleCommands, k) then
+			print(k)
+		end
 	end
 	print("----------------------------------------")
 end
@@ -13,12 +15,12 @@ console.RegisterCommand("help", console.cmd_help)
 function console.cmd_load_addon(name)
 	-- Syntax
 	if name == nil then
-		print("Syntax: load/reload [addon name]")
+		print("[GTALua] Syntax: load/reload [addon name]")
 		return
 	end
 
 	-- Load
-	print("Loading ", name, "...")
+	print("[GTALua] Loading ", name, "...")
 	addon.Load(name)
 	print("")
 end
@@ -29,12 +31,12 @@ console.RegisterCommand("load", console.cmd_load_addon)
 function console.cmd_unload_addon(name)
 	-- Syntax
 	if name == nil then
-		print("Syntax: unload [addon name]")
+		print("[GTALua] Syntax: unload [addon name]")
 		return
 	end
 
 	-- Unload
-	print("Unloading ", name, "...")
+	print("[GTALua] Unloading ", name, "...")
 	addon.Unload(name)
 	print("")
 end
@@ -42,7 +44,7 @@ console.RegisterCommand("unload", console.cmd_unload_addon)
 
 -- Reload All Addons
 function console.cmd_reload_all_addons()
-	print("Reloading all addons...")
+	print("[GTALua] Reloading all addons...")
 	for  _,thread in pairs(scripthookv.ThreadList) do
 		local name = thread:GetName()
 		if name ~= "main_thread" then addon.Load(name) end
