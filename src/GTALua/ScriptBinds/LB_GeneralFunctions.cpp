@@ -82,7 +82,7 @@ static int LB_print(lua_State *L) {
 // =================================================================================
 bool LB_IsKeyCurrentlyDown(int vk)
 {
-	return (bool)(GetKeyState(vk) & 0x8000);
+	return (GetKeyState(vk) & 0x8000)!=0;
 }
 
 // =================================================================================

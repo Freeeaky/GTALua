@@ -10,7 +10,7 @@
 // ====================================================================================================
 // include
 // ====================================================================================================
-void LuaFunctions::include(std::string file)
+void LuaFunctions::include(std::string file) throw(...)
 {
 	// Block inside of threads
 	if (strcmp(lua_typename(lua->State(), lua_type(lua->State(), 1)), "thread") == 0)
@@ -20,7 +20,8 @@ void LuaFunctions::include(std::string file)
 	}
 
 	//
-	char* currentpath = lua->DebugGetPath();
+	char currentpath[364];
+	lua->DebugGetPath(currentpath);
 	luaL_checkstring(lua->State(), 1);
 
 	char path[364];

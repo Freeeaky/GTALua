@@ -11,18 +11,18 @@ void   LuaManager::GetGlobal(char* sName) { lua_getglobal(m_pState, sName); }
 void   LuaManager::GetEvent(char* sName) { GetGlobal("event"); GetField("Call"); PushString(sName); }
 char*  LuaManager::GetString(int iStackIndex) { return const_cast<char*>(lua_tostring(m_pState, iStackIndex)); }
 double LuaManager::GetNumber(int iStackIndex) { return lua_tonumber(m_pState, iStackIndex); }
-bool   LuaManager::GetBool(int iStackIndex) { return lua_toboolean(m_pState, iStackIndex); }
+bool   LuaManager::GetBool(int iStackIndex) { return lua_toboolean(m_pState, iStackIndex)!=0; }
 void   LuaManager::GetTypeName(int iStackIndex) { luaL_typename(m_pState, iStackIndex); }
 
 // ====================================================================================================
 // Is*
 // ====================================================================================================
 bool LuaManager::IsNil(int iStackIndex) { return lua_isnil(m_pState, iStackIndex); }
-bool LuaManager::IsString(int iStackIndex) { return lua_isstring(m_pState, iStackIndex); }
-bool LuaManager::IsNumber(int iStackIndex) { return lua_isnumber(m_pState, iStackIndex); }
+bool LuaManager::IsString(int iStackIndex) { return lua_isstring(m_pState, iStackIndex)!=0; }
+bool LuaManager::IsNumber(int iStackIndex) { return lua_isnumber(m_pState, iStackIndex)!=0; }
 bool LuaManager::IsBool(int iStackIndex) { return lua_isboolean(m_pState, iStackIndex); }
 bool LuaManager::IsTable(int iStackIndex) { return lua_istable(m_pState, iStackIndex); }
-bool LuaManager::IsUserData(int iStackIndex) { return lua_isuserdata(m_pState, iStackIndex); }
+bool LuaManager::IsUserData(int iStackIndex) { return lua_isuserdata(m_pState, iStackIndex)!=0; }
 
 // ====================================================================================================
 // Push*

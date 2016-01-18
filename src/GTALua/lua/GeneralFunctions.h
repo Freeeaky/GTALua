@@ -12,7 +12,7 @@ namespace LuaFunctions
 {
 	void RegisterLuaFunctions();
 
-	void include(std::string file);
+	void include(std::string file) throw(...);
 	void sleep(unsigned long ms);
 
 	namespace Autorefresh

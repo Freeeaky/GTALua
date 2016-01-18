@@ -52,21 +52,23 @@ char* LuaManager::DebugGetFilename()
 
 	return filename;
 }
-char* LuaManager::DebugGetPath()
+void LuaManager::DebugGetPath(char *path)
 {
 	string filename(DebugGetFilename());
 	vector<string> exp1;
 	StringExplode(filename, "@", exp1);
 
-	if (exp1.size() != 2) { return "?"; }
+//	if (exp1.size() != 2) { return "?"; }
+	if (exp1.size() != 2) { path = "?"; exit(0); }
 
 	string fullpath(exp1.at(1));
 	vector<string> exp2;
 	StringExplode(fullpath, "/", exp2);
 
-	if (exp2.size() <= 1) { return ""; }
+//	if (exp2.size() <= 1) { return ""; }
+	if (exp2.size() <= 1) { path = ""; exit(0); }
 
-	char path[364];
+//	char path[364];
 	sprintf(path, "");
 
 	int iIndex = 1;
@@ -85,7 +87,7 @@ char* LuaManager::DebugGetPath()
 	}
 
 	sprintf(path, "%s/", path);
-	return path;
+//	return path;
 }
 
 // ====================================================================================================

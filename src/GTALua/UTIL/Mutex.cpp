@@ -39,6 +39,6 @@ void Mutex::Unlock()
 }
 bool Mutex::TryLock()
 {
-	m_bLocked = TryEnterCriticalSection(&m_csInternalHandle);
+	m_bLocked = TryEnterCriticalSection(&m_csInternalHandle)!=0;
 	return m_bLocked;
 }

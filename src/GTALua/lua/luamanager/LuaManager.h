@@ -69,7 +69,7 @@ public:
 	// Debug Functions
 	lua_Debug GetDebugInformation();
 	char* DebugGetFilename();
-	char* DebugGetPath();
+	void DebugGetPath(char *path);
 	void DumpStack();
 	
 private:
@@ -82,7 +82,7 @@ private:
 // ====================================================================================================
 // Error Handling
 // ====================================================================================================
-int LuaPanicHandler(lua_State* L);
+int LuaPanicHandler(lua_State* L) throw(...);
 
 extern LuaManager* lua;
 
