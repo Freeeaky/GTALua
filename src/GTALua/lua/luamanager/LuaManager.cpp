@@ -143,7 +143,7 @@ bool LuaManager::IncludeFile(char* sPath)
 // ====================================================================================================
 // Error Handling
 // ====================================================================================================
-int LuaPanicHandler(lua_State* L)
+int LuaPanicHandler(lua_State* L) throw(...)
 {
 	printf("Lua Panic\n");
 
