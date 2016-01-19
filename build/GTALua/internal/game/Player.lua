@@ -79,7 +79,7 @@ end
 -- Aimed Entity
 function Player:GetAimedEntity()
 	local c_handle = CMemoryBlock(4)
-	if not natives.PLAYER._GET_AIMED_ENTITY(self.PlayerID, c_handle) then
+	if not natives.PLAYER.GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(self.PlayerID, c_handle) then
 		c_handle:Release()
 		return nil
 	end

@@ -78,7 +78,7 @@ end
 function gui.Subtitle(text, duration)
 	natives.UI._SET_TEXT_ENTRY_2("STRING")
 	natives.UI._ADD_TEXT_COMPONENT_STRING(text)
-	natives.UI._0x9D77056A530643F6(duration or 2000, true)
+	natives.UI._DRAW_SUBTITLE_TIMED(duration or 2000, true)
 end
 
 -- Prompt

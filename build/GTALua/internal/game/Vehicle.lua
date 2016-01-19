@@ -95,12 +95,12 @@ function Vehicle:SetNeonLights(enabled, r, g, b, location)
 	
 	-- on/off
 	if location == nil then
-		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, 0, enabled)
-		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, 1, enabled)
-		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, 2, enabled)
-		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, 3, enabled)
+		natives.VEHICLE._SET_VEHICLE_NEON_LIGHT_ENABLED(self.ID, 0, enabled)
+		natives.VEHICLE._SET_VEHICLE_NEON_LIGHT_ENABLED(self.ID, 1, enabled)
+		natives.VEHICLE._SET_VEHICLE_NEON_LIGHT_ENABLED(self.ID, 2, enabled)
+		natives.VEHICLE._SET_VEHICLE_NEON_LIGHT_ENABLED(self.ID, 3, enabled)
 	else
-		natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_ON(self.ID, location, enabled)
+		natives.VEHICLE._SET_VEHICLE_NEON_LIGHT_ENABLED(self.ID, location, enabled)
 	end
 	
 	-- color
@@ -110,7 +110,7 @@ function Vehicle:SetNeonLights(enabled, r, g, b, location)
 		g = r.g
 		r = r.r
 	end
-	natives.VEHICLE.SET_VEHICLE_NEON_LIGHTS_COLOUR(self.ID, r, g, b)
+	natives.VEHICLE._SET_VEHICLE_NEON_LIGHTS_COLOUR(self.ID, r, g, b)
 end
 
 -- Plate function
