@@ -44,7 +44,11 @@ void GameMemory::Init()
 	// Version Check
 	printf("===================================================================\n");
 	printf("Game Version: %s ", Version);
-	if (strcmp(Version, "1.0.350.1") == 0 || strcmp(Version, "1.0.350.2") == 0 || strcmp(Version, "1.0.372.1") == 0 || strcmp(Version, "1.0.372.2") == 0)
+	if (strcmp(Version, "1.0.350.1") == 0 ||
+		strcmp(Version, "1.0.350.2") == 0 ||
+		strcmp(Version, "1.0.372.1") == 0 ||
+		strcmp(Version, "1.0.372.2") == 0 ||
+		strcmp(Version, "1.0.573.1") == 0 )
 		printf("(Supported)\n");
 	else
 	{
