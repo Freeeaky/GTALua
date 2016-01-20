@@ -103,15 +103,18 @@ function Ped:GetNearbyPeds(max_peds)
 	c_array_peds:WriteInt32(0, max_peds)
 
 	-- call native
-	natives.PED.GET_PED_NEARBY_PEDS(self.ID, c_array_peds, -1)
+	local found=natives.PED.GET_PED_NEARBY_PEDS(self.ID, c_array_peds, -1)
 	
 	-- check returned peds
 	local nearby_peds = {}
-	for offset = 4, array_size, 4 do
+	local i=0
+	while i<found do
+		offset = i*2+2
 		local ped = Ped(c_array_peds:ReadDWORD32(offset))
 		if ped:Exists() then
 			table.insert(nearby_peds, ped)
 		end
+		i=i+1
 	end
 	
 	-- release
@@ -134,15 +137,18 @@ function Ped:GetNearbyVehicles(max_vehicles)
 	c_array_vehicles:WriteInt32(0, max_vehicles)
 	
 	-- call native
-	natives.PED.GET_PED_NEARBY_VEHICLES(self.ID, c_array_vehicles)
+	local found=natives.PED.GET_PED_NEARBY_VEHICLES(self.ID, c_array_vehicles)
 	
 	-- check
 	local nearby_vehicles = {}
-	for offset = 4, array_size, 4 do
+	local i=0
+	while i<found do
+		offset = i*2+2
 		local veh = Vehicle(c_array_vehicles:ReadDWORD32(offset))
 		if veh:Exists() then
 			table.insert(nearby_vehicles, veh)
 		end
+		i=i+1
 	end
 	
 	-- release
