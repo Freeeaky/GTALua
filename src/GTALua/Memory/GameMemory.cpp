@@ -48,7 +48,12 @@ void GameMemory::Init()
 		strcmp(Version, "1.0.350.2") == 0 ||
 		strcmp(Version, "1.0.372.1") == 0 ||
 		strcmp(Version, "1.0.372.2") == 0 ||
-		strcmp(Version, "1.0.573.1") == 0 )
+		strcmp(Version, "1.0.393.2") == 0 ||
+		strcmp(Version, "1.0.393.4") == 0 ||
+		strcmp(Version, "1.0.440.2") == 0 ||
+		strcmp(Version, "1.0.463.1") == 0 ||
+		strcmp(Version, "1.0.505.2") == 0 ||
+		strcmp(Version, "1.0.573.1") == 0)
 		printf("(Supported)\n");
 	else
 	{
