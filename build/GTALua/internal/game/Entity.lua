@@ -1,5 +1,5 @@
 -- Entity class
-class 'Entity'(Object)
+class 'Entity'
 
 -- CTor
 function Entity:__init(id)
