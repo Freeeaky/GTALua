@@ -2,7 +2,9 @@
 
 ## Version 1.1.2 (Alpha)
 * **Added:** Lot of new wrappers
+* **Added:** New console command : reloadall
 * **Improved:** Update natives
+* **Improved:** Simplification of console commands
 
 
 ## Version: 1.1.0 (Alpha)

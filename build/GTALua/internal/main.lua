@@ -1,4 +1,5 @@
 -- Module
+include("modules/utils.lua")
 include("modules/event.lua")
 include("modules/addon.lua")
 include("modules/scripthookv.lua")
@@ -38,6 +39,9 @@ include("game/graphics.lua")
 -- Main Thread
 include("main_thread.lua")
 
+-- Deprecated
+include("modules/deprecated.lua")
+
 -- Main
 function _main()
 	-- Find Addons
@@ -47,7 +51,7 @@ function _main()
 		print("Unable to load addons!")
 		return false
 	end
-	
+
 	-- Load Addons
 	print("")
 	for _,addon_name in pairs(dir_list) do
@@ -64,7 +68,7 @@ function _main()
 		end
 	end
 	print("")
-	
+
 	-- Success
 	return true
 end
