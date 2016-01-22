@@ -52,3 +52,15 @@ function console.cmd_reload_all_addons()
 	print("")
 end
 console.RegisterCommand("reloadall", console.cmd_reload_all_addons)
+
+-- Show the running threads
+function console.cmd_show_all_addons()
+	print("[GTALua] List of all loaded addons...")
+	for  _,thread in pairs(scripthookv.ThreadList) do
+		local name = thread:GetName()
+		print(name," Active:",thread:IsActive()," Running:",thread:IsRunning())
+	end
+	print("")
+end
+console.RegisterCommand("showall", console.cmd_show_all_addons)
+
