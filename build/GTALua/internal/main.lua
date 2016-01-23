@@ -6,6 +6,7 @@ include("modules/scripthookv.lua")
 include("modules/console/console.lua")
 
 -- Extensions
+include("extensions/colors.lua")
 include("extensions/keycodes.lua")
 include("extensions/vehicles.lua")
 include("extensions/explosions.lua")
