@@ -1,4 +1,5 @@
 VEHICLES = {}
+
 function VehiclesAddToTable(name,hash,codename,class,fullname,maker)
 	VEHICLES[name] = {
 		Hash = hash,
@@ -10,830 +11,830 @@ function VehiclesAddToTable(name,hash,codename,class,fullname,maker)
 	VEHICLES[hash] = name
 end
 
-VehiclesAddToTable("ADDER",0xB779A091,"ADDER","Super","Adder","Truffade")
-VehiclesAddToTable("AIRBUS",0x4C80EB0E,"AIRBUS","Service","Airport Bus","")
-VehiclesAddToTable("AIRTUG",0x5D0AAC8F,"AIRTUG","Utility","Airtug","")
-VehiclesAddToTable("AKUMA",0x63ABADE7,"AKUMA","Motorcycles","Akuma","Dinka")
-VehiclesAddToTable("ALPHA",0x2DB8D1AA,"ALPHA","Sports","Alpha","Albany")
-VehiclesAddToTable("AMBULANCE",0x45D56ADA,"AMBULAN","Emergency","Ambulance","")
-VehiclesAddToTable("ANNIHILATOR",0x31F0B376,"ANNIHL","Helicopters","Annihilator","")
-VehiclesAddToTable("ARMYTANKER",0xB8081009,"ARMYTRAILER","Utility","Army Trailer","")
-VehiclesAddToTable("ARMYTRAILER",0xA7FF33F5,"ARMYTRAILER","Utility","Army Trailer","")
-VehiclesAddToTable("ARMYTRAILER2",0x9E6B14D6,"ARMYTRAILER","Utility","Army Trailer","")
-VehiclesAddToTable("ASEA",0x94204D89,"ASEA","SUVs","Asea","Declasse")
-VehiclesAddToTable("ASEA2",0x9441D8D5,"ASEA","SUVs","Asea","Declasse")
-VehiclesAddToTable("ASTEROPE",0x8E9254FB,"ASTROPE","SUVs","Asterope","Karin")
-VehiclesAddToTable("BAGGER",0x806B9CC3,"BAGGER","Motorcycles","Bagger","Western")
-VehiclesAddToTable("BALETRAILER",0xE82AE656,"BALETRAILER","Utility","Baletrailer","")
-VehiclesAddToTable("BALLER",0xCFCA3668,"BALLER","Sedans","Baller","Gallivanter")
-VehiclesAddToTable("BALLER2",0x8852855,"BALLER2","Sedans","Baller","Gallivanter")
-VehiclesAddToTable("BALLER3",0x6FF0F727,"BALLER3","Sedans","Baller LE","Gallivanter")
-VehiclesAddToTable("BALLER4",0x25CBE2E2,"BALLER4","Sedans","Baller LE LWB","Gallivanter")
-VehiclesAddToTable("BALLER5",0x1C09CF5E,"BALLER5","Sedans","Baller LE (Armored)","Gallivanter")
-VehiclesAddToTable("BALLER6",0x27B4E6B0,"BALLER6","Sedans","Baller LE LWB (Armored)","Gallivanter")
-VehiclesAddToTable("BANSHEE",0xC1E908D2,"BANSHEE","Sports","Banshee","Bravado")
-VehiclesAddToTable("BARRACKS",0xCEEA3F4B,"BARRACKS","Military","Barracks","")
-VehiclesAddToTable("BARRACKS2",0x4008EABB,"BARRACKS2","Military","Barracks Semi","HVY")
-VehiclesAddToTable("BARRACKS3",0x2592B5CF,"BARRACKS","Military","Barracks","")
-VehiclesAddToTable("BATI",0xF9300CC5,"BATI","Motorcycles","Bati 801","Pegassi")
-VehiclesAddToTable("BATI2",0xCADD5D2D,"BATI2","Motorcycles","Bati 801RR","Pegassi")
-VehiclesAddToTable("BENSON",0x7A61B330,"BENSON","Commercial","Benson","Vapid")
-VehiclesAddToTable("BESRA",0x6CBD1D6D,"BESRA","Airplanes","Besra","Western")
-VehiclesAddToTable("BFINJECTION",0x432AA566,"BFINJECT","Off-Road","Injection","BF")
-VehiclesAddToTable("BIFF",0x32B91AE8,"BIFF","Commercial","Biff","HVY")
-VehiclesAddToTable("BIFTA",0xEB298297,"BIFTA","Off-Road","Bifta","BF")
-VehiclesAddToTable("BISON",0xFEFD644F,"BISON","Vans/Pickups","Bison","Bravado")
-VehiclesAddToTable("BISON2",0x7B8297C5,"BISON","Vans/Pickups","Bison","Bravado")
-VehiclesAddToTable("BISON3",0x67B3F020,"BISON","Vans/Pickups","Bison","Bravado")
-VehiclesAddToTable("BJXL",0x32B29A4B,"BJXL","Sedans","BeeJay XL","Karin")
-VehiclesAddToTable("BLADE",0xB820ED5E,"BLADE","Muscle","Blade","Vapid")
-VehiclesAddToTable("BLAZER",0x8125BCF9,"BLAZER","Off-Road","Blazer","Nagasaki")
-VehiclesAddToTable("BLAZER2",0xFD231729,"BLAZER2","Off-Road","Blazer Lifeguard","Nagasaki")
-VehiclesAddToTable("BLAZER3",0xB44F0582,"BLAZER03","Off-Road","Hot Rod Blazer","Nagasaki")
-VehiclesAddToTable("BLIMP",0xF7004C86,"BLIMP","Airplanes","Atomic Blimp","")
-VehiclesAddToTable("BLIMP2",0xDB6B4924,"BLIMP2","Airplanes","Xero Blimp","")
-VehiclesAddToTable("BLISTA",0xEB70965F,"BLISTA","Compacts","Blista","Dinka")
-VehiclesAddToTable("BLISTA2",0x3DEE5EDA,"BLISTA2","Sports","Blista Compact","Dinka")
-VehiclesAddToTable("BLISTA3",0xDCBC1C3B,"BLISTA3","Sports","Go Go Monkey Blista","Dinka")
-VehiclesAddToTable("BMX",0x43779C54,"BMX","Bicycles","BMX","")
-VehiclesAddToTable("BOATTRAILER",0x1F3D44B5,"BOATTRAILER","Utility","Boat Trailer","")
-VehiclesAddToTable("BOBCATXL",0x3FC5D440,"BOBCATXL","Vans/Pickups","Bobcat XL","Vapid")
-VehiclesAddToTable("BODHI2",0xAA699BB6,"BODHI2","Off-Road","Bodhi","Canis")
-VehiclesAddToTable("BOXVILLE",0x898ECCEA,"BOXVILLE","Vans/Pickups","Boxville","")
-VehiclesAddToTable("BOXVILLE2",0xF21B33BE,"BOXVILLE","Vans/Pickups","Boxville","")
-VehiclesAddToTable("BOXVILLE3",0x7405E08,"BOXVILLE","Vans/Pickups","Boxville","Brute")
-VehiclesAddToTable("BOXVILLE4",0x1A79847A,"BOXVILLE","Vans/Pickups","Boxville","Brute")
-VehiclesAddToTable("BRAWLER",0xA7CE1BC5,"BRAWLER","Off-Road","Brawler","Coil")
-VehiclesAddToTable("BTYPE",0x6FF6914,"ROOSEVELT","Sports Classics","Roosevelt","Albany")
-VehiclesAddToTable("BTYPE2",0xCE6B35A4,"BTYPE2","Sports Classics","Fränken Stange","Albany")
-VehiclesAddToTable("BUCCANEER",0xD756460C,"BUCCANEE","Muscle","Buccaneer","Albany")
-VehiclesAddToTable("BUCCANEER2",0xC397F748,"BUCCANEE2","Muscle","Buccaneer Custom","Albany")
-VehiclesAddToTable("BUFFALO",0xEDD516C6,"BUFFALO","Sports","Buffalo","Bravado")
-VehiclesAddToTable("BUFFALO2",0x2BEC3CBE,"BUFFALO02","Sports","Buffalo S","Bravado")
-VehiclesAddToTable("BUFFALO3",0xE2C013E,"BUFFALO3","Sports","Sprunk Buffalo","Bravado")
-VehiclesAddToTable("BULLDOZER",0x7074F39D,"BULLDOZE","Industrial","Dozer","HVY")
-VehiclesAddToTable("BULLET",0x9AE6DDA1,"BULLET","Super","Bullet","Vapid")
-VehiclesAddToTable("BURRITO",0xAFBB2CA4,"BURRITO","Vans/Pickups","Burrito","Declasse")
-VehiclesAddToTable("BURRITO2",0xC9E8FF76,"BURRITO","Vans/Pickups","Burrito","Declasse")
-VehiclesAddToTable("BURRITO3",0x98171BD3,"BURRITO","Vans/Pickups","Burrito","Declasse")
-VehiclesAddToTable("BURRITO4",0x353B561D,"BURRITO","Vans/Pickups","Burrito","Declasse")
-VehiclesAddToTable("BURRITO5",0x437CF2A0,"BURRITO","Vans/Pickups","Burrito","Declasse")
-VehiclesAddToTable("BUS",0xD577C962,"BUS","Service","Bus","")
-VehiclesAddToTable("BUZZARD",0x2F03547B,"BUZZARD","Helicopters","Buzzard Attack Chopper","")
-VehiclesAddToTable("BUZZARD2",0x2C75F0DD,"BUZZARD2","Helicopters","Buzzard","")
-VehiclesAddToTable("CABLECAR",0xC6C3242D,"CABLECAR","Trains","Cable Car","")
-VehiclesAddToTable("CADDY",0x44623884,"CADDY","Utility","Caddy","")
-VehiclesAddToTable("CADDY2",0xDFF0594C,"CADDY","Utility","Caddy","")
-VehiclesAddToTable("CAMPER",0x6FD95F68,"CAMPER","Vans/Pickups","Camper","Brute")
-VehiclesAddToTable("CARBONIZZARE",0x7B8AB45F,"CARBONIZ","Sports","Carbonizzare","Grotti")
-VehiclesAddToTable("CARBONRS",0xABB0C0,"CARBON","Motorcycles","Carbon RS","Nagasaki")
-VehiclesAddToTable("CARGOBOB",0xFCFCB68B,"CARGOBOB","Helicopters","Cargobob","")
-VehiclesAddToTable("CARGOBOB2",0x60A7EA10,"CARGOBOB","Helicopters","Cargobob","")
-VehiclesAddToTable("CARGOBOB3",0x53174EEF,"CARGOBOB","Helicopters","Cargobob","")
-VehiclesAddToTable("CARGOBOB4",0x78BC1A3C,"CARGOBOB","Helicopters","Cargobob","")
-VehiclesAddToTable("CARGOPLANE",0x15F27762,"CARGOPL","Airplanes","Cargo Plane","")
-VehiclesAddToTable("CASCO",0x3822BDFE,"CASCO","Sports Classics","Casco","Lampadati")
-VehiclesAddToTable("CAVALCADE",0x779F23AA,"CAVCADE","Sedans","Cavalcade","Albany")
-VehiclesAddToTable("CAVALCADE2",0xD0EB2BE5,"CAVCADE","Sedans","Cavalcade","Albany")
-VehiclesAddToTable("CHEETAH",0xB1D95DA0,"CHEETAH","Super","Cheetah","Grotti")
-VehiclesAddToTable("CHINO",0x14D69010,"CHINO","Muscle","Chino","Vapid")
-VehiclesAddToTable("CHINO2",0xAED64A63,"CHINO2","Muscle","Chino Custom","Vapid")
-VehiclesAddToTable("COACH",0x84718D34,"COACH","Service","Dashound","")
-VehiclesAddToTable("COG55",0x360A438E,"COG55","SUVs","Cognoscenti 55","Enus")
-VehiclesAddToTable("COG552",0x29FCD3E4,"COG552","SUVs","Cognoscenti 55 (Armored)","Enus")
-VehiclesAddToTable("COGCABRIO",0x13B57D8A,"COGCABRI","Coupes","Cognoscenti Cabrio","Enus")
-VehiclesAddToTable("COGNOSCENTI",0x86FE0B60,"COGNOSC","SUVs","Cognoscenti","Enus")
-VehiclesAddToTable("COGNOSCENTI2",0xDBF2D57A,"COGNOSC2","SUVs","Cognoscenti (Armored)","Enus")
-VehiclesAddToTable("COMET2",0xC1AE4D16,"COMET2","Sports","Comet","Pfister")
-VehiclesAddToTable("COQUETTE",0x67BC037,"COQUETTE","Sports","Coquette","Invetero")
-VehiclesAddToTable("COQUETTE2",0x3C4E2113,"COQUETTE2","Sports Classics","Coquette Classic","Invetero")
-VehiclesAddToTable("COQUETTE3",0x2EC385FE,"COQUETTE3","Muscle","Coquette BlackFin","Invetero")
-VehiclesAddToTable("CRUISER",0x1ABA13B5,"CRUISER","Bicycles","Cruiser","")
-VehiclesAddToTable("CRUSADER",0x132D5A1A,"CRUSADER","Military","Crusader","Canis")
-VehiclesAddToTable("CUBAN800",0xD9927FE3,"CUBAN800","Airplanes","Cuban 800","")
-VehiclesAddToTable("CUTTER",0xC3FBA120,"CUTTER","Industrial","Cutter","HVY")
-VehiclesAddToTable("DAEMON",0x77934CEE,"DAEMON","Motorcycles","Daemon","Western")
-VehiclesAddToTable("DILETTANTE",0xBC993509,"DILETTAN","Compacts","Dilettante","Karin")
-VehiclesAddToTable("DILETTANTE2",0x64430650,"DILETTAN","Compacts","Dilettante","Karin")
-VehiclesAddToTable("DINGHY",0x3D961290,"DINGHY","Boats","Dinghy","Nagasaki")
-VehiclesAddToTable("DINGHY2",0x107F392C,"DINGHY","Boats","Dinghy","Nagasaki")
-VehiclesAddToTable("DINGHY3",0x1E5E54EA,"DINGHY","Boats","Dinghy","Nagasaki")
-VehiclesAddToTable("DINGHY4",0x33B47F96,"DINGHY","Boats","Dinghy","Nagasaki")
-VehiclesAddToTable("DLOADER",0x698521E3,"DLOADER","Off-Road","Duneloader","Bravado")
-VehiclesAddToTable("DOCKTRAILER",0x806EFBEE,"DOCKTRAILER","Utility","NULL","")
-VehiclesAddToTable("DOCKTUG",0xCB44B1CA,"DOCKTUG","Utility","Docktug","")
-VehiclesAddToTable("DODO",0xCA495705,"DODO","Airplanes","Dodo","Mammoth")
-VehiclesAddToTable("DOMINATOR",0x4CE68AC,"DOMINATO","Muscle","Dominator","Vapid")
-VehiclesAddToTable("DOMINATOR2",0xC96B73D9,"DOMINATO2","Muscle","Pisswasser Dominator","Vapid")
-VehiclesAddToTable("DOUBLE",0x9C669788,"DOUBLE","Motorcycles","Double-T","Dinka")
-VehiclesAddToTable("DUBSTA",0x462FE277,"DUBSTA","Sedans","Dubsta","Benefactor")
-VehiclesAddToTable("DUBSTA2",0xE882E5F6,"DUBSTA","Sedans","Dubsta","Benefactor")
-VehiclesAddToTable("DUBSTA3",0xB6410173,"DUBSTA3","Off-Road","Dubsta 6x6","Benefactor")
-VehiclesAddToTable("DUKES",0x2B26F456,"DUKES","Muscle","Dukes","Imponte")
-VehiclesAddToTable("DUKES2",0xEC8F7094,"DUKES2","Muscle","Duke O'Death","Imponte")
-VehiclesAddToTable("DUMP",0x810369E2,"DUMP","Industrial","Dump","HVY")
-VehiclesAddToTable("DUNE",0x9CF21E0F,"DUNE","Off-Road","Dune Buggy","BF")
-VehiclesAddToTable("DUNE2",0x1FD824AF,"DUNE2","Off-Road","Space Docker","")
-VehiclesAddToTable("DUSTER",0x39D6779E,"DUSTER","Airplanes","Duster","")
-VehiclesAddToTable("ELEGY2",0xDE3D9D22,"ELEGY2","Sports","Elegy RH8","Annis")
-VehiclesAddToTable("EMPEROR",0xD7278283,"EMPEROR","SUVs","Emperor","Albany")
-VehiclesAddToTable("EMPEROR2",0x8FC3AADC,"EMPEROR","SUVs","Emperor","Albany")
-VehiclesAddToTable("EMPEROR3",0xB5FCF74E,"EMPEROR","SUVs","Emperor","Albany")
-VehiclesAddToTable("ENDURO",0x6882FA73,"ENDURO","Motorcycles","Enduro","Dinka")
-VehiclesAddToTable("ENTITYXF",0xB2FE5CF9,"ENTITYXF","Super","Entity XF","Overflod")
-VehiclesAddToTable("EXEMPLAR",0xFFB15B5E,"EXEMPLAR","Coupes","Exemplar","Dewbauchee")
-VehiclesAddToTable("F620",0xDCBCBE48,"F620","Coupes","F620","Ocelot")
-VehiclesAddToTable("FACTION",0x81A9CDDF,"FACTION","Muscle","Faction","Willard")
-VehiclesAddToTable("FACTION2",0x95466BDB,"FACTION2","Muscle","Faction Custom","Willard")
-VehiclesAddToTable("FAGGIO2",0x350D1AB,"FAGGIO","Motorcycles","Faggio","Pegassi")
-VehiclesAddToTable("FBI",0x432EA949,"FBI","Emergency","FIB","")
-VehiclesAddToTable("FBI2",0x9DC66994,"FBI2","Emergency","FIB","")
-VehiclesAddToTable("FELON",0xE8A8BDA8,"FELON","Coupes","Felon","Lampadati")
-VehiclesAddToTable("FELON2",0xFAAD85EE,"FELON2","Coupes","Felon GT","Lampadati")
-VehiclesAddToTable("FELTZER2",0x8911B9F5,"FELTZER","Sports","Feltzer","Benefactor")
-VehiclesAddToTable("FELTZER3",0xA29D6D10,"FELTZER3","Sports Classics","Stirling GT","Benefactor")
-VehiclesAddToTable("FIRETRUK",0x73920F8E,"FIRETRUK","Emergency","Fire Truck","")
-VehiclesAddToTable("FIXTER",0xCE23D3BF,"FIXTER","Bicycles","Fixter","")
-VehiclesAddToTable("FLATBED",0x50B0215A,"FLATBED","Industrial","Flatbed","MTL")
-VehiclesAddToTable("FORKLIFT",0x58E49664,"FORK","Utility","Forklift","HVY")
-VehiclesAddToTable("FQ2",0xBC32A33B,"FQ2","Sedans","FQ 2","Fathom")
-VehiclesAddToTable("FREIGHT",0x3D6AAA9B,"FREIGHT","Trains","Freight Train","")
-VehiclesAddToTable("FREIGHTCAR",0xAFD22A6,"FREIGHT","Trains","Freight Train","")
-VehiclesAddToTable("FREIGHTCONT1",0x36DCFF98,"FREIGHT","Trains","Freight Train","")
-VehiclesAddToTable("FREIGHTCONT2",0xE512E79,"FREIGHT","Trains","Freight Train","")
-VehiclesAddToTable("FREIGHTGRAIN",0x264D9262,"FREIGHT","Trains","Freight Train","")
-VehiclesAddToTable("FREIGHTTRAILER",0xD1ABB666,"FREIGHTTRAILER","Utility","NULL","")
-VehiclesAddToTable("FROGGER",0x2C634FBD,"FROGGER","Helicopters","Frogger","")
-VehiclesAddToTable("FROGGER2",0x742E9AC0,"FROGGER","Helicopters","Frogger","")
-VehiclesAddToTable("FUGITIVE",0x71CB2FFB,"FUGITIVE","SUVs","Fugitive","Cheval")
-VehiclesAddToTable("FUROREGT",0xBF1691E0,"FURORE","Sports","Furore GT","Lampadati")
-VehiclesAddToTable("FUSILADE",0x1DC0BA53,"FUSILADE","Sports","Fusilade","Schyster")
-VehiclesAddToTable("FUTO",0x7836CE2F,"FUTO","Sports","Futo","Karin")
-VehiclesAddToTable("GAUNTLET",0x94B395C5,"GAUNTLET","Muscle","Gauntlet","Bravado")
-VehiclesAddToTable("GAUNTLET2",0x14D22159,"GAUNTLET2","Muscle","Redwood Gauntlet","Bravado")
-VehiclesAddToTable("GBURRITO",0x97FA4F36,"GBURRITO","Vans/Pickups","Gang Burrito","Declasse")
-VehiclesAddToTable("GBURRITO2",0x11AA0E14,"GBURRITO2","Vans/Pickups","Gang Burrito","Declasse")
-VehiclesAddToTable("GLENDALE",0x47A6BC1,"GLENDALE","SUVs","Glendale","Benefactor")
-VehiclesAddToTable("GRAINTRAILER",0x3CC7F596,"GRAINTRAILER","Utility","Graintrailer","")
-VehiclesAddToTable("GRANGER",0x9628879C,"GRANGER","Sedans","Granger","Declasse")
-VehiclesAddToTable("GRESLEY",0xA3FC0F4D,"GRESLEY","Sedans","Gresley","Bravado")
-VehiclesAddToTable("GUARDIAN",0x825A9F4C,"GUARDIAN","Industrial","Guardian","Vapid")
-VehiclesAddToTable("HABANERO",0x34B7390F,"HABANERO","Sedans","Habanero","Emperor")
-VehiclesAddToTable("HAKUCHOU",0x4B6C568A,"HAKUCHOU","Motorcycles","Hakuchou","Shitzu")
-VehiclesAddToTable("HANDLER",0x1A7FCEFA,"HANDLER","Industrial","Dock Handler","")
-VehiclesAddToTable("HAULER",0x5A82F9AE,"HAULER","Commercial","Hauler","Jobuilt")
-VehiclesAddToTable("HEXER",0x11F76C14,"HEXER","Motorcycles","Hexer","LCC")
-VehiclesAddToTable("HOTKNIFE",0x239E390,"HOTKNIFE","Muscle","Hotknife","Vapid")
-VehiclesAddToTable("HUNTLEY",0x1D06D681,"HUNTLEY","Sedans","Huntley S","Enus")
-VehiclesAddToTable("HYDRA",0x39D6E83F,"HYDRA","Airplanes","Hydra","Mammoth")
-VehiclesAddToTable("INFERNUS",0x18F25AC7,"INFERNUS","Super","Infernus","Pegassi")
-VehiclesAddToTable("INGOT",0xB3206692,"INGOT","SUVs","Ingot","Vulcar")
-VehiclesAddToTable("INNOVATION",0xF683EACA,"INNOVATION","Motorcycles","Innovation","LCC")
-VehiclesAddToTable("INSURGENT",0x9114EADA,"INSURGENT","Off-Road","Insurgent Pick-Up","HVY")
-VehiclesAddToTable("INSURGENT2",0x7B7E56F0,"INSURGENT2","Off-Road","Insurgent","HVY")
-VehiclesAddToTable("INTRUDER",0x34DD8AA1,"INTRUDER","SUVs","Intruder","Karin")
-VehiclesAddToTable("ISSI2",0xB9CB3B69,"ISSI2","Compacts","Issi","Weeny")
-VehiclesAddToTable("JACKAL",0xDAC67112,"JACKAL","Coupes","Jackal","Ocelot")
-VehiclesAddToTable("JB700",0x3EAB5555,"JB700","Sports Classics","JB 700","Dewbauchee")
-VehiclesAddToTable("JESTER",0xB2A716A3,"JESTER","Sports","Jester","Dinka")
-VehiclesAddToTable("JESTER2",0xBE0E6126,"JESTER2","Sports","Jester (Racecar)","Dinka")
-VehiclesAddToTable("JET",0x3F119114,"JET","Airplanes","Jet","")
-VehiclesAddToTable("JETMAX",0x33581161,"JETMAX","Boats","Jetmax","Shitzu")
-VehiclesAddToTable("JOURNEY",0xF8D48E7A,"JOURNEY","Vans/Pickups","Journey","Zirconium")
-VehiclesAddToTable("KALAHARI",0x5852838,"KALAHARI","Off-Road","Kalahari","Canis")
-VehiclesAddToTable("KHAMELION",0x206D1B68,"KHAMEL","Sports","Khamelion","Hijak")
-VehiclesAddToTable("KURUMA",0xAE2BFE94,"KURUMA","Sports","Kuruma","Karin")
-VehiclesAddToTable("KURUMA2",0x187D938D,"KURUMA2","Sports","Kuruma (Armored)","Karin")
-VehiclesAddToTable("LANDSTALKER",0x4BA4E8DC,"LANDSTAL","Sedans","Landstalker","Dundreary")
-VehiclesAddToTable("LAZER",0xB39B0AE6,"LAZER","Airplanes","P-996 LAZER","")
-VehiclesAddToTable("LECTRO",0x26321E67,"LECTRO","Motorcycles","Lectro","Principe")
-VehiclesAddToTable("LGUARD",0x1BF8D381,"LGUARD","Emergency","Lifeguard","")
-VehiclesAddToTable("LIMO2",0xF92AEC4D,"LIMO2","SUVs","Turreted Limo","Benefactor")
-VehiclesAddToTable("LURCHER",0x7B47A6A7,"LURCHER","Muscle","Lurcher","Albany")
-VehiclesAddToTable("LUXOR",0x250B0C5E,"LUXOR","Airplanes","Luxor","Buckingham")
-VehiclesAddToTable("LUXOR2",0xB79F589E,"LUXOR2","Airplanes","Luxor Deluxe","Buckingham")
-VehiclesAddToTable("MAMBA",0x9CFFFC56,"MAMBA","Sports Classics","Mamba","Declasse")
-VehiclesAddToTable("MAMMATUS",0x97E55D11,"MAMMATUS","Airplanes","Mammatus","")
-VehiclesAddToTable("MANANA",0x81634188,"MANANA","Sports Classics","Manana","Albany")
-VehiclesAddToTable("MARQUIS",0xC1CE1183,"MARQUIS","Boats","Marquis","Dinka")
-VehiclesAddToTable("MARSHALL",0x49863E9C,"MARSHALL","Off-Road","Marshall","Cheval")
-VehiclesAddToTable("MASSACRO",0xF77ADE32,"MASSACRO","Sports","Massacro","Dewbauchee")
-VehiclesAddToTable("MASSACRO2",0xDA5819A3,"MASSACRO2","Sports","Massacro (Racecar)","Dewbauchee")
-VehiclesAddToTable("MAVERICK",0x9D0450CA,"MAVERICK","Helicopters","Maverick","")
-VehiclesAddToTable("MESA",0x36848602,"MESA","Sedans","Mesa","Canis")
-VehiclesAddToTable("MESA2",0xD36A4B44,"MESA","Sedans","Mesa","Canis")
-VehiclesAddToTable("MESA3",0x84F42E51,"MESA","Off-Road","Mesa","Canis")
-VehiclesAddToTable("METROTRAIN",0x33C9E158,"FREIGHT","Trains","Freight Train","")
-VehiclesAddToTable("MILJET",0x9D80F93,"MILJET","Airplanes","Miljet","Buckingham")
-VehiclesAddToTable("MINIVAN",0xED7EADA4,"MINIVAN","Vans/Pickups","Minivan","Vapid")
-VehiclesAddToTable("MIXER",0xD138A6BB,"MIXER","Industrial","Mixer","HVY")
-VehiclesAddToTable("MIXER2",0x1C534995,"MIXER2","Industrial","Mixer","HVY")
-VehiclesAddToTable("MONROE",0xE62B361B,"MONROE","Sports Classics","Monroe","Pegassi")
-VehiclesAddToTable("MONSTER",0xCD93A7DB,"MONSTER","Off-Road","Liberator","Vapid")
-VehiclesAddToTable("MOONBEAM",0x1F52A43F,"MOONBEAM","Muscle","Moonbeam","Declasse")
-VehiclesAddToTable("MOONBEAM2",0x710A2B9B,"MOONBEAM2","Muscle","Moonbeam Custom","Declasse")
-VehiclesAddToTable("MOWER",0x6A4BD8F6,"MOWER","Utility","Lawn Mower","")
-VehiclesAddToTable("MULE",0x35ED670B,"MULE","Commercial","Mule","Maibatsu")
-VehiclesAddToTable("MULE2",0xC1632BEB,"MULE","Commercial","Mule","Maibatsu")
-VehiclesAddToTable("MULE3",0x85A5B471,"MULE","Commercial","Mule","Maibatsu")
-VehiclesAddToTable("NEMESIS",0xDA288376,"NEMESIS","Motorcycles","Nemesis","Principe")
-VehiclesAddToTable("NIGHTSHADE",0x8C2BD0DC,"NITESHAD","Muscle","Nightshade","Imponte")
-VehiclesAddToTable("NINEF",0x3D8FA25C,"NINEF","Sports","9F","Obey")
-VehiclesAddToTable("NINEF2",0xA8E38B01,"NINEF2","Sports","9F Cabrio","Obey")
-VehiclesAddToTable("ORACLE",0x506434F6,"ORACLE2","Coupes","Oracle XS","Ubermacht")
-VehiclesAddToTable("ORACLE2",0xE18195B2,"ORACLE","Coupes","Oracle","Ubermacht")
-VehiclesAddToTable("OSIRIS",0x767164D6,"OSIRIS","Super","Osiris","Pegassi")
-VehiclesAddToTable("PACKER",0x21EEE87D,"PACKER","Commercial","Packer","MTL")
-VehiclesAddToTable("PANTO",0xE644E480,"PANTO","Compacts","Panto","Benefactor")
-VehiclesAddToTable("PARADISE",0x58B3979C,"PARADISE","Vans/Pickups","Paradise","Bravado")
-VehiclesAddToTable("PATRIOT",0xCFCFEB3B,"PATRIOT","Sedans","Patriot","Mammoth")
-VehiclesAddToTable("PBUS",0x885F3671,"PBUS","Emergency","Prison Bus","")
-VehiclesAddToTable("PCJ",0xC9CEAF06,"PCJ","Motorcycles","PCJ 600","Shitzu")
-VehiclesAddToTable("PENUMBRA",0xE9805550,"PENUMBRA","Sports","Penumbra","Maibatsu")
-VehiclesAddToTable("PEYOTE",0x6D19CCBC,"PEYOTE","Sports Classics","Peyote","Vapid")
-VehiclesAddToTable("PHANTOM",0x809AA4CB,"PHANTOM","Commercial","Phantom","Jobuilt")
-VehiclesAddToTable("PHOENIX",0x831A21D5,"PHOENIX","Muscle","Phoenix","Imponte")
-VehiclesAddToTable("PICADOR",0x59E0FBF3,"PICADOR","Muscle","Picador","Cheval")
-VehiclesAddToTable("PIGALLE",0x404B6381,"PIGALLE","Sports Classics","Pigalle","Lampadati")
-VehiclesAddToTable("POLICE",0x79FBB0C5,"POLICE","Emergency","Police Cruiser","")
-VehiclesAddToTable("POLICE2",0x9F05F101,"POLICE2","Emergency","Police Cruiser","")
-VehiclesAddToTable("POLICE3",0x71FA16EA,"POLICE","Emergency","Police Cruiser","")
-VehiclesAddToTable("POLICE4",0x8A63C7B9,"POLICE4","Emergency","Unmarked Cruiser","")
-VehiclesAddToTable("POLICEB",0xFDEFAEC3,"POLICEB","Emergency","Police Bike","")
-VehiclesAddToTable("POLICEOLD1",0xA46462F7,"POLICEO1","Emergency","Police Rancher","")
-VehiclesAddToTable("POLICEOLD2",0x95F4C618,"POLICEO2","Emergency","Police Roadcruiser","")
-VehiclesAddToTable("POLICET",0x1B38E955,"POLICET","Emergency","Police Transporter","")
-VehiclesAddToTable("POLMAV",0x1517D4D9,"POLMAV","Helicopters","Police Maverick","")
-VehiclesAddToTable("PONY",0xF8DE29A8,"PONY","Vans/Pickups","Pony","Brute")
-VehiclesAddToTable("PONY2",0x38408341,"PONY","Vans/Pickups","Pony","Brute")
-VehiclesAddToTable("POUNDER",0x7DE35E7D,"POUNDER","Commercial","Pounder","MTL")
-VehiclesAddToTable("PRAIRIE",0xA988D3A2,"PRAIRIE","Compacts","Prairie","Bollokan")
-VehiclesAddToTable("PRANGER",0x2C33B46E,"PRANGER","Emergency","Park Ranger","")
-VehiclesAddToTable("PREDATOR",0xE2E7D4AB,"PREDATOR","Boats","Police Predator","")
-VehiclesAddToTable("PREMIER",0x8FB66F9B,"PREMIER","SUVs","Premier","Declasse")
-VehiclesAddToTable("PRIMO",0xBB6B404F,"PRIMO","SUVs","Primo","Albany")
-VehiclesAddToTable("PRIMO2",0x86618EDA,"PRIMO2","SUVs","Primo Custom","Albany")
-VehiclesAddToTable("PROPTRAILER",0x153E1B0A,"PROPTRAILER","Utility","NULL","")
-VehiclesAddToTable("RADI",0x9D96B45B,"RADI","Sedans","Radius","Vapid")
-VehiclesAddToTable("RAKETRAILER",0x174CB172,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("RANCHERXL",0x6210CBB0,"RANCHERX","Off-Road","Rancher XL","Declasse")
-VehiclesAddToTable("RANCHERXL2",0x7341576B,"RANCHERX","Off-Road","Rancher XL","Declasse")
-VehiclesAddToTable("RAPIDGT",0x8CB29A14,"RAPIDGT","Sports","Rapid GT","Dewbauchee")
-VehiclesAddToTable("RAPIDGT2",0x679450AF,"RAPIDGT","Sports","Rapid GT","Dewbauchee")
-VehiclesAddToTable("RATLOADER",0xD83C13CE,"RLOADER","Muscle","Rat-Loader","")
-VehiclesAddToTable("RATLOADER2",0xDCE1D9F7,"RLOADER2","Muscle","Rat-Truck","Bravado")
-VehiclesAddToTable("REBEL",0xB802DD46,"REBEL01","Off-Road","Rusty Rebel","Karin")
-VehiclesAddToTable("REBEL2",0x8612B64B,"REBEL02","Off-Road","Rebel","Karin")
-VehiclesAddToTable("REGINA",0xFF22D208,"REGINA","SUVs","Regina","Dundreary")
-VehiclesAddToTable("RENTALBUS",0xBE819C63,"RENTBUS","Service","Rental Shuttle Bus","")
-VehiclesAddToTable("RHAPSODY",0x322CF98F,"RHAPSODY","Compacts","Rhapsody","Declasse")
-VehiclesAddToTable("RHINO",0x2EA68690,"RHINO","Military","Rhino Tank","")
-VehiclesAddToTable("RIOT",0xB822A1AA,"RIOT","Emergency","Police Riot","")
-VehiclesAddToTable("RIPLEY",0xCD935EF9,"RIPLEY","Utility","Ripley","")
-VehiclesAddToTable("ROCOTO",0x7F5C91F1,"ROCOTO","Sedans","Rocoto","Obey")
-VehiclesAddToTable("ROMERO",0x2560B2FC,"ROMERO","SUVs","Romero Hearse","Chariot")
-VehiclesAddToTable("RUBBLE",0x9A5B1DCC,"RUBBLE","Industrial","Rubble","Jobuilt")
-VehiclesAddToTable("RUFFIAN",0xCABD11E8,"RUFFIAN","Motorcycles","Ruffian","Pegassi")
-VehiclesAddToTable("RUINER",0xF26CEFF9,"RUINER","Muscle","Ruiner","Imponte")
-VehiclesAddToTable("RUMPO",0x4543B74D,"RUMPO","Vans/Pickups","Rumpo","Bravado")
-VehiclesAddToTable("RUMPO2",0x961AFEF7,"RUMPO","Vans/Pickups","Rumpo","Bravado")
-VehiclesAddToTable("SABREGT",0x9B909C94,"SABREGT","Muscle","Sabre Turbo","Declasse")
-VehiclesAddToTable("SADLER",0xDC434E51,"SADLER","Utility","Sadler","Vapid")
-VehiclesAddToTable("SADLER2",0x2BC345D1,"SADLER","Utility","Sadler","Vapid")
-VehiclesAddToTable("SANCHEZ",0x2EF89E46,"SANCHEZ01","Motorcycles","Sanchez (livery)","Maibatsu")
-VehiclesAddToTable("SANCHEZ2",0xA960B13E,"SANCHEZ02","Motorcycles","Sanchez","Maibatsu")
-VehiclesAddToTable("SANDKING",0xB9210FD0,"SANDKING","Off-Road","Sandking XL","Vapid")
-VehiclesAddToTable("SANDKING2",0x3AF8C345,"SANDKIN2","Off-Road","Sandking SWB","Vapid")
-VehiclesAddToTable("SAVAGE",0xFB133A17,"SAVAGE","Helicopters","Savage","")
-VehiclesAddToTable("SCHAFTER2",0xB52B5113,"SCHAFTER","SUVs","Schafter","Benefactor")
-VehiclesAddToTable("SCHAFTER3",0xA774B5A6,"SCHAFTER3","Sports","Schafter V12","Benefactor")
-VehiclesAddToTable("SCHAFTER4",0x58CF185C,"SCHAFTER4","Sports","Schafter LWB","Benefactor")
-VehiclesAddToTable("SCHAFTER5",0xCB0E7CD9,"SCHAFTER5","SUVs","Schafter V12 (Armored)","Benefactor")
-VehiclesAddToTable("SCHAFTER6",0x72934BE4,"SCHAFTER6","SUVs","Schafter LWB (Armored)","Benefactor")
-VehiclesAddToTable("SCHWARZER",0xD37B7976,"SCHWARZE","Sports","Schwartzer","Benefactor")
-VehiclesAddToTable("SCORCHER",0xF4E1AA15,"SCORCHER","Bicycles","Scorcher","")
-VehiclesAddToTable("SCRAP",0x9A9FD3DF,"SCRAP","Utility","Scrap Truck","")
-VehiclesAddToTable("SEASHARK",0xC2974024,"SEASHARK","Boats","Seashark","Speedophile")
-VehiclesAddToTable("SEASHARK2",0xDB4388E4,"SEASHARK","Boats","Seashark","Speedophile")
-VehiclesAddToTable("SEASHARK3",0xED762D49,"SEASHARK","Boats","Seashark","Speedophile")
-VehiclesAddToTable("SEMINOLE",0x48CECED3,"SEMINOLE","Sedans","Seminole","Canis")
-VehiclesAddToTable("SENTINEL",0x50732C82,"SENTINEL","Coupes","Sentinel XS","Ubermacht")
-VehiclesAddToTable("SENTINEL2",0x3412AE2D,"SENTINEL2","Coupes","Sentinel","Ubermacht")
-VehiclesAddToTable("SERRANO",0x4FB1A214,"SERRANO","Sedans","Serrano","Benefactor")
-VehiclesAddToTable("SHAMAL",0xB79C1BF5,"SHAMAL","Airplanes","Shamal","Buckingham")
-VehiclesAddToTable("SHERIFF",0x9BAA707C,"SHERIFF","Emergency","Sheriff Cruiser","")
-VehiclesAddToTable("SHERIFF2",0x72935408,"SHERIFF2","Emergency","Sheriff SUV","")
-VehiclesAddToTable("SKYLIFT",0x3E48BF23,"SKYLIFT","Helicopters","Skylift","")
-VehiclesAddToTable("SLAMVAN",0x2B7F9DE3,"SLAMVAN","Muscle","Slamvan","Vapid")
-VehiclesAddToTable("SLAMVAN2",0x31ADBBFC,"SLAMVAN2","Muscle","Lost Slamvan","Vapid")
-VehiclesAddToTable("SOVEREIGN",0x2C509634,"SOVEREIGN","Motorcycles","Sovereign","Western")
-VehiclesAddToTable("SPEEDER",0xDC60D2B,"SPEEDER","Boats","Speeder","Pegassi")
-VehiclesAddToTable("SPEEDER2",0x1A144F2A,"SPEEDER","Boats","Speeder","Pegassi")
-VehiclesAddToTable("SPEEDO",0xCFB3870C,"SPEEDO","Vans/Pickups","Speedo","Vapid")
-VehiclesAddToTable("SPEEDO2",0x2B6DC64A,"SPEEDO2","Vans/Pickups","Clown Van","Vapid")
-VehiclesAddToTable("SQUALO",0x17DF5EC2,"SQUALO","Boats","Squalo","Shitzu")
-VehiclesAddToTable("STALION",0x72A4C31E,"STALION","Muscle","Stallion","Declasse")
-VehiclesAddToTable("STALION2",0xE80F67EE,"STALION2","Muscle","Burger Shot Stallion","Declasse")
-VehiclesAddToTable("STANIER",0xA7EDE74D,"STANIER","SUVs","Stanier","Vapid")
-VehiclesAddToTable("STINGER",0x5C23AF9B,"STINGER","Sports Classics","Stinger","Grotti")
-VehiclesAddToTable("STINGERGT",0x82E499FA,"STINGERG","Sports Classics","Stinger GT","Grotti")
-VehiclesAddToTable("STOCKADE",0x6827CF72,"STOCKADE","Commercial","Stockade","Brute")
-VehiclesAddToTable("STOCKADE3",0xF337AB36,"STOCKADE","Commercial","Stockade","Brute")
-VehiclesAddToTable("STRATUM",0x66B4FC45,"STRATUM","SUVs","Stratum","Zirconium")
-VehiclesAddToTable("STRETCH",0x8B13F083,"STRETCH","SUVs","Stretch","Dundreary")
-VehiclesAddToTable("STUNT",0x81794C70,"STUNT","Airplanes","Mallard","")
-VehiclesAddToTable("SUBMERSIBLE",0x2DFF622F,"SUBMERS","Boats","Submersible","")
-VehiclesAddToTable("SUBMERSIBLE2",0xC07107EE,"SUBMERS2","Boats","Kraken","")
-VehiclesAddToTable("SULTAN",0x39DA2754,"SULTAN","Sports","Sultan","Karin")
-VehiclesAddToTable("SUNTRAP",0xEF2295C9,"SUNTRAP","Boats","Suntrap","Shitzu")
-VehiclesAddToTable("SUPERD",0x42F2ED16,"SUPERD","SUVs","Super Diamond","Enus")
-VehiclesAddToTable("SUPERVOLITO",0x2A54C47D,"SVOLITO","Helicopters","SuperVolito","Buckingham")
-VehiclesAddToTable("SUPERVOLITO2",0x9C5E5644,"SVOLITO2","Helicopters","SuperVolito Carbon","Buckingham")
-VehiclesAddToTable("SURANO",0x16E478C1,"SURANO","Sports","Surano","Benefactor")
-VehiclesAddToTable("SURFER",0x29B0DA97,"SURFER","Vans/Pickups","Surfer","BF")
-VehiclesAddToTable("SURFER2",0xB1D80E06,"SURFER2","Vans/Pickups","Surfer","BF")
-VehiclesAddToTable("SURGE",0x8F0E3594,"SURGE","SUVs","Surge","Cheval")
-VehiclesAddToTable("SWIFT",0xEBC24DF2,"SWIFT","Helicopters","Swift","Buckingham")
-VehiclesAddToTable("SWIFT2",0x4019CB4C,"SWIFT2","Helicopters","Swift Deluxe","Buckingham")
-VehiclesAddToTable("T20",0x6322B39A,"T20","Super","T20","Progen")
-VehiclesAddToTable("TACO",0x744CA80D,"TACO","Vans/Pickups","Taco Van","")
-VehiclesAddToTable("TAILGATER",0xC3DDFDCE,"TAILGATE","SUVs","Tailgater","Obey")
-VehiclesAddToTable("TAMPA",0x39F9C898,"TAMPA","Muscle","Tampa","Declasse")
-VehiclesAddToTable("TANKER",0xD46F4737,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("TANKER2",0x74998082,"TANKER","Utility","NULL","")
-VehiclesAddToTable("TANKERCAR",0x22EDDC30,"FREIGHT","Trains","Freight Train","")
-VehiclesAddToTable("TAXI",0xC703DB5F,"TAXI","Service","Taxi","")
-VehiclesAddToTable("TECHNICAL",0x83051506,"TECHNICAL","Off-Road","Technical","Karin")
-VehiclesAddToTable("THRUST",0x6D6F8F43,"THRUST","Motorcycles","Thrust","Dinka")
-VehiclesAddToTable("TIPTRUCK",0x2E19879,"TIPTRUCK","Industrial","Tipper","Brute")
-VehiclesAddToTable("TIPTRUCK2",0xC7824E5E,"TIPTRUCK2","Industrial","Tipper","")
-VehiclesAddToTable("TITAN",0x761E2AD3,"TITAN","Airplanes","Titan","")
-VehiclesAddToTable("TORNADO",0x1BB290BC,"TORNADO","Sports Classics","Tornado","Declasse")
-VehiclesAddToTable("TORNADO2",0x5B42A5C4,"TORNADO2","Sports Classics","Tornado","Declasse")
-VehiclesAddToTable("TORNADO3",0x690A4153,"TORNADO3","Sports Classics","Tornado","Declasse")
-VehiclesAddToTable("TORNADO4",0x86CF7CDD,"TORNADO","Sports Classics","Tornado","Declasse")
-VehiclesAddToTable("TORO",0x3FD5AA2F,"TORO","Boats","Toro","Lampadati")
-VehiclesAddToTable("TORO2",0x362CAC6D,"TORO","Boats","Toro","Lampadati")
-VehiclesAddToTable("TOURBUS",0x73B1C3CB,"TOURBUS","Service","Tourbus","")
-VehiclesAddToTable("TOWTRUCK",0xB12314E0,"TOWTRUCK","Utility","Towtruck","")
-VehiclesAddToTable("TOWTRUCK2",0xE5A2D6C6,"TOWTRUCK","Utility","Towtruck","")
-VehiclesAddToTable("TR2",0x7BE032C6,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("TR3",0x6A59902D,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("TR4",0x7CAB34D0,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("TRACTOR",0x61D6BA8C,"TRACTOR","Utility","Tractor","")
-VehiclesAddToTable("TRACTOR2",0x843B73DE,"TRACTOR2","Utility","Fieldmaster","Stanley")
-VehiclesAddToTable("TRACTOR3",0x562A97BD,"TRACTOR2","Utility","Fieldmaster","Stanley")
-VehiclesAddToTable("TRAILERLOGS",0x782A236D,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("TRAILERS",0xCBB2BE0E,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("TRAILERS2",0xA1DA3C91,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("TRAILERS3",0x8548036D,"TRAILERS3","Utility","Trailer","")
-VehiclesAddToTable("TRAILERSMALL",0x2A72BEAB,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("TRASH",0x72435A19,"TRASH","Service","Trashmaster","")
-VehiclesAddToTable("TRASH2",0xB527915C,"TRASH","Service","Trashmaster","")
-VehiclesAddToTable("TRFLAT",0xAF62F6B2,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("TRIBIKE",0x4339CD69,"TRIBIKE","Bicycles","Whippet Race Bike","")
-VehiclesAddToTable("TRIBIKE2",0xB67597EC,"TRIBIKE2","Bicycles","Endurex Race Bike","")
-VehiclesAddToTable("TRIBIKE3",0xE823FB48,"TRIBIKE3","Bicycles","Tri-Cycles Race Bike","")
-VehiclesAddToTable("TROPIC",0x1149422F,"TROPIC","Boats","Tropic","Shitzu")
-VehiclesAddToTable("TROPIC2",0x56590FE9,"TROPIC","Boats","Tropic","Shitzu")
-VehiclesAddToTable("TURISMOR",0x185484E1,"TURISMOR","Super","Turismo R","Grotti")
-VehiclesAddToTable("TVTRAILER",0x967620BE,"TRAILER","Utility","Trailer","")
-VehiclesAddToTable("UTILLITRUCK",0x1ED0A534,"UTILTRUC","Utility","Utility Truck","")
-VehiclesAddToTable("UTILLITRUCK2",0x34E6BF6B,"UTILTRUC","Utility","Utility Truck","")
-VehiclesAddToTable("UTILLITRUCK3",0x7F2153DF,"UTILTRUC","Utility","Utility Truck","")
-VehiclesAddToTable("VACCA",0x142E0DC3,"VACCA","Super","Vacca","Pegassi")
-VehiclesAddToTable("VADER",0xF79A00F7,"VADER","Motorcycles","Vader","Shitzu")
-VehiclesAddToTable("VALKYRIE",0xA09E15FD,"VALKYRIE","Helicopters","Valkyrie","")
-VehiclesAddToTable("VALKYRIE2",0x5BFA5C4B,"VALKYRI2","Helicopters","Valkyrie MOD.0","")
-VehiclesAddToTable("VELUM",0x9C429B6A,"VELUM","Airplanes","Velum","")
-VehiclesAddToTable("VELUM2",0x403820E8,"VELUM2","Airplanes","Velum 5-Seater","")
-VehiclesAddToTable("VERLIERER2",0x41B77FA4,"VERLIER","Sports","Verlierer","Bravado")
-VehiclesAddToTable("VESTRA",0x4FF77E37,"VESTRA","Airplanes","Vestra","Buckingham")
-VehiclesAddToTable("VIGERO",0xCEC6B9B7,"VIGERO","Muscle","Vigero","Declasse")
-VehiclesAddToTable("VINDICATOR",0xAF599F01,"VINDICATOR","Motorcycles","Vindicator","Dinka")
-VehiclesAddToTable("VIRGO",0xE2504942,"VIRGO","Muscle","Virgo","Albany")
-VehiclesAddToTable("VOLTIC",0x9F4B77BE,"VOLTIC","Super","Voltic","Coil")
-VehiclesAddToTable("VOODOO",0x779B4F2D,"VOODOO2","Muscle","Voodoo Custom","Declasse")
-VehiclesAddToTable("VOODOO2",0x1F3766E3,"VOODOO","Muscle","Voodoo","Declasse")
-VehiclesAddToTable("WARRENER",0x51D83328,"WARRENER","SUVs","Warrener","Vulcar")
-VehiclesAddToTable("WASHINGTON",0x69F06B57,"WASHINGT","SUVs","Washington","Albany")
-VehiclesAddToTable("WINDSOR",0x5E4327C8,"WINDSOR","Coupes","Windsor","Enus")
-VehiclesAddToTable("YOUGA",0x3E5F6B8,"YOUGA","Vans/Pickups","Youga","Bravado")
-VehiclesAddToTable("ZENTORNO",0xAC5DF515,"ZENTORNO","Super","Zentorno","Pegassi")
-VehiclesAddToTable("ZION",0xBD1B39C3,"ZION","Coupes","Zion","Ubermacht")
-VehiclesAddToTable("ZION2",0xB8E2AE18,"ZION2","Coupes","Zion Cabrio","Ubermacht")
-VehiclesAddToTable("ZTYPE",0x2D3BD401,"ZTYPE","Sports Classics","Z-Type","Truffade")
+VehiclesAddToTable("ADDER",-1216765807,"ADDER","Super","Adder","Truffade")
+VehiclesAddToTable("AIRBUS",1283517198,"AIRBUS","Service","Airport Bus","")
+VehiclesAddToTable("AIRTUG",1560980623,"AIRTUG","Utility","Airtug","")
+VehiclesAddToTable("AKUMA",1672195559,"AKUMA","Motorcycles","Akuma","Dinka")
+VehiclesAddToTable("ALPHA",767087018,"ALPHA","Sports","Alpha","Albany")
+VehiclesAddToTable("AMBULANCE",1171614426,"AMBULAN","Emergency","Ambulance","")
+VehiclesAddToTable("ANNIHILATOR",837858166,"ANNIHL","Helicopters","Annihilator","")
+VehiclesAddToTable("ARMYTANKER",-1207431159,"ARMYTRAILER","Utility","Army Trailer","")
+VehiclesAddToTable("ARMYTRAILER",-1476447243,"ARMYTRAILER","Utility","Army Trailer","")
+VehiclesAddToTable("ARMYTRAILER2",-1637149482,"ARMYTRAILER","Utility","Army Trailer","")
+VehiclesAddToTable("ASEA",-1809822327,"ASEA","SUVs","Asea","Declasse")
+VehiclesAddToTable("ASEA2",-1807623979,"ASEA","SUVs","Asea","Declasse")
+VehiclesAddToTable("ASTEROPE",-1903012613,"ASTROPE","SUVs","Asterope","Karin")
+VehiclesAddToTable("BAGGER",-2140431165,"BAGGER","Motorcycles","Bagger","Western")
+VehiclesAddToTable("BALETRAILER",-399841706,"BALETRAILER","Utility","Baletrailer","")
+VehiclesAddToTable("BALLER",-808831384,"BALLER","Sedans","Baller","Gallivanter")
+VehiclesAddToTable("BALLER2",142944341,"BALLER2","Sedans","Baller","Gallivanter")
+VehiclesAddToTable("BALLER3",1878062887,"BALLER3","Sedans","Baller LE","Gallivanter")
+VehiclesAddToTable("BALLER4",634118882,"BALLER4","Sedans","Baller LE LWB","Gallivanter")
+VehiclesAddToTable("BALLER5",470404958,"BALLER5","Sedans","Baller LE (Armored)","Gallivanter")
+VehiclesAddToTable("BALLER6",666166960,"BALLER6","Sedans","Baller LE LWB (Armored)","Gallivanter")
+VehiclesAddToTable("BANSHEE",-1041692462,"BANSHEE","Sports","Banshee","Bravado")
+VehiclesAddToTable("BARRACKS",-823509173,"BARRACKS","Military","Barracks","")
+VehiclesAddToTable("BARRACKS2",1074326203,"BARRACKS2","Military","Barracks Semi","HVY")
+VehiclesAddToTable("BARRACKS3",630371791,"BARRACKS","Military","Barracks","")
+VehiclesAddToTable("BATI",-114291515,"BATI","Motorcycles","Bati 801","Pegassi")
+VehiclesAddToTable("BATI2",-891462355,"BATI2","Motorcycles","Bati 801RR","Pegassi")
+VehiclesAddToTable("BENSON",2053223216,"BENSON","Commercial","Benson","Vapid")
+VehiclesAddToTable("BESRA",1824333165,"BESRA","Airplanes","Besra","Western")
+VehiclesAddToTable("BFINJECTION",1126868326,"BFINJECT","Off-Road","Injection","BF")
+VehiclesAddToTable("BIFF",850991848,"BIFF","Commercial","Biff","HVY")
+VehiclesAddToTable("BIFTA",-349601129,"BIFTA","Off-Road","Bifta","BF")
+VehiclesAddToTable("BISON",-16948145,"BISON","Vans/Pickups","Bison","Bravado")
+VehiclesAddToTable("BISON2",2072156101,"BISON","Vans/Pickups","Bison","Bravado")
+VehiclesAddToTable("BISON3",1739845664,"BISON","Vans/Pickups","Bison","Bravado")
+VehiclesAddToTable("BJXL",850565707,"BJXL","Sedans","BeeJay XL","Karin")
+VehiclesAddToTable("BLADE",-1205801634,"BLADE","Muscle","Blade","Vapid")
+VehiclesAddToTable("BLAZER",-2128233223,"BLAZER","Off-Road","Blazer","Nagasaki")
+VehiclesAddToTable("BLAZER2",-48031959,"BLAZER2","Off-Road","Blazer Lifeguard","Nagasaki")
+VehiclesAddToTable("BLAZER3",-1269889662,"BLAZER03","Off-Road","Hot Rod Blazer","Nagasaki")
+VehiclesAddToTable("BLIMP",-150975354,"BLIMP","Airplanes","Atomic Blimp","")
+VehiclesAddToTable("BLIMP2",-613725916,"BLIMP2","Airplanes","Xero Blimp","")
+VehiclesAddToTable("BLISTA",-344943009,"BLISTA","Compacts","Blista","Dinka")
+VehiclesAddToTable("BLISTA2",1039032026,"BLISTA2","Sports","Blista Compact","Dinka")
+VehiclesAddToTable("BLISTA3",-591651781,"BLISTA3","Sports","Go Go Monkey Blista","Dinka")
+VehiclesAddToTable("BMX",1131912276,"BMX","Bicycles","BMX","")
+VehiclesAddToTable("BOATTRAILER",524108981,"BOATTRAILER","Utility","Boat Trailer","")
+VehiclesAddToTable("BOBCATXL",1069929536,"BOBCATXL","Vans/Pickups","Bobcat XL","Vapid")
+VehiclesAddToTable("BODHI2",-1435919434,"BODHI2","Off-Road","Bodhi","Canis")
+VehiclesAddToTable("BOXVILLE",-1987130134,"BOXVILLE","Vans/Pickups","Boxville","")
+VehiclesAddToTable("BOXVILLE2",-233098306,"BOXVILLE","Vans/Pickups","Boxville","")
+VehiclesAddToTable("BOXVILLE3",121658888,"BOXVILLE","Vans/Pickups","Boxville","Brute")
+VehiclesAddToTable("BOXVILLE4",444171386,"BOXVILLE","Vans/Pickups","Boxville","Brute")
+VehiclesAddToTable("BRAWLER",-1479664699,"BRAWLER","Off-Road","Brawler","Coil")
+VehiclesAddToTable("BTYPE",117401876,"ROOSEVELT","Sports Classics","Roosevelt","Albany")
+VehiclesAddToTable("BTYPE2",-831834716,"BTYPE2","Sports Classics","Fränken Stange","Albany")
+VehiclesAddToTable("BUCCANEER",-682211828,"BUCCANEE","Muscle","Buccaneer","Albany")
+VehiclesAddToTable("BUCCANEER2",-1013450936,"BUCCANEE2","Muscle","Buccaneer Custom","Albany")
+VehiclesAddToTable("BUFFALO",-304802106,"BUFFALO","Sports","Buffalo","Bravado")
+VehiclesAddToTable("BUFFALO2",736902334,"BUFFALO02","Sports","Buffalo S","Bravado")
+VehiclesAddToTable("BUFFALO3",237764926,"BUFFALO3","Sports","Sprunk Buffalo","Bravado")
+VehiclesAddToTable("BULLDOZER",1886712733,"BULLDOZE","Industrial","Dozer","HVY")
+VehiclesAddToTable("BULLET",-1696146015,"BULLET","Super","Bullet","Vapid")
+VehiclesAddToTable("BURRITO",-1346687836,"BURRITO","Vans/Pickups","Burrito","Declasse")
+VehiclesAddToTable("BURRITO2",-907477130,"BURRITO","Vans/Pickups","Burrito","Declasse")
+VehiclesAddToTable("BURRITO3",-1743316013,"BURRITO","Vans/Pickups","Burrito","Declasse")
+VehiclesAddToTable("BURRITO4",893081117,"BURRITO","Vans/Pickups","Burrito","Declasse")
+VehiclesAddToTable("BURRITO5",1132262048,"BURRITO","Vans/Pickups","Burrito","Declasse")
+VehiclesAddToTable("BUS",-713569950,"BUS","Service","Bus","")
+VehiclesAddToTable("BUZZARD",788747387,"BUZZARD","Helicopters","Buzzard Attack Chopper","")
+VehiclesAddToTable("BUZZARD2",745926877,"BUZZARD2","Helicopters","Buzzard","")
+VehiclesAddToTable("CABLECAR",-960289747,"CABLECAR","Trains","Cable Car","")
+VehiclesAddToTable("CADDY",1147287684,"CADDY","Utility","Caddy","")
+VehiclesAddToTable("CADDY2",-537896628,"CADDY","Utility","Caddy","")
+VehiclesAddToTable("CAMPER",1876516712,"CAMPER","Vans/Pickups","Camper","Brute")
+VehiclesAddToTable("CARBONIZZARE",2072687711,"CARBONIZ","Sports","Carbonizzare","Grotti")
+VehiclesAddToTable("CARBONRS",11251904,"CARBON","Motorcycles","Carbon RS","Nagasaki")
+VehiclesAddToTable("CARGOBOB",-50547061,"CARGOBOB","Helicopters","Cargobob","")
+VehiclesAddToTable("CARGOBOB2",1621617168,"CARGOBOB","Helicopters","Cargobob","")
+VehiclesAddToTable("CARGOBOB3",1394036463,"CARGOBOB","Helicopters","Cargobob","")
+VehiclesAddToTable("CARGOBOB4",2025593404,"CARGOBOB","Helicopters","Cargobob","")
+VehiclesAddToTable("CARGOPLANE",368211810,"CARGOPL","Airplanes","Cargo Plane","")
+VehiclesAddToTable("CASCO",941800958,"CASCO","Sports Classics","Casco","Lampadati")
+VehiclesAddToTable("CAVALCADE",2006918058,"CAVCADE","Sedans","Cavalcade","Albany")
+VehiclesAddToTable("CAVALCADE2",-789894171,"CAVCADE","Sedans","Cavalcade","Albany")
+VehiclesAddToTable("CHEETAH",-1311154784,"CHEETAH","Super","Cheetah","Grotti")
+VehiclesAddToTable("CHINO",349605904,"CHINO","Muscle","Chino","Vapid")
+VehiclesAddToTable("CHINO2",-1361687965,"CHINO2","Muscle","Chino Custom","Vapid")
+VehiclesAddToTable("COACH",-2072933068,"COACH","Service","Dashound","")
+VehiclesAddToTable("COG55",906642318,"COG55","SUVs","Cognoscenti 55","Enus")
+VehiclesAddToTable("COG552",704435172,"COG552","SUVs","Cognoscenti 55 (Armored)","Enus")
+VehiclesAddToTable("COGCABRIO",330661258,"COGCABRI","Coupes","Cognoscenti Cabrio","Enus")
+VehiclesAddToTable("COGNOSCENTI",-2030171296,"COGNOSC","SUVs","Cognoscenti","Enus")
+VehiclesAddToTable("COGNOSCENTI2",-604842630,"COGNOSC2","SUVs","Cognoscenti (Armored)","Enus")
+VehiclesAddToTable("COMET2",-1045541610,"COMET2","Sports","Comet","Pfister")
+VehiclesAddToTable("COQUETTE",108773431,"COQUETTE","Sports","Coquette","Invetero")
+VehiclesAddToTable("COQUETTE2",1011753235,"COQUETTE2","Sports Classics","Coquette Classic","Invetero")
+VehiclesAddToTable("COQUETTE3",784565758,"COQUETTE3","Muscle","Coquette BlackFin","Invetero")
+VehiclesAddToTable("CRUISER",448402357,"CRUISER","Bicycles","Cruiser","")
+VehiclesAddToTable("CRUSADER",321739290,"CRUSADER","Military","Crusader","Canis")
+VehiclesAddToTable("CUBAN800",-644710429,"CUBAN800","Airplanes","Cuban 800","")
+VehiclesAddToTable("CUTTER",-1006919392,"CUTTER","Industrial","Cutter","HVY")
+VehiclesAddToTable("DAEMON",2006142190,"DAEMON","Motorcycles","Daemon","Western")
+VehiclesAddToTable("DILETTANTE",-1130810103,"DILETTAN","Compacts","Dilettante","Karin")
+VehiclesAddToTable("DILETTANTE2",1682114128,"DILETTAN","Compacts","Dilettante","Karin")
+VehiclesAddToTable("DINGHY",1033245328,"DINGHY","Boats","Dinghy","Nagasaki")
+VehiclesAddToTable("DINGHY2",276773164,"DINGHY","Boats","Dinghy","Nagasaki")
+VehiclesAddToTable("DINGHY3",509498602,"DINGHY","Boats","Dinghy","Nagasaki")
+VehiclesAddToTable("DINGHY4",867467158,"DINGHY","Boats","Dinghy","Nagasaki")
+VehiclesAddToTable("DLOADER",1770332643,"DLOADER","Off-Road","Duneloader","Bravado")
+VehiclesAddToTable("DOCKTRAILER",-2140210194,"DOCKTRAILER","Utility","NULL","")
+VehiclesAddToTable("DOCKTUG",-884690486,"DOCKTUG","Utility","Docktug","")
+VehiclesAddToTable("DODO",-901163259,"DODO","Airplanes","Dodo","Mammoth")
+VehiclesAddToTable("DOMINATOR",80636076,"DOMINATO","Muscle","Dominator","Vapid")
+VehiclesAddToTable("DOMINATOR2",-915704871,"DOMINATO2","Muscle","Pisswasser Dominator","Vapid")
+VehiclesAddToTable("DOUBLE",-1670998136,"DOUBLE","Motorcycles","Double-T","Dinka")
+VehiclesAddToTable("DUBSTA",1177543287,"DUBSTA","Sedans","Dubsta","Benefactor")
+VehiclesAddToTable("DUBSTA2",-394074634,"DUBSTA","Sedans","Dubsta","Benefactor")
+VehiclesAddToTable("DUBSTA3",-1237253773,"DUBSTA3","Off-Road","Dubsta 6x6","Benefactor")
+VehiclesAddToTable("DUKES",723973206,"DUKES","Muscle","Dukes","Imponte")
+VehiclesAddToTable("DUKES2",-326143852,"DUKES2","Muscle","Duke O'Death","Imponte")
+VehiclesAddToTable("DUMP",-2130482718,"DUMP","Industrial","Dump","HVY")
+VehiclesAddToTable("DUNE",-1661854193,"DUNE","Off-Road","Dune Buggy","BF")
+VehiclesAddToTable("DUNE2",534258863,"DUNE2","Off-Road","Space Docker","")
+VehiclesAddToTable("DUSTER",970356638,"DUSTER","Airplanes","Duster","")
+VehiclesAddToTable("ELEGY2",-566387422,"ELEGY2","Sports","Elegy RH8","Annis")
+VehiclesAddToTable("EMPEROR",-685276541,"EMPEROR","SUVs","Emperor","Albany")
+VehiclesAddToTable("EMPEROR2",-1883002148,"EMPEROR","SUVs","Emperor","Albany")
+VehiclesAddToTable("EMPEROR3",-1241712818,"EMPEROR","SUVs","Emperor","Albany")
+VehiclesAddToTable("ENDURO",1753414259,"ENDURO","Motorcycles","Enduro","Dinka")
+VehiclesAddToTable("ENTITYXF",-1291952903,"ENTITYXF","Super","Entity XF","Overflod")
+VehiclesAddToTable("EXEMPLAR",-5153954,"EXEMPLAR","Coupes","Exemplar","Dewbauchee")
+VehiclesAddToTable("F620",-591610296,"F620","Coupes","F620","Ocelot")
+VehiclesAddToTable("FACTION",-2119578145,"FACTION","Muscle","Faction","Willard")
+VehiclesAddToTable("FACTION2",-1790546981,"FACTION2","Muscle","Faction Custom","Willard")
+VehiclesAddToTable("FAGGIO2",55628203,"FAGGIO","Motorcycles","Faggio","Pegassi")
+VehiclesAddToTable("FBI",1127131465,"FBI","Emergency","FIB","")
+VehiclesAddToTable("FBI2",-1647941228,"FBI2","Emergency","FIB","")
+VehiclesAddToTable("FELON",-391594584,"FELON","Coupes","Felon","Lampadati")
+VehiclesAddToTable("FELON2",-89291282,"FELON2","Coupes","Felon GT","Lampadati")
+VehiclesAddToTable("FELTZER2",-1995326987,"FELTZER","Sports","Feltzer","Benefactor")
+VehiclesAddToTable("FELTZER3",-1566741232,"FELTZER3","Sports Classics","Stirling GT","Benefactor")
+VehiclesAddToTable("FIRETRUK",1938952078,"FIRETRUK","Emergency","Fire Truck","")
+VehiclesAddToTable("FIXTER",-836512833,"FIXTER","Bicycles","Fixter","")
+VehiclesAddToTable("FLATBED",1353720154,"FLATBED","Industrial","Flatbed","MTL")
+VehiclesAddToTable("FORKLIFT",1491375716,"FORK","Utility","Forklift","HVY")
+VehiclesAddToTable("FQ2",-1137532101,"FQ2","Sedans","FQ 2","Fathom")
+VehiclesAddToTable("FREIGHT",1030400667,"FREIGHT","Trains","Freight Train","")
+VehiclesAddToTable("FREIGHTCAR",184361638,"FREIGHT","Trains","Freight Train","")
+VehiclesAddToTable("FREIGHTCONT1",920453016,"FREIGHT","Trains","Freight Train","")
+VehiclesAddToTable("FREIGHTCONT2",240201337,"FREIGHT","Trains","Freight Train","")
+VehiclesAddToTable("FREIGHTGRAIN",642617954,"FREIGHT","Trains","Freight Train","")
+VehiclesAddToTable("FREIGHTTRAILER",-777275802,"FREIGHTTRAILER","Utility","NULL","")
+VehiclesAddToTable("FROGGER",744705981,"FROGGER","Helicopters","Frogger","")
+VehiclesAddToTable("FROGGER2",1949211328,"FROGGER","Helicopters","Frogger","")
+VehiclesAddToTable("FUGITIVE",1909141499,"FUGITIVE","SUVs","Fugitive","Cheval")
+VehiclesAddToTable("FUROREGT",-1089039904,"FURORE","Sports","Furore GT","Lampadati")
+VehiclesAddToTable("FUSILADE",499169875,"FUSILADE","Sports","Fusilade","Schyster")
+VehiclesAddToTable("FUTO",2016857647,"FUTO","Sports","Futo","Karin")
+VehiclesAddToTable("GAUNTLET",-1800170043,"GAUNTLET","Muscle","Gauntlet","Bravado")
+VehiclesAddToTable("GAUNTLET2",349315417,"GAUNTLET2","Muscle","Redwood Gauntlet","Bravado")
+VehiclesAddToTable("GBURRITO",-1745203402,"GBURRITO","Vans/Pickups","Gang Burrito","Declasse")
+VehiclesAddToTable("GBURRITO2",296357396,"GBURRITO2","Vans/Pickups","Gang Burrito","Declasse")
+VehiclesAddToTable("GLENDALE",75131841,"GLENDALE","SUVs","Glendale","Benefactor")
+VehiclesAddToTable("GRAINTRAILER",1019737494,"GRAINTRAILER","Utility","Graintrailer","")
+VehiclesAddToTable("GRANGER",-1775728740,"GRANGER","Sedans","Granger","Declasse")
+VehiclesAddToTable("GRESLEY",-1543762099,"GRESLEY","Sedans","Gresley","Bravado")
+VehiclesAddToTable("GUARDIAN",-2107990196,"GUARDIAN","Industrial","Guardian","Vapid")
+VehiclesAddToTable("HABANERO",884422927,"HABANERO","Sedans","Habanero","Emperor")
+VehiclesAddToTable("HAKUCHOU",1265391242,"HAKUCHOU","Motorcycles","Hakuchou","Shitzu")
+VehiclesAddToTable("HANDLER",444583674,"HANDLER","Industrial","Dock Handler","")
+VehiclesAddToTable("HAULER",1518533038,"HAULER","Commercial","Hauler","Jobuilt")
+VehiclesAddToTable("HEXER",301427732,"HEXER","Motorcycles","Hexer","LCC")
+VehiclesAddToTable("HOTKNIFE",37348240,"HOTKNIFE","Muscle","Hotknife","Vapid")
+VehiclesAddToTable("HUNTLEY",486987393,"HUNTLEY","Sedans","Huntley S","Enus")
+VehiclesAddToTable("HYDRA",970385471,"HYDRA","Airplanes","Hydra","Mammoth")
+VehiclesAddToTable("INFERNUS",418536135,"INFERNUS","Super","Infernus","Pegassi")
+VehiclesAddToTable("INGOT",-1289722222,"INGOT","SUVs","Ingot","Vulcar")
+VehiclesAddToTable("INNOVATION",-159126838,"INNOVATION","Motorcycles","Innovation","LCC")
+VehiclesAddToTable("INSURGENT",-1860900134,"INSURGENT","Off-Road","Insurgent Pick-Up","HVY")
+VehiclesAddToTable("INSURGENT2",2071877360,"INSURGENT2","Off-Road","Insurgent","HVY")
+VehiclesAddToTable("INTRUDER",886934177,"INTRUDER","SUVs","Intruder","Karin")
+VehiclesAddToTable("ISSI2",-1177863319,"ISSI2","Compacts","Issi","Weeny")
+VehiclesAddToTable("JACKAL",-624529134,"JACKAL","Coupes","Jackal","Ocelot")
+VehiclesAddToTable("JB700",1051415893,"JB700","Sports Classics","JB 700","Dewbauchee")
+VehiclesAddToTable("JESTER",-1297672541,"JESTER","Sports","Jester","Dinka")
+VehiclesAddToTable("JESTER2",-1106353882,"JESTER2","Sports","Jester (Racecar)","Dinka")
+VehiclesAddToTable("JET",1058115860,"JET","Airplanes","Jet","")
+VehiclesAddToTable("JETMAX",861409633,"JETMAX","Boats","Jetmax","Shitzu")
+VehiclesAddToTable("JOURNEY",-120287622,"JOURNEY","Vans/Pickups","Journey","Zirconium")
+VehiclesAddToTable("KALAHARI",92612664,"KALAHARI","Off-Road","Kalahari","Canis")
+VehiclesAddToTable("KHAMELION",544021352,"KHAMEL","Sports","Khamelion","Hijak")
+VehiclesAddToTable("KURUMA",-1372848492,"KURUMA","Sports","Kuruma","Karin")
+VehiclesAddToTable("KURUMA2",410882957,"KURUMA2","Sports","Kuruma (Armored)","Karin")
+VehiclesAddToTable("LANDSTALKER",1269098716,"LANDSTAL","Sedans","Landstalker","Dundreary")
+VehiclesAddToTable("LAZER",-1281684762,"LAZER","Airplanes","P-996 LAZER","")
+VehiclesAddToTable("LECTRO",640818791,"LECTRO","Motorcycles","Lectro","Principe")
+VehiclesAddToTable("LGUARD",469291905,"LGUARD","Emergency","Lifeguard","")
+VehiclesAddToTable("LIMO2",-114627507,"LIMO2","SUVs","Turreted Limo","Benefactor")
+VehiclesAddToTable("LURCHER",2068293287,"LURCHER","Muscle","Lurcher","Albany")
+VehiclesAddToTable("LUXOR",621481054,"LUXOR","Airplanes","Luxor","Buckingham")
+VehiclesAddToTable("LUXOR2",-1214293858,"LUXOR2","Airplanes","Luxor Deluxe","Buckingham")
+VehiclesAddToTable("MAMBA",-1660945322,"MAMBA","Sports Classics","Mamba","Declasse")
+VehiclesAddToTable("MAMMATUS",-1746576111,"MAMMATUS","Airplanes","Mammatus","")
+VehiclesAddToTable("MANANA",-2124201592,"MANANA","Sports Classics","Manana","Albany")
+VehiclesAddToTable("MARQUIS",-1043459709,"MARQUIS","Boats","Marquis","Dinka")
+VehiclesAddToTable("MARSHALL",1233534620,"MARSHALL","Off-Road","Marshall","Cheval")
+VehiclesAddToTable("MASSACRO",-142942670,"MASSACRO","Sports","Massacro","Dewbauchee")
+VehiclesAddToTable("MASSACRO2",-631760477,"MASSACRO2","Sports","Massacro (Racecar)","Dewbauchee")
+VehiclesAddToTable("MAVERICK",-1660661558,"MAVERICK","Helicopters","Maverick","")
+VehiclesAddToTable("MESA",914654722,"MESA","Sedans","Mesa","Canis")
+VehiclesAddToTable("MESA2",-748008636,"MESA","Sedans","Mesa","Canis")
+VehiclesAddToTable("MESA3",-2064372143,"MESA","Off-Road","Mesa","Canis")
+VehiclesAddToTable("METROTRAIN",868868440,"FREIGHT","Trains","Freight Train","")
+VehiclesAddToTable("MILJET",165154707,"MILJET","Airplanes","Miljet","Buckingham")
+VehiclesAddToTable("MINIVAN",-310465116,"MINIVAN","Vans/Pickups","Minivan","Vapid")
+VehiclesAddToTable("MIXER",-784816453,"MIXER","Industrial","Mixer","HVY")
+VehiclesAddToTable("MIXER2",475220373,"MIXER2","Industrial","Mixer","HVY")
+VehiclesAddToTable("MONROE",-433375717,"MONROE","Sports Classics","Monroe","Pegassi")
+VehiclesAddToTable("MONSTER",-845961253,"MONSTER","Off-Road","Liberator","Vapid")
+VehiclesAddToTable("MOONBEAM",525509695,"MOONBEAM","Muscle","Moonbeam","Declasse")
+VehiclesAddToTable("MOONBEAM2",1896491931,"MOONBEAM2","Muscle","Moonbeam Custom","Declasse")
+VehiclesAddToTable("MOWER",1783355638,"MOWER","Utility","Lawn Mower","")
+VehiclesAddToTable("MULE",904750859,"MULE","Commercial","Mule","Maibatsu")
+VehiclesAddToTable("MULE2",-1050465301,"MULE","Commercial","Mule","Maibatsu")
+VehiclesAddToTable("MULE3",-2052737935,"MULE","Commercial","Mule","Maibatsu")
+VehiclesAddToTable("NEMESIS",-634879114,"NEMESIS","Motorcycles","Nemesis","Principe")
+VehiclesAddToTable("NIGHTSHADE",-1943285540,"NITESHAD","Muscle","Nightshade","Imponte")
+VehiclesAddToTable("NINEF",1032823388,"NINEF","Sports","9F","Obey")
+VehiclesAddToTable("NINEF2",-1461482751,"NINEF2","Sports","9F Cabrio","Obey")
+VehiclesAddToTable("ORACLE",1348744438,"ORACLE2","Coupes","Oracle XS","Ubermacht")
+VehiclesAddToTable("ORACLE2",-511601230,"ORACLE","Coupes","Oracle","Ubermacht")
+VehiclesAddToTable("OSIRIS",1987142870,"OSIRIS","Super","Osiris","Pegassi")
+VehiclesAddToTable("PACKER",569305213,"PACKER","Commercial","Packer","MTL")
+VehiclesAddToTable("PANTO",-431692672,"PANTO","Compacts","Panto","Benefactor")
+VehiclesAddToTable("PARADISE",1488164764,"PARADISE","Vans/Pickups","Paradise","Bravado")
+VehiclesAddToTable("PATRIOT",-808457413,"PATRIOT","Sedans","Patriot","Mammoth")
+VehiclesAddToTable("PBUS",-2007026063,"PBUS","Emergency","Prison Bus","")
+VehiclesAddToTable("PCJ",-909201658,"PCJ","Motorcycles","PCJ 600","Shitzu")
+VehiclesAddToTable("PENUMBRA",-377465520,"PENUMBRA","Sports","Penumbra","Maibatsu")
+VehiclesAddToTable("PEYOTE",1830407356,"PEYOTE","Sports Classics","Peyote","Vapid")
+VehiclesAddToTable("PHANTOM",-2137348917,"PHANTOM","Commercial","Phantom","Jobuilt")
+VehiclesAddToTable("PHOENIX",-2095439403,"PHOENIX","Muscle","Phoenix","Imponte")
+VehiclesAddToTable("PICADOR",1507916787,"PICADOR","Muscle","Picador","Cheval")
+VehiclesAddToTable("PIGALLE",1078682497,"PIGALLE","Sports Classics","Pigalle","Lampadati")
+VehiclesAddToTable("POLICE",2046537925,"POLICE","Emergency","Police Cruiser","")
+VehiclesAddToTable("POLICE2",-1627000575,"POLICE2","Emergency","Police Cruiser","")
+VehiclesAddToTable("POLICE3",1912215274,"POLICE","Emergency","Police Cruiser","")
+VehiclesAddToTable("POLICE4",-1973172295,"POLICE4","Emergency","Unmarked Cruiser","")
+VehiclesAddToTable("POLICEB",-34623805,"POLICEB","Emergency","Police Bike","")
+VehiclesAddToTable("POLICEOLD1",-1536924937,"POLICEO1","Emergency","Police Rancher","")
+VehiclesAddToTable("POLICEOLD2",-1779120616,"POLICEO2","Emergency","Police Roadcruiser","")
+VehiclesAddToTable("POLICET",456714581,"POLICET","Emergency","Police Transporter","")
+VehiclesAddToTable("POLMAV",353883353,"POLMAV","Helicopters","Police Maverick","")
+VehiclesAddToTable("PONY",-119658072,"PONY","Vans/Pickups","Pony","Brute")
+VehiclesAddToTable("PONY2",943752001,"PONY","Vans/Pickups","Pony","Brute")
+VehiclesAddToTable("POUNDER",2112052861,"POUNDER","Commercial","Pounder","MTL")
+VehiclesAddToTable("PRAIRIE",-1450650718,"PRAIRIE","Compacts","Prairie","Bollokan")
+VehiclesAddToTable("PRANGER",741586030,"PRANGER","Emergency","Park Ranger","")
+VehiclesAddToTable("PREDATOR",-488123221,"PREDATOR","Boats","Police Predator","")
+VehiclesAddToTable("PREMIER",-1883869285,"PREMIER","SUVs","Premier","Declasse")
+VehiclesAddToTable("PRIMO",-1150599089,"PRIMO","SUVs","Primo","Albany")
+VehiclesAddToTable("PRIMO2",-2040426790,"PRIMO2","SUVs","Primo Custom","Albany")
+VehiclesAddToTable("PROPTRAILER",356391690,"PROPTRAILER","Utility","NULL","")
+VehiclesAddToTable("RADI",-1651067813,"RADI","Sedans","Radius","Vapid")
+VehiclesAddToTable("RAKETRAILER",390902130,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("RANCHERXL",1645267888,"RANCHERX","Off-Road","Rancher XL","Declasse")
+VehiclesAddToTable("RANCHERXL2",1933662059,"RANCHERX","Off-Road","Rancher XL","Declasse")
+VehiclesAddToTable("RAPIDGT",-1934452204,"RAPIDGT","Sports","Rapid GT","Dewbauchee")
+VehiclesAddToTable("RAPIDGT2",1737773231,"RAPIDGT","Sports","Rapid GT","Dewbauchee")
+VehiclesAddToTable("RATLOADER",-667151410,"RLOADER","Muscle","Rat-Loader","")
+VehiclesAddToTable("RATLOADER2",-589178377,"RLOADER2","Muscle","Rat-Truck","Bravado")
+VehiclesAddToTable("REBEL",-1207771834,"REBEL01","Off-Road","Rusty Rebel","Karin")
+VehiclesAddToTable("REBEL2",-2045594037,"REBEL02","Off-Road","Rebel","Karin")
+VehiclesAddToTable("REGINA",-14495224,"REGINA","SUVs","Regina","Dundreary")
+VehiclesAddToTable("RENTALBUS",-1098802077,"RENTBUS","Service","Rental Shuttle Bus","")
+VehiclesAddToTable("RHAPSODY",841808271,"RHAPSODY","Compacts","Rhapsody","Declasse")
+VehiclesAddToTable("RHINO",782665360,"RHINO","Military","Rhino Tank","")
+VehiclesAddToTable("RIOT",-1205689942,"RIOT","Emergency","Police Riot","")
+VehiclesAddToTable("RIPLEY",-845979911,"RIPLEY","Utility","Ripley","")
+VehiclesAddToTable("ROCOTO",2136773105,"ROCOTO","Sedans","Rocoto","Obey")
+VehiclesAddToTable("ROMERO",627094268,"ROMERO","SUVs","Romero Hearse","Chariot")
+VehiclesAddToTable("RUBBLE",-1705304628,"RUBBLE","Industrial","Rubble","Jobuilt")
+VehiclesAddToTable("RUFFIAN",-893578776,"RUFFIAN","Motorcycles","Ruffian","Pegassi")
+VehiclesAddToTable("RUINER",-227741703,"RUINER","Muscle","Ruiner","Imponte")
+VehiclesAddToTable("RUMPO",1162065741,"RUMPO","Vans/Pickups","Rumpo","Bravado")
+VehiclesAddToTable("RUMPO2",-1776615689,"RUMPO","Vans/Pickups","Rumpo","Bravado")
+VehiclesAddToTable("SABREGT",-1685021548,"SABREGT","Muscle","Sabre Turbo","Declasse")
+VehiclesAddToTable("SADLER",-599568815,"SADLER","Utility","Sadler","Vapid")
+VehiclesAddToTable("SADLER2",734217681,"SADLER","Utility","Sadler","Vapid")
+VehiclesAddToTable("SANCHEZ",788045382,"SANCHEZ01","Motorcycles","Sanchez (livery)","Maibatsu")
+VehiclesAddToTable("SANCHEZ2",-1453280962,"SANCHEZ02","Motorcycles","Sanchez","Maibatsu")
+VehiclesAddToTable("SANDKING",-1189015600,"SANDKING","Off-Road","Sandking XL","Vapid")
+VehiclesAddToTable("SANDKING2",989381445,"SANDKIN2","Off-Road","Sandking SWB","Vapid")
+VehiclesAddToTable("SAVAGE",-82626025,"SAVAGE","Helicopters","Savage","")
+VehiclesAddToTable("SCHAFTER2",-1255452397,"SCHAFTER","SUVs","Schafter","Benefactor")
+VehiclesAddToTable("SCHAFTER3",-1485523546,"SCHAFTER3","Sports","Schafter V12","Benefactor")
+VehiclesAddToTable("SCHAFTER4",1489967196,"SCHAFTER4","Sports","Schafter LWB","Benefactor")
+VehiclesAddToTable("SCHAFTER5",-888242983,"SCHAFTER5","SUVs","Schafter V12 (Armored)","Benefactor")
+VehiclesAddToTable("SCHAFTER6",1922255844,"SCHAFTER6","SUVs","Schafter LWB (Armored)","Benefactor")
+VehiclesAddToTable("SCHWARZER",-746882698,"SCHWARZE","Sports","Schwartzer","Benefactor")
+VehiclesAddToTable("SCORCHER",-186537451,"SCORCHER","Bicycles","Scorcher","")
+VehiclesAddToTable("SCRAP",-1700801569,"SCRAP","Utility","Scrap Truck","")
+VehiclesAddToTable("SEASHARK",-1030275036,"SEASHARK","Boats","Seashark","Speedophile")
+VehiclesAddToTable("SEASHARK2",-616331036,"SEASHARK","Boats","Seashark","Speedophile")
+VehiclesAddToTable("SEASHARK3",-311022263,"SEASHARK","Boats","Seashark","Speedophile")
+VehiclesAddToTable("SEMINOLE",1221512915,"SEMINOLE","Sedans","Seminole","Canis")
+VehiclesAddToTable("SENTINEL",1349725314,"SENTINEL","Coupes","Sentinel XS","Ubermacht")
+VehiclesAddToTable("SENTINEL2",873639469,"SENTINEL2","Coupes","Sentinel","Ubermacht")
+VehiclesAddToTable("SERRANO",1337041428,"SERRANO","Sedans","Serrano","Benefactor")
+VehiclesAddToTable("SHAMAL",-1214505995,"SHAMAL","Airplanes","Shamal","Buckingham")
+VehiclesAddToTable("SHERIFF",-1683328900,"SHERIFF","Emergency","Sheriff Cruiser","")
+VehiclesAddToTable("SHERIFF2",1922257928,"SHERIFF2","Emergency","Sheriff SUV","")
+VehiclesAddToTable("SKYLIFT",1044954915,"SKYLIFT","Helicopters","Skylift","")
+VehiclesAddToTable("SLAMVAN",729783779,"SLAMVAN","Muscle","Slamvan","Vapid")
+VehiclesAddToTable("SLAMVAN2",833469436,"SLAMVAN2","Muscle","Lost Slamvan","Vapid")
+VehiclesAddToTable("SOVEREIGN",743478836,"SOVEREIGN","Motorcycles","Sovereign","Western")
+VehiclesAddToTable("SPEEDER",231083307,"SPEEDER","Boats","Speeder","Pegassi")
+VehiclesAddToTable("SPEEDER2",437538602,"SPEEDER","Boats","Speeder","Pegassi")
+VehiclesAddToTable("SPEEDO",-810318068,"SPEEDO","Vans/Pickups","Speedo","Vapid")
+VehiclesAddToTable("SPEEDO2",728614474,"SPEEDO2","Vans/Pickups","Clown Van","Vapid")
+VehiclesAddToTable("SQUALO",400514754,"SQUALO","Boats","Squalo","Shitzu")
+VehiclesAddToTable("STALION",1923400478,"STALION","Muscle","Stallion","Declasse")
+VehiclesAddToTable("STALION2",-401643538,"STALION2","Muscle","Burger Shot Stallion","Declasse")
+VehiclesAddToTable("STANIER",-1477580979,"STANIER","SUVs","Stanier","Vapid")
+VehiclesAddToTable("STINGER",1545842587,"STINGER","Sports Classics","Stinger","Grotti")
+VehiclesAddToTable("STINGERGT",-2098947590,"STINGERG","Sports Classics","Stinger GT","Grotti")
+VehiclesAddToTable("STOCKADE",1747439474,"STOCKADE","Commercial","Stockade","Brute")
+VehiclesAddToTable("STOCKADE3",-214455498,"STOCKADE","Commercial","Stockade","Brute")
+VehiclesAddToTable("STRATUM",1723137093,"STRATUM","SUVs","Stratum","Zirconium")
+VehiclesAddToTable("STRETCH",-1961627517,"STRETCH","SUVs","Stretch","Dundreary")
+VehiclesAddToTable("STUNT",-2122757008,"STUNT","Airplanes","Mallard","")
+VehiclesAddToTable("SUBMERSIBLE",771711535,"SUBMERS","Boats","Submersible","")
+VehiclesAddToTable("SUBMERSIBLE2",-1066334226,"SUBMERS2","Boats","Kraken","")
+VehiclesAddToTable("SULTAN",970598228,"SULTAN","Sports","Sultan","Karin")
+VehiclesAddToTable("SUNTRAP",-282946103,"SUNTRAP","Boats","Suntrap","Shitzu")
+VehiclesAddToTable("SUPERD",1123216662,"SUPERD","SUVs","Super Diamond","Enus")
+VehiclesAddToTable("SUPERVOLITO",710198397,"SVOLITO","Helicopters","SuperVolito","Buckingham")
+VehiclesAddToTable("SUPERVOLITO2",-1671539132,"SVOLITO2","Helicopters","SuperVolito Carbon","Buckingham")
+VehiclesAddToTable("SURANO",384071873,"SURANO","Sports","Surano","Benefactor")
+VehiclesAddToTable("SURFER",699456151,"SURFER","Vans/Pickups","Surfer","BF")
+VehiclesAddToTable("SURFER2",-1311240698,"SURFER2","Vans/Pickups","Surfer","BF")
+VehiclesAddToTable("SURGE",-1894894188,"SURGE","SUVs","Surge","Cheval")
+VehiclesAddToTable("SWIFT",-339587598,"SWIFT","Helicopters","Swift","Buckingham")
+VehiclesAddToTable("SWIFT2",1075432268,"SWIFT2","Helicopters","Swift Deluxe","Buckingham")
+VehiclesAddToTable("T20",1663218586,"T20","Super","T20","Progen")
+VehiclesAddToTable("TACO",1951180813,"TACO","Vans/Pickups","Taco Van","")
+VehiclesAddToTable("TAILGATER",-1008861746,"TAILGATE","SUVs","Tailgater","Obey")
+VehiclesAddToTable("TAMPA",972671128,"TAMPA","Muscle","Tampa","Declasse")
+VehiclesAddToTable("TANKER",-730904777,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("TANKER2",1956216962,"TANKER","Utility","NULL","")
+VehiclesAddToTable("TANKERCAR",586013744,"FREIGHT","Trains","Freight Train","")
+VehiclesAddToTable("TAXI",-956048545,"TAXI","Service","Taxi","")
+VehiclesAddToTable("TECHNICAL",-2096818938,"TECHNICAL","Off-Road","Technical","Karin")
+VehiclesAddToTable("THRUST",1836027715,"THRUST","Motorcycles","Thrust","Dinka")
+VehiclesAddToTable("TIPTRUCK",48339065,"TIPTRUCK","Industrial","Tipper","Brute")
+VehiclesAddToTable("TIPTRUCK2",-947761570,"TIPTRUCK2","Industrial","Tipper","")
+VehiclesAddToTable("TITAN",1981688531,"TITAN","Airplanes","Titan","")
+VehiclesAddToTable("TORNADO",464687292,"TORNADO","Sports Classics","Tornado","Declasse")
+VehiclesAddToTable("TORNADO2",1531094468,"TORNADO2","Sports Classics","Tornado","Declasse")
+VehiclesAddToTable("TORNADO3",1762279763,"TORNADO3","Sports Classics","Tornado","Declasse")
+VehiclesAddToTable("TORNADO4",-2033222435,"TORNADO","Sports Classics","Tornado","Declasse")
+VehiclesAddToTable("TORO",1070967343,"TORO","Boats","Toro","Lampadati")
+VehiclesAddToTable("TORO2",908897389,"TORO","Boats","Toro","Lampadati")
+VehiclesAddToTable("TOURBUS",1941029835,"TOURBUS","Service","Tourbus","")
+VehiclesAddToTable("TOWTRUCK",-1323100960,"TOWTRUCK","Utility","Towtruck","")
+VehiclesAddToTable("TOWTRUCK2",-442313018,"TOWTRUCK","Utility","Towtruck","")
+VehiclesAddToTable("TR2",2078290630,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("TR3",1784254509,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("TR4",2091594960,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("TRACTOR",1641462412,"TRACTOR","Utility","Tractor","")
+VehiclesAddToTable("TRACTOR2",-2076478498,"TRACTOR2","Utility","Fieldmaster","Stanley")
+VehiclesAddToTable("TRACTOR3",1445631933,"TRACTOR2","Utility","Fieldmaster","Stanley")
+VehiclesAddToTable("TRAILERLOGS",2016027501,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("TRAILERS",-877478386,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("TRAILERS2",-1579533167,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("TRAILERS3",-2058878099,"TRAILERS3","Utility","Trailer","")
+VehiclesAddToTable("TRAILERSMALL",712162987,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("TRASH",1917016601,"TRASH","Service","Trashmaster","")
+VehiclesAddToTable("TRASH2",-1255698084,"TRASH","Service","Trashmaster","")
+VehiclesAddToTable("TRFLAT",-1352468814,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("TRIBIKE",1127861609,"TRIBIKE","Bicycles","Whippet Race Bike","")
+VehiclesAddToTable("TRIBIKE2",-1233807380,"TRIBIKE2","Bicycles","Endurex Race Bike","")
+VehiclesAddToTable("TRIBIKE3",-400295096,"TRIBIKE3","Bicycles","Tri-Cycles Race Bike","")
+VehiclesAddToTable("TROPIC",290013743,"TROPIC","Boats","Tropic","Shitzu")
+VehiclesAddToTable("TROPIC2",1448677353,"TROPIC","Boats","Tropic","Shitzu")
+VehiclesAddToTable("TURISMOR",408192225,"TURISMOR","Super","Turismo R","Grotti")
+VehiclesAddToTable("TVTRAILER",-1770643266,"TRAILER","Utility","Trailer","")
+VehiclesAddToTable("UTILLITRUCK",516990260,"UTILTRUC","Utility","Utility Truck","")
+VehiclesAddToTable("UTILLITRUCK2",887537515,"UTILTRUC","Utility","Utility Truck","")
+VehiclesAddToTable("UTILLITRUCK3",2132890591,"UTILTRUC","Utility","Utility Truck","")
+VehiclesAddToTable("VACCA",338562499,"VACCA","Super","Vacca","Pegassi")
+VehiclesAddToTable("VADER",-140902153,"VADER","Motorcycles","Vader","Shitzu")
+VehiclesAddToTable("VALKYRIE",-1600252419,"VALKYRIE","Helicopters","Valkyrie","")
+VehiclesAddToTable("VALKYRIE2",1543134283,"VALKYRI2","Helicopters","Valkyrie MOD.0","")
+VehiclesAddToTable("VELUM",-1673356438,"VELUM","Airplanes","Velum","")
+VehiclesAddToTable("VELUM2",1077420264,"VELUM2","Airplanes","Velum 5-Seater","")
+VehiclesAddToTable("VERLIERER2",1102544804,"VERLIER","Sports","Verlierer","Bravado")
+VehiclesAddToTable("VESTRA",1341619767,"VESTRA","Airplanes","Vestra","Buckingham")
+VehiclesAddToTable("VIGERO",-825837129,"VIGERO","Muscle","Vigero","Declasse")
+VehiclesAddToTable("VINDICATOR",-1353081087,"VINDICATOR","Motorcycles","Vindicator","Dinka")
+VehiclesAddToTable("VIRGO",-498054846,"VIRGO","Muscle","Virgo","Albany")
+VehiclesAddToTable("VOLTIC",-1622444098,"VOLTIC","Super","Voltic","Coil")
+VehiclesAddToTable("VOODOO",2006667053,"VOODOO2","Muscle","Voodoo Custom","Declasse")
+VehiclesAddToTable("VOODOO2",523724515,"VOODOO","Muscle","Voodoo","Declasse")
+VehiclesAddToTable("WARRENER",1373123368,"WARRENER","SUVs","Warrener","Vulcar")
+VehiclesAddToTable("WASHINGTON",1777363799,"WASHINGT","SUVs","Washington","Albany")
+VehiclesAddToTable("WINDSOR",1581459400,"WINDSOR","Coupes","Windsor","Enus")
+VehiclesAddToTable("YOUGA",65402552,"YOUGA","Vans/Pickups","Youga","Bravado")
+VehiclesAddToTable("ZENTORNO",-1403128555,"ZENTORNO","Super","Zentorno","Pegassi")
+VehiclesAddToTable("ZION",-1122289213,"ZION","Coupes","Zion","Ubermacht")
+VehiclesAddToTable("ZION2",-1193103848,"ZION2","Coupes","Zion Cabrio","Ubermacht")
+VehiclesAddToTable("ZTYPE",758895617,"ZTYPE","Sports Classics","Z-Type","Truffade")
 
-VEHICLE_CARGOBOB = 0xFCFCB68B
-VEHICLE_POLICE = 0x79FBB0C5
-VEHICLE_RANCHERXL2 = 0x7341576B
-VEHICLE_ALPHA = 0x2DB8D1AA
-VEHICLE_SCORCHER = 0xF4E1AA15
-VEHICLE_NEMESIS = 0xDA288376
-VEHICLE_POLICE4 = 0x8A63C7B9
-VEHICLE_DOMINATOR = 0x4CE68AC
-VEHICLE_BLAZER3 = 0xB44F0582
-VEHICLE_CHINO2 = 0xAED64A63
-VEHICLE_BARRACKS2 = 0x4008EABB
-VEHICLE_BODHI2 = 0xAA699BB6
-VEHICLE_MARQUIS = 0xC1CE1183
-VEHICLE_ELEGY2 = 0xDE3D9D22
-VEHICLE_SCHAFTER2 = 0xB52B5113
-VEHICLE_FORKLIFT = 0x58E49664
-VEHICLE_DUSTER = 0x39D6779E
-VEHICLE_TECHNICAL = 0x83051506
-VEHICLE_INSURGENT2 = 0x7B7E56F0
-VEHICLE_EMPEROR2 = 0x8FC3AADC
-VEHICLE_SULTAN = 0x39DA2754
-VEHICLE_BOBCATXL = 0x3FC5D440
-VEHICLE_VOODOO = 0x779B4F2D
-VEHICLE_JESTER = 0xB2A716A3
-VEHICLE_BALLER6 = 0x27B4E6B0
-VEHICLE_BUZZARD2 = 0x2C75F0DD
-VEHICLE_METROTRAIN = 0x33C9E158
-VEHICLE_SKYLIFT = 0x3E48BF23
-VEHICLE_FIXTER = 0xCE23D3BF
-VEHICLE_HAKUCHOU = 0x4B6C568A
-VEHICLE_FIRETRUK = 0x73920F8E
-VEHICLE_PREMIER = 0x8FB66F9B
-VEHICLE_BIFTA = 0xEB298297
-VEHICLE_BTYPE2 = 0xCE6B35A4
-VEHICLE_STINGERGT = 0x82E499FA
-VEHICLE_PEYOTE = 0x6D19CCBC
-VEHICLE_TRFLAT = 0xAF62F6B2
-VEHICLE_DUBSTA3 = 0xB6410173
-VEHICLE_SENTINEL2 = 0x3412AE2D
-VEHICLE_BUFFALO = 0xEDD516C6
-VEHICLE_SCHAFTER4 = 0x58CF185C
-VEHICLE_ASEA = 0x94204D89
-VEHICLE_BUFFALO3 = 0xE2C013E
-VEHICLE_RHAPSODY = 0x322CF98F
-VEHICLE_ROCOTO = 0x7F5C91F1
-VEHICLE_TRASH = 0x72435A19
-VEHICLE_FUSILADE = 0x1DC0BA53
-VEHICLE_FELTZER2 = 0x8911B9F5
-VEHICLE_AMBULANCE = 0x45D56ADA
-VEHICLE_SLAMVAN = 0x2B7F9DE3
-VEHICLE_BLADE = 0xB820ED5E
-VEHICLE_SHERIFF = 0x9BAA707C
-VEHICLE_BFINJECTION = 0x432AA566
-VEHICLE_FROGGER2 = 0x742E9AC0
-VEHICLE_LAZER = 0xB39B0AE6
-VEHICLE_FACTION2 = 0x95466BDB
-VEHICLE_JB700 = 0x3EAB5555
-VEHICLE_ARMYTRAILER2 = 0x9E6B14D6
-VEHICLE_FUGITIVE = 0x71CB2FFB
-VEHICLE_CASCO = 0x3822BDFE
-VEHICLE_DINGHY2 = 0x107F392C
-VEHICLE_BESRA = 0x6CBD1D6D
-VEHICLE_HOTKNIFE = 0x239E390
-VEHICLE_BALLER4 = 0x25CBE2E2
-VEHICLE_RAKETRAILER = 0x174CB172
-VEHICLE_AIRTUG = 0x5D0AAC8F
-VEHICLE_MOWER = 0x6A4BD8F6
-VEHICLE_GAUNTLET2 = 0x14D22159
-VEHICLE_BURRITO = 0xAFBB2CA4
-VEHICLE_TORO = 0x3FD5AA2F
-VEHICLE_ANNIHILATOR = 0x31F0B376
-VEHICLE_BUZZARD = 0x2F03547B
-VEHICLE_DINGHY3 = 0x1E5E54EA
-VEHICLE_MASSACRO = 0xF77ADE32
-VEHICLE_CARGOBOB4 = 0x78BC1A3C
-VEHICLE_BISON = 0xFEFD644F
-VEHICLE_EXEMPLAR = 0xFFB15B5E
-VEHICLE_DUBSTA = 0x462FE277
-VEHICLE_TRACTOR2 = 0x843B73DE
-VEHICLE_ENDURO = 0x6882FA73
-VEHICLE_VESTRA = 0x4FF77E37
-VEHICLE_BISON3 = 0x67B3F020
-VEHICLE_CARGOPLANE = 0x15F27762
-VEHICLE_FAGGIO2 = 0x350D1AB
-VEHICLE_CUBAN800 = 0xD9927FE3
-VEHICLE_LUXOR = 0x250B0C5E
-VEHICLE_BJXL = 0x32B29A4B
-VEHICLE_COG552 = 0x29FCD3E4
-VEHICLE_SUPERVOLITO2 = 0x9C5E5644
-VEHICLE_STRETCH = 0x8B13F083
-VEHICLE_INFERNUS = 0x18F25AC7
-VEHICLE_CARBONIZZARE = 0x7B8AB45F
-VEHICLE_LUXOR2 = 0xB79F589E
-VEHICLE_DLOADER = 0x698521E3
-VEHICLE_GLENDALE = 0x47A6BC1
-VEHICLE_COGNOSCENTI2 = 0xDBF2D57A
-VEHICLE_POUNDER = 0x7DE35E7D
-VEHICLE_RADI = 0x9D96B45B
-VEHICLE_BATI = 0xF9300CC5
-VEHICLE_FBI2 = 0x9DC66994
-VEHICLE_ZION2 = 0xB8E2AE18
-VEHICLE_MONROE = 0xE62B361B
-VEHICLE_SLAMVAN2 = 0x31ADBBFC
-VEHICLE_ASTEROPE = 0x8E9254FB
-VEHICLE_MANANA = 0x81634188
-VEHICLE_DUBSTA2 = 0xE882E5F6
-VEHICLE_BAGGER = 0x806B9CC3
-VEHICLE_COGNOSCENTI = 0x86FE0B60
-VEHICLE_CAVALCADE2 = 0xD0EB2BE5
-VEHICLE_ZION = 0xBD1B39C3
-VEHICLE_MESA2 = 0xD36A4B44
-VEHICLE_TORO2 = 0x362CAC6D
-VEHICLE_ORACLE2 = 0xE18195B2
-VEHICLE_INSURGENT = 0x9114EADA
-VEHICLE_SURANO = 0x16E478C1
-VEHICLE_KALAHARI = 0x5852838
-VEHICLE_PATRIOT = 0xCFCFEB3B
-VEHICLE_COQUETTE2 = 0x3C4E2113
-VEHICLE_POLICE2 = 0x9F05F101
-VEHICLE_COQUETTE = 0x67BC037
-VEHICLE_BALETRAILER = 0xE82AE656
-VEHICLE_SEASHARK3 = 0xED762D49
-VEHICLE_TRASH2 = 0xB527915C
-VEHICLE_DOCKTUG = 0xCB44B1CA
-VEHICLE_HANDLER = 0x1A7FCEFA
-VEHICLE_STALION2 = 0xE80F67EE
-VEHICLE_VOODOO2 = 0x1F3766E3
-VEHICLE_GBURRITO = 0x97FA4F36
-VEHICLE_INGOT = 0xB3206692
-VEHICLE_YOUGA = 0x3E5F6B8
-VEHICLE_DINGHY4 = 0x33B47F96
-VEHICLE_REBEL2 = 0x8612B64B
-VEHICLE_MOONBEAM2 = 0x710A2B9B
-VEHICLE_ZTYPE = 0x2D3BD401
-VEHICLE_DILETTANTE = 0xBC993509
-VEHICLE_BUFFALO2 = 0x2BEC3CBE
-VEHICLE_ZENTORNO = 0xAC5DF515
-VEHICLE_FREIGHTCONT2 = 0xE512E79
-VEHICLE_FACTION = 0x81A9CDDF
-VEHICLE_DODO = 0xCA495705
-VEHICLE_SHAMAL = 0xB79C1BF5
-VEHICLE_TOWTRUCK = 0xB12314E0
-VEHICLE_VALKYRIE2 = 0x5BFA5C4B
-VEHICLE_SCRAP = 0x9A9FD3DF
-VEHICLE_FELON2 = 0xFAAD85EE
-VEHICLE_STANIER = 0xA7EDE74D
-VEHICLE_BURRITO4 = 0x353B561D
-VEHICLE_VIRGO = 0xE2504942
-VEHICLE_CABLECAR = 0xC6C3242D
-VEHICLE_SERRANO = 0x4FB1A214
-VEHICLE_PBUS = 0x885F3671
-VEHICLE_POLICEB = 0xFDEFAEC3
-VEHICLE_COQUETTE3 = 0x2EC385FE
-VEHICLE_VINDICATOR = 0xAF599F01
-VEHICLE_VIGERO = 0xCEC6B9B7
-VEHICLE_VERLIERER2 = 0x41B77FA4
-VEHICLE_RUBBLE = 0x9A5B1DCC
-VEHICLE_VELUM2 = 0x403820E8
-VEHICLE_VELUM = 0x9C429B6A
-VEHICLE_WARRENER = 0x51D83328
-VEHICLE_AIRBUS = 0x4C80EB0E
-VEHICLE_HAULER = 0x5A82F9AE
-VEHICLE_VALKYRIE = 0xA09E15FD
-VEHICLE_JET = 0x3F119114
-VEHICLE_BOXVILLE2 = 0xF21B33BE
-VEHICLE_TRAILERSMALL = 0x2A72BEAB
-VEHICLE_TRIBIKE = 0x4339CD69
-VEHICLE_UTILLITRUCK3 = 0x7F2153DF
-VEHICLE_UTILLITRUCK2 = 0x34E6BF6B
-VEHICLE_UTILLITRUCK = 0x1ED0A534
-VEHICLE_TVTRAILER = 0x967620BE
-VEHICLE_MIXER = 0xD138A6BB
-VEHICLE_TURISMOR = 0x185484E1
-VEHICLE_TROPIC2 = 0x56590FE9
-VEHICLE_DUNE2 = 0x1FD824AF
-VEHICLE_TROPIC = 0x1149422F
-VEHICLE_TRIBIKE3 = 0xE823FB48
-VEHICLE_TRIBIKE2 = 0xB67597EC
-VEHICLE_SCHAFTER5 = 0xCB0E7CD9
-VEHICLE_FREIGHTGRAIN = 0x264D9262
-VEHICLE_VACCA = 0x142E0DC3
-VEHICLE_VADER = 0xF79A00F7
-VEHICLE_BLISTA = 0xEB70965F
-VEHICLE_MOONBEAM = 0x1F52A43F
-VEHICLE_BIFF = 0x32B91AE8
-VEHICLE_GRAINTRAILER = 0x3CC7F596
-VEHICLE_BALLER2 = 0x8852855
-VEHICLE_DUKES2 = 0xEC8F7094
-VEHICLE_TRAILERS3 = 0x8548036D
-VEHICLE_TRAILERS2 = 0xA1DA3C91
-VEHICLE_REBEL = 0xB802DD46
-VEHICLE_TRAILERS = 0xCBB2BE0E
-VEHICLE_BALLER3 = 0x6FF0F727
-VEHICLE_SANCHEZ = 0x2EF89E46
-VEHICLE_SUPERD = 0x42F2ED16
-VEHICLE_TRACTOR3 = 0x562A97BD
-VEHICLE_SPEEDER2 = 0x1A144F2A
-VEHICLE_TRACTOR = 0x61D6BA8C
-VEHICLE_EMPEROR3 = 0xB5FCF74E
-VEHICLE_TR4 = 0x7CAB34D0
-VEHICLE_TR3 = 0x6A59902D
-VEHICLE_NIGHTSHADE = 0x8C2BD0DC
-VEHICLE_TOWTRUCK2 = 0xE5A2D6C6
-VEHICLE_DUNE = 0x9CF21E0F
-VEHICLE_WASHINGTON = 0x69F06B57
-VEHICLE_TOURBUS = 0x73B1C3CB
-VEHICLE_TORNADO4 = 0x86CF7CDD
-VEHICLE_BUCCANEER = 0xD756460C
-VEHICLE_TORNADO3 = 0x690A4153
-VEHICLE_STRATUM = 0x66B4FC45
-VEHICLE_FLATBED = 0x50B0215A
-VEHICLE_MULE2 = 0xC1632BEB
-VEHICLE_TORNADO = 0x1BB290BC
-VEHICLE_PACKER = 0x21EEE87D
-VEHICLE_TITAN = 0x761E2AD3
-VEHICLE_TIPTRUCK2 = 0xC7824E5E
-VEHICLE_TIPTRUCK = 0x2E19879
-VEHICLE_THRUST = 0x6D6F8F43
-VEHICLE_PCJ = 0xC9CEAF06
-VEHICLE_BALLER5 = 0x1C09CF5E
-VEHICLE_TAXI = 0xC703DB5F
-VEHICLE_SUBMERSIBLE = 0x2DFF622F
-VEHICLE_FBI = 0x432EA949
-VEHICLE_TANKERCAR = 0x22EDDC30
-VEHICLE_FQ2 = 0xBC32A33B
-VEHICLE_KHAMELION = 0x206D1B68
-VEHICLE_BISON2 = 0x7B8297C5
-VEHICLE_SURGE = 0x8F0E3594
-VEHICLE_TAMPA = 0x39F9C898
-VEHICLE_CARGOBOB3 = 0x53174EEF
-VEHICLE_TAILGATER = 0xC3DDFDCE
-VEHICLE_TACO = 0x744CA80D
-VEHICLE_SCHWARZER = 0xD37B7976
-VEHICLE_SWIFT2 = 0x4019CB4C
-VEHICLE_SWIFT = 0xEBC24DF2
-VEHICLE_BLISTA3 = 0xDCBC1C3B
-VEHICLE_TANKER = 0xD46F4737
-VEHICLE_SURFER2 = 0xB1D80E06
-VEHICLE_POLICE3 = 0x71FA16EA
-VEHICLE_FELTZER3 = 0xA29D6D10
-VEHICLE_SURFER = 0x29B0DA97
-VEHICLE_WINDSOR = 0x5E4327C8
-VEHICLE_MULE = 0x35ED670B
-VEHICLE_NINEF = 0x3D8FA25C
-VEHICLE_SUNTRAP = 0xEF2295C9
-VEHICLE_T20 = 0x6322B39A
-VEHICLE_STUNT = 0x81794C70
-VEHICLE_BLIMP2 = 0xDB6B4924
-VEHICLE_TORNADO2 = 0x5B42A5C4
-VEHICLE_HABANERO = 0x34B7390F
-VEHICLE_STOCKADE3 = 0xF337AB36
-VEHICLE_STOCKADE = 0x6827CF72
-VEHICLE_GRANGER = 0x9628879C
-VEHICLE_KURUMA2 = 0x187D938D
-VEHICLE_EMPEROR = 0xD7278283
-VEHICLE_ISSI2 = 0xB9CB3B69
-VEHICLE_PONY2 = 0x38408341
-VEHICLE_FELON = 0xE8A8BDA8
-VEHICLE_SQUALO = 0x17DF5EC2
-VEHICLE_PICADOR = 0x59E0FBF3
-VEHICLE_FREIGHTCAR = 0xAFD22A6
-VEHICLE_INNOVATION = 0xF683EACA
-VEHICLE_BURRITO2 = 0xC9E8FF76
-VEHICLE_FROGGER = 0x2C634FBD
-VEHICLE_RUINER = 0xF26CEFF9
-VEHICLE_SPEEDER = 0xDC60D2B
-VEHICLE_SOVEREIGN = 0x2C509634
-VEHICLE_MASSACRO2 = 0xDA5819A3
-VEHICLE_SUPERVOLITO = 0x2A54C47D
-VEHICLE_SENTINEL = 0x50732C82
-VEHICLE_CADDY2 = 0xDFF0594C
-VEHICLE_PARADISE = 0x58B3979C
-VEHICLE_SEMINOLE = 0x48CECED3
-VEHICLE_SABREGT = 0x9B909C94
-VEHICLE_STALION = 0x72A4C31E
-VEHICLE_KURUMA = 0xAE2BFE94
-VEHICLE_VOLTIC = 0x9F4B77BE
-VEHICLE_INTRUDER = 0x34DD8AA1
-VEHICLE_SUBMERSIBLE2 = 0xC07107EE
-VEHICLE_BMX = 0x43779C54
-VEHICLE_FREIGHT = 0x3D6AAA9B
-VEHICLE_COACH = 0x84718D34
-VEHICLE_ENTITYXF = 0xB2FE5CF9
-VEHICLE_BOATTRAILER = 0x1F3D44B5
-VEHICLE_SCHAFTER6 = 0x72934BE4
-VEHICLE_SCHAFTER3 = 0xA774B5A6
-VEHICLE_SAVAGE = 0xFB133A17
-VEHICLE_SANDKING2 = 0x3AF8C345
-VEHICLE_FUTO = 0x7836CE2F
-VEHICLE_HEXER = 0x11F76C14
-VEHICLE_JACKAL = 0xDAC67112
-VEHICLE_SADLER2 = 0x2BC345D1
-VEHICLE_MAMMATUS = 0x97E55D11
-VEHICLE_DUKES = 0x2B26F456
-VEHICLE_RAPIDGT = 0x8CB29A14
-VEHICLE_CHINO = 0x14D69010
-VEHICLE_TRAILERLOGS = 0x782A236D
-VEHICLE_CADDY = 0x44623884
-VEHICLE_PRIMO = 0xBB6B404F
-VEHICLE_SADLER = 0xDC434E51
-VEHICLE_CRUISER = 0x1ABA13B5
-VEHICLE_DUMP = 0x810369E2
-VEHICLE_DOMINATOR2 = 0xC96B73D9
-VEHICLE_HYDRA = 0x39D6E83F
-VEHICLE_BENSON = 0x7A61B330
-VEHICLE_BOXVILLE3 = 0x7405E08
-VEHICLE_POLMAV = 0x1517D4D9
-VEHICLE_REGINA = 0xFF22D208
-VEHICLE_PENUMBRA = 0xE9805550
-VEHICLE_ROMERO = 0x2560B2FC
-VEHICLE_STINGER = 0x5C23AF9B
-VEHICLE_RIOT = 0xB822A1AA
-VEHICLE_RHINO = 0x2EA68690
-VEHICLE_BALLER = 0xCFCA3668
-VEHICLE_NINEF2 = 0xA8E38B01
-VEHICLE_PIGALLE = 0x404B6381
-VEHICLE_RENTALBUS = 0xBE819C63
-VEHICLE_COGCABRIO = 0x13B57D8A
-VEHICLE_RUFFIAN = 0xCABD11E8
-VEHICLE_RUMPO = 0x4543B74D
-VEHICLE_CARGOBOB2 = 0x60A7EA10
-VEHICLE_DAEMON = 0x77934CEE
-VEHICLE_MESA = 0x36848602
-VEHICLE_LECTRO = 0x26321E67
-VEHICLE_HUNTLEY = 0x1D06D681
-VEHICLE_SANCHEZ2 = 0xA960B13E
-VEHICLE_RANCHERXL = 0x6210CBB0
-VEHICLE_PROPTRAILER = 0x153E1B0A
-VEHICLE_GUARDIAN = 0x825A9F4C
-VEHICLE_PRIMO2 = 0x86618EDA
-VEHICLE_CUTTER = 0xC3FBA120
-VEHICLE_ARMYTRAILER = 0xA7FF33F5
-VEHICLE_PREDATOR = 0xE2E7D4AB
-VEHICLE_PRANGER = 0x2C33B46E
-VEHICLE_MULE3 = 0x85A5B471
-VEHICLE_TR2 = 0x7BE032C6
-VEHICLE_PONY = 0xF8DE29A8
-VEHICLE_ORACLE = 0x506434F6
-VEHICLE_JETMAX = 0x33581161
-VEHICLE_POLICET = 0x1B38E955
-VEHICLE_POLICEOLD2 = 0x95F4C618
-VEHICLE_DOUBLE = 0x9C669788
-VEHICLE_ARMYTANKER = 0xB8081009
-VEHICLE_AKUMA = 0x63ABADE7
-VEHICLE_POLICEOLD1 = 0xA46462F7
-VEHICLE_DILETTANTE2 = 0x64430650
-VEHICLE_BULLET = 0x9AE6DDA1
-VEHICLE_MONSTER = 0xCD93A7DB
-VEHICLE_BOXVILLE4 = 0x1A79847A
-VEHICLE_SPEEDO2 = 0x2B6DC64A
-VEHICLE_BLIMP = 0xF7004C86
-VEHICLE_DINGHY = 0x3D961290
-VEHICLE_BARRACKS3 = 0x2592B5CF
-VEHICLE_PHOENIX = 0x831A21D5
-VEHICLE_OSIRIS = 0x767164D6
-VEHICLE_PHANTOM = 0x809AA4CB
-VEHICLE_MINIVAN = 0xED7EADA4
-VEHICLE_JOURNEY = 0xF8D48E7A
-VEHICLE_BRAWLER = 0xA7CE1BC5
-VEHICLE_ASEA2 = 0x9441D8D5
-VEHICLE_JESTER2 = 0xBE0E6126
-VEHICLE_PANTO = 0xE644E480
-VEHICLE_CAMPER = 0x6FD95F68
-VEHICLE_LIMO2 = 0xF92AEC4D
-VEHICLE_CAVALCADE = 0x779F23AA
-VEHICLE_COMET2 = 0xC1AE4D16
-VEHICLE_BANSHEE = 0xC1E908D2
-VEHICLE_SPEEDO = 0xCFB3870C
-VEHICLE_BTYPE = 0x6FF6914
-VEHICLE_BURRITO5 = 0x437CF2A0
-VEHICLE_MAVERICK = 0x9D0450CA
-VEHICLE_PRAIRIE = 0xA988D3A2
-VEHICLE_COG55 = 0x360A438E
-VEHICLE_BULLDOZER = 0x7074F39D
-VEHICLE_BATI2 = 0xCADD5D2D
-VEHICLE_SANDKING = 0xB9210FD0
-VEHICLE_BARRACKS = 0xCEEA3F4B
-VEHICLE_GBURRITO2 = 0x11AA0E14
-VEHICLE_MIXER2 = 0x1C534995
-VEHICLE_MILJET = 0x9D80F93
-VEHICLE_BUS = 0xD577C962
-VEHICLE_MESA3 = 0x84F42E51
-VEHICLE_BLAZER = 0x8125BCF9
-VEHICLE_BUCCANEER2 = 0xC397F748
-VEHICLE_RATLOADER = 0xD83C13CE
-VEHICLE_SHERIFF2 = 0x72935408
-VEHICLE_RAPIDGT2 = 0x679450AF
-VEHICLE_ADDER = 0xB779A091
-VEHICLE_BLISTA2 = 0x3DEE5EDA
-VEHICLE_MARSHALL = 0x49863E9C
-VEHICLE_CRUSADER = 0x132D5A1A
-VEHICLE_MAMBA = 0x9CFFFC56
-VEHICLE_RUMPO2 = 0x961AFEF7
-VEHICLE_SEASHARK2 = 0xDB4388E4
-VEHICLE_FREIGHTTRAILER = 0xD1ABB666
-VEHICLE_CHEETAH = 0xB1D95DA0
-VEHICLE_LGUARD = 0x1BF8D381
-VEHICLE_LANDSTALKER = 0x4BA4E8DC
-VEHICLE_LURCHER = 0x7B47A6A7
-VEHICLE_RIPLEY = 0xCD935EF9
-VEHICLE_CARBONRS = 0xABB0C0
-VEHICLE_BURRITO3 = 0x98171BD3
-VEHICLE_SEASHARK = 0xC2974024
-VEHICLE_TANKER2 = 0x74998082
-VEHICLE_DOCKTRAILER = 0x806EFBEE
-VEHICLE_GRESLEY = 0xA3FC0F4D
-VEHICLE_BLAZER2 = 0xFD231729
-VEHICLE_RATLOADER2 = 0xDCE1D9F7
-VEHICLE_GAUNTLET = 0x94B395C5
-VEHICLE_FUROREGT = 0xBF1691E0
-VEHICLE_FREIGHTCONT1 = 0x36DCFF98
-VEHICLE_F620 = 0xDCBCBE48
-VEHICLE_BOXVILLE = 0x898ECCEA
+VEHICLE_CARGOBOB = -50547061
+VEHICLE_POLICE = 2046537925
+VEHICLE_RANCHERXL2 = 1933662059
+VEHICLE_ALPHA = 767087018
+VEHICLE_SCORCHER = -186537451
+VEHICLE_NEMESIS = -634879114
+VEHICLE_POLICE4 = -1973172295
+VEHICLE_DOMINATOR = 80636076
+VEHICLE_BLAZER3 = -1269889662
+VEHICLE_CHINO2 = -1361687965
+VEHICLE_BARRACKS2 = 1074326203
+VEHICLE_BODHI2 = -1435919434
+VEHICLE_MARQUIS = -1043459709
+VEHICLE_ELEGY2 = -566387422
+VEHICLE_SCHAFTER2 = -1255452397
+VEHICLE_FORKLIFT = 1491375716
+VEHICLE_DUSTER = 970356638
+VEHICLE_TECHNICAL = -2096818938
+VEHICLE_INSURGENT2 = 2071877360
+VEHICLE_EMPEROR2 = -1883002148
+VEHICLE_SULTAN = 970598228
+VEHICLE_BOBCATXL = 1069929536
+VEHICLE_VOODOO = 2006667053
+VEHICLE_JESTER = -1297672541
+VEHICLE_BALLER6 = 666166960
+VEHICLE_BUZZARD2 = 745926877
+VEHICLE_METROTRAIN = 868868440
+VEHICLE_SKYLIFT = 1044954915
+VEHICLE_FIXTER = -836512833
+VEHICLE_HAKUCHOU = 1265391242
+VEHICLE_FIRETRUK = 1938952078
+VEHICLE_PREMIER = -1883869285
+VEHICLE_BIFTA = -349601129
+VEHICLE_BTYPE2 = -831834716
+VEHICLE_STINGERGT = -2098947590
+VEHICLE_PEYOTE = 1830407356
+VEHICLE_TRFLAT = -1352468814
+VEHICLE_DUBSTA3 = -1237253773
+VEHICLE_SENTINEL2 = 873639469
+VEHICLE_BUFFALO = -304802106
+VEHICLE_SCHAFTER4 = 1489967196
+VEHICLE_ASEA = -1809822327
+VEHICLE_BUFFALO3 = 237764926
+VEHICLE_RHAPSODY = 841808271
+VEHICLE_ROCOTO = 2136773105
+VEHICLE_TRASH = 1917016601
+VEHICLE_FUSILADE = 499169875
+VEHICLE_FELTZER2 = -1995326987
+VEHICLE_AMBULANCE = 1171614426
+VEHICLE_SLAMVAN = 729783779
+VEHICLE_BLADE = -1205801634
+VEHICLE_SHERIFF = -1683328900
+VEHICLE_BFINJECTION = 1126868326
+VEHICLE_FROGGER2 = 1949211328
+VEHICLE_LAZER = -1281684762
+VEHICLE_FACTION2 = -1790546981
+VEHICLE_JB700 = 1051415893
+VEHICLE_ARMYTRAILER2 = -1637149482
+VEHICLE_FUGITIVE = 1909141499
+VEHICLE_CASCO = 941800958
+VEHICLE_DINGHY2 = 276773164
+VEHICLE_BESRA = 1824333165
+VEHICLE_HOTKNIFE = 37348240
+VEHICLE_BALLER4 = 634118882
+VEHICLE_RAKETRAILER = 390902130
+VEHICLE_AIRTUG = 1560980623
+VEHICLE_MOWER = 1783355638
+VEHICLE_GAUNTLET2 = 349315417
+VEHICLE_BURRITO = -1346687836
+VEHICLE_TORO = 1070967343
+VEHICLE_ANNIHILATOR = 837858166
+VEHICLE_BUZZARD = 788747387
+VEHICLE_DINGHY3 = 509498602
+VEHICLE_MASSACRO = -142942670
+VEHICLE_CARGOBOB4 = 2025593404
+VEHICLE_BISON = -16948145
+VEHICLE_EXEMPLAR = -5153954
+VEHICLE_DUBSTA = 1177543287
+VEHICLE_TRACTOR2 = -2076478498
+VEHICLE_ENDURO = 1753414259
+VEHICLE_VESTRA = 1341619767
+VEHICLE_BISON3 = 1739845664
+VEHICLE_CARGOPLANE = 368211810
+VEHICLE_FAGGIO2 = 55628203
+VEHICLE_CUBAN800 = -644710429
+VEHICLE_LUXOR = 621481054
+VEHICLE_BJXL = 850565707
+VEHICLE_COG552 = 704435172
+VEHICLE_SUPERVOLITO2 = -1671539132
+VEHICLE_STRETCH = -1961627517
+VEHICLE_INFERNUS = 418536135
+VEHICLE_CARBONIZZARE = 2072687711
+VEHICLE_LUXOR2 = -1214293858
+VEHICLE_DLOADER = 1770332643
+VEHICLE_GLENDALE = 75131841
+VEHICLE_COGNOSCENTI2 = -604842630
+VEHICLE_POUNDER = 2112052861
+VEHICLE_RADI = -1651067813
+VEHICLE_BATI = -114291515
+VEHICLE_FBI2 = -1647941228
+VEHICLE_ZION2 = -1193103848
+VEHICLE_MONROE = -433375717
+VEHICLE_SLAMVAN2 = 833469436
+VEHICLE_ASTEROPE = -1903012613
+VEHICLE_MANANA = -2124201592
+VEHICLE_DUBSTA2 = -394074634
+VEHICLE_BAGGER = -2140431165
+VEHICLE_COGNOSCENTI = -2030171296
+VEHICLE_CAVALCADE2 = -789894171
+VEHICLE_ZION = -1122289213
+VEHICLE_MESA2 = -748008636
+VEHICLE_TORO2 = 908897389
+VEHICLE_ORACLE2 = -511601230
+VEHICLE_INSURGENT = -1860900134
+VEHICLE_SURANO = 384071873
+VEHICLE_KALAHARI = 92612664
+VEHICLE_PATRIOT = -808457413
+VEHICLE_COQUETTE2 = 1011753235
+VEHICLE_POLICE2 = -1627000575
+VEHICLE_COQUETTE = 108773431
+VEHICLE_BALETRAILER = -399841706
+VEHICLE_SEASHARK3 = -311022263
+VEHICLE_TRASH2 = -1255698084
+VEHICLE_DOCKTUG = -884690486
+VEHICLE_HANDLER = 444583674
+VEHICLE_STALION2 = -401643538
+VEHICLE_VOODOO2 = 523724515
+VEHICLE_GBURRITO = -1745203402
+VEHICLE_INGOT = -1289722222
+VEHICLE_YOUGA = 65402552
+VEHICLE_DINGHY4 = 867467158
+VEHICLE_REBEL2 = -2045594037
+VEHICLE_MOONBEAM2 = 1896491931
+VEHICLE_ZTYPE = 758895617
+VEHICLE_DILETTANTE = -1130810103
+VEHICLE_BUFFALO2 = 736902334
+VEHICLE_ZENTORNO = -1403128555
+VEHICLE_FREIGHTCONT2 = 240201337
+VEHICLE_FACTION = -2119578145
+VEHICLE_DODO = -901163259
+VEHICLE_SHAMAL = -1214505995
+VEHICLE_TOWTRUCK = -1323100960
+VEHICLE_VALKYRIE2 = 1543134283
+VEHICLE_SCRAP = -1700801569
+VEHICLE_FELON2 = -89291282
+VEHICLE_STANIER = -1477580979
+VEHICLE_BURRITO4 = 893081117
+VEHICLE_VIRGO = -498054846
+VEHICLE_CABLECAR = -960289747
+VEHICLE_SERRANO = 1337041428
+VEHICLE_PBUS = -2007026063
+VEHICLE_POLICEB = -34623805
+VEHICLE_COQUETTE3 = 784565758
+VEHICLE_VINDICATOR = -1353081087
+VEHICLE_VIGERO = -825837129
+VEHICLE_VERLIERER2 = 1102544804
+VEHICLE_RUBBLE = -1705304628
+VEHICLE_VELUM2 = 1077420264
+VEHICLE_VELUM = -1673356438
+VEHICLE_WARRENER = 1373123368
+VEHICLE_AIRBUS = 1283517198
+VEHICLE_HAULER = 1518533038
+VEHICLE_VALKYRIE = -1600252419
+VEHICLE_JET = 1058115860
+VEHICLE_BOXVILLE2 = -233098306
+VEHICLE_TRAILERSMALL = 712162987
+VEHICLE_TRIBIKE = 1127861609
+VEHICLE_UTILLITRUCK3 = 2132890591
+VEHICLE_UTILLITRUCK2 = 887537515
+VEHICLE_UTILLITRUCK = 516990260
+VEHICLE_TVTRAILER = -1770643266
+VEHICLE_MIXER = -784816453
+VEHICLE_TURISMOR = 408192225
+VEHICLE_TROPIC2 = 1448677353
+VEHICLE_DUNE2 = 534258863
+VEHICLE_TROPIC = 290013743
+VEHICLE_TRIBIKE3 = -400295096
+VEHICLE_TRIBIKE2 = -1233807380
+VEHICLE_SCHAFTER5 = -888242983
+VEHICLE_FREIGHTGRAIN = 642617954
+VEHICLE_VACCA = 338562499
+VEHICLE_VADER = -140902153
+VEHICLE_BLISTA = -344943009
+VEHICLE_MOONBEAM = 525509695
+VEHICLE_BIFF = 850991848
+VEHICLE_GRAINTRAILER = 1019737494
+VEHICLE_BALLER2 = 142944341
+VEHICLE_DUKES2 = -326143852
+VEHICLE_TRAILERS3 = -2058878099
+VEHICLE_TRAILERS2 = -1579533167
+VEHICLE_REBEL = -1207771834
+VEHICLE_TRAILERS = -877478386
+VEHICLE_BALLER3 = 1878062887
+VEHICLE_SANCHEZ = 788045382
+VEHICLE_SUPERD = 1123216662
+VEHICLE_TRACTOR3 = 1445631933
+VEHICLE_SPEEDER2 = 437538602
+VEHICLE_TRACTOR = 1641462412
+VEHICLE_EMPEROR3 = -1241712818
+VEHICLE_TR4 = 2091594960
+VEHICLE_TR3 = 1784254509
+VEHICLE_NIGHTSHADE = -1943285540
+VEHICLE_TOWTRUCK2 = -442313018
+VEHICLE_DUNE = -1661854193
+VEHICLE_WASHINGTON = 1777363799
+VEHICLE_TOURBUS = 1941029835
+VEHICLE_TORNADO4 = -2033222435
+VEHICLE_BUCCANEER = -682211828
+VEHICLE_TORNADO3 = 1762279763
+VEHICLE_STRATUM = 1723137093
+VEHICLE_FLATBED = 1353720154
+VEHICLE_MULE2 = -1050465301
+VEHICLE_TORNADO = 464687292
+VEHICLE_PACKER = 569305213
+VEHICLE_TITAN = 1981688531
+VEHICLE_TIPTRUCK2 = -947761570
+VEHICLE_TIPTRUCK = 48339065
+VEHICLE_THRUST = 1836027715
+VEHICLE_PCJ = -909201658
+VEHICLE_BALLER5 = 470404958
+VEHICLE_TAXI = -956048545
+VEHICLE_SUBMERSIBLE = 771711535
+VEHICLE_FBI = 1127131465
+VEHICLE_TANKERCAR = 586013744
+VEHICLE_FQ2 = -1137532101
+VEHICLE_KHAMELION = 544021352
+VEHICLE_BISON2 = 2072156101
+VEHICLE_SURGE = -1894894188
+VEHICLE_TAMPA = 972671128
+VEHICLE_CARGOBOB3 = 1394036463
+VEHICLE_TAILGATER = -1008861746
+VEHICLE_TACO = 1951180813
+VEHICLE_SCHWARZER = -746882698
+VEHICLE_SWIFT2 = 1075432268
+VEHICLE_SWIFT = -339587598
+VEHICLE_BLISTA3 = -591651781
+VEHICLE_TANKER = -730904777
+VEHICLE_SURFER2 = -1311240698
+VEHICLE_POLICE3 = 1912215274
+VEHICLE_FELTZER3 = -1566741232
+VEHICLE_SURFER = 699456151
+VEHICLE_WINDSOR = 1581459400
+VEHICLE_MULE = 904750859
+VEHICLE_NINEF = 1032823388
+VEHICLE_SUNTRAP = -282946103
+VEHICLE_T20 = 1663218586
+VEHICLE_STUNT = -2122757008
+VEHICLE_BLIMP2 = -613725916
+VEHICLE_TORNADO2 = 1531094468
+VEHICLE_HABANERO = 884422927
+VEHICLE_STOCKADE3 = -214455498
+VEHICLE_STOCKADE = 1747439474
+VEHICLE_GRANGER = -1775728740
+VEHICLE_KURUMA2 = 410882957
+VEHICLE_EMPEROR = -685276541
+VEHICLE_ISSI2 = -1177863319
+VEHICLE_PONY2 = 943752001
+VEHICLE_FELON = -391594584
+VEHICLE_SQUALO = 400514754
+VEHICLE_PICADOR = 1507916787
+VEHICLE_FREIGHTCAR = 184361638
+VEHICLE_INNOVATION = -159126838
+VEHICLE_BURRITO2 = -907477130
+VEHICLE_FROGGER = 744705981
+VEHICLE_RUINER = -227741703
+VEHICLE_SPEEDER = 231083307
+VEHICLE_SOVEREIGN = 743478836
+VEHICLE_MASSACRO2 = -631760477
+VEHICLE_SUPERVOLITO = 710198397
+VEHICLE_SENTINEL = 1349725314
+VEHICLE_CADDY2 = -537896628
+VEHICLE_PARADISE = 1488164764
+VEHICLE_SEMINOLE = 1221512915
+VEHICLE_SABREGT = -1685021548
+VEHICLE_STALION = 1923400478
+VEHICLE_KURUMA = -1372848492
+VEHICLE_VOLTIC = -1622444098
+VEHICLE_INTRUDER = 886934177
+VEHICLE_SUBMERSIBLE2 = -1066334226
+VEHICLE_BMX = 1131912276
+VEHICLE_FREIGHT = 1030400667
+VEHICLE_COACH = -2072933068
+VEHICLE_ENTITYXF = -1291952903
+VEHICLE_BOATTRAILER = 524108981
+VEHICLE_SCHAFTER6 = 1922255844
+VEHICLE_SCHAFTER3 = -1485523546
+VEHICLE_SAVAGE = -82626025
+VEHICLE_SANDKING2 = 989381445
+VEHICLE_FUTO = 2016857647
+VEHICLE_HEXER = 301427732
+VEHICLE_JACKAL = -624529134
+VEHICLE_SADLER2 = 734217681
+VEHICLE_MAMMATUS = -1746576111
+VEHICLE_DUKES = 723973206
+VEHICLE_RAPIDGT = -1934452204
+VEHICLE_CHINO = 349605904
+VEHICLE_TRAILERLOGS = 2016027501
+VEHICLE_CADDY = 1147287684
+VEHICLE_PRIMO = -1150599089
+VEHICLE_SADLER = -599568815
+VEHICLE_CRUISER = 448402357
+VEHICLE_DUMP = -2130482718
+VEHICLE_DOMINATOR2 = -915704871
+VEHICLE_HYDRA = 970385471
+VEHICLE_BENSON = 2053223216
+VEHICLE_BOXVILLE3 = 121658888
+VEHICLE_POLMAV = 353883353
+VEHICLE_REGINA = -14495224
+VEHICLE_PENUMBRA = -377465520
+VEHICLE_ROMERO = 627094268
+VEHICLE_STINGER = 1545842587
+VEHICLE_RIOT = -1205689942
+VEHICLE_RHINO = 782665360
+VEHICLE_BALLER = -808831384
+VEHICLE_NINEF2 = -1461482751
+VEHICLE_PIGALLE = 1078682497
+VEHICLE_RENTALBUS = -1098802077
+VEHICLE_COGCABRIO = 330661258
+VEHICLE_RUFFIAN = -893578776
+VEHICLE_RUMPO = 1162065741
+VEHICLE_CARGOBOB2 = 1621617168
+VEHICLE_DAEMON = 2006142190
+VEHICLE_MESA = 914654722
+VEHICLE_LECTRO = 640818791
+VEHICLE_HUNTLEY = 486987393
+VEHICLE_SANCHEZ2 = -1453280962
+VEHICLE_RANCHERXL = 1645267888
+VEHICLE_PROPTRAILER = 356391690
+VEHICLE_GUARDIAN = -2107990196
+VEHICLE_PRIMO2 = -2040426790
+VEHICLE_CUTTER = -1006919392
+VEHICLE_ARMYTRAILER = -1476447243
+VEHICLE_PREDATOR = -488123221
+VEHICLE_PRANGER = 741586030
+VEHICLE_MULE3 = -2052737935
+VEHICLE_TR2 = 2078290630
+VEHICLE_PONY = -119658072
+VEHICLE_ORACLE = 1348744438
+VEHICLE_JETMAX = 861409633
+VEHICLE_POLICET = 456714581
+VEHICLE_POLICEOLD2 = -1779120616
+VEHICLE_DOUBLE = -1670998136
+VEHICLE_ARMYTANKER = -1207431159
+VEHICLE_AKUMA = 1672195559
+VEHICLE_POLICEOLD1 = -1536924937
+VEHICLE_DILETTANTE2 = 1682114128
+VEHICLE_BULLET = -1696146015
+VEHICLE_MONSTER = -845961253
+VEHICLE_BOXVILLE4 = 444171386
+VEHICLE_SPEEDO2 = 728614474
+VEHICLE_BLIMP = -150975354
+VEHICLE_DINGHY = 1033245328
+VEHICLE_BARRACKS3 = 630371791
+VEHICLE_PHOENIX = -2095439403
+VEHICLE_OSIRIS = 1987142870
+VEHICLE_PHANTOM = -2137348917
+VEHICLE_MINIVAN = -310465116
+VEHICLE_JOURNEY = -120287622
+VEHICLE_BRAWLER = -1479664699
+VEHICLE_ASEA2 = -1807623979
+VEHICLE_JESTER2 = -1106353882
+VEHICLE_PANTO = -431692672
+VEHICLE_CAMPER = 1876516712
+VEHICLE_LIMO2 = -114627507
+VEHICLE_CAVALCADE = 2006918058
+VEHICLE_COMET2 = -1045541610
+VEHICLE_BANSHEE = -1041692462
+VEHICLE_SPEEDO = -810318068
+VEHICLE_BTYPE = 117401876
+VEHICLE_BURRITO5 = 1132262048
+VEHICLE_MAVERICK = -1660661558
+VEHICLE_PRAIRIE = -1450650718
+VEHICLE_COG55 = 906642318
+VEHICLE_BULLDOZER = 1886712733
+VEHICLE_BATI2 = -891462355
+VEHICLE_SANDKING = -1189015600
+VEHICLE_BARRACKS = -823509173
+VEHICLE_GBURRITO2 = 296357396
+VEHICLE_MIXER2 = 475220373
+VEHICLE_MILJET = 165154707
+VEHICLE_BUS = -713569950
+VEHICLE_MESA3 = -2064372143
+VEHICLE_BLAZER = -2128233223
+VEHICLE_BUCCANEER2 = -1013450936
+VEHICLE_RATLOADER = -667151410
+VEHICLE_SHERIFF2 = 1922257928
+VEHICLE_RAPIDGT2 = 1737773231
+VEHICLE_ADDER = -1216765807
+VEHICLE_BLISTA2 = 1039032026
+VEHICLE_MARSHALL = 1233534620
+VEHICLE_CRUSADER = 321739290
+VEHICLE_MAMBA = -1660945322
+VEHICLE_RUMPO2 = -1776615689
+VEHICLE_SEASHARK2 = -616331036
+VEHICLE_FREIGHTTRAILER = -777275802
+VEHICLE_CHEETAH = -1311154784
+VEHICLE_LGUARD = 469291905
+VEHICLE_LANDSTALKER = 1269098716
+VEHICLE_LURCHER = 2068293287
+VEHICLE_RIPLEY = -845979911
+VEHICLE_CARBONRS = 11251904
+VEHICLE_BURRITO3 = -1743316013
+VEHICLE_SEASHARK = -1030275036
+VEHICLE_TANKER2 = 1956216962
+VEHICLE_DOCKTRAILER = -2140210194
+VEHICLE_GRESLEY = -1543762099
+VEHICLE_BLAZER2 = -48031959
+VEHICLE_RATLOADER2 = -589178377
+VEHICLE_GAUNTLET = -1800170043
+VEHICLE_FUROREGT = -1089039904
+VEHICLE_FREIGHTCONT1 = 920453016
+VEHICLE_F620 = -591610296
+VEHICLE_BOXVILLE = -1987130134
