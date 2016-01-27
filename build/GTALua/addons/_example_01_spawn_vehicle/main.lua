@@ -21,14 +21,14 @@ function example_vehicle:Run()
 			local vehicle_pos = LocalPlayer():GetOffsetVector(0,5,0)
 
 			-- Load Model
-			streaming.RequestModel(VEHICLE_TAXI)
+			streaming.RequestModel(VEHICLES.TAXI.Hash)
 			
 			-- Create Vehicle
-			game.CreateVehicle(VEHICLE_TAXI, vehicle_pos)
+			game.CreateVehicle(VEHICLES.TAXI.Hash, vehicle_pos)
 			
 			-- Set model as no longer needed
 			-- Otherwise it lies around in memory
-			streaming.ReleaseModel(VEHICLE_TAXI)
+			streaming.ReleaseModel(VEHICLES.TAXI.Hash)
 		end
 		
 		-- Wait
