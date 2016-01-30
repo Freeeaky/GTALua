@@ -79,11 +79,27 @@ function Ped:SetArmour(i)
 	natives.PED.SET_PED_ARMOUR(self.ID, i)
 end
 Ped.SetArmor = Ped.SetArmour
-function Ped:GetArmour(i)
+function Ped:GetArmour()
 	self:_CheckExists()
-	return natives.PED.GET_PED_ARMOUR(self.ID, i)
+	return natives.PED.GET_PED_ARMOUR(self.ID)
 end
 Ped.GetArmor = Ped.GetArmour
+
+-- Money
+function Ped:SetMoney(i)
+	self:_CheckExists()
+	natives.PED.SET_PED_MONEY(self.ID, i)
+end
+function Ped:GetMoney()
+	self:_CheckExists()
+	return natives.PED.GET_PED_MONEY(self.ID)
+end
+
+-- Type
+function Ped:GetType()
+	self:_CheckExists()
+	return natives.PED.GET_PED_TYPE(self.ID)
+end
 
 -- Nearby Peds
 function Ped:GetNearbyPeds(max_peds)

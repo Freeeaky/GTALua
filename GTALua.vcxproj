@@ -73,6 +73,11 @@
     <ClInclude Include="src\GTALua\ScriptEngine\rage.h" />
     <ClInclude Include="src\GTALua\ScriptEngine\ScriptEngine.h" />
     <ClInclude Include="src\GTALua\thirdparty\inih\ini.h" />
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\enums.h" />
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\main.h" />
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\nativeCaller.h" />
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\natives.h" />
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\types.h" />
     <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\ScriptHookV.h" />
     <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcher.h" />
     <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcherImpl.h" />

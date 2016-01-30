@@ -7,22 +7,28 @@ function game.IsPaused()
 end
 
 -- Create Ped
-function game.CreatePed(model_hash, vec)
+function game.CreatePed(model_hash, vec, heading)
 	if not streaming.HasModelLoaded(model_hash) then
 		error("You need to load the model before creating a Ped! Call streaming.RequestModel prior to calling game.CreatePed!")
 	end
 
-	local ped_handle = natives.PED.CREATE_PED(26, model_hash, vec.x, vec.y, vec.z, 0, true, true)
+	if heading == nil then
+		heading = 0
+	end
+	local ped_handle = natives.PED.CREATE_PED(26, model_hash, vec.x, vec.y, vec.z, heading, true, true)
 	return Ped(ped_handle)
 end
 
 -- Create Vehicle 
-function game.CreateVehicle(model_hash, vec)
+function game.CreateVehicle(model_hash, vec, heading)
 	if not streaming.HasModelLoaded(model_hash) then
 		error("You need to load the model before creating a Vehicle! Call streaming.RequestModel prior to calling game.CreateVehicle!")
 	end
 	
-	local veh_handle = natives.VEHICLE.CREATE_VEHICLE(model_hash, vec.x, vec.y, vec.z, 0, true, true)
+	if heading == nil then
+		heading = 0
+	end
+	local veh_handle = natives.VEHICLE.CREATE_VEHICLE(model_hash, vec.x, vec.y, vec.z, heading, true, true)
 	return Vehicle(veh_handle)
 end
 

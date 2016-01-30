@@ -131,3 +131,79 @@ function Vehicle:SetPlateText(text)
 	self:_CheckExists()
 	natives.VEHICLE.SET_VEHICLE_NUMBER_PLATE_TEXT(self.ID, text)
 end
+
+
+-- Get vehicle model hash from its id
+function Vehicle:GetModelHash()
+	self:_CheckExists()
+	return natives.ENTITY.GET_ENTITY_MODEL(self.ID)
+end
+
+-- Get vehicle name from its model hash
+function Vehicle:GetModelName()
+	self:_CheckExists()
+	return VEHICLES[self:GetModelHash()]
+end
+
+-- Get vehicle codename from its name
+function Vehicle:GetCodename()
+	self:_CheckExists()
+	return VEHICLES[self:GetModelHash()].Codename
+end
+
+-- Get vehicle maker from its name
+function Vehicle:GetMaker()
+	self:_CheckExists()
+	return VEHICLES[self:GetModelName()].Maker
+end
+
+-- Get vehicle full name from its name
+function Vehicle:GetFullName()
+	self:_CheckExists()
+	return VEHICLES[self:GetModelName()].FullName
+end
+
+-- Get vehicle class from its name
+function Vehicle:GetClass()
+	self:_CheckExists()
+	return VEHICLES[self:GetModelName()].Class
+end
+
+-- Get vehicle type
+function Vehicle:IsCar()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_CAR(self.Hash)
+end
+function Vehicle:IsTrain()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_TRAIN(self.Hash)
+end
+function Vehicle:IsBike()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_BIKE(self.Hash)
+end
+function Vehicle:IsBicycle()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_BICYCLE(self.Hash)
+end
+function Vehicle:IsQuadbike()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_QUADBIKE(self.Hash)
+end
+function Vehicle:IsPlane()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_PLANE(self.Hash)
+end
+function Vehicle:IsHeli()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_HELI(self.Hash)
+end
+function Vehicle:IsBoat()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_BOAT(self.Hash)
+end
+function Vehicle:IsSub()
+	self:_CheckExists()
+	return natives.VEHICLE._IS_THIS_MODEL_A_SUBMERSIBLE(self.Hash)
+end
+
