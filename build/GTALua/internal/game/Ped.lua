@@ -17,6 +17,15 @@ function Ped:Delete()
 	c_handle:Release()
 end
 
+--Set not needed
+function Ped:SetNotNeeded()
+	self:_CheckExists()
+	local c_ped_handle = CMemoryBlock(4)
+	c_ped_handle:WriteDWORD32(0, self.ID)
+	natives.ENTITY.SET_PED_AS_NO_LONGER_NEEDED(c_ped_handle)
+	c_ped_handle:Release()
+end
+
 -- Weapon Switching
 function Ped:AllowWeaponSwitching(b)
 	self:_CheckExists()

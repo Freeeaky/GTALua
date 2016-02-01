@@ -16,3 +16,12 @@ function Object:Delete()
 	natives.OBJECT.DELETE_OBJECT(c_handle)
 	c_handle:Release()
 end
+
+--Set not needed
+function Object:SetNotNeeded()
+	self:_CheckExists()
+	local c_object_handle = CMemoryBlock(4)
+	c_object_handle:WriteDWORD32(0, self.ID)
+	natives.ENTITY.SET_OBJECT_AS_NO_LONGER_NEEDED(c_object_handle)
+	c_object_handle:Release()
+end
