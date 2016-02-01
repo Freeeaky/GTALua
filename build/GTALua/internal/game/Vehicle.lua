@@ -17,6 +17,15 @@ function Vehicle:Delete()
 	c_handle:Release()
 end
 
+--Set not needed
+function Vehicle:SetNotNeeded()
+	self:_CheckExists()
+	local c_vehicle_handle = CMemoryBlock(4)
+	c_vehicle_handle:WriteDWORD32(0, self.ID)
+	natives.ENTITY.SET_VEHICLE_AS_NO_LONGER_NEEDED(c_vehicle_handle)
+	c_vehicle_handle:Release()
+end
+
 -- Is vehicle stuck on roof (returns true/false)
 function Vehicle:IsStuckOnRoof()
 	self:_CheckExists()
@@ -39,6 +48,18 @@ end
 function Vehicle:Explode()
 	self:_CheckExists()
 	natives.VEHICLE.EXPLODE_VEHICLE(self.ID, true, true)
+end
+
+-- Set vehicle colours
+function Vehicle:SetColours(p, s)
+	self:_CheckExists()
+	natives.VEHICLE.SET_VEHICLE_COLOURS(self.ID, p, s);
+end
+
+-- Set vehicle extra colours
+function Vehicle:SetExtraColours(p, s)
+	self:_CheckExists()
+	natives.VEHICLE.SET_VEHICLE_EXTRA_COLOURS(self.ID, p, s);
 end
 
 -- Set primary colour.
@@ -131,3 +152,72 @@ function Vehicle:SetPlateText(text)
 	self:_CheckExists()
 	natives.VEHICLE.SET_VEHICLE_NUMBER_PLATE_TEXT(self.ID, text)
 end
+
+-- Get vehicle name from its model hash
+function Vehicle:GetModelName()
+	self:_CheckExists()
+	return VEHICLES[self:GetModel()]
+end
+
+-- Get vehicle codename from its name
+function Vehicle:GetCodename()
+	self:_CheckExists()
+	return VEHICLES[self:GetModelName()].Codename
+end
+
+-- Get vehicle maker from its name
+function Vehicle:GetMaker()
+	self:_CheckExists()
+	return VEHICLES[self:GetModelName()].Maker
+end
+
+-- Get vehicle full name from its name
+function Vehicle:GetFullName()
+	self:_CheckExists()
+	return VEHICLES[self:GetModelName()].FullName
+end
+
+-- Get vehicle class from its name
+function Vehicle:GetClass()
+	self:_CheckExists()
+	return VEHICLES[self:GetModelName()].Class
+end
+
+-- Get vehicle type
+function Vehicle:IsCar()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_CAR(self:GetModel())
+end
+function Vehicle:IsTrain()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_TRAIN(self:GetModel())
+end
+function Vehicle:IsBike()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_BIKE(self:GetModel())
+end
+function Vehicle:IsBicycle()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_BICYCLE(self:GetModel())
+end
+function Vehicle:IsQuadbike()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_QUADBIKE(self:GetModel())
+end
+function Vehicle:IsPlane()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_PLANE(self:GetModel())
+end
+function Vehicle:IsHeli()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_HELI(self:GetModel())
+end
+function Vehicle:IsBoat()
+	self:_CheckExists()
+	return natives.VEHICLE.IS_THIS_MODEL_A_BOAT(self:GetModel())
+end
+function Vehicle:IsSub()
+	self:_CheckExists()
+	return natives.VEHICLE._IS_THIS_MODEL_A_SUBMERSIBLE(self:GetModel())
+end
+

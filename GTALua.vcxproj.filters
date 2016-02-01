@@ -185,6 +185,21 @@
     <ClInclude Include="src\GTALua\GameEvents\GameEvents.h">
       <Filter>Headers\GameEvents</Filter>
     </ClInclude>
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\enums.h">
+      <Filter>Headers\thirdparty\ScriptHookV</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\main.h">
+      <Filter>Headers\thirdparty\ScriptHookV</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\nativeCaller.h">
+      <Filter>Headers\thirdparty\ScriptHookV</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\natives.h">
+      <Filter>Headers\thirdparty\ScriptHookV</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\types.h">
+      <Filter>Headers\thirdparty\ScriptHookV</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GTALua\Console.cpp">
