@@ -41,6 +41,18 @@ function Vehicle:Explode()
 	natives.VEHICLE.EXPLODE_VEHICLE(self.ID, true, true)
 end
 
+-- Set vehicle colours
+function Vehicle:SetColours(p, s)
+	self:_CheckExists()
+	natives.VEHICLE.SET_VEHICLE_COLOURS(self.ID, p, s);
+end
+
+-- Set vehicle extra colours
+function Vehicle:SetExtraColours(p, s)
+	self:_CheckExists()
+	natives.VEHICLE.SET_VEHICLE_EXTRA_COLOURS(self.ID, p, s);
+end
+
 -- Set primary colour.
 function Vehicle:SetPrimaryColour(r, g, b)
 	self:_CheckExists()
