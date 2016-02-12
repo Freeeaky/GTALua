@@ -64,3 +64,17 @@ function console.cmd_show_all_addons()
 end
 console.RegisterCommand("showall", console.cmd_show_all_addons)
 
+-- Execute a Lua command
+function console.cmd_lua(...)
+	local cmd=table.concat(arg," ")
+	local f=loadstring(cmd)
+	if type(f) == "function" then
+		local r=f()
+		if r ~= nil then
+			print(r)
+		end
+	else
+		error("Input didn't evaluate to a function.")
+	end
+end
+console.RegisterCommand("lua", console.cmd_lua)
