@@ -4,3 +4,4 @@ build/GTALua/addons/police*
 build/GTALua/addons/test*
 /.vs/GTALua/v14
 GTALua.sdf
+/GTALua.VC.opendb
