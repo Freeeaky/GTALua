@@ -1,5 +1,15 @@
 // =================================================================================
 // Includes 
+/*
+ * DEPRECATED!
+ * This will be removed in the next release!
+ *
+ * This feature is no longer neccessary. Currently we use just one thread that
+ * manages all addons at the same time. This works without issues, multiple threads
+ * are not neccessary.
+ *
+ * In the future, I might use ScriptHookV's function to add another thread.
+ */
 // =================================================================================
 #include "Includes.h"
 #include "GTALua.h"
@@ -12,42 +22,13 @@
 // =================================================================================
 // Exports 
 // =================================================================================
-#define ASI_ADDON_VERSION 4
+//#define ASI_ADDON_VERSION 4
 
 // Noone needs name mangling
 extern "C"
 {
 	__declspec(dllexport) void LoadAddon(int version, HMODULE hModule);
 	__declspec(dllexport) void UnloadAddon(HMODULE hModule);
-}
-
-// Imports
-typedef void(*SetActualCallback_t)(ScriptHook_Callback pCallback);
-
-// =================================================================================
-// Load Queued Addons 
-// =================================================================================
-void API::LoadQueuedAddons()
-{
-	for (vector<char*>::iterator it = vLoadQueue.begin(); it != vLoadQueue.end(); ++it)
-	{
-		char* sName = *it;
-		if (sName != NULL)
-		{
-			// Load
-			lua->GetGlobal("addon");
-			lua->GetField("Load");
-			lua->PushString(sName);
-			lua->ProtectedCall(1);
-			lua->Pop(2);
-
-			// Cleanup
-			free(sName);
-		}
-	}
-
-	// erase vector
-	vLoadQueue.erase(vLoadQueue.begin(), vLoadQueue.end());
 }
 
 // =================================================================================
@@ -61,26 +42,16 @@ __declspec(dllexport) void LoadAddon(int version, HMODULE hModule)
 	_splitpath(sPath, NULL, NULL, sFileName, NULL);
 	free(sPath);
 
-	// Version
-	if (version != ASI_ADDON_VERSION)
-	{
-		printf("[ASIAddon] Module %s unsupported! Version: %i, Required Version: %i\n", sFileName, version, ASI_ADDON_VERSION);
-		return;
-	}
+	// Deprecated
+	static bool warning = false;
 
-	// Callback
-	SetActualCallback_t pSetCallback = (SetActualCallback_t)GetProcAddress(hModule, "SetActualCallback");
-	if (!pSetCallback)
+	if (!warning)
 	{
-		printf("[ASIAddon] %s: Failed to import SetActualCallback!\n", sFileName);
-		return;
+		printf("[ASIAddon] Deprecated! Please do not use ASI Addons anymore!\n;");
+		printf("[ASIAddon] This feature is not working anymore and will be completely removed in the next version.\n");
+		warning = true;
 	}
-	pSetCallback(&Lua_StartThread);
-
-	// Load
-	API::vLoadQueue.push_back(sFileName);
-	if (lua != NULL)
-		API::LoadQueuedAddons();
+	printf("[ASIAddon] Deprecated Feature: Please delete %s !\n", sPath);
 }
 
 // =================================================================================
@@ -88,26 +59,5 @@ __declspec(dllexport) void LoadAddon(int version, HMODULE hModule)
 // =================================================================================
 __declspec(dllexport) void UnloadAddon(HMODULE hModule)
 {
-	// Get Module File Name
-	char* sPath = Memory::GetModulePath(hModule);
-	char* sFileName = new char[64];
-	_splitpath(sPath, NULL, NULL, sFileName, NULL);
-	free(sPath);
-
-	// Already shut down
-	if (lua == NULL || g_pGTALua == NULL)
-		return;
-
-	// Debug
-	printf("[GTALua] Unloading %s\n", sFileName);
-
-	// Unload
-	lua->GetGlobal("addon");
-	lua->GetField("Unload");
-	lua->PushString(sPath);
-	lua->ProtectedCall(1);
-	lua->Pop(3);
-
-	// Cleanup
-	free(sPath);
+	// Deprecated
 }

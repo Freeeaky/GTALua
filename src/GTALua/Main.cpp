@@ -127,10 +127,7 @@ void GTALua::ProperInit()
 void GTALua::InitAddons()
 {
 	if (lua == NULL) return;
-
-	// Queued Addons
 	printf("\n");
-	API::LoadQueuedAddons();
 
 	// Run _main
 	lua->GetGlobal("_main");
