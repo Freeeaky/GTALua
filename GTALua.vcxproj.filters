@@ -86,234 +86,234 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\GTALua\GTALua.h">
+    <ClInclude Include="src\GTALua.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Includes.h">
+    <ClInclude Include="src\Includes.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\minhook\src\buffer.h">
+    <ClInclude Include="src\Memory\minhook\src\buffer.h">
       <Filter>Headers\Memory\minhook</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcher.h">
+    <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcher.h">
       <Filter>Headers\thirdparty\SimpleFileWatcher</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcherImpl.h">
+    <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcherImpl.h">
       <Filter>Headers\thirdparty\SimpleFileWatcher</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\SimpleFileWatcher\include\FileWatcherWin32.h">
+    <ClInclude Include="src\thirdparty\SimpleFileWatcher\include\FileWatcherWin32.h">
       <Filter>Headers\thirdparty\SimpleFileWatcher</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\hde32.h">
+    <ClInclude Include="src\Memory\minhook\src\HDE\hde32.h">
       <Filter>Headers\Memory\minhook</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\hde64.h">
+    <ClInclude Include="src\Memory\minhook\src\HDE\hde64.h">
       <Filter>Headers\Memory\minhook</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\GameMemory.h">
+    <ClInclude Include="src\Memory\GameMemory.h">
       <Filter>Headers\Memory</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\lua\ClassWrappers.h">
+    <ClInclude Include="src\lua\ClassWrappers.h">
       <Filter>Headers\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\lua\GeneralFunctions.h">
+    <ClInclude Include="src\lua\GeneralFunctions.h">
       <Filter>Headers\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\inih\ini.h">
+    <ClInclude Include="src\thirdparty\inih\ini.h">
       <Filter>Headers\thirdparty\inih</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\UTIL\IniFile.h">
+    <ClInclude Include="src\UTIL\IniFile.h">
       <Filter>Headers\thirdparty\inih</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\lua\lua\lauxlib.h">
+    <ClInclude Include="src\lua\lua\lauxlib.h">
       <Filter>Headers\lua\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\lua\lua\lua.h">
+    <ClInclude Include="src\lua\lua\lua.h">
       <Filter>Headers\lua\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\lua\Lua.h">
+    <ClInclude Include="src\lua\Lua.h">
       <Filter>Headers\lua\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\lua\lua\luaconf.h">
+    <ClInclude Include="src\lua\lua\luaconf.h">
       <Filter>Headers\lua\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\lua\lua\lualib.h">
+    <ClInclude Include="src\lua\lua\lualib.h">
       <Filter>Headers\lua\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\lua\luamanager\LuaManager.h">
+    <ClInclude Include="src\lua\luamanager\LuaManager.h">
       <Filter>Headers\lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\Memory.h">
+    <ClInclude Include="src\Memory\Memory.h">
       <Filter>Headers\Memory</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\minhook\include\MinHook.h">
+    <ClInclude Include="src\Memory\minhook\include\MinHook.h">
       <Filter>Headers\Memory\minhook</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\pstdint.h">
+    <ClInclude Include="src\Memory\minhook\src\HDE\pstdint.h">
       <Filter>Headers\Memory\minhook</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\ScriptEngine\rage.h">
+    <ClInclude Include="src\ScriptEngine\rage.h">
       <Filter>Headers\ScriptEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\ScriptBinds\ScriptBinds.h">
+    <ClInclude Include="src\ScriptBinds\ScriptBinds.h">
       <Filter>Headers\ScriptBinds</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\ScriptEngine\ScriptEngine.h">
+    <ClInclude Include="src\ScriptEngine\ScriptEngine.h">
       <Filter>Headers\ScriptEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\ScriptHookV.h">
+    <ClInclude Include="src\thirdparty\ScriptHookV\ScriptHookV.h">
       <Filter>Headers\ScriptEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\ScriptEngine\Natives.h">
+    <ClInclude Include="src\ScriptEngine\Natives.h">
       <Filter>Headers\ScriptEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\table32.h">
+    <ClInclude Include="src\Memory\minhook\src\HDE\table32.h">
       <Filter>Headers\Memory\minhook</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\minhook\src\HDE\table64.h">
+    <ClInclude Include="src\Memory\minhook\src\HDE\table64.h">
       <Filter>Headers\Memory\minhook</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\Memory\minhook\src\trampoline.h">
+    <ClInclude Include="src\Memory\minhook\src\trampoline.h">
       <Filter>Headers\Memory\minhook</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\UTIL\UTIL.h">
+    <ClInclude Include="src\UTIL\UTIL.h">
       <Filter>Headers\UTIL</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\UTIL\Mutex.h">
+    <ClInclude Include="src\UTIL\Mutex.h">
       <Filter>Headers\UTIL</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\GameEvents\GameEvents.h">
+    <ClInclude Include="src\GameEvents\GameEvents.h">
       <Filter>Headers\GameEvents</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\enums.h">
+    <ClInclude Include="src\thirdparty\ScriptHookV\inc\enums.h">
       <Filter>Headers\thirdparty\ScriptHookV</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\main.h">
+    <ClInclude Include="src\thirdparty\ScriptHookV\inc\main.h">
       <Filter>Headers\thirdparty\ScriptHookV</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\nativeCaller.h">
+    <ClInclude Include="src\thirdparty\ScriptHookV\inc\nativeCaller.h">
       <Filter>Headers\thirdparty\ScriptHookV</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\natives.h">
+    <ClInclude Include="src\thirdparty\ScriptHookV\inc\natives.h">
       <Filter>Headers\thirdparty\ScriptHookV</Filter>
     </ClInclude>
-    <ClInclude Include="src\GTALua\thirdparty\ScriptHookV\inc\types.h">
+    <ClInclude Include="src\thirdparty\ScriptHookV\inc\types.h">
       <Filter>Headers\thirdparty\ScriptHookV</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\GTALua\Console.cpp">
+    <ClCompile Include="src\Console.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\DLLMain.cpp">
+    <ClCompile Include="src\DLLMain.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\GameHooks.cpp">
+    <ClCompile Include="src\GameHooks.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Main.cpp">
+    <ClCompile Include="src\Main.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Memory\GameMemory.cpp">
+    <ClCompile Include="src\Memory\GameMemory.cpp">
       <Filter>Sources\Memory</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Memory\Hooking.cpp">
+    <ClCompile Include="src\Memory\Hooking.cpp">
       <Filter>Sources\Memory</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\UTIL\IniFile.cpp">
+    <ClCompile Include="src\UTIL\IniFile.cpp">
       <Filter>Sources\thirdparty\inih</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\thirdparty\inih\ini.c">
+    <ClCompile Include="src\thirdparty\inih\ini.c">
       <Filter>Sources\thirdparty\inih</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_File.cpp">
+    <ClCompile Include="src\ScriptBinds\LB_File.cpp">
       <Filter>Sources\ScriptBinds</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_GeneralFunctions.cpp">
+    <ClCompile Include="src\ScriptBinds\LB_GeneralFunctions.cpp">
       <Filter>Sources\ScriptBinds</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_Memory.cpp">
+    <ClCompile Include="src\ScriptBinds\LB_Memory.cpp">
       <Filter>Sources\ScriptBinds</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_Natives.cpp">
+    <ClCompile Include="src\ScriptBinds\LB_Natives.cpp">
       <Filter>Sources\ScriptBinds</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_ScriptHookV.cpp">
+    <ClCompile Include="src\ScriptBinds\LB_ScriptHookV.cpp">
       <Filter>Sources\ScriptBinds</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_ScriptThread.cpp">
+    <ClCompile Include="src\ScriptBinds\LB_ScriptThread.cpp">
       <Filter>Sources\ScriptBinds</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_Types.cpp">
+    <ClCompile Include="src\ScriptBinds\LB_Types.cpp">
       <Filter>Sources\ScriptBinds</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\lua\GeneralFunctions.cpp">
+    <ClCompile Include="src\lua\GeneralFunctions.cpp">
       <Filter>Sources\lua\LuaManager</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\lua\luamanager\LuaManager.cpp">
+    <ClCompile Include="src\lua\luamanager\LuaManager.cpp">
       <Filter>Sources\lua\LuaManager</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\lua\luamanager\LuaManager_Debug.cpp">
+    <ClCompile Include="src\lua\luamanager\LuaManager_Debug.cpp">
       <Filter>Sources\lua\LuaManager</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\lua\luamanager\LuaManager_General.cpp">
+    <ClCompile Include="src\lua\luamanager\LuaManager_General.cpp">
       <Filter>Sources\lua\LuaManager</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\UTIL\UTIL.cpp">
+    <ClCompile Include="src\UTIL\UTIL.cpp">
       <Filter>Sources\UTIL</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptEngine\ScriptHookV.cpp">
+    <ClCompile Include="src\ScriptEngine\ScriptHookV.cpp">
       <Filter>Sources\ScriptEngine</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptEngine\Natives.cpp">
+    <ClCompile Include="src\ScriptEngine\Natives.cpp">
       <Filter>Sources\ScriptEngine</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Memory\Memory.cpp">
+    <ClCompile Include="src\Memory\Memory.cpp">
       <Filter>Sources\Memory</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Memory\minhook\src\hook.c">
+    <ClCompile Include="src\Memory\minhook\src\hook.c">
       <Filter>Sources\Memory\minhook</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Memory\minhook\src\buffer.c">
+    <ClCompile Include="src\Memory\minhook\src\buffer.c">
       <Filter>Sources\Memory\minhook</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Memory\minhook\src\HDE\hde32.c">
+    <ClCompile Include="src\Memory\minhook\src\HDE\hde32.c">
       <Filter>Sources\Memory\minhook</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Memory\minhook\src\HDE\hde64.c">
+    <ClCompile Include="src\Memory\minhook\src\HDE\hde64.c">
       <Filter>Sources\Memory\minhook</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Memory\minhook\src\trampoline.c">
+    <ClCompile Include="src\Memory\minhook\src\trampoline.c">
       <Filter>Sources\Memory\minhook</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\API.cpp">
+    <ClCompile Include="src\API.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\ScriptBinds\LB_MainScriptThread.cpp">
+    <ClCompile Include="src\ScriptBinds\LB_MainScriptThread.cpp">
       <Filter>Sources\ScriptBinds</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Configuration\NativeCallLayoutsINI.cpp">
+    <ClCompile Include="src\Configuration\NativeCallLayoutsINI.cpp">
       <Filter>Sources\Configuration</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Configuration\GTALuaINI.cpp">
+    <ClCompile Include="src\Configuration\GTALuaINI.cpp">
       <Filter>Sources\Configuration</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\Configuration\NativesINI.cpp">
+    <ClCompile Include="src\Configuration\NativesINI.cpp">
       <Filter>Sources\Configuration</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\UTIL\Mutex.cpp">
+    <ClCompile Include="src\UTIL\Mutex.cpp">
       <Filter>Sources\UTIL</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\GameEvents\GameEvents.cpp">
+    <ClCompile Include="src\GameEvents\GameEvents.cpp">
       <Filter>Sources\GameEvents</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\GameEvents\OnPedCreated.cpp">
+    <ClCompile Include="src\GameEvents\OnPedCreated.cpp">
       <Filter>Sources\GameEvents</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\GameEvents\Entity.cpp">
+    <ClCompile Include="src\GameEvents\Entity.cpp">
       <Filter>Sources\GameEvents</Filter>
     </ClCompile>
-    <ClCompile Include="src\GTALua\GameEvents\OnVehicleCreated.cpp">
+    <ClCompile Include="src\GameEvents\OnVehicleCreated.cpp">
       <Filter>Sources\GameEvents</Filter>
     </ClCompile>
   </ItemGroup>
