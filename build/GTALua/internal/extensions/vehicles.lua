@@ -148,6 +148,7 @@ VehiclesAddToTable("EXEMPLAR",-5153954,"EXEMPLAR","Coupes","Exemplar","Dewbauche
 VehiclesAddToTable("F620",-591610296,"F620","Coupes","F620","Ocelot")
 VehiclesAddToTable("FACTION",-2119578145,"FACTION","Muscle","Faction","Willard")
 VehiclesAddToTable("FACTION2",-1790546981,"FACTION2","Muscle","Faction Custom","Willard")
+VehiclesAddToTable("FACTION3",-2039755226,"FACTION3","Muscle","Faction Custom Donk","Willard")
 VehiclesAddToTable("FAGGIO2",55628203,"FAGGIO","Motorcycles","Faggio","Pegassi")
 VehiclesAddToTable("FBI",1127131465,"FBI","Emergency","FIB","")
 VehiclesAddToTable("FBI2",-1647941228,"FBI2","Emergency","FIB","")
@@ -229,6 +230,7 @@ VehiclesAddToTable("MESA3",-2064372143,"MESA","Off-Road","Mesa","Canis")
 VehiclesAddToTable("METROTRAIN",868868440,"FREIGHT","Trains","Freight Train","")
 VehiclesAddToTable("MILJET",165154707,"MILJET","Airplanes","Miljet","Buckingham")
 VehiclesAddToTable("MINIVAN",-310465116,"MINIVAN","Vans/Pickups","Minivan","Vapid")
+VehiclesAddToTable("MINIVAN2",-1126264336,"MINIVAN2","Vans/Pickups","Minivan Custom","Vapid")
 VehiclesAddToTable("MIXER",-784816453,"MIXER","Industrial","Mixer","HVY")
 VehiclesAddToTable("MIXER2",475220373,"MIXER2","Industrial","Mixer","HVY")
 VehiclesAddToTable("MONROE",-433375717,"MONROE","Sports Classics","Monroe","Pegassi")
@@ -301,6 +303,7 @@ VehiclesAddToTable("RUINER",-227741703,"RUINER","Muscle","Ruiner","Imponte")
 VehiclesAddToTable("RUMPO",1162065741,"RUMPO","Vans/Pickups","Rumpo","Bravado")
 VehiclesAddToTable("RUMPO2",-1776615689,"RUMPO","Vans/Pickups","Rumpo","Bravado")
 VehiclesAddToTable("SABREGT",-1685021548,"SABREGT","Muscle","Sabre Turbo","Declasse")
+VehiclesAddToTable("SABREGT2",223258115,"SABREGT2","Muscle","Sabre Turbo Custom","Declasse")
 VehiclesAddToTable("SADLER",-599568815,"SADLER","Utility","Sadler","Vapid")
 VehiclesAddToTable("SADLER2",734217681,"SADLER","Utility","Sadler","Vapid")
 VehiclesAddToTable("SANCHEZ",788045382,"SANCHEZ01","Motorcycles","Sanchez (livery)","Maibatsu")
@@ -329,6 +332,7 @@ VehiclesAddToTable("SHERIFF2",1922257928,"SHERIFF2","Emergency","Sheriff SUV",""
 VehiclesAddToTable("SKYLIFT",1044954915,"SKYLIFT","Helicopters","Skylift","")
 VehiclesAddToTable("SLAMVAN",729783779,"SLAMVAN","Muscle","Slamvan","Vapid")
 VehiclesAddToTable("SLAMVAN2",833469436,"SLAMVAN2","Muscle","Lost Slamvan","Vapid")
+VehiclesAddToTable("SLAMVAN3",1119641113,"SLAMVAN3","Muscle","Slamvan Custom","Vapid")
 VehiclesAddToTable("SOVEREIGN",743478836,"SOVEREIGN","Motorcycles","Sovereign","Western")
 VehiclesAddToTable("SPEEDER",231083307,"SPEEDER","Boats","Speeder","Pegassi")
 VehiclesAddToTable("SPEEDER2",437538602,"SPEEDER","Boats","Speeder","Pegassi")
@@ -376,6 +380,7 @@ VehiclesAddToTable("TORNADO",464687292,"TORNADO","Sports Classics","Tornado","De
 VehiclesAddToTable("TORNADO2",1531094468,"TORNADO2","Sports Classics","Tornado","Declasse")
 VehiclesAddToTable("TORNADO3",1762279763,"TORNADO3","Sports Classics","Tornado","Declasse")
 VehiclesAddToTable("TORNADO4",-2033222435,"TORNADO","Sports Classics","Tornado","Declasse")
+VehiclesAddToTable("TORNADO5",-1797613329,"TORNADO","Sports Classics","Tornado","Declasse")
 VehiclesAddToTable("TORO",1070967343,"TORO","Boats","Toro","Lampadati")
 VehiclesAddToTable("TORO2",908897389,"TORO","Boats","Toro","Lampadati")
 VehiclesAddToTable("TOURBUS",1941029835,"TOURBUS","Service","Tourbus","")
@@ -416,6 +421,8 @@ VehiclesAddToTable("VESTRA",1341619767,"VESTRA","Airplanes","Vestra","Buckingham
 VehiclesAddToTable("VIGERO",-825837129,"VIGERO","Muscle","Vigero","Declasse")
 VehiclesAddToTable("VINDICATOR",-1353081087,"VINDICATOR","Motorcycles","Vindicator","Dinka")
 VehiclesAddToTable("VIRGO",-498054846,"VIRGO","Muscle","Virgo","Albany")
+VehiclesAddToTable("VIRGO2",-899509638,"VIRGO2","Muscle","Virgo Classic Custom","Albany")
+VehiclesAddToTable("VIRGO3",16646064,"VIRGO3","Muscle","Virgo Classic","Albany")
 VehiclesAddToTable("VOLTIC",-1622444098,"VOLTIC","Super","Voltic","Coil")
 VehiclesAddToTable("VOODOO",2006667053,"VOODOO2","Muscle","Voodoo Custom","Declasse")
 VehiclesAddToTable("VOODOO2",523724515,"VOODOO","Muscle","Voodoo","Declasse")
@@ -565,6 +572,7 @@ VEHICLE_EXEMPLAR = -5153954
 VEHICLE_F620 = -591610296
 VEHICLE_FACTION = -2119578145
 VEHICLE_FACTION2 = -1790546981
+VEHICLE_FACTION3 = -2039755226
 VEHICLE_FAGGIO2 = 55628203
 VEHICLE_FBI = 1127131465
 VEHICLE_FBI2 = -1647941228
@@ -646,6 +654,7 @@ VEHICLE_MESA3 = -2064372143
 VEHICLE_METROTRAIN = 868868440
 VEHICLE_MILJET = 165154707
 VEHICLE_MINIVAN = -310465116
+VEHICLE_MINIVAN2 = -1126264336
 VEHICLE_MIXER = -784816453
 VEHICLE_MIXER2 = 475220373
 VEHICLE_MONROE = -433375717
@@ -718,6 +727,7 @@ VEHICLE_RUINER = -227741703
 VEHICLE_RUMPO = 1162065741
 VEHICLE_RUMPO2 = -1776615689
 VEHICLE_SABREGT = -1685021548
+VEHICLE_SABREGT2 = 223258115
 VEHICLE_SADLER = -599568815
 VEHICLE_SADLER2 = 734217681
 VEHICLE_SANCHEZ = 788045382
@@ -746,6 +756,7 @@ VEHICLE_SHERIFF2 = 1922257928
 VEHICLE_SKYLIFT = 1044954915
 VEHICLE_SLAMVAN = 729783779
 VEHICLE_SLAMVAN2 = 833469436
+VEHICLE_SLAMVAN3 = 1119641113
 VEHICLE_SOVEREIGN = 743478836
 VEHICLE_SPEEDER = 231083307
 VEHICLE_SPEEDER2 = 437538602
@@ -793,6 +804,7 @@ VEHICLE_TORNADO = 464687292
 VEHICLE_TORNADO2 = 1531094468
 VEHICLE_TORNADO3 = 1762279763
 VEHICLE_TORNADO4 = -2033222435
+VEHICLE_TORNADO5 = -1797613329
 VEHICLE_TORO = 1070967343
 VEHICLE_TORO2 = 908897389
 VEHICLE_TOURBUS = 1941029835
@@ -833,6 +845,8 @@ VEHICLE_VESTRA = 1341619767
 VEHICLE_VIGERO = -825837129
 VEHICLE_VINDICATOR = -1353081087
 VEHICLE_VIRGO = -498054846
+VEHICLE_VIRGO2 = -899509638
+VEHICLE_VIRGO3 = 16646064
 VEHICLE_VOLTIC = -1622444098
 VEHICLE_VOODOO = 2006667053
 VEHICLE_VOODOO2 = 523724515
