@@ -10,6 +10,7 @@
 #include "UTIL/UTIL.h"
 #include "thirdparty/SimpleFileWatcher/include/FileWatcher.h"
 #include "GameEvents/GameEvents.h"
+#include "thirdparty/ScriptHookV/ScriptHookV.h"
 
 // =================================================================================
 // CTor/DTor 
@@ -23,6 +24,9 @@ GTALua::~GTALua()
 {
 	// Update-Thread
 	m_bActive = false;
+
+	// Unregister Threads
+	ScriptHook::ScriptUnregister(GetModuleHandle("GTALua.asi"));
 
 	// Lua
 	if (lua != NULL)

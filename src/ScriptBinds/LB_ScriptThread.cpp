@@ -35,6 +35,8 @@ LuaScriptThread::~LuaScriptThread()
 	m_bActive = false;
 	m_bResetting = false;
 	m_iWaitTime = 0;
+
+	// unregister thread here in future
 }
 
 // =================================================================================

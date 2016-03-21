@@ -58,10 +58,10 @@ void ScriptHook::ScriptRegister(HMODULE hModule, ScriptHook_Callback ptr)
 	scriptRegister(hModule, ptr);
 #endif
 }
-void ScriptHook::ScriptUnregister(ScriptHook_Callback ptr)
+void ScriptHook::ScriptUnregister(HMODULE hModule)
 {
 #ifndef GTA_LUA_TEST_EXE
-	scriptUnregister(ptr);
+	scriptUnregister(hModule);
 #endif
 }
 
