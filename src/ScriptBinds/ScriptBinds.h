@@ -110,7 +110,7 @@ namespace ScriptBinds
 					lua->PushString("CMemoryBlock::Read - Offset out of allocated memory");
 					throw luabind::error(lua->State());
 				}
-				return *(T*)(m_pMemory + iOffset);
+				return *(T*)(reinterpret_cast<unsigned char*>(m_pMemory) + iOffset);
 			}
 
 			// Write
@@ -127,7 +127,7 @@ namespace ScriptBinds
 					lua->PushString("CMemoryBlock::Write - Offset out of allocated memory");
 					throw luabind::error(lua->State());
 				}
-				*(T*)(m_pMemory + iOffset) = tValue;
+				*(T*)(reinterpret_cast<unsigned char*>(m_pMemory) + iOffset) = tValue;
 			}
 
 		private:
