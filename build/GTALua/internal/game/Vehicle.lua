@@ -221,3 +221,20 @@ function Vehicle:IsSub()
 	return natives.VEHICLE._IS_THIS_MODEL_A_SUBMERSIBLE(self:GetModel())
 end
 
+-- Set vehicle on ground properly
+function Vehicle:SetOnGround()
+	self:_CheckExists()
+	natives.VEHICLE.SET_VEHICLE_ON_GROUND_PROPERLY(self.ID)
+end
+
+-- Returns the ped which is on specific vehicle's seat
+function Vehicle:GetPedInSeat(seat)
+	self:_CheckExists()
+	return natives.VEHICLE.GET_PED_IN_VEHICLE_SEAT(self.ID, seat)
+end
+
+-- Sets current vehicle's radio station by name ("OFF" turns radio off)
+function Vehicle:SetRadioStationName(stationName)
+	self:_CheckExists()
+	natives.AUDIO.SET_VEH_RADIO_STATION(self.ID, stationName)
+end

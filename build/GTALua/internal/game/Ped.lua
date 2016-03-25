@@ -180,3 +180,16 @@ function Ped:GetNearbyVehicles(max_vehicles)
 	c_array_vehicles:Release()
 	return nearby_vehicles
 end
+
+-- Set Ped into specified vehicle's seat
+function Ped:SetIntoVehicle(vehicle, seat)
+	self:_CheckExists()
+	natives.PED.SET_PED_INTO_VEHICLE(self.ID, vehicle, seat);
+end
+
+-- Explode Ped's head
+function Ped:ExplodeHead(weapon)
+	self:_CheckExists()
+	natives.PED.EXPLODE_PED_HEAD(self.ID, weapon)
+end
+

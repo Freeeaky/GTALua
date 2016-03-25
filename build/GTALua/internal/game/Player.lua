@@ -102,3 +102,14 @@ function Player:GetAimedEntity()
 	end
 	return ent
 end
+
+-- Gets current Player's radio station ID
+function Player:GetRadioStation()
+	return natives.AUDIO.GET_PLAYER_RADIO_STATION_INDEX()
+end
+
+-- Gets current Player's radio station name
+function Player:GetRadioStationName()
+	return natives.AUDIO.GET_PLAYER_RADIO_STATION_NAME()
+end
+
