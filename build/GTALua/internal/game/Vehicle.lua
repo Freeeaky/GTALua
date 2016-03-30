@@ -53,13 +53,13 @@ end
 -- Set vehicle colours
 function Vehicle:SetColours(p, s)
 	self:_CheckExists()
-	natives.VEHICLE.SET_VEHICLE_COLOURS(self.ID, p, s);
+	natives.VEHICLE.SET_VEHICLE_COLOURS(self.ID, p, s)
 end
 
 -- Set vehicle extra colours
 function Vehicle:SetExtraColours(p, s)
 	self:_CheckExists()
-	natives.VEHICLE.SET_VEHICLE_EXTRA_COLOURS(self.ID, p, s);
+	natives.VEHICLE.SET_VEHICLE_EXTRA_COLOURS(self.ID, p, s)
 end
 
 -- Set primary colour.
@@ -230,7 +230,8 @@ end
 -- Returns the ped which is on specific vehicle's seat
 function Vehicle:GetPedInSeat(seat)
 	self:_CheckExists()
-	return natives.VEHICLE.GET_PED_IN_VEHICLE_SEAT(self.ID, seat)
+	local ped = natives.VEHICLE.GET_PED_IN_VEHICLE_SEAT(self.ID, seat)
+	return ped>0 and Ped(ped) or nil
 end
 
 -- Sets current vehicle's radio station by name ("OFF" turns radio off)

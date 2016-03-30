@@ -20,7 +20,7 @@ end
 
 -- Draws a text onscreen with the option to have it blink
 function ui.DrawTextUI(text, x, y, font, scale, color, blink)
-	font = font or 4
+	font = font or FontChaletComprimeCologne
 	scale = scale or .5
 	color = color or {r=255, g=255, b=255, a=255}
 	blink = blink or false
