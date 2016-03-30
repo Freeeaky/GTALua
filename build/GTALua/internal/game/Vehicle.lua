@@ -239,3 +239,41 @@ function Vehicle:SetRadioStationName(stationName)
 	self:_CheckExists()
 	natives.AUDIO.SET_VEH_RADIO_STATION(self.ID, stationName)
 end
+
+-- Get vehicle's colours
+function Vehicle:GetColours()
+	self:_CheckExists()
+	local m_p = CMemoryBlock(4)
+	local m_s = CMemoryBlock(4)
+	natives.VEHICLE.GET_VEHICLE_COLOURS(self.ID, m_p, m_s)
+	local p = m_p:ReadDWORD32(0)
+	local s = m_s:ReadDWORD32(0)
+	m_p:Release()
+	m_s:Release()
+	return p, s
+end
+
+-- Get vehicle's extra colours
+function Vehicle:GetExtraColours()
+	self:_CheckExists()
+	local m_p = CMemoryBlock(4)
+	local m_s = CMemoryBlock(4)
+	natives.VEHICLE.GET_VEHICLE_EXTRA_COLOURS(self.ID, m_p, m_s)
+	local p = m_p:ReadDWORD32(0)
+	local s = m_s:ReadDWORD32(0)
+	m_p:Release()
+	m_s:Release()
+	return p, s
+end
+
+-- Get vehicle's window tint
+function Vehicle:GetWindowTint()
+	self:_CheckExists()
+	return natives.VEHICLE.GET_VEHICLE_WINDOW_TINT(self.ID)
+end
+
+-- Get vehicle's window tint
+function Vehicle:SetWindowTint(t)
+	self:_CheckExists()
+	natives.VEHICLE.SET_VEHICLE_WINDOW_TINT(self.ID, t)
+end
