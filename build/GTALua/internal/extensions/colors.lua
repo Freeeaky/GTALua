@@ -1,3 +1,4 @@
+-- Colors in game ID format
 Blue = 140
 BrushedAluminium = 119
 BrushedBlackSteel = 118
@@ -156,3 +157,14 @@ WornSilverGray = 23
 WornStrawBeige = 116
 WornTaxiYellow = 126
 WornWhite = 132
+
+-- Colors in RGBA format
+COLOR_RED = 		{r=255,	g=0,	b=0,	a=255}
+COLOR_GREEN = 	{r=0,	g=255,	b=0,	a=255}
+COLOR_BLUE = 		{r=0,	g=0,	b=255,	a=255}
+COLOR_YELLOW = 	{r=255,	g=255,	b=0,	a=255}
+COLOR_YELLOW_50 =	{r=255,	g=255,	b=0,	a=128}
+COLOR_CYAN =		{r=0,	g=255,	b=255,	a=255}
+COLOR_PURPLE =	{r=255,	g=0,	b=255,	a=255}
+COLOR_WHITE =		{r=255,	g=255,	b=255,	a=255}
+COLOR_BLACK_50 = 	{r=0,	g=0,	b=0,	a=128}

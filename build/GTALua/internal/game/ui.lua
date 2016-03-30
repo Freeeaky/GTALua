@@ -1,6 +1,14 @@
 -- ui
 ui = {}
 
+-- Variables for traking text position of DrawTextBlock
+ui.TextX = 0				-- X coordinate for tracking DrawTextBlock
+ui.TextY = 0				-- Y coordinate for tracking DrawTextBlock
+ui.TextFont = 0
+ui.TextScale = .3
+ui.TextColor = COLOR_WHITE
+ui.TextBlink = false
+
 -- Create Blip
 function ui.CreateBlip(x,y,z)
 	if type(x) == "Vector" then
@@ -51,4 +59,79 @@ function ui.OnscreenKeyboard(title, size)
 		end
 	end
 	return natives.GAMEPLAY.GET_ONSCREEN_KEYBOARD_RESULT()
+end
+
+-- Draws a 3D point
+function ui.Draw3DPoint(p, size, color, blink)
+	size = size or 1
+	blink = blink or false
+	local cx = color or COLOR_RED
+	local cy = color or COLOR_GREEN
+	local cz = color or COLOR_BLUE
+	local offset = size/2
+	local px1 = p.x-offset
+	local px2 = p.x+offset
+	local py1 = p.y-offset
+	local py2 = p.y+offset
+	local pz1 = p.z-offset
+	local pz2 = p.z+offset
+	-- X line
+	ui.Draw3DLine({x=px1, y=p.y, z=p.z}, {x=px2, y=p.y, z=p.z}, cx, blink)
+	-- Y line
+	ui.Draw3DLine({x=p.x, y=py1, z=p.z}, {x=p.x, y=py2, z=p.z}, cy, blink)
+	-- Z line
+	ui.Draw3DLine({x=p.x, y=p.y, z=pz1}, {x=p.x, y=p.y, z=pz2}, cz, blink)
+end
+
+-- Draws a 3D line
+function ui.Draw3DLine(p1, p2, color, blink)
+	color = color or COLOR_WHITE
+	blink = blink or false
+	local draw = not blink
+	if math.floor(game.GetSeconds()/10)%2 == 0 or draw then
+		natives.GRAPHICS.DRAW_LINE(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z, color.r, color.g, color.b, color.a)
+	end
+end
+
+-- Draws a 3D polygon
+function ui.Draw3DPoly(p1, p2, p3, color, blink)
+	color = color or COLOR_WHITE
+	blink = blink or false
+	local draw = not blink
+	if math.floor(game.GetSeconds()/10)%2 == 0 or draw then
+		natives.GRAPHICS.DRAW_POLY(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z, p3.x, p3.y, p3.z, color.r, color.g, color.b, color.a)
+	end
+end
+
+-- Draws a 3D box (solid)
+function ui.Draw3DBox(p1, p2, color, blink)
+	color = color or COLOR_WHITE
+	blink = blink or false
+	local draw = not blink
+	if math.floor(game.GetSeconds()/10)%2 == 0 or draw then
+		natives.GRAPHICS.DRAW_BOX(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z, color.r, color.g, color.b, color.a)
+	end
+end
+
+-- Draws a text block
+function ui.DrawTextBlock(text, x, y, font, scale, color, blink, increment)
+	ui.TextX = x or ui.TextX
+	ui.TextY = y or ui.TextY
+	ui.TextFont = font or ui.TextFont
+	ui.TextScale = scale or ui.TextScale
+	ui.TextColor = color or ui.TextColor
+	if blink~=nil then
+		ui.TextBlink = blink
+	end
+	ui.DrawTextUI(text, ui.TextX, ui.TextY, ui.TextFont, ui.TextScale, ui.TextColor, ui.TextBlink)
+	if not increment then
+		ui.TextY = ui.TextY + (ui.TextScale/20)
+	else
+		ui.TextY = ui.TextY + increment
+	end
+end
+
+-- Shows a HUD component this frame
+function ui.ShowHudComponent(component)
+	natives.UI.SHOW_HUD_COMPONENT_THIS_FRAME(component)
 end

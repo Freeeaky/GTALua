@@ -9,3 +9,7 @@ function utils.IsInArray(table, search)
   end
   return false
 end
+
+function utils.ToHexString(hash)
+	return string.format("%04x", hash)
+end

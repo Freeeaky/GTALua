@@ -199,3 +199,16 @@ function Entity:GetBlip()
 		end
 	end
 end
+
+-- Get Entity's bone ID
+function Entity:GetBoneIndex(boneName)
+	self:_CheckExists()
+	return natives.ENTITY.GET_ENTITY_BONE_INDEX_BY_NAME(self.ID, boneName)
+end
+
+-- Get Entity's bone position
+function Entity:GetBonePosition(boneID)
+	self:_CheckExists()
+	return natives.ENTITY.GET_WORLD_POSITION_OF_ENTITY_BONE(self.ID, boneID)
+end
+

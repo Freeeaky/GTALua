@@ -92,3 +92,85 @@ function game.ShootBulletBetweenCoords(org, tgt, weapon, damage, speed)
 	game.RequestWeaponAsset(weapon)
 	natives.GAMEPLAY.SHOOT_SINGLE_BULLET_BETWEEN_COORDS(org.x, org.y, org.z, tgt.x, tgt.y, tgt.z, damage, true, weapon, 0, true, false, speed)
 end
+
+-- Convert World to Screen coordinates
+function game.WorldToScreen(p)
+	local m_screenX = CMemoryBlock(4)
+	local m_screenY = CMemoryBlock(4)
+	local screenX = nil
+	local screenY = nil
+	local result = nil
+	if natives.GRAPHICS._WORLD3D_TO_SCREEN2D(p.x, p.y, p.z, m_screenX, m_screenY) then
+		screenX = m_screenX:ReadFloat(0)
+		screenY = m_screenY:ReadFloat(0)
+		result = {x=screenX, y=screenY}
+	else
+		result = nil
+	end
+	return result
+end
+
+-- Get coordinate in front of cam
+function game.GetCoordsInFrontOfCam(distance)
+	distance = distance or 5000
+	local GameplayCamCoord = natives.CAM.GET_GAMEPLAY_CAM_COORD()
+	local GameplayCamRot = natives.CAM.GET_GAMEPLAY_CAM_ROT(2)
+
+	local tanX = natives.SYSTEM.COS(GameplayCamRot.x) * distance
+	local xPlane = natives.SYSTEM.SIN(GameplayCamRot.z * -1.0) * tanX + GameplayCamCoord.x
+	local yPlane = natives.SYSTEM.COS(GameplayCamRot.z * -1.0) * tanX + GameplayCamCoord.y
+	local zPlane = natives.SYSTEM.SIN(GameplayCamRot.x) * distance + GameplayCamCoord.z
+
+	return {x=xPlane, y=yPlane, z=zPlane}
+end
+
+-- Get the aimed entity and aimed point via RayCast
+function game.GetRaycastTarget(distance, flags, entity)
+	local p1 = natives.CAM.GET_GAMEPLAY_CAM_COORD()
+	local p2 = game.GetCoordsInFrontOfCam(distance)
+	local ray = natives.WORLDPROBE._CAST_RAY_POINT_TO_POINT(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z, flags, entity, 7)
+	local m_hit = CMemoryBlock(4)
+	local m_endCoords = CMemoryBlock(24)
+	local m_surfaceNormal = CMemoryBlock(24)
+	local m_entityHit = CMemoryBlock(4)
+	local enum = natives.WORLDPROBE._GET_RAYCAST_RESULT(ray, m_hit, m_endCoords, m_surfaceNormal, m_entityHit)
+	local hit = m_hit:ReadDWORD32(0) == 1
+	local endCoords = nil
+	local surfaceNormal = nil
+	local entityHit = nil
+	local ent = nil
+	if hit then
+		endCoords = {x=m_endCoords:ReadFloat(0), y=m_endCoords:ReadFloat(2), z=m_endCoords:ReadFloat(4)}
+		entityHit = m_entityHit:ReadDWORD32(0)
+		ent = Entity(entityHit)
+		if ent:IsPed() then
+			ent = Ped(entityHit)
+		end
+		if ent:IsVehicle() then
+			ent = Vehicle(entityHit)
+		end
+		if ent:IsObject() then
+			ent = Object(entityHit)
+		end
+	end
+	m_hit:Release()
+	m_endCoords:Release()
+	m_surfaceNormal:Release()
+	m_entityHit:Release()
+	return ent, endCoords
+end
+
+-- Get the Ped or Vehicle driver as target (Uses Raycast)
+function game.GetTargetPed(distance, flags, entity)
+	local ent = select(1, game.GetRaycastTarget(distance, flags, entity))
+	if ent then
+		if ent:IsVehicle() then
+			ent = ent:GetPedInSeat(VehicleSeatDriver)
+		else
+			if not ent:IsPed() then
+				ent = nil
+			end
+		end
+	end
+	return ent
+end
