@@ -1,13 +1,15 @@
 -- ui
 ui = {}
 
--- Variables for traking text position of DrawTextBlock
-ui.TextX = 0				-- X coordinate for tracking DrawTextBlock
-ui.TextY = 0				-- Y coordinate for tracking DrawTextBlock
-ui.TextFont = 0
-ui.TextScale = .3
-ui.TextColor = COLOR_WHITE
-ui.TextBlink = false
+-- Variables for tracking text position of DrawTextBlock
+ui.TextBlockInfo = {
+	TextX = 0,				-- X coordinate for tracking DrawTextBlock
+	TextY = 0,				-- Y coordinate for tracking DrawTextBlock
+	TextFont = 0,
+	TextScale = .3,
+	TextColor = COLOR_WHITE,
+	TextBlink = false
+}
 
 -- Create Blip
 function ui.CreateBlip(x,y,z)
@@ -115,19 +117,19 @@ end
 
 -- Draws a text block
 function ui.DrawTextBlock(text, x, y, font, scale, color, blink, increment)
-	ui.TextX = x or ui.TextX
-	ui.TextY = y or ui.TextY
-	ui.TextFont = font or ui.TextFont
-	ui.TextScale = scale or ui.TextScale
-	ui.TextColor = color or ui.TextColor
+	ui.TextBlockInfo.TextX = x or ui.TextBlockInfo.TextX
+	ui.TextBlockInfo.TextY = y or ui.TextBlockInfo.TextY
+	ui.TextBlockInfo.TextFont = font or ui.TextBlockInfo.TextFont
+	ui.TextBlockInfo.TextScale = scale or ui.TextBlockInfo.TextScale
+	ui.TextBlockInfo.TextColor = color or ui.TextBlockInfo.TextColor
 	if blink~=nil then
-		ui.TextBlink = blink
+		ui.TextBlockInfo.TextBlink = blink
 	end
-	ui.DrawTextUI(text, ui.TextX, ui.TextY, ui.TextFont, ui.TextScale, ui.TextColor, ui.TextBlink)
+	ui.DrawTextUI(text, ui.TextBlockInfo.TextX, ui.TextBlockInfo.TextY, ui.TextBlockInfo.TextFont, ui.TextBlockInfo.TextScale, ui.TextBlockInfo.TextColor, ui.TextBlockInfo.TextBlink)
 	if not increment then
-		ui.TextY = ui.TextY + (ui.TextScale/20)
+		ui.TextBlockInfo.TextY = ui.TextBlockInfo.TextY + (ui.TextBlockInfo.TextScale/20)
 	else
-		ui.TextY = ui.TextY + increment
+		ui.TextBlockInfo.TextY = ui.TextBlockInfo.TextY + increment
 	end
 end
 
