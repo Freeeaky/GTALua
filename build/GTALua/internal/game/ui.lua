@@ -44,7 +44,7 @@ function ui.DrawTextUI(text, x, y, font, scale, color, blink)
 		natives.UI.SET_TEXT_CENTRE(false);
 		natives.UI.SET_TEXT_OUTLINE();
 		natives.UI._SET_TEXT_ENTRY("STRING");
-		natives.UI._ADD_TEXT_COMPONENT_STRING(string.format("%s",text));
+		natives.UI.ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(string.format("%s",text));
 		natives.UI._DRAW_TEXT(x, y);
 	end
 end

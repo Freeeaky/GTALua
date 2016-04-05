@@ -48,7 +48,7 @@ function gui.DrawText(x, y, text, tbl)
 		natives.UI.SET_TEXT_EDGE(0, 0, 0, 0, 0)
 	end
 	natives.UI._SET_TEXT_ENTRY("STRING")
-	natives.UI._ADD_TEXT_COMPONENT_STRING(text)
+	natives.UI.ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text)
 	natives.UI._DRAW_TEXT(x, y)
 end
 
@@ -70,14 +70,14 @@ function gui.NotifyAboveMap(text, blink)
 	end
 
 	natives.UI._SET_NOTIFICATION_TEXT_ENTRY("STRING")
-	natives.UI._ADD_TEXT_COMPONENT_STRING(text)
+	natives.UI.ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text)
 	natives.UI._DRAW_NOTIFICATION(blink, true)
 end
 
 -- Subtitle
 function gui.Subtitle(text, duration)
 	natives.UI._SET_TEXT_ENTRY_2("STRING")
-	natives.UI._ADD_TEXT_COMPONENT_STRING(text)
+	natives.UI.ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text)
 	natives.UI._DRAW_SUBTITLE_TIMED(duration or 2000, true)
 end
 
