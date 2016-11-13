@@ -22,5 +22,5 @@ end
 -- Distance
 function Vector:Distance(other_vec)
 	local subvec = (self - other_vec)
-	return math.sqrt(subvec.x * subvec.x + subvec.y * subvec.z + subvec.z * subvec.z)
+	return math.sqrt(subvec.x * subvec.x + subvec.y * subvec.y + subvec.z * subvec.z)
 end
